@@ -34,17 +34,17 @@
 /* --- PLACEMENT UTILITIES --- */
 
 /* Standard Text: Sits in the center */
-.col-content { grid-column: content; }
+.col-content { grid-column: content; display: block; }
 
 /* Wide Content: Breaks out slightly */
-.col-wide { grid-column: wide; }
+.col-wide { grid-column: wide; display: block; }
 
 /* Full Width: Touches browser edges */
 .col-full { grid-column: full; }
 
 /* Feature Left: Text center, extends to left edge */
-.col-feature-left { grid-column: full-start / content-end; }
+.col-feature-left { grid-column: full-start / content-end; display: block; }
 
 /* Feature Right: Text center, extends to right edge */
-.col-feature-right { grid-column: content-start / full-end; }
+.col-feature-right { grid-column: content-start / full-end; display: block; }
 
