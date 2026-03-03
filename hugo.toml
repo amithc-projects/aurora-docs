@@ -1,4 +1,5 @@
-baseURL = 'http://example.org/'
+baseURL = "https://amithc-projects.github.io/aurora-docs/"
+relativeURLs = true
 languageCode = 'en-us'
 title = 'Aurora Design System Documentation'
 
