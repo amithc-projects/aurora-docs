@@ -8,7 +8,8 @@ menu:
 ---
 
 
-<div class="l-page-grid">
+{{< demo >}}
+<div class="l-page-grid" style="width: 100%;">
 
   <div class="col-content">
     <h1>The Subgrid Revolution</h1>
@@ -52,3 +53,4 @@ menu:
   </div>
 
 </div>
+{{< /demo >}}

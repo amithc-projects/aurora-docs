@@ -11,7 +11,7 @@ menu:
 Structure for SaaS applications.
 
 {{< demo >}}
-<div style="display: grid; grid-template-columns: 60px 1fr; height: 400px; border: 1px solid #ccc; overflow: hidden; border-radius: 4px;">
+<div style="display: grid; grid-template-columns: 60px 1fr; width: 100%; height: 400px; border: 1px solid #ccc; overflow: hidden; border-radius: 4px;">
   
   <aside style="background: #1e1e1e; color: white; display: flex; flex-direction: column; align-items: center; padding: 1rem 0;">
     <div style="width: 32px; height: 32px; background: var(--ds-sys-color-primary); border-radius: 4px; margin-bottom: 2rem;"></div>
