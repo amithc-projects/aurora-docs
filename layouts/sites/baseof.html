@@ -1,32 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>{{ .Title }} | Aurora Demos 3</title>
-  
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wdth,wght@75..125,300..700&family=Inter:wght@100..900&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fredoka:wdth,wght@75..125,300..700&family=Inter:wght@100..900&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
-  
-  <link rel="stylesheet" href="/css/aurora.css">
-  
+
+  <link rel="stylesheet" href="{{ " css/aurora.css" | relURL }}">
+
   <style>
     /* Minimal absolute positioning for the demo switchers */
-    .site-controls { position: fixed; bottom: 1rem; left: 1rem; z-index: 1000; background: white; padding: 0.5rem; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); display: flex; gap: 0.5rem; }
+    .site-controls {
+      position: fixed;
+      bottom: 1rem;
+      left: 1rem;
+      z-index: 1000;
+      background: white;
+      padding: 0.5rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      display: flex;
+      gap: 0.5rem;
+    }
   </style>
   <script>
-  const html = document.documentElement;
+    const html = document.documentElement;
 
-  const savedTheme = localStorage.getItem('aurora-theme') || 'corporate';
-  const savedMode = localStorage.getItem('aurora-mode') || 'light';
+    const savedTheme = localStorage.getItem('aurora-theme') || 'corporate';
+    const savedMode = localStorage.getItem('aurora-mode') || 'light';
 
-  html.setAttribute('data-theme', savedTheme);
-  html.setAttribute('data-mode', savedMode);
-</script>
+    html.setAttribute('data-theme', savedTheme);
+    html.setAttribute('data-mode', savedMode);
+  </script>
 </head>
-<body >
-  
+
+<body>
+
   {{ block "main" . }}{{ end }}
 
   <div class="site-controls">
@@ -41,4 +56,5 @@
   </div>
 
 </body>
+
 </html>
