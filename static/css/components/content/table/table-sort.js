@@ -1,31 +1,36 @@
 /* aurora/js/table-sort.js */
 
-document.addEventListener('DOMContentLoaded', () => {
+export function initTableSort() {
   const tables = document.querySelectorAll('.table-sortable');
 
   tables.forEach(table => {
     const headers = table.querySelectorAll('th[data-sort]');
-    
+
     headers.forEach(header => {
-      header.addEventListener('click', () => {
-        const type = header.getAttribute('data-sort'); // string, number, date
-        const colIndex = Array.from(header.parentNode.children).indexOf(header);
-        const currentSort = header.getAttribute('aria-sort');
-        
+      // Remove old listeners to prevent duplicates if called multiple times
+      const newHeader = header.cloneNode(true);
+      header.parentNode.replaceChild(newHeader, header);
+
+      newHeader.addEventListener('click', () => {
+        const type = newHeader.getAttribute('data-sort'); // string, number, date
+        const colIndex = Array.from(newHeader.parentNode.children).indexOf(newHeader);
+        const currentSort = newHeader.getAttribute('aria-sort');
+
         // 1. Determine new sort direction
         let newSort = 'ascending';
         if (currentSort === 'ascending') newSort = 'descending';
-        
+
         // 2. Reset other headers
-        headers.forEach(h => h.setAttribute('aria-sort', 'none'));
-        header.setAttribute('aria-sort', newSort);
+        const allHeaders = table.querySelectorAll('th[data-sort]');
+        allHeaders.forEach(h => h.setAttribute('aria-sort', 'none'));
+        newHeader.setAttribute('aria-sort', newSort);
 
         // 3. Sort the rows
         sortTableByColumn(table, colIndex, type, newSort);
       });
     });
   });
-});
+}
 
 function sortTableByColumn(table, colIndex, type, direction) {
   const tbody = table.querySelector('tbody');
