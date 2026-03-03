@@ -1,0 +1,93 @@
+.nav-global {
+  background-color: var(--ds-sys-color-surface-inverse, #111);
+  color: var(--ds-sys-color-on-surface-inverse, #fff);
+  font-family: system-ui, sans-serif;
+  font-size: 0.9rem;
+  position: relative;
+  z-index: 100;
+}
+
+.nav-global__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  min-height: 60px;
+}
+
+/* Left Cluster: Burger + Brand/Links */
+.nav-global__left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Right Cluster: Search + Profile */
+.nav-global__right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Links */
+.nav-global__menu {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-global a.nav-link {
+  color: inherit;
+  text-decoration: none;
+  font-weight: 600;
+  opacity: 0.9;
+  transition: opacity 0.2s;
+  white-space: nowrap;
+}
+.nav-global a.nav-link:hover { opacity: 1; }
+
+/* Hamburger (Hidden by default, shown in narrow mode) */
+.nav-toggle {
+  display: none; /* Hidden on Desktop */
+  background: transparent;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  padding: 4px;
+}
+
+/* Search Bar Styling */
+.nav-global .search-group {
+  position: relative;
+}
+.nav-global .search-input {
+  background: rgba(255,255,255,0.15);
+  border: 1px solid transparent;
+  border-radius: 99px;
+  padding: 0.5rem 1rem 0.5rem 2.5rem;
+  color: white;
+  width: 200px;
+  font-size: 0.9rem;
+  transition: width 0.3s;
+}
+.nav-global .search-input::placeholder { color: rgba(255,255,255,0.6); }
+.nav-global .search-input:focus {
+  background: black;
+  border-color: var(--ds-sys-color-primary);
+  outline: none;
+  width: 280px;
+}
+.nav-global .search-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+/* --- RESPONSIVE MODIFIERS (For Demo Purposes) --- */
+/* Simulate Mobile View */
+.nav-global--narrow .nav-global__menu { display: none; } /* Hide links */
+.nav-global--narrow .nav-toggle { display: block; } /* Show Burger */
+.nav-global--narrow .search-input { width: 36px; padding: 0.5rem; cursor: pointer; } /* Collapse search to icon */
+.nav-global--narrow .search-input:focus { width: 100%; padding-left: 2.5rem; cursor: text; }

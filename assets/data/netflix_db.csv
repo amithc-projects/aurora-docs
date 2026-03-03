@@ -1,0 +1,12 @@
+slug,title,genre,sub_genre,image
+dark-knight,The Dark Knight,Action,Superhero,https://picsum.photos/seed/bat/300/450
+avengers,Avengers: Endgame,Action,Superhero,https://picsum.photos/seed/avg/300/450
+die-hard,Die Hard,Action,Classics,https://picsum.photos/seed/die/300/450
+mad-max,Mad Max: Fury Road,Action,Sci-Fi,https://picsum.photos/seed/mad/300/450
+godfather,The Godfather,Drama,Crime,https://picsum.photos/seed/god/300/450
+pulp-fiction,Pulp Fiction,Drama,Crime,https://picsum.photos/seed/pulp/300/450
+shawshank,The Shawshank Redemption,Drama,Classics,https://picsum.photos/seed/shaw/300/450
+forrest-gump,Forrest Gump,Drama,Heartfelt,https://picsum.photos/seed/gump/300/450
+inception,Inception,Sci-Fi,Mind-Bending,https://picsum.photos/seed/inc/300/450
+matrix,The Matrix,Sci-Fi,Cyberpunk,https://picsum.photos/seed/mat/300/450
+interstellar,Interstellar,Sci-Fi,Space,https://picsum.photos/seed/int/300/450

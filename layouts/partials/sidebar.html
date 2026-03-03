@@ -1,0 +1,63 @@
+<nav class="nav-vertical" style="font-family: sans-serif; font-size: 0.9rem;">
+  
+  <div style="margin-bottom: 2rem;">
+    <a href="/" style="font-weight: 900; font-size: 1.2rem; text-decoration: none; color: var(--ds-sys-color-on-surface); letter-spacing: -0.5px;">AURORA DOCS</a>
+    <div style="font-size: 0.75rem; opacity: 0.6; margin-top: 0.2rem;">v1.0.0 &bull; Living Guide</div>
+  </div>
+
+  {{/* --- MENU SYSTEM (Supports Nesting) --- */}}
+  {{ range .Site.Menus.main }}
+    <div class="nav-group" style="margin-bottom: 1.5rem;">
+      
+      {{/* Level 1: Headers (e.g., "Atoms") */}}
+      <h3 style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #999; margin-bottom: 0.75rem; font-weight: 700;">
+        {{ .Name }}
+      </h3>
+      
+      <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.25rem;">
+        {{ range .Children }}
+          {{/* Level 2: Items (e.g., "Icons", "Buttons") */}}
+          <li>
+            {{/* FIXED: Changed "ifOr" to "if or" */}}
+            <a href="{{ .URL }}" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); {{ if or ($.IsMenuCurrent "main" .) ($.HasMenuCurrent "main" .) }}background: var(--ds-sys-color-surface-container-highest); font-weight: 600;{{ end }}">
+              {{ .Name }}
+            </a>
+
+            {{/* Level 3: Children (e.g., "IconSet1", "IconSet2") */}}
+            {{ if .HasChildren }}
+              <ul style="list-style: none; padding-left: 1rem; margin-top: 0.25rem; display: flex; flex-direction: column; gap: 0.25rem;">
+                {{ range .Children }}
+                  <li>
+                     {{/* FIXED: Changed "ifOr" to "if or" */}}
+                    <a href="{{ .URL }}" style="text-decoration: none; display: block; padding: 4px 10px; font-size: 0.85rem; color: var(--ds-sys-color-on-surface-variant); {{ if or ($.IsMenuCurrent "main" .) ($.HasMenuCurrent "main" .) }}color: var(--ds-sys-color-primary);{{ end }}">
+                      {{ .Name }}
+                    </a>
+                  </li>
+                {{ end }}
+              </ul>
+            {{ end }}
+
+          </li>
+        {{ end }}
+      </ul>
+    </div>
+  {{ end }}
+
+  {{/* --- PAGE TEMPLATES (Hardcoded) --- */}}
+  <div class="nav-group" style="margin-top: 2rem;">
+    <h3 style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #999; margin-bottom: 0.75rem; font-weight: 700;">
+      Page Templates
+    </h3>
+    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.25rem;">
+      {{ range (where .Site.RegularPages "Section" "page-templates").ByTitle }}
+        <li>
+          <a href="{{ .RelPermalink }}" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface);">
+            {{ .Title }}
+          </a>
+        </li>
+      {{ end }}
+    </ul>
+  </div>
+
+</nav>
+

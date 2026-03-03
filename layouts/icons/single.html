@@ -1,0 +1,46 @@
+{{ define "main" }}
+<div class="aurora-doc-page">
+  
+  <h1>{{ .Title }}</h1>
+  <p>Icon Set: <code>{{ .Params.iconset }}</code></p>
+
+  <link rel="stylesheet" href="{{ .Params.generated_css }}">
+
+  <div class="docs-icon-grid">
+    {{ range .Params.icons }}
+      <div class="">
+        <div class="preview">
+          <span class="icon-{{ . }}"></span>
+        </div>
+        
+        <div class="meta">
+          <code>.icon-{{ . }}</code>
+        </div>
+      </div>
+    {{ end }}
+  </div>
+
+</div>
+
+<style>
+  /* Basic grid styling for the documentation page */
+  .docs-icon-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+   .docs-icon-grid > div {
+    border: 1px solid #ccc;
+    padding: 1rem;
+    text-align: center;
+    border-radius: 8px;
+  }
+  .docs-icon-grid > div > div.preview {
+    font-size: 2rem; /* Controls the size of the icon in the grid */
+    margin-bottom: 0.5rem;
+    color: #333; /* Default preview color */
+  }
+</style>
+{{ end }}
+

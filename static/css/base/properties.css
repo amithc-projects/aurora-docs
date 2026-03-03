@@ -1,0 +1,31 @@
+/* css/base/properties.css */
+@layer base {
+  
+  /* 1. Dimensions: Allows columns to slide when width changes */
+  @property --table-fixed-col-width {
+    syntax: "<length>";
+    inherits: true;
+    initial-value: 150px;
+  }
+
+  /* 2. Colors: Allows smooth theme interpolation (e.g., Kids -> Corporate) */
+  @property --ds-sys-color-primary {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: black; /* Fallback */
+  }
+
+  @property --ds-sys-color-surface {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: white;
+  }
+  
+  /* 3. Table Header Background (For smooth sticky state changes) */
+  @property --table-header-bg {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: white;
+  }
+
+}

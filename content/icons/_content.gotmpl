@@ -1,0 +1,44 @@
+{{/* 1. Define the source directory */}}
+{{ $iconRoot := "static/icons" }}
+
+{{/* 2. Loop through each subfolder (Icon Set) */}}
+{{ range (readDir $iconRoot) }}
+  {{ if .IsDir }}
+    {{ $setName := .Name }}
+    {{ $setPath := printf "%s/%s" $iconRoot $setName }}
+    
+    {{/* 3. Build a list of icon names found in this folder */}}
+    {{ $iconList := slice }}
+    {{ range (readDir $setPath) }}
+      {{ if strings.HasSuffix .Name ".svg" }}
+        {{ $iconName := strings.TrimSuffix ".svg" .Name }}
+        {{ $iconList = $iconList | append $iconName }}
+      {{ end }}
+    {{ end }}
+
+    {{/* 4. Create the Page Object */}}
+    {{ $pageConfig := dict
+      "mediaType" "text/markdown"
+      "kind" "page"
+      "type" "icons"
+      "path" $setName
+      "title" (humanize $setName)
+      "params" (dict 
+          "iconset" $setName
+          "icons" $iconList
+          "generated_css" (printf "/icons/%s/icons.css" $setName)
+      )
+      "menu" (dict 
+        "main" (dict 
+          "parent" "icons"
+          "weight" 10
+        )
+      )
+    }}
+
+    {{/* 5. Add the page to Hugo */}}
+    {{ $.AddPage $pageConfig }}
+    
+  {{ end }}
+{{ end }}
+

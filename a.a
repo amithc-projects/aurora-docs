@@ -1,0 +1,216 @@
+#!/bin/bash
+
+echo "🛠️ Fixing CSV Adapters (Mapping Headers to Values)..."
+
+# --- 1. FIX SHOP ADAPTER (The one causing your error) ---
+cat <<'EOF' > content/shop/_content.gotmpl
+{{ $csv := resources.Get "data/products.csv" }}
+{{ $csvData := $csv | transform.Unmarshal }}
+{{ $headers := index $csvData 0 }}
+{{ $rows := after 1 $csvData }}
+
+{{ range $rows }}
+  {{/* Convert Array to Map using Headers */}}
+  {{ $row := dict }}
+  {{ range $idx, $val := . }}
+    {{ $header := index $headers $idx }}
+    {{ $row = merge $row (dict $header $val) }}
+  {{ end }}
+
+  {{/* Now use $row instead of . */}}
+  {{ $steps := int $row.steps }}
+  
+  {{ $wizardHTML := `
+{{< demo >}}
+<div class="wizard">
+  <div class="wizard__header">
+    <ul class="wizard__steps wizard__steps--circles">
+` }}
+  
+  {{ range seq $steps }}
+    {{ $active := cond (eq . 1) "is-active" "" }}
+    {{ $wizardHTML = printf "%s<li class='%s'><div class='wizard__marker'>%d</div></li>" $wizardHTML $active . }}
+  {{ end }}
+
+  {{ $wizardHTML = printf "%s</ul></div><div class='wizard__content'>" $wizardHTML }}
+
+  {{ range seq $steps }}
+    {{ $active := cond (eq . 1) "is-active" "" }}
+    {{ $wizardHTML = printf "%s<div class='%s'><h2>Step %d</h2><p>Configure your %s.</p></div>" $wizardHTML $active . $row.title }}
+  {{ end }}
+
+  {{ $wizardHTML = printf "%s</div></div>{{< /demo >}}" $wizardHTML }}
+
+  {{ $.AddPage (dict 
+      "kind" "page"
+      "path" $row.slug 
+      "title" $row.title
+      "params" (dict "price" $row.price "layout" "product")
+      "content" (dict "mediaType" "text/markdown" "value" $wizardHTML)
+  ) }}
+{{ end }}
+EOF
+
+# --- 2. FIX NEWS ADAPTER ---
+cat <<'EOF' > content/news/_content.gotmpl
+{{ $csv := resources.Get "data/news.csv" }}
+{{ $csvData := $csv | transform.Unmarshal }}
+{{ $headers := index $csvData 0 }}
+{{ $rows := after 1 $csvData }}
+
+{{ range $rows }}
+  {{ $row := dict }}
+  {{ range $idx, $val := . }}
+    {{ $header := index $headers $idx }}
+    {{ $row = merge $row (dict $header $val) }}
+  {{ end }}
+
+  {{ $body := printf "## %s\n\nPublished on %s.\n\n![Image](%s)" $row.title $row.date $row.image }}
+  
+  {{ $.AddPage (dict 
+      "kind" "page"
+      "path" $row.slug 
+      "title" $row.title
+      "params" (dict "layout" "article" "thumbnail" $row.image)
+      "content" (dict "mediaType" "text/markdown" "value" $body)
+  ) }}
+{{ end }}
+EOF
+
+# --- 3. FIX WATCH ADAPTER ---
+cat <<'EOF' > content/watch/_content.gotmpl
+{{ $csv := resources.Get "data/movies.csv" }}
+{{ $csvData := $csv | transform.Unmarshal }}
+{{ $headers := index $csvData 0 }}
+{{ $rows := after 1 $csvData }}
+
+{{ range $rows }}
+  {{ $row := dict }}
+  {{ range $idx, $val := . }}
+    {{ $header := index $headers $idx }}
+    {{ $row = merge $row (dict $header $val) }}
+  {{ end }}
+
+  {{ $body := printf `
+## Watch Now
+Click below to play **%s**.
+
+{{< demo >}}
+<div class="gallery" data-mode="grid" style="--gallery-item-min: 300px;">
+  <ul>
+    <li>
+      <a href="%s" data-caption="%s (%s)">
+         <div class="gallery__play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+         <img src="%s" loading="lazy">
+      </a>
+    </li>
+  </ul>
+</div>
+{{< /demo >}}
+
+## More Like This
+{{< demo >}}
+<ul class="carousel carousel--multi">
+  <li><div class="card"><h3>Action</h3></div></li>
+  <li><div class="card"><h3>Drama</h3></div></li>
+  <li><div class="card"><h3>Sci-Fi</h3></div></li>
+</ul>
+{{< /demo >}}
+` $row.title $row.video_url $row.title $row.genre $row.poster }}
+
+  {{ $.AddPage (dict 
+      "kind" "page"
+      "path" $row.slug 
+      "title" (printf "Watch: %s" $row.title)
+      "params" (dict "layout" "wide" "category" "Movies")
+      "content" (dict "mediaType" "text/markdown" "value" $body)
+  ) }}
+{{ end }}
+EOF
+
+# --- 4. FIX MOVIES ADAPTER (The Netflix one) ---
+# Only creating this if the directory exists to avoid errors
+if [ -d "content/movies" ]; then
+cat <<'EOF' > content/movies/_content.gotmpl
+{{ $csv := resources.Get "data/netflix_db.csv" }}
+{{ $csvData := $csv | transform.Unmarshal }}
+{{ $headers := index $csvData 0 }}
+{{ $rowsRaw := after 1 $csvData }}
+
+{{/* Convert ALL rows to maps first */}}
+{{ $rows := slice }}
+{{ range $rowsRaw }}
+  {{ $row := dict }}
+  {{ range $idx, $val := . }}
+    {{ $header := index $headers $idx }}
+    {{ $row = merge $row (dict $header $val) }}
+  {{ end }}
+  {{ $rows = $rows | append $row }}
+{{ end }}
+
+{{/* PART 1: LEAF PAGES */}}
+{{ range $rows }}
+  {{ $body := printf `
+{{< demo >}}
+<div class="gallery" data-mode="grid" style="--gallery-item-min: 300px;">
+  <ul>
+    <li>
+      <a href="#" data-caption="Watch Trailer">
+         <div class="gallery__play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+         <img src="%s" loading="lazy">
+      </a>
+    </li>
+  </ul>
+</div>
+{{< /demo >}}
+
+## Synopsis
+**%s** is a leading title in the **%s** genre (%s).
+` .image .title .genre .sub_genre }}
+
+  {{ $.AddPage (dict 
+      "kind" "page"
+      "path" .slug 
+      "title" .title
+      "params" (dict "layout" "movie" "thumbnail" .image "genre" .genre "sub_genre" .sub_genre)
+      "content" (dict "mediaType" "text/markdown" "value" $body)
+  ) }}
+{{ end }}
+
+{{/* PART 2: GENRE PAGES */}}
+{{ $genres := $rows | group.By "genre" }}
+
+{{ range $genres }}
+  {{ $genreName := .Key }}
+  {{ $moviesInGenre := .Pages }} 
+  
+  {{ $pageContent := printf "## %s Movies\nBrowse our collection of %s titles.\n\n" $genreName $genreName }}
+
+  {{ $subGenres := $moviesInGenre | group.By "sub_genre" }}
+  
+  {{ range $subGenres }}
+     {{ $subName := .Key }}
+     {{ $movies := .Pages }}
+
+     {{ $pageContent = printf "%s\n### %s\n{{< demo >}}\n<div class='carousel carousel--multi' role='region' aria-label='%s'>\n" $pageContent $subName $subName }}
+     
+     {{ range $movies }}
+        {{/* Use .Params.thumbnail because these are now Page objects */}}
+        {{ $pageContent = printf "%s  <div><a href='../%s'><div class='card' style='background-image:url(%s); background-size:cover; height:100%%;'><h3 style='background:rgba(0,0,0,0.7); color:white; padding:0.5rem;'>%s</h3></div></a></div>\n" $pageContent .File.ContentBaseName .Params.thumbnail .Title }}
+     {{ end }}
+     
+     {{ $pageContent = printf "%s</div>\n{{< /demo >}}\n<br>\n" $pageContent }}
+  {{ end }}
+
+  {{ $.AddPage (dict 
+      "kind" "page"
+      "path" (printf "%s/_index" ($genreName | urlize)) 
+      "title" (printf "%s" $genreName)
+      "params" (dict "layout" "genre_landing")
+      "content" (dict "mediaType" "text/markdown" "value" $pageContent)
+  ) }}
+{{ end }}
+EOF
+fi
+
+echo "✅ All Adapters Fixed. Reload your browser."

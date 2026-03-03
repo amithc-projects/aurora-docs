@@ -1,0 +1,27 @@
+<div class="demo-wrapper">
+  <div class="demo-preview l-grid l-grid--auto" style="--col-min: 200px; align-items: center; justify-items: center;">
+    {{ .Inner | safeHTML }}
+  </div>
+
+  <div class="demo-source">
+    <div class="demo-header">
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <span class="lang-tag">HTML <small style="opacity:0.5; font-weight:normal;">(Editable)</small></span>
+        
+        <button class="btn-toggle-code" aria-expanded="false">
+          <span class="material-symbols-outlined icon-code" style="font-size: 18px;">code</span>
+          <span class="btn-text">View Code</span>
+        </button>
+      </div>
+
+      <button class="btn-copy" aria-label="Copy code to clipboard">
+        <span class="material-symbols-outlined icon-copy" style="font-size: 16px;">content_copy</span>
+        <span class="btn-text">Copy</span>
+      </button>
+    </div>
+    
+    <div class="code-content" hidden>
+      <pre><code class="language-html live-code" contenteditable="true" spellcheck="false">{{ .Inner | htmlEscape | safeHTML }}</code></pre>
+    </div>
+  </div>
+</div>

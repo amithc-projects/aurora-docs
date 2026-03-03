@@ -1,0 +1,31 @@
+/* AURORA DESIGN SYSTEM MANIFEST */
+
+/* 1. Core Styles (Variables, Reset, Typography) */
+@import "core.css";
+
+/* 2. Layouts */
+@import "layouts/bento.css";
+
+/* 3. Components */
+@import "components/card-overlay.css";
+
+/* (Add other existing component imports here if you have them separated) */
+
+@import "components/nav-global.css";
+@import "components/nav-local.css";
+@import "layouts/subgrid.css";
+@import "layouts/page-grid.css";
+@import "layouts/templates.css";
+@import "components/charts.css";
+@import "patterns/filter.css";
+@import "components/accordion.css";
+@import "patterns/wizard.css";
+@import "layouts/masonry.css";
+@import "layouts/pinterest.css";
+@import "components/gallery.css";
+@import "components/cookie-consent.css";
+@import "components/carousel.css";
+@import "components/profile-status.css";
+
+/* 4. Choose the icon set */
+@import "icons/sets/material.css";

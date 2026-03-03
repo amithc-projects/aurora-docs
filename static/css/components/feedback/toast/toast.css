@@ -1,0 +1,177 @@
+/* css/components/feedback/toast.css */
+@layer components {
+
+  :root {
+    /* Default Duration: 5 seconds */
+    --ds-cmp-toast-duration: 5000ms;
+  }
+
+  /* --- 1. TOAST CONTAINER (The Dock) --- */
+  .toast-container {
+    position: fixed;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    padding: var(--space-md);
+    pointer-events: none; /* Let clicks pass through empty space */
+    
+    /* Default: Bottom Right */
+    inset: auto 0 0 auto; 
+    align-items: flex-end; /* Align toasts to right */
+  }
+
+  /* --- POSITIONING MODIFIERS (9 Points) --- */
+  
+  /* TOP ROW */
+  .toast-container--top-left {
+    inset: 0 auto auto 0;
+    align-items: flex-start;
+    flex-direction: column-reverse; /* Newest at top */
+  }
+  .toast-container--top-center {
+    inset: 0 50% auto 50%;
+    transform: translateX(-50%);
+    align-items: center;
+    flex-direction: column-reverse;
+  }
+  .toast-container--top-right {
+    inset: 0 0 auto auto;
+    align-items: flex-end;
+    flex-direction: column-reverse;
+  }
+
+  /* MIDDLE ROW */
+  .toast-container--middle-left {
+    inset: 50% auto auto 0;
+    transform: translateY(-50%);
+    align-items: flex-start;
+  }
+  .toast-container--middle-center {
+    inset: 50% 50% auto 50%;
+    transform: translate(-50%, -50%);
+    align-items: center;
+  }
+  .toast-container--middle-right {
+    inset: 50% 0 auto auto;
+    transform: translateY(-50%);
+    align-items: flex-end;
+  }
+
+  /* BOTTOM ROW */
+  .toast-container--bottom-left {
+    inset: auto auto 0 0;
+    align-items: flex-start;
+  }
+  .toast-container--bottom-center {
+    inset: auto 50% 0 50%;
+    transform: translateX(-50%);
+    align-items: center;
+  }
+  .toast-container--bottom-right {
+    inset: auto 0 0 auto;
+    align-items: flex-end;
+  }
+
+  /* --- 2. TOAST ITEM --- */
+  .toast {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-md);
+    width: min(100vw - 2rem, 360px);
+    pointer-events: auto;
+    
+    /* Paint */
+    padding: var(--space-md);
+    background: var(--ds-cmp-toast-bg, var(--ds-sys-color-surface));
+    color: var(--ds-sys-color-on-surface);
+    border: var(--ds-cmp-toast-border-width, 1px) solid var(--ds-cmp-toast-border-color, var(--ds-sys-color-border));
+    border-radius: var(--ds-cmp-toast-radius, var(--ds-sys-radius-card));
+    box-shadow: var(--ds-sys-shadow-card);
+    
+    /* LIFECYCLE ENGINE */
+    /* We use a "Total Lifecycle" animation.
+       0% -> Enter
+       10% -> Resting (Visible)
+       90% -> Resting (Visible)
+       100% -> Exit
+    */
+    --duration: var(--ds-cmp-toast-duration);
+    animation: toast-lifecycle linear forwards;
+    animation-duration: var(--duration);
+    
+    will-change: transform, opacity;
+  }
+  
+  /* PAUSE ON HOVER: If user is reading, don't dismiss! */
+  .toast:hover {
+    animation-play-state: paused;
+  }
+
+  /* PERSIST: Override the animation to just "Enter" and stay there */
+  .toast--persist {
+    animation-name: toast-enter !important;
+    animation-duration: 0.3s !important;
+  }
+
+  /* MANUAL DISMISS: Added via JS when close button clicked */
+  .toast.is-leaving {
+    animation: toast-exit 0.3s cubic-bezier(0.32, 0, 0.67, 0) forwards !important;
+  }
+
+  /* Variants */
+  .toast--success { border-left: 4px solid green; }
+  .toast--error   { border-left: 4px solid red; }
+  .toast--info    { border-left: 4px solid var(--ds-sys-color-primary); }
+  .toast--warning { border-left: 4px solid orange; }
+
+  /* Content Styling */
+  .toast__icon { flex-shrink: 0; padding-top: 2px; }
+  .toast--success .toast__icon { color: green; }
+  .toast--error .toast__icon   { color: red; }
+  .toast--warning .toast__icon { color: orange; }
+  .toast--info .toast__icon    { color: var(--ds-sys-color-primary); }
+
+  .toast__content { flex-grow: 1; }
+  .toast__title { font-weight: 700; font-size: 0.95rem; margin-bottom: 0.25rem; }
+  .toast__message { font-size: 0.85rem; opacity: 0.9; }
+
+  .toast__close {
+    background: transparent; border: none; cursor: pointer;
+    padding: 0.25rem; margin: -0.25rem; opacity: 0.5; border-radius: 50%;
+    display: grid; place-items: center; transition: 0.2s;
+  }
+  .toast__close:hover { opacity: 1; background: rgba(0,0,0,0.05); }
+
+  /* --- ANIMATIONS --- */
+  
+  @keyframes toast-enter {
+    from { opacity: 0; transform: translateY(10px) scale(0.95); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  @keyframes toast-exit {
+    to { opacity: 0; transform: scale(0.9); max-height: 0; margin: 0; padding: 0; border: 0; }
+  }
+
+  /* The Full Lifecycle */
+  @keyframes toast-lifecycle {
+    0% { 
+      opacity: 0; 
+      transform: translateY(20px) scale(0.9); 
+    }
+    5% { 
+      opacity: 1; 
+      transform: translateY(0) scale(1); 
+    }
+    90% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+    100% { 
+      opacity: 0;
+      pointer-events: none; /* Prevent clicks during exit */
+      transform: scale(0.9); 
+    }
+  }
+}

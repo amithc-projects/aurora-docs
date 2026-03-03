@@ -1,0 +1,153 @@
+/* css/themes/corporate.css */
+[data-theme="corporate"] {
+  /* --- REFERENCE LAYER --- */
+  /* Converted to OKLCH for perceptual accuracy */
+  
+  /* Slate 900 -> Dark, low chroma, blueish hue */
+  --ds-ref-primary:    oklch(19% 0.04 265); 
+  
+  /* Blue 500 -> Med Lightness, High Chroma, Blue Hue */
+  --ds-ref-secondary:  oklch(63% 0.19 254); 
+  
+  /* Slate 500 */
+  --ds-ref-tertiary:   oklch(55% 0.05 255); 
+  
+  --ds-ref-mix-tint:   oklch(100% 0 0); /* Pure White */
+  --ds-ref-mix-shade:  oklch(94.835% 0.05457 106.307);   /* Pure Black */
+
+  /* SPACING BASE */
+  --ds-ref-space-base: 1rem; 
+
+  --font-heading: 'Inter', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+
+  /* --- GENERATIVE LAYER (The Engine) --- */
+  /* CRITICAL CHANGE: We now mix 'in oklch'.
+     This ensures that as we mix with white/black, the Chroma (vividness) 
+     is handled correctly and doesn't desaturate weirdly.
+  */
+  --color-primary-500: var(--ds-ref-primary);
+  --color-primary-100: color-mix(in oklch, var(--ds-ref-primary), var(--ds-ref-mix-tint) 80%);
+  --color-primary-200: color-mix(in oklch, var(--ds-ref-primary), var(--ds-ref-mix-tint) 60%);
+  --color-primary-hover: color-mix(in oklch, var(--ds-ref-primary), var(--ds-ref-mix-shade) 10%);
+  
+  --color-secondary-500: var(--ds-ref-secondary);
+  
+  /* Spacing Scale */
+  --space-3xs: calc(var(--ds-ref-space-base) * 0.25);
+  --space-2xs: calc(var(--ds-ref-space-base) * 0.50);
+  --space-xs:  calc(var(--ds-ref-space-base) * 0.75);
+  --space-sm:  calc(var(--ds-ref-space-base) * 0.875);
+  --space-md:  var(--ds-ref-space-base);              
+  --space-lg:  calc(var(--ds-ref-space-base) * 1.25);
+  --space-xl:  calc(var(--ds-ref-space-base) * 1.50);
+  --space-2xl: calc(var(--ds-ref-space-base) * 2.00);
+  --space-3xl: calc(var(--ds-ref-space-base) * 3.00);
+  --space-4xl: calc(var(--ds-ref-space-base) * 4.00);
+
+  /* --- SEMANTIC LAYER --- */
+  --ds-sem-corporate-main:  var(--color-primary-500);
+  --ds-sem-corporate-hover: var(--color-primary-hover);
+  --ds-sem-blog-main:       var(--color-secondary-500);
+
+  /* --- SYSTEM LAYER --- */
+  /* Using light-dark() with new OKLCH values works exactly the same */
+  --ds-sys-color-bg-app:     light-dark(oklch(96% 0.01 260), oklch(19% 0.04 265)); 
+  --ds-sys-color-surface:    light-dark(oklch(100% 0 0),     oklch(25% 0.04 265));
+  --ds-sys-color-on-surface: light-dark(oklch(32% 0.04 260), oklch(98% 0.01 260));
+  
+  /* Primary: Slate vs Bright Sky Blue */
+  --ds-sys-color-primary:    light-dark(var(--ds-sem-corporate-main), oklch(76% 0.16 230));
+  --ds-sys-color-on-primary: light-dark(oklch(100% 0 0), oklch(19% 0.04 265));
+  
+  --ds-sys-color-border:     light-dark(oklch(90% 0.02 260), oklch(32% 0.04 260));
+  
+  --ds-sys-radius-btn: 4px;
+  --ds-sys-radius-card: 8px;
+  --ds-sys-border-width: 1px;
+  --ds-sys-shadow-card: 0 1px 3px 0 rgb(0 0 0 / 0.1);
+  --ds-sys-density: 0.8; 
+  --ds-cmp-slider-item-width: 40%;
+  --ds-cmp-slider-marker-size: 12px;
+
+  /* --- COMPONENT TOKEN LAYER --- */
+  
+  /* Callout: Subtle background, thick left border */
+  --ds-cmp-callout-bg: color-mix(in oklch, var(--ds-sys-color-surface), var(--ds-sys-color-bg-app) 50%);
+  --ds-cmp-callout-border: 1px solid var(--ds-sys-color-border);
+  --ds-cmp-callout-border-left: 4px solid var(--ds-sys-color-primary);
+  --ds-cmp-callout-shadow: none;
+  --ds-cmp-callout-transform: none;
+
+  /* Secondary Button: Outline Style */
+  --ds-cmp-btn-sec-bg: transparent;
+  --ds-cmp-btn-sec-text: var(--ds-sem-blog-main);
+  --ds-cmp-btn-sec-border-width: 2px;
+  --ds-cmp-btn-sec-border-color: var(--ds-sem-blog-main);
+  
+  --ds-cmp-btn-sec-hover-bg: var(--ds-sem-blog-main);
+  --ds-cmp-btn-sec-hover-text: white;
+  --ds-cmp-btn-sec-hover-border: var(--ds-sem-blog-main);
+  --ds-cmp-btn-sec-hover-transform: none;
+
+  /* ACCORDION: Minimal & Professional */
+--ds-cmp-accordion-bg: var(--ds-sys-color-surface);
+--ds-cmp-accordion-border: 1px solid var(--ds-sys-color-border);
+--ds-cmp-accordion-radius: var(--ds-sys-radius-card);
+
+--ds-cmp-accordion-hover-bg: var(--ds-sys-color-bg-app);
+--ds-cmp-accordion-active-header: var(--ds-sys-color-bg-app);
+
+/* Icon: Chevron that flips 180 degrees */
+--ds-cmp-accordion-icon: "expand_more";
+--ds-cmp-accordion-icon-closed-rotation: rotate(0deg);
+--ds-cmp-accordion-icon-open-rotation: rotate(180deg);
+
+/* NAVIGATION: Professional & Right Aligned */
+  --ds-cmp-nav-bg: var(--ds-sys-color-surface);
+  --ds-cmp-nav-text: var(--ds-sys-color-on-surface);
+  --ds-cmp-nav-border: 1px solid var(--ds-sys-color-border);
+
+  /* MOBILE LAYOUT: RIGHT ALIGNED */
+  /* Order: Brand(1) -> Settings(2) -> Burger(3) */
+  --ds-cmp-nav-mobile-order-brand: 1;
+  --ds-cmp-nav-mobile-text-align: left;
+  --ds-cmp-nav-mobile-order-settings: 2;
+  --ds-cmp-nav-mobile-order-burger: 3;
+
+  /* DRAWER POSITION: From Right */
+  --ds-cmp-nav-mobile-left: auto;
+  --ds-cmp-nav-mobile-right: 0;
+  --ds-cmp-nav-mobile-transform-closed: translateX(100%);
+
+
+/* REVISED CORPORATE TABS */
+
+
+/* TABS: Connected Style */
+  --ds-cmp-tabs-gap: 0;
+  
+  --ds-cmp-tab-bg: transparent;
+  --ds-cmp-tab-text: var(--ds-sys-color-on-surface);
+  --ds-cmp-tab-border: 1px solid transparent; 
+  --ds-cmp-tab-radius: var(--ds-sys-radius-btn) var(--ds-sys-radius-btn) 0 0; 
+  --ds-cmp-tab-margin-bottom: -1px;
+
+  --ds-cmp-tab-active-bg: var(--ds-sys-color-surface);
+  --ds-cmp-tab-active-text: var(--ds-sys-color-primary);
+  /* The bottom border is transparent so it opens up into the panel */
+  --ds-cmp-tab-active-border-color: var(--ds-sys-color-border) var(--ds-sys-color-border) transparent var(--ds-sys-color-border);
+  --ds-cmp-tab-active-transform: none;
+
+  --ds-cmp-tab-panel-bg: var(--ds-sys-color-surface);
+  --ds-cmp-tab-panel-border: 1px solid var(--ds-sys-color-border);
+  
+  /* FIXED: Remove top-left radius so the tab connects flush with the panel */
+  --ds-cmp-tab-panel-radius-top-left: 0;
+
+
+
+
+  --ds-cmp-table-stripe: light-dark(lightgray, darkgray)
+}
+

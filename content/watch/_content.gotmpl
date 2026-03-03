@@ -1,0 +1,47 @@
+{{ $csv := resources.Get "data/movies.csv" }}
+{{ $csvData := $csv | transform.Unmarshal }}
+{{ $headers := index $csvData 0 }}
+{{ $rows := after 1 $csvData }}
+
+{{ range $rows }}
+  {{ $row := dict }}
+  {{ range $idx, $val := . }}
+    {{ $header := index $headers $idx }}
+    {{ $row = merge $row (dict $header $val) }}
+  {{ end }}
+
+  {{ $body := printf `
+## Watch Now
+Click below to play **%s**.
+
+{{< demo >}}
+<div class="gallery" data-mode="grid" style="--gallery-item-min: 300px;">
+  <ul>
+    <li>
+      <a href="%s" data-caption="%s (%s)">
+         <div class="gallery__play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+         <img src="%s" loading="lazy">
+      </a>
+    </li>
+  </ul>
+</div>
+{{< /demo >}}
+
+## More Like This
+{{< demo >}}
+<ul class="carousel carousel--multi">
+  <li><div class="card"><h3>Action</h3></div></li>
+  <li><div class="card"><h3>Drama</h3></div></li>
+  <li><div class="card"><h3>Sci-Fi</h3></div></li>
+</ul>
+{{< /demo >}}
+` $row.title $row.video_url $row.title $row.genre $row.poster }}
+
+  {{ $.AddPage (dict 
+      "kind" "page"
+      "path" $row.slug 
+      "title" (printf "Watch: %s" $row.title)
+      "params" (dict "layout" "wide" "category" "Movies")
+      "content" (dict "mediaType" "text/markdown" "value" $body)
+  ) }}
+{{ end }}

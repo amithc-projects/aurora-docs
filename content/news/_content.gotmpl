@@ -1,0 +1,22 @@
+{{ $csv := resources.Get "data/news.csv" }}
+{{ $csvData := $csv | transform.Unmarshal }}
+{{ $headers := index $csvData 0 }}
+{{ $rows := after 1 $csvData }}
+
+{{ range $rows }}
+  {{ $row := dict }}
+  {{ range $idx, $val := . }}
+    {{ $header := index $headers $idx }}
+    {{ $row = merge $row (dict $header $val) }}
+  {{ end }}
+
+  {{ $body := printf "## %s\n\nPublished on %s.\n\n![Image](%s)" $row.title $row.date $row.image }}
+  
+  {{ $.AddPage (dict 
+      "kind" "page"
+      "path" $row.slug 
+      "title" $row.title
+      "params" (dict "layout" "article" "thumbnail" $row.image)
+      "content" (dict "mediaType" "text/markdown" "value" $body)
+  ) }}
+{{ end }}

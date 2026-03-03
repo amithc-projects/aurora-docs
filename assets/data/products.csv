@@ -1,0 +1,4 @@
+slug,title,price,steps
+config-basic,Basic Plan,0,3
+config-pro,Pro Plan,5,4
+config-ent,Enterprise,9,5

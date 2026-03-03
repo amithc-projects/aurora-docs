@@ -1,0 +1,103 @@
+{{/* 1. LOAD DATA */}}
+{{ $csv := resources.Get "data/netflix_db.csv" }}
+{{ $csvData := $csv | transform.Unmarshal }}
+{{ $headers := index $csvData 0 }}
+{{ $rowsRaw := after 1 $csvData }}
+
+{{/* Convert CSV Arrays to Maps */}}
+{{ $rows := slice }}
+{{ range $rowsRaw }}
+  {{ $row := dict }}
+  {{ range $idx, $val := . }}
+    {{ $header := index $headers $idx }}
+    {{ $row = merge $row (dict $header $val) }}
+  {{ end }}
+  {{ $rows = $rows | append $row }}
+{{ end }}
+
+{{/* DEFINE SHORTCODE TAGS AS VARIABLES TO PREVENT PARSING ERRORS */}}
+{{ $scOpen := "{{< demo >}}" }}
+{{ $scClose := "{{< /demo >}}" }}
+
+{{/* ----------------------------------------------------------------------
+   PART 1: LEAF PAGES (Individual Movies)
+   ---------------------------------------------------------------------- */}}
+{{ range $rows }}
+  
+  {{/* Construct Body safely using print to avoid printf confusion */}}
+  {{ $gallery := print $scOpen "\n" }}
+  {{ $gallery = print $gallery "<div class=\"gallery\" data-mode=\"grid\" style=\"--gallery-item-min: 300px;\">\n" }}
+  {{ $gallery = print $gallery "  <ul>\n" }}
+  {{ $gallery = print $gallery "    <li>\n" }}
+  {{ $gallery = print $gallery (printf "      <a href=\"#\" data-caption=\"Watch Trailer\">\n") }}
+  {{ $gallery = print $gallery "         <div class=\"gallery__play-icon\"><svg viewBox=\"0 0 24 24\"><path d=\"M8 5v14l11-7z\"/></svg></div>\n" }}
+  {{ $gallery = print $gallery (printf "         <img src=\"%s\" loading=\"lazy\">\n" .image) }}
+  {{ $gallery = print $gallery "      </a>\n" }}
+  {{ $gallery = print $gallery "    </li>\n" }}
+  {{ $gallery = print $gallery "  </ul>\n" }}
+  {{ $gallery = print $gallery "</div>\n" }}
+  {{ $gallery = print $gallery $scClose "\n" }}
+
+  {{ $desc := printf "\n## Synopsis\n**%s** is a leading title in the **%s** genre (%s).\n" .title .genre .sub_genre }}
+  
+  {{ $body := print $gallery $desc }}
+
+  {{ $.AddPage (dict 
+      "kind" "page"
+      "path" .slug 
+      "title" .title
+      "params" (dict "layout" "movie" "thumbnail" .image "genre" .genre "sub_genre" .sub_genre)
+      "content" (dict "mediaType" "text/markdown" "value" $body)
+  ) }}
+{{ end }}
+
+
+{{/* ----------------------------------------------------------------------
+   PART 2: GENRE PAGES (Category Landing)
+   ---------------------------------------------------------------------- */}}
+
+{{ $allGenres := slice }}
+{{ range $rows }}
+  {{ $allGenres = $allGenres | append .genre }}
+{{ end }}
+{{ $uniqueGenres := $allGenres | uniq }}
+
+{{ range $uniqueGenres }}
+  {{ $currentGenre := . }}
+  {{ $genreMovies := where $rows "genre" $currentGenre }}
+  
+  {{ $pageContent := printf "## %s Movies\nBrowse our collection of %s titles.\n\n" $currentGenre $currentGenre }}
+
+  {{ $allSubGenres := slice }}
+  {{ range $genreMovies }}
+    {{ $allSubGenres = $allSubGenres | append .sub_genre }}
+  {{ end }}
+  {{ $uniqueSubGenres := $allSubGenres | uniq }}
+
+  {{ range $uniqueSubGenres }}
+     {{ $currentSub := . }}
+     {{ $subGenreMovies := where $genreMovies "sub_genre" $currentSub }}
+
+     {{/* Start Carousel Wrapper */}}
+     {{ $pageContent = print $pageContent "\n### " $currentSub "\n" $scOpen "\n" }}
+     {{ $pageContent = print $pageContent (printf "<div class='carousel carousel--multi' role='region' aria-label='%s'>\n" $currentSub) }}
+     
+     {{ range $subGenreMovies }}
+        {{/* Note: Escaping percent sign for printf */}}
+        {{ $card := printf "  <div><a href='../%s'><div class='card' style='background-image:url(%s); background-size:cover; height:100%%;'><h3 style='background:rgba(0,0,0,0.7); color:white; padding:0.5rem;'>%s</h3></div></a></div>\n" .slug .image .title }}
+        {{ $pageContent = print $pageContent $card }}
+     {{ end }}
+     
+     {{/* End Carousel Wrapper */}}
+     {{ $pageContent = print $pageContent "</div>\n" $scClose "\n<br>\n" }}
+  {{ end }}
+
+  {{ $.AddPage (dict 
+      "kind" "page"
+      "path" (printf "%s/_index" ($currentGenre | urlize)) 
+      "title" (printf "%s" $currentGenre)
+      "params" (dict "layout" "genre_landing")
+      "content" (dict "mediaType" "text/markdown" "value" $pageContent)
+  ) }}
+
+{{ end }}

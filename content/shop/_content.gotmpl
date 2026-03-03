@@ -1,0 +1,45 @@
+{{ $csv := resources.Get "data/products.csv" }}
+{{ $csvData := $csv | transform.Unmarshal }}
+{{ $headers := index $csvData 0 }}
+{{ $rows := after 1 $csvData }}
+
+{{ range $rows }}
+  {{/* Convert Array to Map using Headers */}}
+  {{ $row := dict }}
+  {{ range $idx, $val := . }}
+    {{ $header := index $headers $idx }}
+    {{ $row = merge $row (dict $header $val) }}
+  {{ end }}
+
+  {{/* Now use $row instead of . */}}
+  {{ $steps := int $row.steps }}
+  
+  {{ $wizardHTML := `
+{{< demo >}}
+<div class="wizard">
+  <div class="wizard__header">
+    <ul class="wizard__steps wizard__steps--circles">
+` }}
+  
+  {{ range seq $steps }}
+    {{ $active := cond (eq . 1) "is-active" "" }}
+    {{ $wizardHTML = printf "%s<li class='%s'><div class='wizard__marker'>%d</div></li>" $wizardHTML $active . }}
+  {{ end }}
+
+  {{ $wizardHTML = printf "%s</ul></div><div class='wizard__content'>" $wizardHTML }}
+
+  {{ range seq $steps }}
+    {{ $active := cond (eq . 1) "is-active" "" }}
+    {{ $wizardHTML = printf "%s<div class='%s'><h2>Step %d</h2><p>Configure your %s.</p></div>" $wizardHTML $active . $row.title }}
+  {{ end }}
+
+  {{ $wizardHTML = printf "%s</div></div>{{< /demo >}}" $wizardHTML }}
+
+  {{ $.AddPage (dict 
+      "kind" "page"
+      "path" $row.slug 
+      "title" $row.title
+      "params" (dict "price" $row.price "layout" "product")
+      "content" (dict "mediaType" "text/markdown" "value" $wizardHTML)
+  ) }}
+{{ end }}

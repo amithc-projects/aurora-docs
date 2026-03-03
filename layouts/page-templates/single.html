@@ -1,0 +1,83 @@
+{{ define "main" }}
+<div class="l-stack">
+  
+
+
+  <div class="tpl-page" data-layout="{{ .Params.layout_type }}">
+    
+    <header class="tpl-header">
+      <div style="display: flex; gap: 0.5rem; align-items: center;">
+        <div style="width: 32px; height: 32px; background: var(--ds-sys-color-primary); border-radius: 50%;"></div>
+        <strong>Brand</strong>
+      </div>
+      <div class="l-cluster">
+        <span class="badge badge--outline">Profile</span>
+        <button class="btn primary btn-sm">Action</button>
+      </div>
+    </header>
+
+    <nav class="tpl-nav">
+      <ul class="nav-vertical">
+        <li><a href="#" class="is-active">Dashboard</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">Tasks</a></li>
+        <li><a href="#">Reports</a></li>
+        <li><a href="#">Settings</a></li>
+      </ul>
+    </nav>
+
+    <main class="tpl-main">
+      <div class="tpl-main-content">
+        <h1>{{ .Title }}</h1>
+        <p class="prose">{{ .Params.description }}</p>
+        
+        <hr style="margin: 2rem 0; border: 0; border-top: 1px solid var(--ds-sys-color-border);">
+
+        {{ if eq .Params.layout_type "grid-gallery" }}
+          <div class="l-grid" style="--col-min: 200px;">
+            {{ range seq 6 }}
+              <div class="card"><div class="card__media" style="height: 150px; background: #eee;"></div><div class="card__content">Item {{ . }}</div></div>
+            {{ end }}
+          </div>
+        {{ else }}
+          <div class="l-stack">
+            <div class="card" style="padding: 2rem;">
+              <h3>Main Content Card</h3>
+              <p>This area expands to fill the available space defined by the grid area "main".</p>
+            </div>
+            <div class="l-grid" style="--col-min: 250px;">
+              <div class="card" style="padding: 1.5rem;">Widget A</div>
+              <div class="card" style="padding: 1.5rem;">Widget B</div>
+            </div>
+            {{ .Content }}
+          </div>
+        {{ end }}
+      </div>
+    </main>
+
+    <aside class="tpl-aside">
+      <h3>Related</h3>
+      <ul class="list list--stack" style="margin-top: 1rem;">
+        <li><small>Update available</small></li>
+        <li><small>New comment</small></li>
+        <li><small>Server status: OK</small></li>
+      </ul>
+      <div class="card" style="margin-top: 1rem; padding: 1rem; background: var(--ds-sys-color-bg-app);">
+        <strong>Ad Space</strong>
+        <div style="height: 100px;"></div>
+      </div>
+    </aside>
+
+    <footer class="tpl-footer">
+      <div style="display: flex; justify-content: space-between; align-items: center; opacity: 0.7;">
+        <small>&copy; 2025 Aurora Systems</small>
+        <div class="l-cluster">
+          <small>Privacy</small>
+          <small>Terms</small>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+</div>
+{{ end }}

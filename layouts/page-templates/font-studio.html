@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Variable Font Studio Pro</title>
+<style>
+    :root {
+        --bg-panel: #18181b;
+        --bg-canvas: #f4f4f5;
+        --accent: #8b5cf6;
+        --accent-hover: #7c3aed;
+        --text-main: #e4e4e7;
+        --text-dim: #a1a1aa;
+        --border: #27272a;
+        
+        /* Algorithm Defaults */
+        --base-size: 16px;
+        --scale-ratio: 1.25; 
+        
+        /* Font Stacks (Updated by JS) */
+        --font-hero: sans-serif;
+        --font-heading: sans-serif;
+        --font-body: sans-serif;
+        --font-nav: sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+        margin: 0;
+        display: flex;
+        height: 100vh;
+        font-family: system-ui, -apple-system, sans-serif;
+        background: var(--bg-canvas);
+        color: #18181b;
+        overflow: hidden;
+    }
+
+    /* --- SIDEBAR --- */
+    .sidebar {
+        width: 400px;
+        background: var(--bg-panel);
+        color: var(--text-main);
+        display: flex;
+        flex-direction: column;
+        border-right: 1px solid #000;
+        flex-shrink: 0;
+        z-index: 10;
+        font-size: 13px;
+    }
+
+    .sidebar-header { padding: 15px; border-bottom: 1px solid var(--border); background: #202023; }
+    .sidebar-content { flex: 1; overflow-y: auto; padding: 15px; }
+    .sidebar-footer { padding: 15px; border-top: 1px solid var(--border); background: #202023; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+    /* INPUTS */
+    h3 { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--accent); margin: 25px 0 10px 0; border-bottom: 1px solid #333; padding-bottom: 5px; }
+    h3:first-child { margin-top: 0; }
+    
+    label { font-size: 11px; color: var(--text-dim); display: block; margin-bottom: 4px; }
+
+    textarea {
+        width: 100%; height: 60px; background: #09090b; border: 1px solid var(--border);
+        color: #86efac; font-family: monospace; font-size: 10px; padding: 8px; resize: vertical; border-radius: 4px;
+        margin-bottom: 10px;
+    }
+    textarea:focus { outline: 1px solid var(--accent); border-color: var(--accent); }
+
+    select, input[type="text"] {
+        width: 100%; padding: 8px; background: #27272a; border: 1px solid var(--border);
+        color: white; border-radius: 4px; font-size: 12px; margin-bottom: 5px;
+    }
+
+    button { 
+        padding: 8px 12px; background: #3f3f46; color: white; border: 1px solid var(--border);
+        border-radius: 4px; cursor: pointer; font-size: 11px; font-weight: 600; transition: 0.2s;
+    }
+    button:hover { background: var(--accent); border-color: var(--accent); }
+    button.primary { background: var(--accent); border-color: var(--accent); }
+    button.icon-btn { padding: 4px 8px; font-size: 10px; margin-left: auto; }
+
+    /* CSS IMPORT LIST */
+    .css-import-item {
+        background: #27272a; padding: 10px; border-radius: 4px; margin-bottom: 10px; border: 1px solid var(--border);
+    }
+    .css-import-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; }
+    .font-badge { background: #3f3f46; padding: 2px 6px; border-radius: 3px; font-size: 10px; color: #fff; }
+
+    /* TABS */
+    .tabs { display: flex; gap: 4px; margin-bottom: 15px; background: #27272a; padding: 4px; border-radius: 6px; }
+    .tab-btn { flex: 1; background: transparent; border: none; color: #71717a; border-radius: 4px; }
+    .tab-btn.active { background: var(--accent); color: white; }
+
+    /* SLIDERS */
+    .control-row { margin-bottom: 12px; }
+    .control-head { display: flex; justify-content: space-between; font-size: 11px; font-family: monospace; color: var(--text-dim); margin-bottom: 4px; }
+    input[type=range] { width: 100%; cursor: pointer; accent-color: var(--accent); height: 4px; background: #333; border-radius: 2px; appearance: none; }
+    input[type=range]::-webkit-slider-thumb { appearance: none; width: 12px; height: 12px; background: white; border-radius: 50%; cursor: pointer; }
+
+    /* PREVIEW */
+    .preview { flex: 1; overflow-y: auto; padding: 40px; }
+    .canvas {
+        max-width: 900px; margin: 0 auto; background: white; min-height: 100vh;
+        box-shadow: 0 4px 25px rgba(0,0,0,0.1); padding: 0;
+    }
+
+    /* TYPOGRAPHY */
+    .typo-hero { font-family: var(--font-hero); font-variation-settings: var(--settings-hero); }
+    .typo-nav { font-family: var(--font-nav); font-variation-settings: var(--settings-nav); }
+    .typo-heading { font-family: var(--font-heading); font-variation-settings: var(--settings-heading); }
+    .typo-body { font-family: var(--font-body); font-variation-settings: var(--settings-body); }
+
+    /* LAYOUT COMPONENTS */
+    nav { padding: 20px 40px; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; }
+    nav ul { display: flex; gap: 20px; list-style: none; padding: 0; margin: 0; font-size: 0.85rem; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px; }
+
+    header.hero { padding: 100px 40px; background: #09090b; color: white; text-align: center; }
+    header.hero h1 { font-size: 4.5rem; line-height: 1.05; margin: 0 0 25px 0; letter-spacing: -0.03em; }
+    header.hero p { font-size: 1.5rem; opacity: 0.8; max-width: 650px; margin: 0 auto; font-family: var(--font-body); font-variation-settings: var(--settings-body); }
+
+    main { padding: 60px 40px; max-width: 720px; margin: 0 auto; }
+    
+    /* MODULAR SCALE */
+    h1, h2, h3, h4, h5, h6 { margin-top: calc(var(--base-size) * var(--scale-ratio) * 1.5); margin-bottom: calc(var(--base-size) * 0.5); line-height: 1.2; font-weight: 700; }
+    p { font-size: var(--base-size); line-height: 1.65; margin-bottom: var(--base-size); }
+
+    h6 { font-size: var(--base-size); }
+    h5 { font-size: calc(var(--base-size) * var(--scale-ratio)); }
+    h4 { font-size: calc(var(--base-size) * var(--scale-ratio) * var(--scale-ratio)); }
+    h3 { font-size: calc(var(--base-size) * var(--scale-ratio) * var(--scale-ratio) * var(--scale-ratio)); }
+    h2 { font-size: calc(var(--base-size) * var(--scale-ratio) * var(--scale-ratio) * var(--scale-ratio) * var(--scale-ratio)); }
+    h1 { font-size: calc(var(--base-size) * var(--scale-ratio) * var(--scale-ratio) * var(--scale-ratio) * var(--scale-ratio) * var(--scale-ratio)); }
+
+    /* MODAL */
+    .modal-overlay { position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.85); display: none; justify-content: center; align-items: center; z-index: 100; backdrop-filter: blur(2px); }
+    .modal { background: #18181b; padding: 25px; width: 600px; border-radius: 8px; color: white; border: 1px solid #333; }
+    .modal textarea { height: 350px; font-size: 11px; }
+</style>
+</head>
+<body>
+
+<aside class="sidebar">
+    <div class="sidebar-header">
+        <h2 style="margin:0; font-size: 14px; color: white;">Font Studio Pro</h2>
+    </div>
+
+    <div class="sidebar-content">
+        
+        <h3>1. Global Embed</h3>
+        <label>Paste the &lt;link&gt; tag from <a target="_blank" href="https://fonts.google.com/selection/embed">Google Fonts</a></label> here:</label>
+        <textarea id="embedInput" placeholder='<link href="https://fonts.googleapis.com...">'></textarea>
+        <button onclick="injectEmbed()" class="primary" style="width:100%">Load Font Files</button>
+
+        <h3>2. Font Definitions</h3>
+        <div id="cssList">
+            </div>
+        <button onclick="addCSSBlock()" style="width:100%; border-style: dashed;">+ Add Another Font CSS</button>
+
+        <h3>3. Sizing Algorithm</h3>
+        <div class="control-row">
+            <div class="control-head"><span>Base Size</span><span id="disp-base">16px</span></div>
+            <input type="range" min="12" max="24" value="16" oninput="updateGlobal('base', this.value)">
+        </div>
+        <div class="control-row">
+            <div class="control-head"><span>Scale Ratio</span><span id="disp-scale">1.25</span></div>
+            <input type="range" min="1.05" max="1.6" step="0.01" value="1.25" oninput="updateGlobal('scale', this.value)">
+        </div>
+
+        <h3>4. Section Config</h3>
+        <div class="tabs">
+            <button class="tab-btn active" onclick="setSection('hero')">Hero</button>
+            <button class="tab-btn" onclick="setSection('heading')">Headings</button>
+            <button class="tab-btn" onclick="setSection('body')">Body</button>
+            <button class="tab-btn" onclick="setSection('nav')">Nav</button>
+        </div>
+
+        <div id="dynamicControls">
+            <p style="font-size: 11px; color: #666; font-style: italic; padding: 10px;">
+                Define fonts in Step 2 to enable controls.
+            </p>
+        </div>
+    </div>
+
+    <div class="sidebar-footer">
+        <button onclick="exportData()">Export Code</button>
+        <button onclick="saveSession()">Save JSON</button>
+        <button onclick="document.getElementById('fileInput').click()">Load JSON</button>
+        <input type="file" id="fileInput" style="display:none" onchange="loadSession(this)">
+    </div>
+</aside>
+
+<main class="preview">
+    <div id="embedContainer"></div> <div class="canvas">
+        <nav class="typo-nav">
+            <div style="font-size: 1.3em; font-weight: 900;">StudioPro</div>
+            <ul>
+                <li>Typography</li>
+                <li>Layout</li>
+                <li>Export</li>
+            </ul>
+        </nav>
+
+        <header class="hero typo-hero">
+            <h1>Variable Power</h1>
+            <p>Paste your Google Fonts CSS snippets to unlock full axis control for every section of your page.</p>
+        </header>
+
+        <main>
+            <div class="typo-heading typo-body">
+                <h1>Heading Level 1</h1>
+                <p>This is standard body text. It inherits configuration from the "Body" tab. Headings inherit from the "Headings" tab. Use the Algorithm sliders to adjust vertical rhythm.</p>
+                
+                <h2>Heading Level 2</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+
+                <h3>Heading Level 3</h3>
+                <p>Variable fonts allow fine-tuning of axes like Grade, Optical Size, and Width to create perfect hierarchy without changing files.</p>
+            </div>
+        </main>
+    </div>
+</main>
+
+<div class="modal-overlay" id="exportModal" onclick="if(event.target===this) this.style.display='none'">
+    <div class="modal">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+            <h3 style="margin:0; border:none;">Exported Code</h3>
+            <button onclick="document.getElementById('exportModal').style.display='none'">Close</button>
+        </div>
+        <textarea id="exportText"></textarea>
+    </div>
+</div>
+
+<script>
+    // --- DATABASE: Axis Definitions (Min/Max/Step/Name) ---
+    const AXIS_DB = {
+        'ital': { name: 'Italic', min: 0, max: 1, step: 1, def: 0 },
+        'opsz': { name: 'Optical Size', min: 8, max: 144, step: 0.1, def: 14 },
+        'slnt': { name: 'Slant', min: -15, max: 0, step: 1, def: 0 },
+        'wght': { name: 'Weight', min: 100, max: 1000, step: 1, def: 400 },
+        'wdth': { name: 'Width', min: 25, max: 151, step: 0.1, def: 100 },
+        'GRAD': { name: 'Grade', min: -200, max: 150, step: 1, def: 0 },
+        'CASL': { name: 'Casual', min: 0, max: 1, step: 0.01, def: 0 },
+        'CRSV': { name: 'Cursive', min: 0, max: 1, step: 0.1, def: 0.5 },
+        'MONO': { name: 'Monospace', min: 0, max: 1, step: 0.01, def: 0 },
+        'BNCE': { name: 'Bounce', min: -100, max: 100, step: 1, def: 0 },
+        'INFM': { name: 'Informality', min: 0, max: 100, step: 1, def: 0 },
+        'SPAC': { name: 'Spacing', min: -100, max: 100, step: 0.1, def: 0 },
+        'XOPQ': { name: 'Thick Stroke', min: 27, max: 175, step: 1, def: 96 },
+        'YOPQ': { name: 'Thin Stroke', min: 25, max: 135, step: 1, def: 79 },
+        'YTAS': { name: 'Ascender', min: 649, max: 854, step: 1, def: 750 },
+        'YTDE': { name: 'Descender', min: -305, max: -98, step: 1, def: -203 },
+        'YTFI': { name: 'Figure Ht', min: 560, max: 788, step: 1, def: 738 },
+        'YTLC': { name: 'Lowercase Ht', min: 416, max: 570, step: 1, def: 514 },
+        'YTUC': { name: 'Uppercase Ht', min: 528, max: 760, step: 1, def: 712 },
+        'XTRA': { name: 'Counter Width', min: 323, max: 603, step: 1, def: 468 },
+        'SOFT': { name: 'Softness', min: 0, max: 100, step: 0.1, def: 0 },
+        'WONK': { name: 'Wonky', min: 0, max: 1, step: 1, def: 0 },
+        // Fallback for unknown axes
+        'default': { name: 'Unknown', min: 0, max: 100, step: 1, def: 0 }
+    };
+
+    // --- STATE ---
+    let appState = {
+        embedCode: '',
+        cssBlocks: [], // Array of strings (user pasted css)
+        fonts: [],     // Parsed font objects
+        sections: {
+            hero: { fontIndex: 0, axes: {} },
+            heading: { fontIndex: 0, axes: {} },
+            body: { fontIndex: 0, axes: {} },
+            nav: { fontIndex: 0, axes: {} }
+        },
+        global: { base: 16, scale: 1.25 }
+    };
+
+    let currentSection = 'hero';
+
+    // --- INIT ---
+    // Add one empty CSS block to start
+    window.onload = () => { if(appState.cssBlocks.length === 0) addCSSBlock(); };
+
+    // --- LOGIC: EMBED ---
+    function injectEmbed() {
+        const val = document.getElementById('embedInput').value;
+        appState.embedCode = val;
+        document.getElementById('embedContainer').innerHTML = val;
+    }
+
+    // --- LOGIC: CSS BLOCKS ---
+    function addCSSBlock(content = '') {
+        const id = appState.cssBlocks.length;
+        appState.cssBlocks.push(content);
+
+        const div = document.createElement('div');
+        div.className = 'css-import-item';
+        div.innerHTML = `
+            <div class="css-import-header">
+                <span class="font-badge" id="badge-${id}">Pending</span>
+                <button class="icon-btn" onclick="parseAllCSS()">Parse</button>
+            </div>
+            <textarea id="css-input-${id}" placeholder=".class { font-family: ... }" onchange="updateCSSBlock(${id}, this.value)">${content}</textarea>
+        `;
+        document.getElementById('cssList').appendChild(div);
+    }
+
+    function updateCSSBlock(id, val) {
+        appState.cssBlocks[id] = val;
+    }
+
+    function parseAllCSS() {
+        appState.fonts = []; // Reset fonts
+        
+        appState.cssBlocks.forEach((css, index) => {
+            if(!css.trim()) return;
+
+            // 1. Extract Font Family
+            const familyMatch = css.match(/font-family:\s*["']([^"']+)["']/);
+            const familyName = familyMatch ? familyMatch[1] : `Font ${index + 1}`;
+
+            // Update Badge in UI
+            const badge = document.getElementById(`badge-${index}`);
+            if(badge) {
+                badge.innerText = familyName;
+                badge.style.background = '#8b5cf6';
+            }
+
+            // 2. Extract Variation Settings
+            // Match content inside "font-variation-settings: ... ;"
+            const varMatch = css.match(/font-variation-settings:\s*([^;]+)/);
+            
+            let axes = [];
+            
+            // Always add Weight by default if not found (almost all var fonts have it)
+            let foundWeight = false;
+
+            if(varMatch) {
+                const parts = varMatch[1].split(',');
+                parts.forEach(p => {
+                    // Match "TAG" value
+                    const tagMatch = p.match(/["']([A-Za-z]{4})["']/);
+                    if(tagMatch) {
+                        const tag = tagMatch[1];
+                        // Look up definition
+                        const defs = AXIS_DB[tag] || { ...AXIS_DB['default'], name: tag };
+                        axes.push({ tag, ...defs });
+                        if(tag === 'wght') foundWeight = true;
+                    }
+                });
+            }
+
+            if(!foundWeight) {
+                axes.unshift({ tag: 'wght', ...AXIS_DB['wght'] });
+            }
+
+            appState.fonts.push({
+                name: familyName,
+                id: index,
+                axes: axes
+            });
+        });
+
+        // Re-init sections if needed
+        if(appState.fonts.length > 0) {
+            ['hero','heading','body','nav'].forEach(sec => {
+                // Ensure fontIndex is valid
+                if(appState.sections[sec].fontIndex >= appState.fonts.length) {
+                    appState.sections[sec].fontIndex = 0;
+                }
+                // Merge current axes with new font defaults
+                const f = appState.fonts[appState.sections[sec].fontIndex];
+                f.axes.forEach(ax => {
+                    if(appState.sections[sec].axes[ax.tag] === undefined) {
+                        appState.sections[sec].axes[ax.tag] = ax.def;
+                    }
+                });
+            });
+        }
+        
+        renderControls();
+        updatePreview();
+    }
+
+    // --- LOGIC: UI RENDERING ---
+    function setSection(sec) {
+        currentSection = sec;
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        event.target.classList.add('active');
+        renderControls();
+    }
+
+    function renderControls() {
+        const container = document.getElementById('dynamicControls');
+        container.innerHTML = '';
+
+        if(appState.fonts.length === 0) {
+            container.innerHTML = '<p style="font-size:11px; color:#666; padding:10px">No fonts parsed yet.</p>';
+            return;
+        }
+
+        const secData = appState.sections[currentSection];
+        const activeFont = appState.fonts[secData.fontIndex];
+
+        // Font Selector
+        const selLabel = document.createElement('label');
+        selLabel.innerText = "Family";
+        const select = document.createElement('select');
+        appState.fonts.forEach((f, i) => {
+            const opt = document.createElement('option');
+            opt.value = i;
+            opt.text = f.name;
+            if(i === secData.fontIndex) opt.selected = true;
+            select.appendChild(opt);
+        });
+        select.onchange = (e) => {
+            secData.fontIndex = Number(e.target.value);
+            // Reset axes to defaults for new font
+            secData.axes = {};
+            appState.fonts[secData.fontIndex].axes.forEach(ax => secData.axes[ax.tag] = ax.def);
+            renderControls();
+            updatePreview();
+        };
+        container.appendChild(selLabel);
+        container.appendChild(select);
+
+        // Header
+        const h3 = document.createElement('h3');
+        h3.innerText = "Axis Controls";
+        container.appendChild(h3);
+
+        // Sliders
+        activeFont.axes.forEach(axis => {
+            const row = document.createElement('div');
+            row.className = 'control-row';
+            
+            // Value lookup
+            const val = secData.axes[axis.tag] !== undefined ? secData.axes[axis.tag] : axis.def;
+
+            row.innerHTML = `
+                <div class="control-head">
+                    <span>${axis.name} (${axis.tag})</span>
+                    <span id="val-${axis.tag}">${val}</span>
+                </div>
+                <input type="range" 
+                    min="${axis.min}" max="${axis.max}" step="${axis.step}" value="${val}"
+                    oninput="updateAxis('${axis.tag}', this.value)">
+            `;
+            container.appendChild(row);
+        });
+    }
+
+    function updateAxis(tag, val) {
+        appState.sections[currentSection].axes[tag] = Number(val);
+        document.getElementById(`val-${tag}`).innerText = val;
+        updatePreview();
+    }
+
+    function updateGlobal(key, val) {
+        appState.global[key] = Number(val);
+        document.getElementById(`disp-${key}`).innerText = val + (key === 'base'?'px':'');
+        updatePreview();
+    }
+
+    // --- LOGIC: PREVIEW ---
+    function updatePreview() {
+        const root = document.documentElement;
+        
+        // Globals
+        root.style.setProperty('--base-size', appState.global.base + 'px');
+        root.style.setProperty('--scale-ratio', appState.global.scale);
+
+        // Sections
+        ['hero', 'heading', 'body', 'nav'].forEach(sec => {
+            const data = appState.sections[sec];
+            if(appState.fonts[data.fontIndex]) {
+                const font = appState.fonts[data.fontIndex];
+                root.style.setProperty(`--font-${sec}`, `"${font.name}", sans-serif`);
+                
+                // Build settings string
+                let settings = [];
+                // Ensure we output values for all axes the font supports
+                font.axes.forEach(ax => {
+                    const val = data.axes[ax.tag] !== undefined ? data.axes[ax.tag] : ax.def;
+                    settings.push(`"${ax.tag}" ${val}`);
+                });
+                
+                root.style.setProperty(`--settings-${sec}`, settings.join(', '));
+            }
+        });
+    }
+
+    // --- LOGIC: SAVE / LOAD / EXPORT ---
+    function exportData() {
+        const css = `
+/* ------------------------------------------------------------------
+   INSTRUCTIONS FOR DEVELOPERS:
+   
+   1. GLOBAL VARIABLES
+      Copy the content of :root { ... } below and paste it into:
+      /assets/css/base/properties.css  (or your typography token file)
+
+   2. ELEMENT STYLES
+      Copy the body, h1-h6, and nav styles and paste them into:
+      /assets/css/base/primitives.css
+
+   3. SAVE SESSION
+      Save the .json session file to:
+      /assets/data/typography-config.json
+   ------------------------------------------------------------------ */
+
+/* 1. EMBED CODE */
+${appState.embedCode}
+
+/* 2. ROOT VARIABLES */
+:root {
+  --base-size: ${appState.global.base}px;
+  --scale-ratio: ${appState.global.scale};
+  
+  /* FONTS */
+  --font-hero: "${getFontName('hero')}", sans-serif;
+  --font-heading: "${getFontName('heading')}", sans-serif;
+  --font-body: "${getFontName('body')}", sans-serif;
+  --font-nav: "${getFontName('nav')}", sans-serif;
+
+  /* VARIATION SETTINGS */
+  --settings-hero: ${getSettingsStr('hero')};
+  --settings-heading: ${getSettingsStr('heading')};
+  --settings-body: ${getSettingsStr('body')};
+  --settings-nav: ${getSettingsStr('nav')};
+}
+
+/* 3. APPLICATION */
+body { font-family: var(--font-body); font-variation-settings: var(--settings-body); font-size: var(--base-size); line-height: 1.6; }
+h1,h2,h3,h4,h5,h6 { font-family: var(--font-heading); font-variation-settings: var(--settings-heading); line-height: 1.1; font-weight: 700; }
+.hero { font-family: var(--font-hero); font-variation-settings: var(--settings-hero); }
+nav { font-family: var(--font-nav); font-variation-settings: var(--settings-nav); }
+
+/* 4. MODULAR SCALE */
+h6 { font-size: var(--base-size); }
+h5 { font-size: calc(var(--base-size) * var(--scale-ratio)); }
+h4 { font-size: calc(var(--base-size) * var(--scale-ratio) * var(--scale-ratio)); }
+h3 { font-size: calc(var(--base-size) * var(--scale-ratio) * var(--scale-ratio) * var(--scale-ratio)); }
+h2 { font-size: calc(var(--base-size) * var(--scale-ratio) * var(--scale-ratio) * var(--scale-ratio) * var(--scale-ratio)); }
+h1 { font-size: calc(var(--base-size) * var(--scale-ratio) * var(--scale-ratio) * var(--scale-ratio) * var(--scale-ratio) * var(--scale-ratio)); }
+        `;
+        document.getElementById('exportText').value = css.trim();
+        document.getElementById('exportModal').style.display = 'flex';
+    }
+
+    function getFontName(sec) {
+        if(!appState.fonts.length) return 'sans-serif';
+        return appState.fonts[appState.sections[sec].fontIndex].name;
+    }
+
+    function getSettingsStr(sec) {
+        if(!appState.fonts.length) return 'normal';
+        const data = appState.sections[sec];
+        const font = appState.fonts[data.fontIndex];
+        return font.axes.map(ax => {
+            const val = data.axes[ax.tag] !== undefined ? data.axes[ax.tag] : ax.def;
+            return `"${ax.tag}" ${val}`;
+        }).join(', ');
+    }
+
+    function saveSession() {
+        const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(appState));
+        const a = document.createElement('a');
+        a.href = dataStr;
+        a.download = "font_studio_session.json";
+        a.click();
+    }
+
+    function loadSession(input) {
+        const file = input.files[0];
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            const data = JSON.parse(e.target.result);
+            appState = data;
+            
+            // Restore UI
+            document.getElementById('embedInput').value = appState.embedCode;
+            injectEmbed();
+
+            document.getElementById('cssList').innerHTML = ''; // Clear existing
+            appState.cssBlocks.forEach((css, idx) => {
+                // Manually rebuild DOM for blocks
+                const div = document.createElement('div');
+                div.className = 'css-import-item';
+                div.innerHTML = `
+                    <div class="css-import-header">
+                        <span class="font-badge" id="badge-${idx}">Loaded</span>
+                        <button class="icon-btn" onclick="parseAllCSS()">Parse</button>
+                    </div>
+                    <textarea id="css-input-${idx}" onchange="updateCSSBlock(${idx}, this.value)">${css}</textarea>
+                `;
+                document.getElementById('cssList').appendChild(div);
+            });
+
+            parseAllCSS();
+            
+            // Restore Algorithm UI
+            document.querySelector('input[oninput*="base"]').value = appState.global.base;
+            document.querySelector('input[oninput*="scale"]').value = appState.global.scale;
+            document.getElementById('disp-base').innerText = appState.global.base + 'px';
+            document.getElementById('disp-scale').innerText = appState.global.scale;
+            
+            updatePreview();
+        };
+        reader.readAsText(file);
+    }
+</script>
+
+</body>
+</html>

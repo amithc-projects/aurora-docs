@@ -1,0 +1,30 @@
+baseURL = 'http://example.org/'
+languageCode = 'en-us'
+title = 'Aurora Design System Documentation'
+
+# 1. Allow Raw HTML in Markdown (Critical for your <button> demos)
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+# 2. Server Configuration
+[server]
+  port = 1313
+
+
+[mediaTypes]
+  [mediaTypes."text/css"]
+    suffixes = ["css"]
+
+[outputFormats]
+  [outputFormats.CSS]
+    mediaType = "text/css"
+    isPlainText = true
+    rel = "stylesheet"
+
+[outputs]
+  home = ["HTML"]
+  section = ["HTML"]
+  page = ["HTML"]
+

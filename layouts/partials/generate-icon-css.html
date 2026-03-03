@@ -1,0 +1,56 @@
+{{/* 1. Define the root path where icons live (relative to project root) */}}
+{{ $iconRoot := "static/icons" }}
+
+{{/* 2. Read the directory to find all Icon Sets (subfolders) */}}
+{{ range (readDir $iconRoot) }}
+  {{ if .IsDir }}
+    {{ $setName := .Name }}
+    {{ $setPath := printf "%s/%s" $iconRoot $setName }}
+    
+    {{/* 3. Initialize a string builder for the CSS content */}}
+    {{ $cssContent := "" }}
+
+    {{/* 4. Loop through every SVG file in this specific icon set */}}
+    {{ range (readDir $setPath) }}
+      {{ if strings.HasSuffix .Name ".svg" }}
+        
+        {{/* Extract filename without extension for the class name (e.g., "save") */}}
+        {{ $iconName := strings.TrimSuffix ".svg" .Name }}
+        
+        {{/* Build the URL path (remove 'static' prefix for public URL) */}}
+        {{ $iconURL := printf "/icons/%s/%s" $setName .Name }}
+
+        {{/* 5. Create the CSS Rule using MASKS (for color inheritance) */}}
+        {{/* We use printf to safely inject values into the string */}}
+        {{ $rule := printf `
+.icon-%s {
+  display: inline-block;
+  width: 1em; 
+  height: 1em;
+  background-color: currentColor; /* Inherits text color from parent */
+  -webkit-mask-image: url('%s');
+  mask-image: url('%s');
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+}
+` $iconName $iconURL $iconURL }}
+
+        {{ $cssContent = print $cssContent $rule }}
+      {{ end }}
+    {{ end }}
+
+    {{/* 6. Generate the actual CSS file from the string */}}
+    {{/* Target path: /icons/iconset1/icons.css */}}
+    {{ $targetPath := printf "icons/%s/icons.css" $setName }}
+    {{ $styleResource := resources.FromString $targetPath $cssContent }}
+    
+    {{/* 7. Publish the resource (Required so Hugo actually writes the file to disk) */}}
+    {{ $styleResource.Publish }}
+
+  {{ end }}
+{{ end }}
+
