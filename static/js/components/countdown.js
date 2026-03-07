@@ -160,6 +160,7 @@ export function initCountdowns() {
         let isRunning = false, isPaused = false, lastTick;
         let lastSecondBeeped = -1, lastIntervalBeeped = -1;
         let audioCtx = null;
+        let currentPathLength = 0;
 
         function playBeep(frequency) {
             try {
@@ -298,6 +299,7 @@ export function initCountdowns() {
                     }
                 }
             }
+            currentPathLength = pLen;
             return pLen;
         }
 
@@ -437,7 +439,7 @@ export function initCountdowns() {
                 stopTimer();
             }
             display.textContent = formatTime(timeLeft);
-            setProgress(updatePath());
+            setProgress(currentPathLength);
             if (isRunning && !isPaused) requestAnimationFrame(tick);
         }
 

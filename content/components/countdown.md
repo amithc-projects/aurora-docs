@@ -2,6 +2,10 @@
 title: "Countdown Timer"
 description: "A highly flexible SVG countdown component with configurable shapes, background fills, and warning animations."
 category: "Components"
+menu:
+  main:
+    parent: "components"
+    weight: 50
 ---
 
 ## Overview
