@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Timer — Full Demo</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: #080e1a;
+            color: #f8fafc;
+            padding: 4rem 2rem 6rem;
+        }
+
+        /* ── Page header ── */
+        .page-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .page-header h1 {
+            font-size: 0.7rem;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            color: #334155;
+            margin-bottom: 1rem;
+        }
+
+        .page-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #38bdf8, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.75rem;
+        }
+
+        .page-header p {
+            color: #475569;
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+        }
+
+        /* ── Section headers ── */
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+            max-width: 1100px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .section-header h3 {
+            font-size: 0.65rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #334155;
+            white-space: nowrap;
+        }
+
+        .section-header::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: #1e293b;
+        }
+
+        /* ── Grid ── */
+        .demo-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 3rem 2.5rem;
+            max-width: 1100px;
+            margin: 0 auto 5rem;
+        }
+
+        .demo-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .demo-tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.35rem;
+            max-width: 380px;
+        }
+
+        .tag {
+            font-size: 0.6rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 0.2rem 0.55rem;
+            border-radius: 4px;
+            background: #1e293b;
+            color: #64748b;
+            border: 1px solid #2a3a52;
+        }
+
+        .tag.accent {
+            background: #0f2a3f;
+            color: #38bdf8;
+            border-color: #1e4a6a;
+        }
+
+        .tag.purple {
+            background: #1e1b35;
+            color: #a78bfa;
+            border-color: #352d5e;
+        }
+
+        .tag.pink {
+            background: #2a1626;
+            color: #f472b6;
+            border-color: #4a2040;
+        }
+
+        .tag.green {
+            background: #0f2a1e;
+            color: #34d399;
+            border-color: #1a4a32;
+        }
+
+        .tag.orange {
+            background: #2a1a0a;
+            color: #fb923c;
+            border-color: #4a2e12;
+        }
+
+        .tag.yellow {
+            background: #2a240a;
+            color: #fbbf24;
+            border-color: #4a3e10;
+        }
+
+        .tag.rose {
+            background: #2a1010;
+            color: #fb7185;
+            border-color: #4a1a1a;
+        }
+
+        /* ── Filters & Source Modal ── */
+        .filter-bar {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+            max-width: 1100px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .filter-btn {
+            background: #1e293b;
+            color: #94a3b8;
+            border: 1px solid #334155;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-transform: capitalize;
+        }
+
+        .filter-btn:hover {
+            border-color: #38bdf8;
+            color: #f8fafc;
+        }
+
+        .filter-btn.active {
+            background: #38bdf8;
+            color: #0f172a;
+            border-color: #38bdf8;
+            font-weight: bold;
+        }
+
+        .view-source-btn {
+            background: #0f172a;
+            border: 1px solid #334155;
+            color: #38bdf8;
+            padding: 2px 8px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: monospace;
+            font-size: 0.7rem;
+            transition: background 0.2s;
+        }
+
+        .view-source-btn:hover {
+            background: #1e293b;
+        }
+
+        .source-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+            padding: 1rem;
+        }
+
+        .source-modal.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-content {
+            background: #111827;
+            border: 1px solid #334155;
+            padding: 1.5rem;
+            border-radius: 8px;
+            width: 600px;
+            max-width: 100%;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content textarea {
+            width: 100%;
+            height: 250px;
+            background: #080e1a;
+            border: 1px solid #1e293b;
+            color: #38bdf8;
+            padding: 1rem;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.8rem;
+            resize: none;
+            outline: none;
+            white-space: pre;
+            overflow: auto;
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            color: #94a3b8;
+            font-size: 1.5rem;
+            cursor: pointer;
+            line-height: 1;
+        }
+
+        .close-modal:hover {
+            color: #f8fafc;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="page-header">
+        <h1>Component Showcase</h1>
+        <h2>Countdown Timer</h2>
+        <p>Every shape · every border style · every background · every warning mode</p>
+    </header>
+
+    <div class="filter-bar" id="filterBar"></div>
+
+
+    <!-- ════════════════════════════════════════════════════════════════════ -->
+    <!--  RESPONSIVE SCALING                                                  -->
+    <!-- ════════════════════════════════════════════════════════════════════ -->
+    <div class="section-header">
+        <h3>Responsive Scaling</h3>
+    </div>
+    <div class="demo-grid" style="align-items: flex-end;">
+
+        <div class="demo-card">
+            <div class="demo-tags">
+                <span class="tag accent">Large Format</span>
+                <span class="tag">600x200</span>
+            </div>
+            <div data-countdown data-duration="45" data-shape="rectangle" data-width="600" data-height="200"
+                data-border-color="#38bdf8" data-border-style="empty" data-background-style="none">
+            </div>
+        </div>
+
+        <div class="demo-card">
+            <div class="demo-tags">
+                <span class="tag">Standard</span>
+                <span class="tag">360x140</span>
+            </div>
+            <div data-countdown data-duration="45" data-shape="rectangle" data-border-color="#38bdf8"
+                data-border-style="empty" data-background-style="none">
+            </div>
+        </div>
+
+        <div class="demo-card">
+            <div class="demo-tags">
+                <span class="tag orange">Micro</span>
+                <span class="tag">180x70</span>
+            </div>
+            <div data-countdown data-duration="45" data-shape="rectangle" data-width="180" data-height="70"
+                data-border-color="#38bdf8" data-border-style="empty" data-background-style="none"
+                data-interval-ticks="false">
+            </div>
+        </div>
+
+    </div>
+
+    <!-- ════════════════════════════════════════════════════════════════════ -->
+    <!--  SHAPES                                                              -->
+    <!-- ════════════════════════════════════════════════════════════════════ -->
+    <div class="section-header">
+        <h3>Shapes</h3>
+    </div>
+    <div class="demo-grid">
+
+        <div class="demo-card">
+            <div class="demo-tags">
+                <span class="tag accent">Rectangle</span>
+                <span class="tag">empty border</span>
+                <span class="tag">counter-clockwise</span>
+            </div>
+            <div data-countdown data-duration="45" data-shape="rectangle" data-border-color="#38bdf8"
+                data-border-style="empty" data-background-style="none" data-direction="counter-clockwise"
+                data-warning-style="none" data-interval="15" data-interval-ticks="true">
+            </div>
+        </div>
+
+        <div class="demo-card">
+            <div class="demo-tags">
+                <span class="tag purple">Circle</span>
+                <span class="tag">empty border</span>
+                <span class="tag">clockwise</span>
+            </div>
+            <div data-countdown data-duration="45" data-shape="circle" data-border-color="#a78bfa"
+                data-border-style="empty" data-background-style="none" data-direction="clockwise"
+                data-warning-style="none" data-interval="15" data-interval-ticks="true" data-tick-color="#c4b5fd">
+            </div>
+        </div>
+
+        <div class="demo-card">
+            <div class="demo-tags">
+                <span class="tag green">Triangle</span>
+                <span class="tag">empty border</span>
+                <span class="tag">counter-clockwise</span>
+            </div>
+            <div data-countdown data-duration="45" data-shape="triangle" data-border-color="#34d399"
+                data-border-style="empty" data-background-style="none" data-direction="counter-clockwise"
+                data-warning-style="none" data-interval="15" data-interval-ticks="true" data-tick-color="#6ee7b7">
+            </div>
+        </div>
+
+        <div class="demo-card">
+            <div class="demo-tags">
+                <span class="tag pink">Heart</span>
+                <span class="tag">empty border</span>
+                <span class="tag">counter-clockwise</span>
+            </div>
+            <div data-countdown data-duration="45" data-shape="heart" data-border-color="#f472b6"
+                data-border-style="empty" data-background-style="none" data-direction="counter-clockwise"
+                data-warning-style="none" data-interval="15" data-interval-ticks="true" data-tick-color="#fbcfe8">
+            </div>
+        </div>
+
+        <div class="demo-card">
+            <div class="demo-tags">
+                <span class="tag yellow">Custom Path</span>
+                <span class="tag">star shape</span>
+                <span class="tag">empty border</span>
+            </div>
+            <div data-countdown data-duration="45" data-shape="custom"
+                data-custom-path="M 130 10 L 174 69 L 244 93 L 201 153 L 200 227 L 130 205 L 60 227 L 59 153 L 16 93 L 86 69 Z"
+                data-border-color="#fbbf24" data-border-style="empty" data-background-style="none"
+                data-direction="counter-clockwise" data-warning-style="none" data-interval="15"
+                data-interval-ticks="true" data-tick-color="#fde68a">
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- ════════════════════════════════════════════════════════════════════ -->
+    <!--  BORDER STYLES                                                       -->
+    <!-- ════════════════════════════════════════════════════════════════════ -->
+    <div class="section-header">
+        <h3>Border Styles</h3>
+    </div>
+    <div class="demo-grid">
+
+        <div class="demo-card">
+            <div class="demo-tags">
+                <span class="tag">No Border</span>
+                <span class="tag">border-style: none</span>
+            </div>
+            <div data-countdown data-duration="60" data-shape="rectangle" data-border-color="#38bdf8"
+                data-border-style="none" data-background-style="none" data-direction="counter-clockwise"
+                data-warning-style="none" data-interval-ticks="false">
+            </div>
+        </div>
+
+        <div class="demo-card">
+            <div class="demo-tags">
+                <span class="tag purple">Emptying Border</span>
+                <span class="tag">border-style: empty</span>
+                <span class="tag">starts full, drains</span>
+            </div>
+            <div data-countdown data-duration="60" data-shape="rectangle" data-border-color="#a78bfa"
+                data-border-style="empty" data-background-style="none" data-direction="counter-clockwise"
+                data-warning-style="none" data-interval="20" data-interval-ticks="true" data-tick-color="#c4b5fd">
+            </div>
+        </div>
+
+        <div class="demo-card">
+            <div class="demo-tags">
+                <span class="tag green">Filling Border</span>
+                <span class="tag">border-style: fill</span>
+                <span class="tag">starts empty, fills</span>
+            </div>
+            <div data-countdown data-duration="60" data-shape="rectangle" data-border-color="#34d399"
+                data-border-style="fill" data-background-style="none" data-direction="counter-clockwise"
+                data-warning-style="none" data-interval="20" data-interval-ticks="true" data-tick-color="#6ee7b7">
+            </div>
+        </div>
+
+        <div class="demo-card">
+            <div class="demo-tags">
+                <span class="tag orange">Fill · Circle</span>
+                <span class="tag">border-style: fill</span>
+                <span class="tag">clockwise</span>
+            </div>
+            <div data-countdown data-duration="60" data-shape="circle" data-border-color="#fb923c"
+                data-border-style="fill" data-background-style="none" data-direction="clockwise"
+                data-warning-style="none" data-interval="20" data-interval-ticks="true" data-tick-color="#fed7aa">
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- ════════════════════════════════════════════════════════════════════ -->
+    <!--  BACKGROUND STYLES                                                   -->
+    <!-- ════════════════════════════════════════════════════════════════════ -->
+    <div class="section-header">
+        <h3>Background Styles</h3>
+    </div>
+    <div class="demo-grid">
+
+        <div class="demo-card">
+            <div class="demo-tags">
+                <span class="tag accent">Fill Vertical</span>
+                <span class="tag">background-style: fill-v</span>
+                <span class="tag">rises as time passes</span>
+            </div>
+            <div data-countdown data-duration="60" data-shape="rectangle" data-border-color="#38bdf8"
+                data-bg-start-color="#38bdf8" data-bg-end-color="#0369a1" data-border-style="empty"
+                data-background-style="fill-v" data-direction="counter-clockwise" data-warning-style="none"
+                data-interval-ticks="false">
+            </div>
+        </div>
+
+        <div class="demo-card">
+            <div class="demo-tags">
+                <span class="tag purple">Empty Vertical</span>
+                <span class="tag">background-style: empty-v</span>
+                <span class="tag">drains downward</span>
+            </div>
+            <div data-countdown data-duration="60" data-shape="rectangle" data-border-color="#a78bfa"
+                data-bg-start-color="#a78bfa" data-bg-end-color="#4c1d95" data-border-style="empty"
+                data-background-style="empty-v" data-direction="counter-clockwise" data-warning-style="none"
+                data-interval-ticks="false">
+            </div>
+        </div>
+
+        <div class="demo-card">
+            <div class="demo-tags">
+                <span class="tag green">Fill Horizontal</span>
+                <span class="tag">background-style: fill-h</span>
+                <span class="tag">sweeps left to right</span>
+            </div>
+            <div data-countdown data-duration="60" data-shape="rectangle" data-border-color="#34d399"
+                data-bg-start-color="#34d399" data-bg-end-color="#065f46" data-border-style="empty"
+                data-background-style="fill-h" data-direction="counter-clockwise" data-warning-style="none"
+                data-interval-ticks="false">
+            </div>
+        </div>
+
+        <div class="demo-card">
+            <div class="demo-tags">
+                <span class="tag orange">Empty Horizontal</span>
+                <span class="tag">background-style: empty-h</span>
+                <span class="tag">wipes right to left</span>
+            </div>
+            <div data-countdown data-duration="60" data-shape="rectangle" data-border-color="#fb923c"
+                data-bg-start-color="#fb923c" data-bg-end-color="#7c2d12" data-border-style="empty"
+                data-background-style="empty-h" data-direction="counter-clockwise" data-warning-style="none"
+                data-interval-ticks="false">
+            </div>
+        </div>
+
+        <div class="demo-card">
+            <div class="demo-tags">
+                <span class="tag pink">Conic Fill</span>
+                <span class="tag">background-style: conic-f</span>
+                <span class="tag">rotates in as time passes</span>
+            </div>
+            <div data-countdown data-duration="60" data-shape="circle" data-border-color="#f472b6"
+                data-bg-start-color="#f472b6" data-bg-end-color="#831843" data-border-style="empty"
+                data-background-style="conic-f" data-direction="counter-clockwise" data-warning-style="none"
+                data-interval-ticks="false">
+            </div>
+        </div>
+
+        <div class="demo-card">
+            <div class="demo-tags">
+                <span class="tag yellow">Conic Empty</span>
+                <span class="tag">background-style: conic-e</span>
+                <span class="tag">sweeps out as time passes</span>
+            </div>
+            <div data-countdown data-duration="60" data-shape="circle" data-border-color="#fbbf24"
+                data-bg-start-color="#fbbf24" data-bg-end-color="#78350f" data-border-style="fill"
+                data-background-style="conic-e" data-direction="clockwise" data-warning-style="none"
+                data-interval-ticks="false">
+            </div>
+        </div>
+
+        <div class="demo-card">
+            <div class="demo-tags">
+                <span class="tag green">Conic · Triangle</span>
+                <span class="tag">background-style: conic-f</span>
+                <span class="tag">fill border combo</span>
+            </div>
+            <div data-countdown data-duration="60" data-shape="triangle" data-border-color="#34d399"
+                data-bg-start-color="#34d399" data-bg-end-color="#065f46" data-border-style="fill"
+                data-background-style="conic-f" data-direction="counter-clockwise" data-warning-style="none"
+                data-interval-ticks="false">
+            </div>
+        </div>
+
+        <div class="demo-card">
+            <div class="demo-tags">
+                <span class="tag pink">Fill-V · Heart</span>
+                <span class="tag">background-style: fill-v</span>
+                <span class="tag">no border</span>
+            </div>
+            <div data-countdown data-duration="60" data-shape="heart" data-border-color="#f472b6"
+                data-bg-start-color="#f472b6" data-bg-end-color="#9d174d" data-border-style="none"
+                data-background-style="fill-v" data-direction="counter-clockwise" data-warning-style="none"
+                data-interval-ticks="false">
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- ════════════════════════════════════════════════════════════════════ -->
+    <!--  WARNING STYLES                                                      -->
+    <!-- ════════════════════════════════════════════════════════════════════ -->
+    <div class="section-header">
+        <h3>Warning Styles (trigger at 20s remaining)</h3>
+    </div>
+    <div class="demo-grid">
+
+        <div class="demo-card">
+            <div class="demo-tags">
+                <span class="tag">No Warning</span>
+                <span class="tag">warning-style: none</span>
+            </div>
+            <div data-countdown data-duration="30" data-shape="rectangle" data-border-color="#64748b"
+                data-border-style="empty" data-background-style="none" data-direction="counter-clockwise"
+                data-warning-style="none" data-warning-threshold="20" data-warning-color="#ef4444"
+                data-interval-ticks="false">
+            </div>
+        </div>
+
+        <div class="demo-card">
+            <div class="demo-tags">
+                <span class="tag rose">Color Change</span>
+                <span class="tag">warning-style: color-only</span>
+                <span class="tag">border snaps to warning color</span>
+            </div>
+            <div data-countdown data-duration="30" data-shape="rectangle" data-border-color="#38bdf8"
+                data-warning-color="#ef4444" data-border-style="empty" data-background-style="none"
+                data-direction="counter-clockwise" data-warning-style="color-only" data-warning-threshold="20"
+                data-warning-beep="false" data-interval-ticks="false">
+            </div>
+        </div>
+
+        <div class="demo-card">
+            <div class="demo-tags">
+                <span class="tag orange">Pulse</span>
+                <span class="tag">warning-style: pulse</span>
+                <span class="tag">display bounces</span>
+            </div>
+            <div data-countdown data-duration="30" data-shape="rectangle" data-border-color="#38bdf8"
+                data-warning-color="#f97316" data-border-style="empty" data-background-style="none"
+                data-direction="counter-clockwise" data-warning-style="pulse" data-warning-threshold="20"
+                data-warning-beep="false" data-interval-ticks="false">
+            </div>
+        </div>
+
+        <div class="demo-card">
+            <div class="demo-tags">
+                <span class="tag yellow">Glow</span>
+                <span class="tag">warning-style: glow</span>
+                <span class="tag">intense drop-shadow pulses</span>
+            </div>
+            <div data-countdown data-duration="30" data-shape="circle" data-border-color="#a78bfa"
+                data-warning-color="#fbbf24" data-border-style="empty" data-background-style="none"
+                data-direction="counter-clockwise" data-warning-style="glow" data-warning-threshold="20"
+                data-warning-beep="false" data-interval-ticks="false">
+            </div>
+        </div>
+
+        <div class="demo-card">
+            <div class="demo-tags">
+                <span class="tag rose">Flash Fill</span>
+                <span class="tag">warning-style: fill-warn</span>
+                <span class="tag">background flashes warning color</span>
+            </div>
+            <div data-countdown data-duration="30" data-shape="rectangle" data-border-color="#38bdf8"
+                data-warning-color="#ef4444" data-bg-start-color="#38bdf8" data-bg-end-color="#0369a1"
+                data-border-style="empty" data-background-style="none" data-direction="counter-clockwise"
+                data-warning-style="fill-warn" data-warning-threshold="20" data-warning-beep="false"
+                data-interval-ticks="false">
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- ════════════════════════════════════════════════════════════════════ -->
+    <!--  COMBINED PRESETS                                                    -->
+    <!-- ════════════════════════════════════════════════════════════════════ -->
+    <div class="section-header">
+        <h3>Combined Presets</h3>
+    </div>
+    <div class="demo-grid">
+
+        <div class="demo-card">
+            <div class="demo-tags">
+                <span class="tag accent">Quiz Timer</span>
+                <span class="tag">rectangle · empty · pulse warn</span>
+                <span class="tag">beeps on intervals + warning</span>
+            </div>
+            <div data-countdown data-duration="90" data-shape="rectangle" data-border-color="#38bdf8"
+                data-warning-color="#ef4444" data-border-style="empty" data-background-style="none"
+                data-direction="counter-clockwise" data-warning-style="pulse" data-warning-threshold="10"
+                data-warning-beep="true" data-interval="30" data-interval-ticks="true" data-interval-beeps="true"
+                data-tick-color="#7dd3fc">
+            </div>
+        </div>
+
+        <div class="demo-card">
+            <div class="demo-tags">
+                <span class="tag green">Workout Interval</span>
+                <span class="tag">circle · conic fill · glow warn</span>
+                <span class="tag">clockwise · 10s intervals</span>
+            </div>
+            <div data-countdown data-duration="60" data-shape="circle" data-border-color="#34d399"
+                data-warning-color="#fbbf24" data-bg-start-color="#34d399" data-bg-end-color="#065f46"
+                data-border-style="fill" data-background-style="conic-f" data-direction="clockwise"
+                data-warning-style="glow" data-warning-threshold="10" data-warning-beep="true" data-interval="10"
+                data-interval-ticks="true" data-interval-beeps="true" data-tick-color="#a7f3d0">
+            </div>
+        </div>
+
+        <div class="demo-card">
+            <div class="demo-tags">
+                <span class="tag purple">Pomodoro</span>
+                <span class="tag">rectangle · horizontal drain</span>
+                <span class="tag">color-only warn · silent</span>
+            </div>
+            <div data-countdown data-duration="120" data-shape="rectangle" data-border-color="#818cf8"
+                data-warning-color="#f472b6" data-bg-start-color="#818cf8" data-bg-end-color="#3730a3"
+                data-border-style="empty" data-background-style="empty-h" data-direction="counter-clockwise"
+                data-warning-style="color-only" data-warning-threshold="20" data-warning-beep="false" data-interval="30"
+                data-interval-ticks="true" data-interval-beeps="false" data-tick-color="#c7d2fe">
+            </div>
+        </div>
+
+        <div class="demo-card">
+            <div class="demo-tags">
+                <span class="tag rose">Countdown to Zero</span>
+                <span class="tag">circle · conic empty · flash warn</span>
+                <span class="tag">everything enabled</span>
+            </div>
+            <div data-countdown data-duration="45" data-shape="circle" data-border-color="#fb7185"
+                data-warning-color="#fbbf24" data-bg-start-color="#fb7185" data-bg-end-color="#9f1239"
+                data-border-style="empty" data-background-style="conic-e" data-direction="counter-clockwise"
+                data-warning-style="fill-warn" data-warning-threshold="8" data-warning-beep="true" data-interval="15"
+                data-interval-ticks="true" data-interval-beeps="true" data-tick-color="#fda4af">
+            </div>
+        </div>
+
+        <div class="demo-card">
+            <div class="demo-tags">
+                <span class="tag yellow">Minimal Monochrome</span>
+                <span class="tag">rectangle · fill border · no bg</span>
+                <span class="tag">no ticks · no warning</span>
+            </div>
+            <div data-countdown data-duration="60" data-shape="rectangle" data-border-color="#e2e8f0"
+                data-border-style="fill" data-background-style="none" data-direction="counter-clockwise"
+                data-warning-style="none" data-interval-ticks="false" data-interval-beeps="false">
+            </div>
+        </div>
+
+        <div class="demo-card">
+            <div class="demo-tags">
+                <span class="tag pink">Heartbeat</span>
+                <span class="tag">heart · fill-v bg · pulse warn</span>
+                <span class="tag">fills as time runs out</span>
+            </div>
+            <div data-countdown data-duration="60" data-shape="heart" data-border-color="#f472b6"
+                data-warning-color="#ef4444" data-bg-start-color="#f472b6" data-bg-end-color="#9d174d"
+                data-border-style="empty" data-background-style="fill-v" data-direction="counter-clockwise"
+                data-warning-style="pulse" data-warning-threshold="10" data-warning-beep="true" data-interval="20"
+                data-interval-ticks="true" data-tick-color="#fbcfe8">
+            </div>
+        </div>
+
+        <div class="demo-card">
+            <div class="demo-tags">
+                <span class="tag orange">Sprint Countdown</span>
+                <span class="tag">triangle · fill-h bg · glow warn</span>
+                <span class="tag">clockwise · dense ticks</span>
+            </div>
+            <div data-countdown data-duration="30" data-shape="triangle" data-border-color="#fb923c"
+                data-warning-color="#ef4444" data-bg-start-color="#fb923c" data-bg-end-color="#7c2d12"
+                data-border-style="empty" data-background-style="fill-h" data-direction="clockwise"
+                data-warning-style="glow" data-warning-threshold="8" data-warning-beep="true" data-interval="5"
+                data-interval-ticks="true" data-interval-beeps="true" data-tick-color="#fed7aa">
+            </div>
+        </div>
+
+        <div class="demo-card">
+            <div class="demo-tags">
+                <span class="tag accent">Long Timer</span>
+                <span class="tag">rectangle · conic fill bg</span>
+                <span class="tag">color-only warn · 30s intervals</span>
+            </div>
+            <div data-countdown data-duration="300" data-shape="rectangle" data-border-color="#38bdf8"
+                data-warning-color="#ef4444" data-bg-start-color="#0ea5e9" data-bg-end-color="#1e3a5f"
+                data-border-style="empty" data-background-style="fill-v" data-direction="counter-clockwise"
+                data-warning-style="color-only" data-warning-threshold="30" data-warning-beep="false" data-interval="60"
+                data-interval-ticks="true" data-interval-beeps="true" data-tick-color="#7dd3fc">
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Initialize Countdowns -->
+    <script src="countdown.js"></script>
+
+    <!-- Filters & View Source Logic -->
+    <script>
+        const filterBar = document.getElementById('filterBar');
+        const demoCards = document.querySelectorAll('.demo-card');
+        const allTags = new Set();
+
+        // Extract all unique tags
+        demoCards.forEach(card => {
+            const tags = card.querySelectorAll('.tag');
+            tags.forEach(t => allTags.add(t.textContent.trim().toLowerCase()));
+        });
+
+        // Create filter buttons
+        const createBtn = (text, isAll = false) => {
+            const btn = document.createElement('button');
+            btn.textContent = text;
+            btn.className = 'filter-btn' + (isAll ? ' active' : '');
+            btn.onclick = () => filterDemos(text.toLowerCase());
+            filterBar.appendChild(btn);
+        }
+        createBtn('All', true);
+        Array.from(allTags).sort().forEach(tag => createBtn(tag));
+
+        function filterDemos(selectedTag) {
+            document.querySelectorAll('.filter-btn').forEach(b => {
+                b.classList.toggle('active', b.textContent.toLowerCase() === selectedTag);
+            });
+
+            demoCards.forEach(card => {
+                if (selectedTag === 'all') {
+                    card.style.display = 'flex';
+                } else {
+                    const hasTag = Array.from(card.querySelectorAll('.tag')).some(t => t.textContent.trim().toLowerCase() === selectedTag);
+                    card.style.display = hasTag ? 'flex' : 'none';
+                }
+            });
+        }
+
+        // Add view source buttons
+        const modal = document.createElement('div');
+        modal.className = 'source-modal';
+        modal.innerHTML = `
+            <div class="modal-content">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                    <h3 style="font-size: 0.9rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 2px;">Source Markup</h3>
+                    <button class="close-modal">&times;</button>
+                </div>
+                <textarea readonly id="sourceText"></textarea>
+            </div>
+        `;
+        document.body.appendChild(modal);
+
+        modal.querySelector('.close-modal').onclick = () => modal.classList.remove('active');
+        modal.onclick = (e) => { if (e.target === modal) modal.classList.remove('active'); };
+
+        demoCards.forEach(card => {
+            const btn = document.createElement('button');
+            btn.className = 'view-source-btn';
+            btn.textContent = '</>';
+            btn.title = 'View Source';
+
+            const targetDiv = card.querySelector('[data-countdown]');
+            if (!targetDiv) return;
+
+            btn.onclick = () => {
+                const clone = targetDiv.cloneNode(false);
+                let sourceHtml = clone.outerHTML.replace(/></g, '>\n</div>').replace(/ data-/g, '\n     data-');
+                document.getElementById('sourceText').value = sourceHtml;
+                modal.classList.add('active');
+            };
+
+            const tagsContainer = card.querySelector('.demo-tags');
+            if (tagsContainer) {
+                tagsContainer.appendChild(btn);
+            }
+        });
+    </script>
+</body>
+
+</html>
