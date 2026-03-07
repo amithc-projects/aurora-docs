@@ -1,263 +1,263 @@
-<!DOCTYPE html>
-<html lang="en">
+---
+title: "Countdown Configurator"
+description: "Interactive tool to visually generate markup for the Countdown Component."
+menu:
+  main:
+    parent: "components"
+    weight: 51
+---
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Countdown Configurator</title>
-    <style>
-        :root {
-            --bg-body: #080e1a;
-            --bg-panel: #111827;
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            --border-color: #1e293b;
-            --input-bg: #0f172a;
-            --input-border: #334155;
-            --accent: #38bdf8;
-            --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-        }
+Use the interactive configurator below to design your countdown timer and automatically generate the HTML markup!
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+<style>
+    .config-wrapper {
+        --c-bg-body: var(--ds-sys-color-surface-container-low, #080e1a);
+        --c-bg-panel: var(--ds-sys-color-surface, #111827);
+        --c-text-main: var(--ds-sys-color-on-surface, #f8fafc);
+        --c-text-muted: var(--ds-sys-color-on-surface-variant, #94a3b8);
+        --c-border: var(--ds-sys-color-border, #1e293b);
+        --c-input-bg: var(--ds-sys-color-surface-container-highest, #0f172a);
+        --c-input-border: var(--ds-sys-color-outline, #334155);
+        --c-accent: var(--ds-sys-color-primary, #38bdf8);
 
-        body {
-            font-family: var(--font-family);
-            background: var(--bg-body);
-            color: var(--text-main);
-            display: flex;
-            height: 100vh;
-            overflow: hidden;
-        }
+        display: flex;
+        height: 800px;
+        margin-top: 2rem;
+        border: 1px solid var(--c-border);
+        border-radius: var(--ds-sys-radius-card, 16px);
+        overflow: hidden;
+        background: var(--c-bg-body);
+        color: var(--c-text-main);
+        font-family: inherit;
+    }
 
-        /* ── Header / Sidebar Layout ── */
-        .sidebar {
-            width: 420px;
-            background: var(--bg-panel);
-            border-right: 1px solid var(--border-color);
-            padding: 2rem;
-            overflow-y: auto;
-            display: flex;
-            flex-direction: column;
-            gap: 2.5rem;
-        }
+    /* ── Header / Sidebar Layout ── */
+    .config-sidebar {
+        width: 380px;
+        background: var(--c-bg-panel);
+        border-right: 1px solid var(--c-border);
+        padding: 2rem;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 2.5rem;
+    }
 
-        .section {
-            display: flex;
-            flex-direction: column;
-            gap: 1.25rem;
-            padding-bottom: 2rem;
-            border-bottom: 1px solid var(--border-color);
-        }
+    .config-sidebar::-webkit-scrollbar {
+        width: 8px;
+    }
+    .config-sidebar::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    .config-sidebar::-webkit-scrollbar-thumb {
+        background: var(--c-border);
+        border-radius: 4px;
+    }
 
-        .section:last-child {
-            border-bottom: none;
-            padding-bottom: 0;
-        }
+    .config-section {
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid var(--c-border);
+    }
 
-        .section-title {
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 0.08em;
-            color: var(--text-muted);
-            text-transform: uppercase;
-        }
+    .config-section:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+    }
 
-        .row {
-            display: flex;
-            gap: 1rem;
-        }
+    .config-title {
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        color: var(--c-text-muted);
+        text-transform: uppercase;
+    }
 
-        .row>* {
-            flex: 1;
-            min-width: 0;
-            /* allows flex items to shrink */
-        }
+    .config-row {
+        display: flex;
+        gap: 1rem;
+    }
 
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
+    .config-row > * {
+        flex: 1;
+        min-width: 0;
+    }
 
-        .form-group.hidden {
-            display: none;
-        }
+    .config-group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .config-group.hidden {
+        display: none;
+    }
 
-        label {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
+    .config-group label {
+        font-size: 0.85rem;
+        color: var(--c-text-muted);
+        margin: 0;
+    }
 
-        input[type="text"],
-        input[type="number"],
-        select {
-            width: 100%;
-            background: var(--input-bg);
-            border: 1px solid var(--input-border);
-            color: var(--text-main);
-            padding: 0.6rem 0.75rem;
-            border-radius: 6px;
-            font-family: var(--font-family);
-            font-size: 0.9rem;
-            outline: none;
-            transition: border-color 0.2s;
-        }
+    .config-wrapper input[type="text"],
+    .config-wrapper input[type="number"],
+    .config-wrapper select {
+        width: 100%;
+        background: var(--c-input-bg);
+        border: 1px solid var(--c-input-border);
+        color: var(--c-text-main);
+        padding: 0.6rem 0.75rem;
+        border-radius: 6px;
+        font-family: inherit;
+        font-size: 0.9rem;
+        outline: none;
+        transition: border-color 0.2s;
+    }
 
-        input[type="text"]:focus,
-        input[type="number"]:focus,
-        select:focus {
-            border-color: var(--accent);
-        }
+    .config-wrapper input[type="text"]:focus,
+    .config-wrapper input[type="number"]:focus,
+    .config-wrapper select:focus {
+        border-color: var(--c-accent);
+    }
 
-        input[type="color"] {
-            appearance: none;
-            -webkit-appearance: none;
-            border: none;
-            width: 100%;
-            height: 38px;
-            border-radius: 6px;
-            cursor: pointer;
-            padding: 0;
-            background: var(--input-bg);
-            border: 1px solid var(--input-border);
-        }
+    .config-wrapper input[type="color"] {
+        appearance: none;
+        -webkit-appearance: none;
+        border: none;
+        width: 100%;
+        height: 38px;
+        border-radius: 6px;
+        cursor: pointer;
+        padding: 0;
+        background: var(--c-input-bg);
+        border: 1px solid var(--c-input-border);
+    }
 
-        input[type="color"]::-webkit-color-swatch-wrapper {
-            padding: 2px;
-        }
+    .config-wrapper input[type="color"]::-webkit-color-swatch-wrapper {
+        padding: 2px;
+    }
 
-        input[type="color"]::-webkit-color-swatch {
-            border: none;
-            border-radius: 4px;
-        }
+    .config-wrapper input[type="color"]::-webkit-color-swatch {
+        border: none;
+        border-radius: 4px;
+    }
 
-        .checkbox-group {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-top: 0.25rem;
-        }
+    .config-checkbox-group {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-top: 0.25rem;
+    }
 
-        .checkbox-group label {
-            cursor: pointer;
-            color: var(--text-main);
-            font-size: 0.9rem;
-            user-select: none;
-        }
+    .config-checkbox-group label {
+        cursor: pointer;
+        color: var(--c-text-main);
+        font-size: 0.9rem;
+        user-select: none;
+        margin: 0;
+    }
 
-        input[type="checkbox"] {
-            accent-color: var(--accent);
-            width: 16px;
-            height: 16px;
-            cursor: pointer;
-        }
+    .config-wrapper input[type="checkbox"] {
+        accent-color: var(--c-accent);
+        width: 16px;
+        height: 16px;
+        cursor: pointer;
+    }
 
-        /* ── Main Area ── */
-        .main-content {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            background: var(--bg-body);
-        }
+    /* ── Main Area ── */
+    .config-main {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        background: var(--c-bg-body);
+    }
 
-        .preview-area {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            padding: 2rem;
-            overflow: auto;
-        }
+    .config-preview {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        padding: 2rem;
+        overflow: auto;
+    }
 
-        .export-area {
-            height: 280px;
-            background: var(--bg-panel);
-            border-top: 1px solid var(--border-color);
-            padding: 1.5rem 2rem;
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
+    .config-export {
+        height: 280px;
+        background: var(--c-bg-panel);
+        border-top: 1px solid var(--c-border);
+        padding: 1.5rem 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
 
-        .export-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+    .export-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 
-        .export-title {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            font-weight: 700;
-        }
+    .export-title {
+        font-size: 0.75rem;
+        color: var(--c-text-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-weight: 700;
+        margin: 0;
+    }
 
-        .copy-btn {
-            background: var(--input-border);
-            color: var(--text-main);
-            border: none;
-            padding: 0.4rem 0.8rem;
-            border-radius: 4px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
+    .config-copy-btn {
+        background: var(--c-input-border);
+        color: var(--c-text-main);
+        border: none;
+        padding: 0.4rem 0.8rem;
+        border-radius: 4px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.2s;
+    }
 
-        .copy-btn:hover {
-            background: var(--text-muted);
-        }
+    .config-copy-btn:hover {
+        background: var(--c-text-muted);
+    }
 
-        .copy-btn:active {
-            transform: scale(0.95);
-        }
+    .config-copy-btn:active {
+        transform: scale(0.95);
+    }
 
-        textarea {
-            flex: 1;
-            background: var(--input-bg);
-            border: 1px solid var(--input-border);
-            color: var(--accent);
-            padding: 1.25rem;
-            border-radius: 6px;
-            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-            font-size: 0.85rem;
-            line-height: 1.5;
-            resize: none;
-            outline: none;
-            white-space: pre;
-            overflow: auto;
-        }
-    </style>
-</head>
+    .config-wrapper textarea {
+        flex: 1;
+        background: var(--c-input-bg);
+        border: 1px solid var(--c-input-border);
+        color: var(--c-accent);
+        padding: 1.25rem;
+        border-radius: 6px;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-size: 0.85rem;
+        line-height: 1.5;
+        resize: none;
+        outline: none;
+        white-space: pre;
+        overflow: auto;
+    }
+</style>
 
-<body>
-
+<div class="config-wrapper">
     <!-- SIDEBAR -->
-    <div class="sidebar">
-
-        <div class="sidebar-header"
-            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: -1rem;">
-            <h2 style="font-size: 1.1rem; color: var(--text-main); margin: 0;">Configurator</h2>
-            <button id="themeToggle"
-                style="background: none; border: 1px solid var(--input-border); color: var(--text-muted); cursor: pointer; padding: 0.3rem 0.6rem; border-radius: 4px; font-size: 0.75rem;">Light
-                Mode</button>
-        </div>
-
+    <div class="config-sidebar">
         <!-- CORE -->
-        <div class="section">
-            <div class="section-title">Core Configuration</div>
-            <div class="row">
-                <div class="form-group">
+        <div class="config-section">
+            <div class="config-title">Core Configuration</div>
+            <div class="config-row">
+                <div class="config-group">
                     <label>Total Seconds</label>
                     <input type="number" id="inDuration" value="10" min="1">
                 </div>
-                <div class="form-group">
+                <div class="config-group">
                     <label>Border Shape</label>
                     <select id="inShape">
                         <option value="rectangle">Rectangle</option>
@@ -269,23 +269,22 @@
                     </select>
                 </div>
             </div>
-            <div class="row">
-                <div class="form-group">
+            <div class="config-row">
+                <div class="config-group">
                     <label>Width (px)</label>
                     <input type="number" id="inWidth" placeholder="Auto" min="50">
                 </div>
-                <div class="form-group">
+                <div class="config-group">
                     <label>Height (px)</label>
                     <input type="number" id="inHeight" placeholder="Auto" min="50">
                 </div>
             </div>
-            <div class="form-group hidden" id="customPathGroup">
+            <div class="config-group hidden" id="customPathGroup">
                 <label>Custom SVG Path (d)</label>
-                <input type="text" id="inCustomPath"
-                    value="M 130 10 L 174 69 L 244 93 L 201 153 L 200 227 L 130 205 L 60 227 L 59 153 L 16 93 L 86 69 Z">
+                <input type="text" id="inCustomPath" value="M 130 10 L 174 69 L 244 93 L 201 153 L 200 227 L 130 205 L 60 227 L 59 153 L 16 93 L 86 69 Z">
             </div>
-            <div class="row">
-                <div class="form-group">
+            <div class="config-row">
+                <div class="config-group">
                     <label>Time Format</label>
                     <select id="inTimeFormat">
                         <option value="MM:SS">00:00 (MM:SS)</option>
@@ -293,54 +292,52 @@
                         <option value="S">0 (Seconds Only)</option>
                     </select>
                 </div>
-                <div class="form-group">
+                <div class="config-group">
                     <label>Completion Text</label>
                     <input type="text" id="inCompleteText" placeholder="e.g. Done!">
                 </div>
             </div>
-            <div class="row" style="margin-top: 0.5rem;">
-                <div class="form-group">
+            <div class="config-row" style="margin-top: 0.5rem;">
+                <div class="config-group">
                     <label>Border Color</label>
                     <input type="color" id="inBorderColor" value="#38bdf8">
                 </div>
-
             </div>
         </div>
 
         <!-- BACKGROUND -->
-        <div class="section">
-            <div class="section-title">Background Colors</div>
-            <div class="row">
-                <div class="form-group">
+        <div class="config-section">
+            <div class="config-title">Background Colors</div>
+            <div class="config-row">
+                <div class="config-group">
                     <label>Bg Start</label>
                     <input type="color" id="inBgStartColor" value="#38bdf8">
                 </div>
-                <div class="form-group">
+                <div class="config-group">
                     <label>Bg End</label>
                     <input type="color" id="inBgEndColor" value="#1d4ed8">
                 </div>
-                <div class="form-group">
+                <div class="config-group">
                     <label>Clock Bg</label>
-                    <input type="text" id="inBgColor" value="transparent" placeholder="transparent"
-                        style="font-size: 0.8rem;">
+                    <input type="text" id="inBgColor" value="transparent" placeholder="transparent" style="font-size: 0.8rem;">
                 </div>
             </div>
         </div>
 
         <!-- BEHAVIOR & STYLE -->
-        <div class="section">
-            <div class="section-title">Behavior & Style</div>
-            <div class="row">
-                <div class="form-group">
-                    <label>Border Animation</label>
+        <div class="config-section">
+            <div class="config-title">Behavior & Style</div>
+            <div class="config-row">
+                <div class="config-group">
+                    <label>Border Anim</label>
                     <select id="inBorderStyle">
                         <option value="empty">Empty Border</option>
                         <option value="fill">Fill Border</option>
                         <option value="none">None</option>
                     </select>
                 </div>
-                <div class="form-group">
-                    <label>Background Animation</label>
+                <div class="config-group">
+                    <label>Bg Anim</label>
                     <select id="inBackgroundStyle">
                         <option value="none">None</option>
                         <option value="fill-v">Fill Vertical</option>
@@ -352,16 +349,16 @@
                     </select>
                 </div>
             </div>
-            <div class="form-group">
+            <div class="config-group">
                 <label>Direction</label>
                 <select id="inDirection">
                     <option value="clockwise">Clockwise</option>
                     <option value="counter-clockwise">Counter-Clockwise</option>
                 </select>
             </div>
-            <div class="row" style="margin-top: 0.5rem;">
-                <div class="form-group">
-                    <label>Marker Position</label>
+            <div class="config-row" style="margin-top: 0.5rem;">
+                <div class="config-group">
+                    <label>Marker Pos</label>
                     <select id="inMarkerPosition">
                         <option value="both">Both</option>
                         <option value="inside">Inside</option>
@@ -369,63 +366,63 @@
                         <option value="none">None</option>
                     </select>
                 </div>
-                <div class="form-group">
-                    <label>Marker Color</label>
+                <div class="config-group">
+                    <label>Marker</label>
                     <input type="color" id="inMarkerColor" value="#ffffff">
                 </div>
             </div>
         </div>
 
         <!-- WARNING -->
-        <div class="section">
-            <div class="section-title">Warning Settings</div>
-            <div class="row">
-                <div class="form-group">
+        <div class="config-section">
+            <div class="config-title">Warning Settings</div>
+            <div class="config-row">
+                <div class="config-group">
                     <label>Warning Style</label>
                     <select id="inWarningStyle">
-                        <option value="none">None (No Change)</option>
+                        <option value="none">None</option>
                         <option value="color-only">Color Change</option>
                         <option value="pulse">Pulse</option>
                         <option value="glow">Glow</option>
                         <option value="fill-warn">Flash Fill</option>
                     </select>
                 </div>
-                <div class="form-group">
-                    <label>Threshold (Sec)</label>
+                <div class="config-group">
+                    <label>Threshold</label>
                     <input type="number" id="inWarningThreshold" value="5" min="1">
                 </div>
             </div>
-            <div class="checkbox-group">
+            <div class="config-checkbox-group">
                 <input type="checkbox" id="inWarningBeep" checked>
                 <label for="inWarningBeep">Warning Beep</label>
             </div>
-            <div class="form-group">
+            <div class="config-group">
                 <label>Warning Color</label>
                 <input type="color" id="inWarningColor" value="#ef4444">
             </div>
         </div>
 
         <!-- PACING -->
-        <div class="section">
-            <div class="section-title">Pacing Intervals</div>
-            <div class="row">
-                <div class="form-group">
+        <div class="config-section">
+            <div class="config-title">Pacing Intervals</div>
+            <div class="config-row">
+                <div class="config-group">
                     <label>Interval (Sec)</label>
                     <input type="number" id="inInterval" value="2" min="0">
                 </div>
-                <div class="form-group">
+                <div class="config-group">
                     <label>Dot Color</label>
                     <input type="color" id="inTickColor" value="#ffffff">
                 </div>
             </div>
-            <div class="row" style="margin-top: 0.5rem;">
-                <div class="checkbox-group">
+            <div class="config-row" style="margin-top: 0.5rem;">
+                <div class="config-checkbox-group">
                     <input type="checkbox" id="inIntervalTicks" checked>
-                    <label for="inIntervalTicks">Interval Ticks (Dots)</label>
+                    <label for="inIntervalTicks">Dots</label>
                 </div>
-                <div class="checkbox-group">
+                <div class="config-checkbox-group">
                     <input type="checkbox" id="inIntervalBeeps" checked>
-                    <label for="inIntervalBeeps">Interval Beeps</label>
+                    <label for="inIntervalBeeps">Beeps</label>
                 </div>
             </div>
         </div>
@@ -433,24 +430,23 @@
     </div>
 
     <!-- MAIN BODY -->
-    <div class="main-content">
-        <div class="preview-area" id="previewContainer">
+    <div class="config-main">
+        <div class="config-preview" id="previewContainer">
             <!-- Dynamically injected via JS -->
         </div>
 
-        <div class="export-area">
+        <div class="config-export">
             <div class="export-header">
-                <div class="export-title">Export Markup</div>
-                <button class="copy-btn" id="copyBtn">Copy to Clipboard</button>
+                <h3 class="export-title">Export Markup</h3>
+                <button class="config-copy-btn" id="copyBtn">Copy HTML</button>
             </div>
             <textarea id="markupOutput" readonly></textarea>
         </div>
     </div>
+</div>
 
-    <!-- Include the countdown script -->
-    <script src="countdown.js"></script>
-
-    <script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
         const els = {
             duration: document.getElementById('inDuration'),
             width: document.getElementById('inWidth'),
@@ -559,32 +555,6 @@
             }
         });
 
-        // Theme logic
-        const themeBtn = document.getElementById('themeToggle');
-        let isDark = true;
-        themeBtn.addEventListener('click', () => {
-            isDark = !isDark;
-            themeBtn.textContent = isDark ? 'Light Mode' : 'Dark Mode';
-            const root = document.documentElement;
-            if (isDark) {
-                root.style.setProperty('--bg-body', '#080e1a');
-                root.style.setProperty('--bg-panel', '#111827');
-                root.style.setProperty('--text-main', '#f8fafc');
-                root.style.setProperty('--text-muted', '#94a3b8');
-                root.style.setProperty('--border-color', '#1e293b');
-                root.style.setProperty('--input-bg', '#0f172a');
-                root.style.setProperty('--input-border', '#334155');
-            } else {
-                root.style.setProperty('--bg-body', '#f1f5f9');
-                root.style.setProperty('--bg-panel', '#ffffff');
-                root.style.setProperty('--text-main', '#0f172a');
-                root.style.setProperty('--text-muted', '#64748b');
-                root.style.setProperty('--border-color', '#e2e8f0');
-                root.style.setProperty('--input-bg', '#ffffff');
-                root.style.setProperty('--input-border', '#cbd5e1');
-            }
-        });
-
         // Setup copy output logic
         els.copyBtn.addEventListener('click', () => {
             els.markupOutput.select();
@@ -595,9 +565,6 @@
         });
 
         // Initialize directly when script fires
-        updatePreview();
-    </script>
-
-</body>
-
-</html>
+        setTimeout(updatePreview, 100);
+    });
+</script>

@@ -2,6 +2,10 @@
 title: "Accordion"
 description: "Expandable sections with clean HTML."
 category: "Components"
+menu:
+  main:
+    parent: "components"
+    weight: 20
 ---
 
 ## Clean Markup

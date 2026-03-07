@@ -20,6 +20,8 @@
 @import "patterns/filter.css";
 @import "components/accordion.css";
 @import "components/countdown.css";
+@import "components/drawer.css";
+@import "components/tabs.css";
 @import "patterns/wizard.css";
 @import "layouts/masonry.css";
 @import "layouts/pinterest.css";
