@@ -177,4 +177,19 @@
   --ds-cmp-nav-bottom-border: 1px solid var(--ds-sys-color-border);
   --ds-cmp-nav-bottom-height: 4.5rem;
   --ds-cmp-nav-bottom-fab-size: 3.5rem;
+
+  /* VIRTUAL KEYBOARD */
+  --ds-cmp-vk-bg: var(--ds-sys-color-surface-container-low);
+  --ds-cmp-vk-key-bg: var(--ds-sys-color-surface);
+  --ds-cmp-vk-key-text: var(--ds-sys-color-on-surface);
+  --ds-cmp-vk-key-border: 1px solid var(--ds-sys-color-border);
+  --ds-cmp-vk-key-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --ds-cmp-vk-key-radius: var(--ds-sys-radius-btn);
+  --ds-cmp-vk-key-active-bg: var(--ds-sys-color-surface-container-highest);
+
+  --ds-cmp-vk-key-disabled-bg: color-mix(in srgb, var(--ds-sys-color-surface-container-highest), transparent 40%);
+  --ds-cmp-vk-key-disabled-text: var(--ds-sys-color-on-surface-variant);
+
+  --ds-cmp-vk-key-positive-bg: var(--ds-sys-color-success);
+  --ds-cmp-vk-key-positive-text: var(--ds-sys-color-on-primary);
 }
