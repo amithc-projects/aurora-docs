@@ -208,4 +208,13 @@
   --ds-cmp-tree-active-text: var(--ds-sys-color-primary);
   --ds-cmp-tree-line: var(--ds-sys-color-border);
   --ds-cmp-tree-icon: var(--ds-sys-color-on-surface-variant);
+
+  /* SEGMENTED CONTROL */
+  --ds-cmp-seg-bg: var(--ds-sys-color-surface-container-high);
+  --ds-cmp-seg-active-bg: var(--ds-sys-color-surface);
+  --ds-cmp-seg-active-shadow: var(--ds-sys-shadow-sm);
+  --ds-cmp-seg-text: var(--ds-sys-color-on-surface-variant);
+  --ds-cmp-seg-active-text: var(--ds-sys-color-on-surface);
+  --ds-cmp-seg-padding: 0.25rem;
+  --ds-cmp-seg-radius: var(--ds-sys-radius-btn);
 }
