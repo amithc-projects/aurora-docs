@@ -32,6 +32,14 @@ export class AuroraVideoPlayer {
             this.container.classList.add('is-controls-visible'); // Start visible to prompt user
         }
 
+        // Apply custom start time if specified
+        const startTime = this.video.getAttribute('data-start-time');
+        if (startTime) {
+            this.video.addEventListener('loadedmetadata', () => {
+                this.video.currentTime = parseFloat(startTime);
+            }, { once: true });
+        }
+
         this.bindEvents();
     }
 

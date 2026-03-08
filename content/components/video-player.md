@@ -15,14 +15,24 @@ The primary capability of the Video Player is its absolute layout freedom. By pr
 
 ## Configuration Options
 
+**Layout Configurations:**
 - `data-controls-position="overlay | external"`
 - `data-controls-align="center | top | bottom | left | right"`
 - `data-controls-orientation="horizontal | vertical"`
 
+**Media Configurations:**
+- `data-start-time="15"` (Skips exactly 15 seconds into the video on load)
+- Standard HTML `<video>` attributes are fully supported gracefully:
+  - `poster="/images/thumbnail.jpg"` (Shows an image before playing)
+  - `loop` (Repeats automatically)
+  - `autoplay` & `muted`
+
 ---
 
-## 1. Floating Center Controls (YouTube Style)
+## 1. Floating Center Controls & Posters
 By setting `data-controls-position="overlay"` and `data-controls-align="center"`, the player assumes a smart auto-hiding state. 
+
+- This example also features a `poster="..."` image, and utilizes `data-start-time="30"` on the `<video>` tag to skip the intro instantly!
 
 - **Tapping the Video** pauses playback and cleanly fades the controls in.
 - **Tapping Play** resumes the video and smoothly fades the controls out, providing an unobstructed viewport.
@@ -30,8 +40,8 @@ By setting `data-controls-position="overlay"` and `data-controls-align="center"`
 {{< demo >}}
 <div style="max-width: 600px; margin: 0 auto;">
     <div class="video-player" data-controls-position="overlay" data-controls-align="center">
-        <!-- Native attributes still work! -->
-        <video poster="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/BigBuckBunny.jpg" preload="metadata">
+        <!-- Native attributes still work, alongside our custom JS utilities! -->
+        <video poster="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/BigBuckBunny.jpg" data-start-time="15" preload="metadata">
             <source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
         </video>
 
