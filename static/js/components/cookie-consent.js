@@ -6,6 +6,7 @@
 export function initCookieConsent(config = {}) {
   const defaults = {
     mode: 'banner-bottom', // banner-top, banner-bottom, toast, modal
+    backdropBlur: false, // Forces the backdrop to appear blocking the page
     policyUrl: '#',
     version: '1.0', // Bump this to force re-consent
     categories: [
@@ -17,7 +18,7 @@ export function initCookieConsent(config = {}) {
 
   const settings = { ...defaults, ...config };
   const STORAGE_KEY = 'aurora_cookie_consent';
-  
+
   // DOM Elements
   let container, backdrop, prefsModal;
 
@@ -44,7 +45,7 @@ export function initCookieConsent(config = {}) {
     container = document.createElement('div');
     container.className = 'cookie-consent';
     container.dataset.mode = settings.mode;
-    
+
     container.innerHTML = `
       <div class="cookie-content">
         <span class="cookie-title">🍪 We use cookies</span>
@@ -92,7 +93,7 @@ export function initCookieConsent(config = {}) {
     // Listeners
     container.querySelector('.js-accept').addEventListener('click', acceptAll);
     container.querySelector('.js-manage').addEventListener('click', openPrefs);
-    
+
     prefsModal.querySelector('.js-close-prefs').addEventListener('click', closePrefs);
     prefsModal.querySelector('.js-save-prefs').addEventListener('click', savePrefs);
   }
@@ -100,11 +101,11 @@ export function initCookieConsent(config = {}) {
   // 3. Actions
   function showPrompt() {
     buildUI(); // Ensure elements exist
-    
+
     // Tiny delay for animation
     setTimeout(() => {
       container.classList.add('is-visible');
-      if (settings.mode === 'modal') backdrop.classList.add('is-visible');
+      if (settings.mode === 'modal' || settings.backdropBlur) backdrop.classList.add('is-visible');
     }, 100);
   }
 
@@ -125,7 +126,7 @@ export function initCookieConsent(config = {}) {
     // If we haven't consented yet, show banner again
     if (!localStorage.getItem(STORAGE_KEY)) {
       container.classList.add('is-visible');
-      if (settings.mode !== 'modal') backdrop.classList.remove('is-visible');
+      if (settings.mode !== 'modal' && !settings.backdropBlur) backdrop.classList.remove('is-visible');
     }
   }
 
@@ -154,7 +155,7 @@ export function initCookieConsent(config = {}) {
       categories: categories
     };
     localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
-    
+
     hidePrompt();
     applyConsent(categories);
   }
@@ -162,10 +163,10 @@ export function initCookieConsent(config = {}) {
   // 4. Script Gating (The Magic)
   function applyConsent(allowedCategories) {
     console.log("🍪 Consent Applied:", allowedCategories);
-    
+
     // Find all <script type="text/plain" data-category="...">
     const gatedScripts = document.querySelectorAll('script[type="text/plain"][data-category]');
-    
+
     gatedScripts.forEach(script => {
       const cat = script.dataset.category;
       if (allowedCategories.includes(cat)) {
@@ -174,7 +175,7 @@ export function initCookieConsent(config = {}) {
         newScript.type = 'text/javascript';
         if (script.src) newScript.src = script.src;
         if (script.innerHTML) newScript.innerHTML = script.innerHTML;
-        
+
         // Replace old with new
         script.parentNode.insertBefore(newScript, script);
         script.remove(); // Cleanup

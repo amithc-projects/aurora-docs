@@ -19,11 +19,12 @@ This component handles the UI, state management, and **Script Gating**.
 Click the buttons below to **reset your local storage** and trigger different layouts.
 
 {{< demo >}}
-<div >
+<div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
   <button class="btn" onclick="triggerCookie('banner-bottom')">Test: Bottom Banner</button>
   <button class="btn" onclick="triggerCookie('banner-top')">Test: Top Banner</button>
   <button class="btn" onclick="triggerCookie('toast')">Test: Corner Toast</button>
   <button class="btn" onclick="triggerCookie('modal')">Test: Center Modal</button>
+  <button class="btn" style="background: var(--ds-sys-color-primary); color: white;" onclick="triggerCookie('banner-bottom', true)">Test: Blur Banner</button>
 </div>
 
 <script type="text/plain" data-category="analytics">
@@ -35,12 +36,13 @@ Click the buttons below to **reset your local storage** and trigger different la
   import { initCookieConsent } from "/aurora-docs/js/components/cookie-consent.js";
 
   // Expose for demo buttons
-  window.triggerCookie = (mode) => {
+  window.triggerCookie = (mode, blur = false) => {
     localStorage.removeItem('aurora_cookie_consent'); // Reset
     document.querySelectorAll('.cookie-consent, .cookie-backdrop, .cookie-prefs').forEach(e => e.remove()); // Cleanup DOM
     
     initCookieConsent({
       mode: mode,
+      backdropBlur: blur,
       policyUrl: '/privacy-policy',
       version: '1.2'
     });
