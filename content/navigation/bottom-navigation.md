@@ -18,6 +18,9 @@ A standard navigation bar perfect for mobile apps. It uses `position: fixed` to 
 .demo-nav-bottom-wrapper {
 position: relative;
 height: 300px;
+width: 100%;
+max-width: 400px;
+min-width: 320px;
 background: var(--ds-sys-color-surface-container-highest);
 overflow: hidden;
 border-radius: var(--ds-sys-radius-card);
