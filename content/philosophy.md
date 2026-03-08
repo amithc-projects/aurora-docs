@@ -34,5 +34,5 @@ We follow the **Atomic Design** methodology to create a robust, resilient design
 ---
 
 ### Related Documentation
-* [Explore Components](/components/buttons)
-* [View Layouts](/layouts/dashboard)
+* [Explore Components](/aurora-docs/components)
+* [View Layouts](/aurora-docs/layouts)

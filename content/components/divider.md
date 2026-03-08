@@ -1,5 +1,6 @@
 ---
 title: "Divider"
+description: "A thin rule that separates content into visual groups."
 menu:
   main:
     parent: "components"

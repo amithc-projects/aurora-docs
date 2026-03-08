@@ -1,5 +1,6 @@
 ---
 title: "Spinner"
+description: "A circular, indeterminate loading indicator used to show background activity."
 menu:
   main:
     parent: "components"
