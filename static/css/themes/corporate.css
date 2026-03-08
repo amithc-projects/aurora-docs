@@ -160,5 +160,13 @@
 
 
 
-  --ds-cmp-table-stripe: light-dark(lightgray, darkgray)
+  --ds-cmp-table-stripe: light-dark(lightgray, darkgray);
+
+  /* BLOCKQUOTE */
+  --ds-cmp-blockquote-border-color: var(--ds-sys-color-primary);
+  --ds-cmp-blockquote-bg: var(--ds-sys-color-surface-container-low, color-mix(in srgb, var(--ds-sys-color-surface), var(--ds-sys-color-bg-app) 50%));
+  --ds-cmp-blockquote-text-color: var(--ds-sys-color-on-surface);
+  --ds-cmp-blockquote-font-style: italic;
+  --ds-cmp-blockquote-font-weight: 600;
+  --ds-cmp-blockquote-border-width: 4px;
 }
