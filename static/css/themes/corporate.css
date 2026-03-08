@@ -199,4 +199,13 @@
   --ds-cmp-splitter-hover: var(--ds-sys-color-primary);
   --ds-cmp-splitter-knob: var(--ds-sys-color-surface);
   --ds-cmp-splitter-knob-shadow: var(--ds-sys-shadow-sm);
+
+  /* TREE VIEW */
+  --ds-cmp-tree-indent: 1.5rem;
+  --ds-cmp-tree-color: var(--ds-sys-color-on-surface);
+  --ds-cmp-tree-hover: var(--ds-sys-color-surface-container-highest);
+  --ds-cmp-tree-active: color-mix(in srgb, var(--ds-sys-color-primary), transparent 90%);
+  --ds-cmp-tree-active-text: var(--ds-sys-color-primary);
+  --ds-cmp-tree-line: var(--ds-sys-color-border);
+  --ds-cmp-tree-icon: var(--ds-sys-color-on-surface-variant);
 }
