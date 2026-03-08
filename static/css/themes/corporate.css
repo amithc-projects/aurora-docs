@@ -169,4 +169,12 @@
   --ds-cmp-blockquote-font-style: italic;
   --ds-cmp-blockquote-font-weight: 600;
   --ds-cmp-blockquote-border-width: 4px;
+
+  /* BOTTOM NAV */
+  --ds-cmp-nav-bottom-bg: var(--ds-sys-color-surface);
+  --ds-cmp-nav-bottom-color: var(--ds-sys-color-on-surface-variant);
+  --ds-cmp-nav-bottom-active-color: var(--ds-sys-color-primary);
+  --ds-cmp-nav-bottom-border: 1px solid var(--ds-sys-color-border);
+  --ds-cmp-nav-bottom-height: 4.5rem;
+  --ds-cmp-nav-bottom-fab-size: 3.5rem;
 }

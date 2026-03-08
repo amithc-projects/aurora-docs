@@ -13,6 +13,7 @@
 
 /* --- LAYOUT --- */
 @import url('components/layout/navigation/navigation.css');
+@import url('components/layout/navigation/nav-bottom.css');
 @import url('components/layout/hero/hero.css');
 @import url('components/layout/footer/footer.css');
 @import url('components/layout/sidebar/sidebar.css');
