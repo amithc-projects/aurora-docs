@@ -1,159 +1,204 @@
 /* ACCORDION COMPONENT
    Structure: 
-   <ul class="accordion">
-     <li>
-       <details>
-         <summary>Title</summary>
-         <div>Content</div>
-       </details>
-     </li>
-   </ul>
+   <div class="accordion">
+     <div class="accordion-item">
+       <h3>
+         <button class="accordion-trigger" aria-expanded="true" aria-controls="panel1">
+           Title <span class="material-symbols-outlined accordion-icon">expand_more</span>
+         </button>
+       </h3>
+       <div class="accordion-panel is-open" id="panel1" role="region">
+         <div class="accordion-body">
+           <div class="accordion-inner">Content</div>
+         </div>
+       </div>
+     </div>
+   </div>
 */
 
 .accordion {
-  /* GLOBAL ANIMATION SPEED CONTROL */
-  --ds-accordion-speed: var(--ds-motion-norm, 0.3s);
-  --ds-accordion-ease: var(--ds-ease-out, ease-out);
+  display: flex;
+  flex-direction: column;
+}
 
-  list-style: none;
-  padding: 0;
-  margin: 2rem 0;
-  border: 1px solid var(--ds-sys-color-border);
-  border-radius: var(--ds-sys-radius-card);
+.accordion-item {
+  border: var(--ds-cmp-accordion-border, 1px solid var(--ds-sys-color-border));
+  border-radius: var(--ds-cmp-accordion-radius, var(--ds-sys-radius-card));
   overflow: hidden;
-  background: var(--ds-sys-color-surface);
+  margin-bottom: 0.5rem;
+  background: var(--ds-cmp-accordion-bg, var(--ds-sys-color-surface));
 }
 
-/* CHILD SELECTOR: No class needed on LI */
-.accordion > li {
-  border-bottom: 1px solid var(--ds-sys-color-border);
+.accordion-item:last-child {
+  margin-bottom: 0;
 }
 
-.accordion > li:last-child {
-  border-bottom: none;
-}
-
-/* HEADER */
-.accordion details > summary {
-  padding: 1rem 1.5rem;
-  cursor: pointer;
-  font-weight: 600;
-  list-style: none;
+.accordion-trigger {
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: var(--ds-sys-color-surface);
-  transition: background 0.2s;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  background: var(--ds-cmp-accordion-bg, var(--ds-sys-color-surface));
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
   color: var(--ds-sys-color-on-surface);
-  user-select: none; 
+  text-align: left;
+  transition: background 120ms;
 }
 
-.accordion details > summary::-webkit-details-marker {
-  display: none;
+/* Ensure any headings wrapping the trigger don't add margin */
+.accordion-item h2,
+.accordion-item h3,
+.accordion-item h4,
+.accordion-item h5,
+.accordion-item h6 {
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
 }
 
-.accordion details > summary:hover {
-  background: var(--ds-sys-color-surface-variant);
+.accordion-trigger:hover {
+  background: var(--ds-cmp-accordion-hover-bg, var(--ds-sys-color-surface-variant));
 }
 
-/* ICON */
-.accordion details > summary::after {
-  content: '+';
-  font-weight: 300;
-  font-size: 1.5rem;
-  line-height: 1;
-  transition: transform var(--ds-accordion-speed) var(--ds-accordion-ease);
+.accordion-trigger:focus-visible {
+  outline: 2px solid var(--ds-sys-color-primary);
+  outline-offset: -2px;
 }
 
-.accordion details[open] > summary {
-  background: var(--ds-sys-color-surface-variant);
+.accordion-trigger[aria-expanded="true"] {
+  background: var(--ds-cmp-accordion-active-header, var(--ds-sys-color-surface));
+}
+
+.accordion-icon {
+  font-size: 20px;
+  color: var(--ds-sys-color-on-surface-variant);
+  flex-shrink: 0;
+  transition: transform 280ms cubic-bezier(0, 0, 0.2, 1);
+  transform: var(--ds-cmp-accordion-icon-closed-rotation, rotate(0deg));
+}
+
+.accordion-trigger[aria-expanded="true"] .accordion-icon {
+  transform: var(--ds-cmp-accordion-icon-open-rotation, rotate(180deg));
+}
+
+/* Grid-rows trick for pure-CSS height animation */
+.accordion-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 280ms cubic-bezier(0, 0, 0.2, 1);
+  background: var(--ds-sys-color-surface);
+}
+
+.accordion-panel.is-open {
+  grid-template-rows: 1fr;
+}
+
+.accordion-body {
+  overflow: hidden;
+}
+
+.accordion-inner {
+  padding: 0.25rem 1.25rem 1.125rem;
+  font-size: 0.9375rem;
+  color: var(--ds-sys-color-on-surface-variant);
+  line-height: 1.7;
+  border-top: 1px solid var(--ds-sys-color-border);
+}
+
+/* --- VARIANTS --- */
+
+/* 1. Flush (No outer borders, just dividers) */
+.accordion-flush .accordion-item {
+  border-left: none;
+  border-right: none;
+  border-radius: 0;
+  margin-bottom: 0;
+  border-bottom: none;
+}
+
+.accordion-flush .accordion-item:first-child {
+  border-top: 1px solid var(--ds-sys-color-border);
+}
+
+.accordion-flush .accordion-item {
   border-bottom: 1px solid var(--ds-sys-color-border);
 }
 
-.accordion details[open] > summary::after {
-  transform: rotate(45deg);
+.accordion-flush .accordion-trigger {
+  padding-left: 0;
+  padding-right: 0;
 }
 
-/* CONTENT CONTAINER
-   We target the div immediately following the summary.
-   This avoids needing a specific class like .accordion__content
-*/
-.accordion details > summary + * {
-  padding: 0 1.5rem;
-  font-size: 0.95rem;
-  line-height: 1.6;
-  background: var(--ds-sys-color-surface);
+.accordion-flush .accordion-inner {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* 2. Separated (Larger gap, box-shadow instead of border) */
+.accordion-separated .accordion-item {
+  border: none;
+  border-radius: var(--ds-sys-radius-card);
+  box-shadow: var(--ds-sys-shadow-card);
+  margin-bottom: 0.75rem;
+}
+
+.accordion-separated .accordion-item:last-child {
+  margin-bottom: 0;
+}
+
+/* 3. Icon Left (Swap icon to start) */
+.accordion-icon-left .accordion-trigger {
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  gap: 0.75rem;
+}
+
+/* Complex Trigger Slots (Stat Pills, Leading Icons) */
+.trigger-content {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.trigger-slot {
+  width: 28px;
+  height: 28px;
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--ds-sys-color-primary) 15%, transparent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.trigger-slot .material-symbols-outlined {
+  color: var(--ds-sys-color-primary);
+  font-size: 16px;
+}
+
+.accordion-item .stat-row {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 0.875rem;
+}
+
+.accordion-item .stat-pill {
+  background: var(--ds-sys-color-surface-variant);
+  border: 1px solid var(--ds-sys-color-border);
+  border-radius: 4px;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.8125rem;
   color: var(--ds-sys-color-on-surface-variant);
-  overflow: hidden;
-  
-  /* Transition Props */
-  transition: height var(--ds-accordion-speed) var(--ds-accordion-ease),
-              opacity var(--ds-accordion-speed) var(--ds-accordion-ease),
-              padding var(--ds-accordion-speed) var(--ds-accordion-ease);
-              
-  /* Closed State Defaults */
-  height: 0;
-  opacity: 0;
-  padding-top: 0;
-  padding-bottom: 0;
 }
 
-/* Open State (Applied by JS) */
-.accordion details[open] > summary + * {
-  opacity: 1;
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
-}
-
-/* --- HORIZONTAL VARIANT --- */
-.accordion--horizontal {
-  display: flex;
-  flex-direction: row;
-  height: 400px;
-}
-
-.accordion--horizontal > li {
-  border-bottom: none;
-  border-right: 1px solid var(--ds-sys-color-border);
-  flex: 0 0 auto;
-  display: flex;
-  transition: flex var(--ds-accordion-speed) ease;
-}
-
-.accordion--horizontal > li:last-child {
-  border-right: none;
-}
-
-.accordion--horizontal details {
-  display: flex;
-  flex-direction: row;
-  height: 100%;
-}
-
-.accordion--horizontal summary {
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
-  width: 3rem;
-  padding: 1.5rem 0.5rem;
-  text-align: center;
-  border-bottom: none;
-}
-
-.accordion--horizontal details[open] > summary {
-  border-bottom: none;
-  border-left: 1px solid var(--ds-sys-color-border);
-}
-
-/* Expand the LI that contains the open detail */
-.accordion--horizontal > li:has(details[open]) {
-  flex: 1 1 auto;
-}
-
-.accordion--horizontal details > summary + * {
-  width: 100%;
-  min-width: 300px;
-  overflow-y: auto;
-  height: auto;
-  opacity: 1;
-  padding: 1.5rem;
+.accordion-item .stat-pill strong {
+  color: var(--ds-sys-color-on-surface);
+  font-weight: 600;
 }

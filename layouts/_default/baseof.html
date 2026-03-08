@@ -44,6 +44,8 @@
     </main>
   </div>
 
+  {{ partial "command-palette.html" . }}
+
   <script src='{{ relURL "js/docs.js" }}'></script>
   <script type="module">
     import { initConfigurator } from '{{ relURL "js/configurator.js" }}';
@@ -62,8 +64,17 @@
     import { initDrawers } from "/aurora-docs/js/components/drawer.js";
     initDrawers();
 
+    import { initDropdowns } from "/aurora-docs/js/components/dropdown.js";
+    initDropdowns();
+
     import { initTabs } from "/aurora-docs/js/components/tabs.js";
     initTabs();
+
+    import { initCommandPalette } from "/aurora-docs/js/components/command-palette.js";
+    initCommandPalette();
+
+    import { initPopovers } from "/aurora-docs/js/components/popover.js";
+    initPopovers();
 
     import "/aurora-docs/js/components/toast.js";
   </script>

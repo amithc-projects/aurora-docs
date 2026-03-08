@@ -1,0 +1,236 @@
+export function initCommandPalette() {
+    const PAGES = [
+        { id: 'dash', label: 'Dashboard', desc: 'Overview and metrics', icon: 'grid', shortcut: '⌘D' },
+        { id: 'tokens', label: 'Design Token Reference', desc: 'Full token dictionary', icon: 'code' },
+        { id: 'components', label: 'Components', desc: 'Browse all components', icon: 'box' },
+        { id: 'theming', label: 'Theming Guide', desc: 'Create and customise themes', icon: 'palette' },
+        { id: 'breakpoints', label: 'Breakpoints & Grid', desc: 'Responsive layout system', icon: 'layout' },
+        { id: 'typography', label: 'Typography', desc: 'Type scale and font tokens', icon: 'type' },
+        { id: 'icons', label: 'Icons', desc: 'Icon library and usage', icon: 'star' },
+        { id: 'forms', label: 'Forms & Inputs', desc: 'Form components reference', icon: 'edit' },
+        { id: 'motion', label: 'Motion & Animation', desc: 'Duration and easing tokens', icon: 'zap' },
+        { id: 'accessibility', label: 'Accessibility Guide', desc: 'WCAG compliance and ARIA patterns', icon: 'shield' },
+    ];
+    const ACTIONS = [
+        { id: 'new-component', label: 'New component', desc: 'Start documenting a new component', icon: 'plus', shortcut: '⌘N' },
+        { id: 'toggle-theme', label: 'Toggle theme', desc: 'Switch between Corporate and Kids', icon: 'sun' },
+        { id: 'toggle-mode', label: 'Toggle dark mode', desc: 'Switch light / dark', icon: 'moon', shortcut: '⌘⇧D' },
+        { id: 'search-tokens', label: 'Search tokens', desc: 'Find a specific CSS token', icon: 'search' },
+        { id: 'export', label: 'Export tokens', desc: 'Download token JSON', icon: 'download' },
+        { id: 'changelog', label: 'View changelog', desc: 'Recent updates and releases', icon: 'clock' },
+    ];
+    const RECENT = ['tokens', 'dash', 'components'];
+
+    const ICON_SVG = {
+        grid: `<svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="2" y="2" width="5" height="5" rx=".75" stroke="currentColor" stroke-width="1.5"/><rect x="9" y="2" width="5" height="5" rx=".75" stroke="currentColor" stroke-width="1.5"/><rect x="2" y="9" width="5" height="5" rx=".75" stroke="currentColor" stroke-width="1.5"/><rect x="9" y="9" width="5" height="5" rx=".75" stroke="currentColor" stroke-width="1.5"/></svg>`,
+        code: `<svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M5 5L2 8l3 3M11 5l3 3-3 3M9 3l-2 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+        box: `<svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M2 5l6-3 6 3v6l-6 3-6-3V5z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M8 2v12M2 5l6 3 6-3" stroke="currentColor" stroke-width="1.5"/></svg>`,
+        palette: `<svg width="14" height="14" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5"/><circle cx="5.5" cy="6" r="1" fill="currentColor"/><circle cx="10.5" cy="6" r="1" fill="currentColor"/><circle cx="8" cy="10" r="1" fill="currentColor"/></svg>`,
+        layout: `<svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="2" y="2" width="12" height="12" rx="1.5" stroke="currentColor" stroke-width="1.5"/><path d="M2 6h12M6 6v8" stroke="currentColor" stroke-width="1.5"/></svg>`,
+        type: `<svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 4h10M8 4v8M5 12h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>`,
+        star: `<svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M8 2l1.8 3.6L14 6.4l-3 2.9.7 4.1L8 11.5 5.3 13.4l.7-4.1-3-2.9 4.2-.8L8 2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>`,
+        edit: `<svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M11 2l3 3-8 8H3v-3L11 2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>`,
+        zap: `<svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M9 2L4 9h4l-1 5 6-7H9l1-5z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>`,
+        shield: `<svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M8 2L3 4.5V9c0 2.5 2 4.5 5 5 3-0.5 5-2.5 5-5V4.5L8 2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>`,
+        plus: `<svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>`,
+        sun: `<svg width="14" height="14" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="3" stroke="currentColor" stroke-width="1.5"/><path d="M8 1v2M8 13v2M1 8h2M13 8h2M3.1 3.1l1.4 1.4M11.5 11.5l1.4 1.4M3.1 12.9l1.4-1.4M11.5 4.5l1.4-1.4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>`,
+        moon: `<svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M13.5 10A6 6 0 1 1 6 2.5a4.5 4.5 0 0 0 7.5 7.5z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>`,
+        search: `<svg width="14" height="14" viewBox="0 0 16 16" fill="none"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.5"/><path d="M12 12l2 2" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>`,
+        download: `<svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M8 3v8M5 8l3 3 3-3M3 13h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+        clock: `<svg width="14" height="14" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5"/><path d="M8 5v3l2 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>`,
+    };
+
+    function highlight(text, query) {
+        if (!query) return text;
+        const chars = query.toLowerCase().split('').filter(Boolean);
+        let result = ''; let ci = 0; let inMark = false;
+        for (let i = 0; i < text.length; i++) {
+            const ch = text[i];
+            if (ci < chars.length && ch.toLowerCase() === chars[ci]) {
+                if (!inMark) { result += '<mark>'; inMark = true; }
+                result += ch; ci++;
+                if (ci >= chars.length || text[i + 1]?.toLowerCase() !== chars[ci]) { result += '</mark>'; inMark = false; }
+            } else {
+                if (inMark) { result += '</mark>'; inMark = false; }
+                result += ch;
+            }
+        }
+        if (inMark) result += '</mark>';
+        return result;
+    }
+
+    function fuzzyMatch(text, query) {
+        if (!query) return true;
+        const t = text.toLowerCase(), q = query.toLowerCase();
+        let ti = 0;
+        for (const ch of q) { ti = t.indexOf(ch, ti); if (ti === -1) return false; ti++; }
+        return true;
+    }
+
+    function fuzzyScore(text, query) {
+        const t = text.toLowerCase(), q = query.toLowerCase();
+        if (t === q) return 100;
+        if (t.startsWith(q)) return 80;
+        if (t.includes(q)) return 60;
+        return 30;
+    }
+
+    let activeIdx = -1;
+    let allItems = [];
+
+    const resultsEl = document.getElementById('cmdResults');
+    const inputEl = document.getElementById('cmdInput');
+    const clearBtn = document.getElementById('cmdClear');
+    const backdropEl = document.getElementById('cmdBackdrop');
+
+    if (!backdropEl) return;
+
+    function renderResults(query) {
+        allItems = [];
+        let html = '';
+
+        if (!query) {
+            const recents = RECENT.map(id => PAGES.find(p => p.id === id)).filter(Boolean);
+            html += `<div class="cmd-group"><div class="cmd-group-label">Recent</div>`;
+            recents.forEach(item => {
+                const idx = allItems.length;
+                allItems.push({ ...item, type: 'page' });
+                html += renderItem(item, idx, '');
+            });
+            html += `</div>`;
+            html += `<div class="cmd-group"><div class="cmd-group-label">Actions</div>`;
+            ACTIONS.slice(0, 4).forEach(item => {
+                const idx = allItems.length;
+                allItems.push({ ...item, type: 'action' });
+                html += renderItem(item, idx, '');
+            });
+            html += `</div>`;
+        } else {
+            const pMatches = PAGES.filter(p => fuzzyMatch(p.label, query) || fuzzyMatch(p.desc || '', query)).sort((a, b) => fuzzyScore(b.label, query) - fuzzyScore(a.label, query)).slice(0, 6);
+            const aMatches = ACTIONS.filter(a => fuzzyMatch(a.label, query) || fuzzyMatch(a.desc || '', query)).sort((a, b) => fuzzyScore(b.label, query) - fuzzyScore(a.label, query)).slice(0, 4);
+            if (pMatches.length) {
+                html += `<div class="cmd-group"><div class="cmd-group-label">Pages</div>`;
+                pMatches.forEach(item => { const idx = allItems.length; allItems.push({ ...item, type: 'page' }); html += renderItem(item, idx, query); });
+                html += `</div>`;
+            }
+            if (aMatches.length) {
+                html += `<div class="cmd-group"><div class="cmd-group-label">Actions</div>`;
+                aMatches.forEach(item => { const idx = allItems.length; allItems.push({ ...item, type: 'action' }); html += renderItem(item, idx, query); });
+                html += `</div>`;
+            }
+            if (!pMatches.length && !aMatches.length) {
+                html = `<div class="cmd-empty"><strong>No results for "${query}"</strong><p>Try a different search term or browse the navigation.</p></div>`;
+            }
+        }
+        resultsEl.innerHTML = html;
+        activeIdx = allItems.length > 0 ? 0 : -1;
+        updateActive();
+    }
+
+    function renderItem(item, idx, query) {
+        return `<div class="cmd-item" role="option" id="cmd-item-${idx}" aria-selected="false" data-idx="${idx}">
+      <div class="cmd-item-icon">${ICON_SVG[item.icon] || ''}</div>
+      <div class="cmd-item-text">
+        <div class="cmd-item-label">${highlight(item.label, query)}</div>
+        ${item.desc ? `<div class="cmd-item-desc">${item.desc}</div>` : ''}
+      </div>
+      <div class="cmd-item-meta">${item.shortcut ? `<kbd class="cmd-badge">${item.shortcut}</kbd>` : ''}</div>
+    </div>`;
+    }
+
+    function updateActive() {
+        resultsEl.querySelectorAll('.cmd-item').forEach((el, i) => {
+            el.classList.toggle('is-active', i === activeIdx);
+            el.setAttribute('aria-selected', i === activeIdx);
+        });
+        if (activeIdx >= 0) {
+            const el = document.getElementById(`cmd-item-${activeIdx}`);
+            el?.scrollIntoView({ block: 'nearest' });
+            inputEl.setAttribute('aria-activedescendant', `cmd-item-${activeIdx}`);
+        }
+    }
+
+    function activateItem(idx) {
+        const item = allItems[idx];
+        if (!item) return;
+        if (item.id === 'toggle-mode') {
+            const h = document.documentElement;
+            const nextMode = h.getAttribute('data-mode') === 'dark' ? 'light' : 'dark';
+            h.setAttribute('data-mode', nextMode);
+            localStorage.setItem('aurora-mode', nextMode);
+        }
+        else if (item.id === 'toggle-theme') {
+            const h = document.documentElement;
+            const nextTheme = h.getAttribute('data-theme') === 'corporate' ? 'kids' : 'corporate';
+            h.setAttribute('data-theme', nextTheme);
+            localStorage.setItem('aurora-theme', nextTheme);
+        }
+        closeCmd();
+    }
+
+    function openCmd() {
+        backdropEl.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+        inputEl.value = '';
+        clearBtn.classList.remove('visible');
+        renderResults('');
+        requestAnimationFrame(() => inputEl.focus());
+        document.addEventListener('keydown', cmdKeydown);
+    }
+
+    function closeCmd() {
+        backdropEl.classList.remove('is-open');
+        document.body.style.overflow = '';
+        document.removeEventListener('keydown', cmdKeydown);
+    }
+
+    function clearSearch() {
+        inputEl.value = ''; inputEl.focus();
+        clearBtn.classList.remove('visible');
+        renderResults('');
+    }
+
+    function cmdKeydown(e) {
+        if (e.key === 'Escape') { e.preventDefault(); closeCmd(); return; }
+        if (e.key === 'ArrowDown' || (e.key === 'Tab' && !e.shiftKey)) {
+            e.preventDefault(); activeIdx = Math.min(activeIdx + 1, allItems.length - 1); updateActive();
+        } else if (e.key === 'ArrowUp' || (e.key === 'Tab' && e.shiftKey)) {
+            e.preventDefault(); activeIdx = Math.max(activeIdx - 1, 0); updateActive();
+        } else if (e.key === 'Enter' && activeIdx >= 0) {
+            e.preventDefault(); activateItem(activeIdx);
+        }
+    }
+
+    inputEl.addEventListener('input', e => {
+        const q = e.target.value;
+        clearBtn.classList.toggle('visible', q.length > 0);
+        renderResults(q);
+    });
+
+    clearBtn.addEventListener('click', clearSearch);
+
+    resultsEl.addEventListener('click', e => {
+        const item = e.target.closest('.cmd-item');
+        if (item) {
+            activateItem(parseInt(item.dataset.idx));
+        }
+    });
+
+    resultsEl.addEventListener('mousemove', e => {
+        const item = e.target.closest('.cmd-item');
+        if (item) {
+            activeIdx = parseInt(item.dataset.idx);
+            updateActive();
+        }
+    });
+
+    backdropEl.addEventListener('click', e => {
+        if (e.target === backdropEl) closeCmd();
+    });
+
+    document.addEventListener('keydown', e => {
+        if ((e.metaKey || e.ctrlKey) && e.key === 'k') { e.preventDefault(); openCmd(); }
+    });
+
+    window.openCmd = openCmd;
+}

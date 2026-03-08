@@ -1,99 +1,45 @@
+/**
+ * ACCORDION COMPONENT
+ * Manages the ARIA states and single/multiple open logic for the new button+div accordion structure.
+ * Because the actual open/close animation is handled entirely by CSS Grid (grid-template-rows),
+ * this JavaScript only needs to toggle the `aria-expanded` and `is-open` attributes.
+ */
+
 export function initAccordions() {
   const accordions = document.querySelectorAll('.accordion');
 
   accordions.forEach(acc => {
-    const allowMultiple = acc.hasAttribute('data-multiple');
-    const isHorizontal = acc.classList.contains('accordion--horizontal');
+    // Check if the accordion is in single or multiple mode. Default to multiple if not specified.
+    const mode = acc.dataset.mode || 'multiple';
+    const triggers = acc.querySelectorAll('.accordion-trigger');
 
-    if (isHorizontal) {
-      if (!allowMultiple) setupExclusiveListeners(acc);
-      return;
-    }
+    triggers.forEach(trigger => {
+      // Respect disabled triggers
+      if (trigger.getAttribute('aria-disabled') === 'true') return;
 
-    const summaries = acc.querySelectorAll('summary');
-    
-    summaries.forEach(summary => {
-      summary.addEventListener('click', (e) => {
-        e.preventDefault();
-        const detail = summary.parentElement;
-        
-        // Exclusive Logic
-        if (!allowMultiple && !detail.open) {
-          const others = acc.querySelectorAll('details[open]');
-          others.forEach(other => {
-            if (other !== detail) closeAccordion(other);
+      trigger.addEventListener('click', () => {
+        const isOpen = trigger.getAttribute('aria-expanded') === 'true';
+        const panelId = trigger.getAttribute('aria-controls');
+        const panel = document.getElementById(panelId);
+
+        // If in 'single' mode and we are opening a NEW panel, close all others first.
+        if (mode === 'single' && !isOpen) {
+          triggers.forEach(t => {
+            t.setAttribute('aria-expanded', 'false');
+            const otherPanelId = t.getAttribute('aria-controls');
+            if (otherPanelId) {
+              const otherPanel = document.getElementById(otherPanelId);
+              if (otherPanel) otherPanel.classList.remove('is-open');
+            }
           });
         }
 
-        // Toggle
-        if (detail.open) {
-          closeAccordion(detail);
-        } else {
-          openAccordion(detail);
+        // Toggle the clicked panel's state
+        trigger.setAttribute('aria-expanded', !isOpen);
+        if (panel) {
+          panel.classList.toggle('is-open', !isOpen);
         }
       });
-    });
-  });
-}
-
-function openAccordion(detail) {
-  // Target the element immediately after summary (Content)
-  const content = detail.querySelector('summary + *');
-  if (!content) return; 
-
-  detail.open = true;
-  
-  const startHeight = content.offsetHeight;
-  content.style.height = 'auto'; 
-  content.style.paddingTop = '1.5rem';
-  content.style.paddingBottom = '1.5rem';
-  const endHeight = content.scrollHeight;
-  
-  content.style.height = startHeight + 'px';
-  content.style.paddingTop = '0';
-  content.style.paddingBottom = '0';
-  
-  content.offsetHeight; // Force reflow
-  
-  content.style.height = endHeight + 'px';
-  content.style.paddingTop = '1.5rem';
-  content.style.paddingBottom = '1.5rem';
-  
-  content.addEventListener('transitionend', function onEnd() {
-    content.removeEventListener('transitionend', onEnd);
-    content.style.height = 'auto';
-  });
-}
-
-function closeAccordion(detail) {
-  const content = detail.querySelector('summary + *');
-  if (!content) return;
-
-  content.style.height = content.offsetHeight + 'px';
-  content.offsetHeight;
-  
-  content.style.height = '0px';
-  content.style.paddingTop = '0';
-  content.style.paddingBottom = '0';
-  
-  content.addEventListener('transitionend', function onEnd() {
-    content.removeEventListener('transitionend', onEnd);
-    if (content.style.height === '0px') {
-      detail.open = false;
-      content.style.height = null;
-      content.style.paddingTop = null;
-      content.style.paddingBottom = null;
-    }
-  });
-}
-
-function setupExclusiveListeners(acc) {
-  const details = acc.querySelectorAll('details');
-  details.forEach(target => {
-    target.addEventListener('toggle', () => {
-      if (target.open) {
-        details.forEach(d => { if (d !== target) d.removeAttribute('open'); });
-      }
     });
   });
 }
