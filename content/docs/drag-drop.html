@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en" data-mode="light">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Aurora — Drag & Drop</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root{
+      --color-neutral-0:#fff;--color-neutral-50:#f9fafb;--color-neutral-100:#f3f4f6;
+      --color-neutral-200:#e5e7eb;--color-neutral-300:#d1d5db;--color-neutral-500:#6b7280;
+      --color-neutral-900:#111827;
+      --color-brand:#2563eb;--color-brand-subtle:#eff6ff;--color-brand-on:#fff;
+      --color-success-500:#22c55e;--color-success-bg:#f0fdf4;
+      --color-surface-base:var(--color-neutral-50);--color-surface-raised:var(--color-neutral-0);
+      --color-surface-sunken:var(--color-neutral-100);
+      --color-text-primary:var(--color-neutral-900);--color-text-secondary:var(--color-neutral-500);
+      --color-border-subtle:var(--color-neutral-200);--color-border-default:var(--color-neutral-300);
+      --shadow-sm:0 1px 3px 0 rgb(0 0 0/.08);--shadow-xl:0 20px 25px -5px rgb(0 0 0/.12);
+      --radius-lg:.5rem;--radius-md:.375rem;--radius-full:9999px;
+      --space-1:.25rem;--space-2:.5rem;--space-3:.75rem;--space-4:1rem;--space-5:1.25rem;
+      --text-xs:.75rem;--text-sm:.875rem;--text-base:1rem;
+      --font-sans:'Instrument Sans',system-ui,sans-serif;--font-display:'Syne',system-ui,sans-serif;
+      --ease-out:cubic-bezier(0,0,.2,1);--duration-moderate:280ms;--duration-fast:120ms;
+      --dnd-ghost-opacity:.85;--dnd-source-opacity:.35;
+      --dnd-indicator-color:var(--color-brand);--dnd-indicator-height:2px;
+      --dnd-handle-color:var(--color-text-secondary);
+    }
+    [data-mode="dark"]{
+      --color-surface-base:#0f172a;--color-surface-raised:#1e293b;--color-surface-sunken:#0f172a;
+      --color-text-primary:#f1f5f9;--color-text-secondary:#94a3b8;
+      --color-border-subtle:#334155;--color-border-default:#475569;
+      --shadow-sm:0 1px 3px 0 rgb(0 0 0/.3);--shadow-xl:0 20px 25px -5px rgb(0 0 0/.5);
+      --color-brand-subtle:#1e3a5f;--color-success-bg:#052e16;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:var(--font-sans);background:var(--color-surface-base);color:var(--color-text-primary);min-height:100vh;}
+    .page{padding:3rem 2rem;max-width:800px;margin:0 auto;}
+    h1{font-family:var(--font-display);font-size:2rem;font-weight:700;letter-spacing:-.03em;margin-bottom:.25rem;}
+    .lead{color:var(--color-text-secondary);font-size:.9375rem;margin-bottom:2.5rem;}
+    .section{margin-bottom:3rem;}
+    .section-label{font-family:var(--font-display);font-size:.6875rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--color-text-secondary);margin-bottom:1.25rem;padding-bottom:.5rem;border-bottom:1px solid var(--color-border-subtle);}
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;}
+    @media(max-width:600px){.grid-2{grid-template-columns:1fr;}}
+
+    /* ── SR live region ── */
+    .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;}
+
+    /* ═══════════════════════════
+       SORTABLE LIST
+    ═══════════════════════════ */
+    .sortable-list{display:flex;flex-direction:column;gap:.375rem;}
+    .sort-item{
+      position:relative;
+      display:flex;align-items:center;gap:.75rem;
+      padding:.75rem 1rem;
+      background:var(--color-surface-raised);
+      border:1px solid var(--color-border-subtle);
+      border-radius:var(--radius-lg);
+      box-shadow:var(--shadow-sm);
+      user-select:none;
+      transition:opacity var(--duration-fast),box-shadow var(--duration-fast),transform var(--duration-fast);
+    }
+    .sort-item.is-dragging-source{opacity:var(--dnd-source-opacity);}
+    .sort-item.is-ghost{
+      opacity:var(--dnd-ghost-opacity);
+      box-shadow:var(--shadow-xl);
+      pointer-events:none;
+      position:fixed;z-index:1000;
+      border-color:var(--color-brand);
+    }
+    .sort-item.is-move-mode{border-color:var(--color-brand);box-shadow:0 0 0 2px var(--color-brand);}
+
+    /* Drag handle */
+    .drag-handle{
+      display:flex;align-items:center;justify-content:center;
+      width:28px;height:28px;border-radius:var(--radius-md);
+      cursor:grab;flex-shrink:0;
+      color:var(--dnd-handle-color);
+      transition:color var(--duration-fast),background var(--duration-fast);
+      border:none;background:transparent;padding:0;
+      touch-action:none;
+    }
+    .drag-handle:hover{color:var(--color-text-primary);background:var(--color-surface-sunken);}
+    .drag-handle:active{cursor:grabbing;}
+    .drag-handle:focus-visible{outline:2px solid var(--color-brand);outline-offset:1px;}
+    .is-move-mode .drag-handle{color:var(--color-brand);}
+
+    /* Item content */
+    .item-num{width:24px;height:24px;border-radius:50%;background:var(--color-surface-sunken);border:1px solid var(--color-border-default);display:flex;align-items:center;justify-content:center;font-size:.6875rem;font-weight:700;color:var(--color-text-secondary);flex-shrink:0;}
+    .item-content{flex:1;min-width:0;}
+    .item-name{font-size:var(--text-sm);font-weight:600;}
+    .item-meta{font-size:var(--text-xs);color:var(--color-text-secondary);margin-top:.125rem;}
+    .item-sets{font-size:var(--text-xs);color:var(--color-text-secondary);white-space:nowrap;font-weight:500;}
+
+    /* Drop indicator */
+    .drop-indicator{
+      height:var(--dnd-indicator-height);
+      background:var(--dnd-indicator-color);
+      border-radius:var(--radius-full);
+      margin:.125rem 0;
+      opacity:0;transition:opacity var(--duration-fast);
+      position:relative;
+    }
+    .drop-indicator.active{opacity:1;}
+    .drop-indicator::before,.drop-indicator::after{
+      content:'';position:absolute;top:50%;transform:translateY(-50%);
+      width:8px;height:8px;border-radius:50%;background:var(--dnd-indicator-color);
+    }
+    .drop-indicator::before{left:-3px;}
+    .drop-indicator::after{right:-3px;}
+
+    /* Keyboard move hint */
+    .move-hint{display:none;position:absolute;right:.75rem;top:50%;transform:translateY(-50%);font-size:var(--text-xs);color:var(--color-brand);font-weight:600;gap:.25rem;}
+    .is-move-mode .move-hint{display:flex;}
+
+    /* ═══════════════════════════
+       KANBAN / BOARD
+    ═══════════════════════════ */
+    .kanban{display:grid;grid-template-columns:repeat(3,1fr);gap:.875rem;}
+    @media(max-width:640px){.kanban{grid-template-columns:1fr;}}
+    .kanban-col{
+      background:var(--color-surface-sunken);
+      border:1px solid var(--color-border-subtle);
+      border-radius:var(--radius-lg);
+      min-height:200px;
+    }
+    .kanban-col.is-drop-target{border-color:var(--color-brand);background:var(--color-brand-subtle);}
+    .kanban-header{padding:.625rem .875rem;font-size:var(--text-xs);font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--color-text-secondary);border-bottom:1px solid var(--color-border-subtle);display:flex;align-items:center;justify-content:space-between;}
+    .kanban-count{width:18px;height:18px;border-radius:50%;background:var(--color-border-default);display:flex;align-items:center;justify-content:center;font-size:.625rem;font-weight:700;color:var(--color-text-secondary);}
+    .kanban-items{padding:.5rem;display:flex;flex-direction:column;gap:.375rem;min-height:80px;}
+    .kanban-card{
+      padding:.625rem .75rem;background:var(--color-surface-raised);
+      border:1px solid var(--color-border-subtle);border-radius:var(--radius-md);
+      font-size:var(--text-xs);cursor:grab;box-shadow:var(--shadow-sm);
+      user-select:none;transition:box-shadow var(--duration-fast),opacity var(--duration-fast);
+    }
+    .kanban-card:hover{box-shadow:0 2px 8px rgb(0 0 0/.1);}
+    .kanban-card.is-dragging-source{opacity:.3;}
+    .kanban-card.is-ghost{opacity:.85;box-shadow:var(--shadow-xl);pointer-events:none;position:fixed;z-index:1000;width:180px;}
+    .kanban-card-title{font-weight:600;color:var(--color-text-primary);margin-bottom:.1875rem;}
+    .kanban-card-meta{color:var(--color-text-secondary);}
+
+    /* ═══════════════════════════
+       FILE DROP ZONE
+    ═══════════════════════════ */
+    .drop-zone{
+      border:2px dashed var(--color-border-default);
+      border-radius:var(--radius-lg);
+      padding:2.5rem 2rem;
+      text-align:center;
+      transition:border-color 150ms,background 150ms;
+      cursor:pointer;
+    }
+    .drop-zone.drag-over{border-color:var(--color-brand);background:var(--color-brand-subtle);}
+    .drop-zone-icon{color:var(--color-text-secondary);margin-bottom:.875rem;}
+    .drop-zone.drag-over .drop-zone-icon{color:var(--color-brand);}
+    .drop-zone-heading{font-weight:600;font-size:var(--text-sm);margin-bottom:.3rem;}
+    .drop-zone-sub{font-size:var(--text-xs);color:var(--color-text-secondary);}
+    .drop-zone input[type=file]{position:absolute;opacity:0;width:1px;height:1px;}
+    .file-list{margin-top:1rem;display:flex;flex-direction:column;gap:.375rem;}
+    .file-item{display:flex;align-items:center;gap:.625rem;padding:.5rem .75rem;background:var(--color-surface-raised);border:1px solid var(--color-border-subtle);border-radius:var(--radius-md);font-size:var(--text-xs);}
+    .file-name{flex:1;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+    .file-size{color:var(--color-text-secondary);flex-shrink:0;}
+    .file-status{color:var(--color-success-500);flex-shrink:0;}
+
+    .mode-toggle{position:fixed;top:1.25rem;right:1.5rem;}
+    .toggle-switch{position:relative;width:40px;height:22px;background:var(--color-border-default);border-radius:99px;cursor:pointer;border:none;transition:background 200ms;}
+    .toggle-switch::after{content:'';position:absolute;top:3px;left:3px;width:16px;height:16px;background:#fff;border-radius:50%;transition:transform 200ms;}
+    [data-mode="dark"] .toggle-switch{background:var(--color-brand);}
+    [data-mode="dark"] .toggle-switch::after{transform:translateX(18px);}
+  </style>
+</head>
+<body>
+<div aria-live="assertive" class="sr-only" id="dnd-announce"></div>
+<button class="toggle-switch mode-toggle" onclick="toggleMode()" aria-label="Toggle dark mode"></button>
+
+<div class="page">
+  <h1>Drag & Drop</h1>
+  <p class="lead">Pointer-events based drag-and-drop with keyboard reorder alternative and file drop zone. Drag with mouse, or Tab to an item and press <kbd style="font-size:.75rem;background:var(--color-surface-raised);border:1px solid var(--color-border-default);border-radius:.25rem;padding:.125rem .375rem">Space</kbd> to enter move mode.</p>
+
+  <div class="section">
+    <div class="section-label">List reorder — workout exercises</div>
+    <div class="sortable-list" id="exerciseList" role="list">
+      <!-- Rendered by JS -->
+    </div>
+    <p style="font-size:var(--text-xs);color:var(--color-text-secondary);margin-top:.75rem">Drag the handle to reorder · Or: Tab to an item, press <strong>Space</strong> to enter move mode, <strong>↑↓</strong> to move, <strong>Space</strong> to confirm</p>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Board / Kanban — training week planner</div>
+    <div class="kanban" id="kanbanBoard">
+      <!-- Rendered by JS -->
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">File drop zone — import workout data</div>
+    <div class="drop-zone" id="fileDropZone" tabindex="0" role="button" aria-label="Drop files here or click to upload" onclick="document.getElementById('fileInput').click()" ondragover="handleDragOver(event)" ondragleave="handleDragLeave(event)" ondrop="handleFileDrop(event)">
+      <input type="file" id="fileInput" accept=".json,.csv,.gpx" multiple onchange="handleFileInput(event)"/>
+      <div class="drop-zone-icon">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+          <rect x="6" y="8" width="28" height="28" rx="3" stroke="currentColor" stroke-width="2"/>
+          <path d="M20 16v10M16 22l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M13 8V6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v2" stroke="currentColor" stroke-width="2"/>
+        </svg>
+      </div>
+      <div class="drop-zone-heading">Drop files here or click to upload</div>
+      <div class="drop-zone-sub">Supports .json, .csv, .gpx workout exports · Max 10 MB</div>
+      <div class="file-list" id="fileList"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // ── EXERCISES DATA ──────────────────────────────────────
+  let exercises = [
+    {id:'e1',name:'Bench Press',meta:'Push · Chest',sets:'4×5 @ 100 kg'},
+    {id:'e2',name:'Incline DB Press',meta:'Push · Upper chest',sets:'3×10 @ 32 kg'},
+    {id:'e3',name:'Overhead Press',meta:'Push · Shoulders',sets:'4×6 @ 65 kg'},
+    {id:'e4',name:'Cable Fly',meta:'Push · Chest isolation',sets:'3×15 @ 15 kg'},
+    {id:'e5',name:'Tricep Pushdown',meta:'Push · Triceps',sets:'3×12 @ 25 kg'},
+    {id:'e6',name:'Lateral Raises',meta:'Push · Delts',sets:'4×15 @ 10 kg'},
+  ];
+
+  // ── RENDER LIST ──────────────────────────────────────────
+  function renderList() {
+    const container = document.getElementById('exerciseList');
+    container.innerHTML = '';
+    exercises.forEach((ex, i) => {
+      // Drop indicator before
+      const ind = document.createElement('div');
+      ind.className = 'drop-indicator';
+      ind.dataset.idx = i;
+      container.appendChild(ind);
+
+      // Item
+      const el = document.createElement('div');
+      el.className = 'sort-item';
+      el.dataset.id = ex.id;
+      el.dataset.idx = i;
+      el.setAttribute('role','listitem');
+      el.innerHTML = `
+        <button class="drag-handle" aria-label="Drag to reorder ${ex.name}" tabindex="0" title="Drag or press Space to reorder">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <circle cx="6" cy="4" r="1.25" fill="currentColor"/><circle cx="10" cy="4" r="1.25" fill="currentColor"/>
+            <circle cx="6" cy="8" r="1.25" fill="currentColor"/><circle cx="10" cy="8" r="1.25" fill="currentColor"/>
+            <circle cx="6" cy="12" r="1.25" fill="currentColor"/><circle cx="10" cy="12" r="1.25" fill="currentColor"/>
+          </svg>
+        </button>
+        <div class="item-num">${i+1}</div>
+        <div class="item-content">
+          <div class="item-name">${ex.name}</div>
+          <div class="item-meta">${ex.meta}</div>
+        </div>
+        <div class="item-sets">${ex.sets}</div>
+        <div class="move-hint" aria-hidden="true">↑↓ move</div>
+      `;
+      container.appendChild(el);
+    });
+    // Final drop indicator
+    const lastInd = document.createElement('div');
+    lastInd.className = 'drop-indicator';
+    lastInd.dataset.idx = exercises.length;
+    container.appendChild(lastInd);
+    initListDrag();
+    initKeyboardReorder();
+  }
+
+  // ── MOUSE/POINTER DRAG ──────────────────────────────────
+  function initListDrag() {
+    const container = document.getElementById('exerciseList');
+    let ghost = null, sourceEl = null, sourceIdx = -1, dragY = 0;
+    const THRESHOLD = 4;
+    let startY = 0, started = false;
+
+    container.querySelectorAll('.drag-handle').forEach(handle => {
+      handle.addEventListener('mousedown', e => {
+        e.preventDefault();
+        sourceEl = handle.closest('.sort-item');
+        sourceIdx = +sourceEl.dataset.idx;
+        startY = e.clientY; started = false;
+        dragY = e.clientY;
+
+        const mm = ev => {
+          if (!started && Math.abs(ev.clientY - startY) < THRESHOLD) return;
+          if (!started) {
+            started = true;
+            ghost = sourceEl.cloneNode(true);
+            ghost.classList.add('is-ghost');
+            ghost.style.width = sourceEl.offsetWidth + 'px';
+            ghost.style.height = sourceEl.offsetHeight + 'px';
+            document.body.appendChild(ghost);
+            sourceEl.classList.add('is-dragging-source');
+          }
+          dragY = ev.clientY;
+          ghost.style.left = (sourceEl.getBoundingClientRect().left) + 'px';
+          ghost.style.top = (dragY - sourceEl.offsetHeight / 2) + 'px';
+          updateIndicators(dragY);
+        };
+
+        const mu = ev => {
+          if (started) {
+            const targetIdx = getTargetIdx(dragY);
+            if (targetIdx !== null && targetIdx !== sourceIdx && targetIdx !== sourceIdx + 1) {
+              const moved = exercises.splice(sourceIdx, 1)[0];
+              const insertAt = targetIdx > sourceIdx ? targetIdx - 1 : targetIdx;
+              exercises.splice(insertAt, 0, moved);
+              announce(`${moved.name} moved to position ${insertAt + 1} of ${exercises.length}`);
+            }
+            ghost?.remove(); ghost = null;
+            sourceEl?.classList.remove('is-dragging-source');
+            clearIndicators();
+            renderList();
+          }
+          started = false;
+          window.removeEventListener('mousemove', mm);
+          window.removeEventListener('mouseup', mu);
+        };
+        window.addEventListener('mousemove', mm);
+        window.addEventListener('mouseup', mu);
+      });
+    });
+
+    function updateIndicators(y) {
+      clearIndicators();
+      const idx = getTargetIdx(y);
+      if (idx !== null) {
+        container.querySelectorAll('.drop-indicator')[idx]?.classList.add('active');
+      }
+    }
+
+    function clearIndicators() {
+      container.querySelectorAll('.drop-indicator').forEach(i => i.classList.remove('active'));
+    }
+
+    function getTargetIdx(y) {
+      const items = [...container.querySelectorAll('.sort-item')];
+      for (let i = 0; i < items.length; i++) {
+        const rect = items[i].getBoundingClientRect();
+        if (y < rect.top + rect.height / 2) return i;
+      }
+      return items.length;
+    }
+  }
+
+  // ── KEYBOARD REORDER ────────────────────────────────────
+  let moveMode = null;
+  function initKeyboardReorder() {
+    document.querySelectorAll('.drag-handle').forEach((handle, i) => {
+      handle.addEventListener('keydown', e => {
+        const idx = +handle.closest('.sort-item').dataset.idx;
+        if (e.key === ' ' || e.key === 'Enter') {
+          e.preventDefault();
+          if (moveMode === idx) {
+            // Confirm
+            moveMode = null;
+            document.querySelectorAll('.sort-item').forEach(el => el.classList.remove('is-move-mode'));
+            announce(`${exercises[idx].name} placed at position ${idx + 1} of ${exercises.length}`);
+          } else {
+            moveMode = idx;
+            handle.closest('.sort-item').classList.add('is-move-mode');
+            announce(`Moving ${exercises[idx].name}. Use arrow keys to change position, Space to confirm, Escape to cancel.`);
+          }
+        } else if (e.key === 'Escape' && moveMode !== null) {
+          e.preventDefault();
+          moveMode = null;
+          document.querySelectorAll('.sort-item').forEach(el => el.classList.remove('is-move-mode'));
+          announce('Move cancelled');
+        } else if (moveMode === idx && (e.key === 'ArrowUp' || e.key === 'ArrowDown')) {
+          e.preventDefault();
+          const dir = e.key === 'ArrowUp' ? -1 : 1;
+          const newIdx = Math.max(0, Math.min(exercises.length - 1, idx + dir));
+          if (newIdx !== idx) {
+            const item = exercises.splice(idx, 1)[0];
+            exercises.splice(newIdx, 0, item);
+            moveMode = newIdx;
+            renderList();
+            // Re-focus the moved handle
+            const handles = document.querySelectorAll('.drag-handle');
+            handles[newIdx]?.focus();
+            handles[newIdx]?.closest('.sort-item')?.classList.add('is-move-mode');
+            announce(`${item.name} moved to position ${newIdx + 1} of ${exercises.length}`);
+          }
+        }
+      });
+    });
+  }
+
+  // ── KANBAN ───────────────────────────────────────────────
+  const kanbanData = {
+    planned: [
+      {id:'k1',title:'Chest & Triceps',meta:'Monday · Push'},
+      {id:'k2',title:'Leg Day',meta:'Tuesday · Lower'},
+    ],
+    active: [
+      {id:'k3',title:'Back & Biceps',meta:'Wednesday · Pull'},
+    ],
+    done: [
+      {id:'k4',title:'Shoulders',meta:'Thursday · Push'},
+      {id:'k5',title:'Morning Run',meta:'Friday · Cardio'},
+    ],
+  };
+
+  function renderKanban() {
+    const board = document.getElementById('kanbanBoard');
+    board.innerHTML = '';
+    const cols = [{key:'planned',label:'Planned'},{key:'active',label:'In Progress'},{key:'done',label:'Done'}];
+    cols.forEach(col => {
+      const c = document.createElement('div');
+      c.className = 'kanban-col';
+      c.dataset.col = col.key;
+      c.innerHTML = `
+        <div class="kanban-header">${col.label}<span class="kanban-count">${kanbanData[col.key].length}</span></div>
+        <div class="kanban-items" id="col-${col.key}"></div>
+      `;
+      board.appendChild(c);
+    });
+    Object.entries(kanbanData).forEach(([col, cards]) => {
+      const container = document.getElementById(`col-${col}`);
+      cards.forEach(card => {
+        const el = document.createElement('div');
+        el.className = 'kanban-card';
+        el.dataset.id = card.id;
+        el.dataset.col = col;
+        el.draggable = true;
+        el.innerHTML = `<div class="kanban-card-title">${card.title}</div><div class="kanban-card-meta">${card.meta}</div>`;
+        container.appendChild(el);
+      });
+    });
+    initKanbanDrag();
+  }
+
+  function initKanbanDrag() {
+    let ghost = null, sourceCard = null;
+    document.querySelectorAll('.kanban-card').forEach(card => {
+      card.addEventListener('mousedown', e => {
+        e.preventDefault();
+        sourceCard = card;
+        ghost = card.cloneNode(true);
+        ghost.classList.add('is-ghost');
+        ghost.style.left = card.getBoundingClientRect().left + 'px';
+        ghost.style.top = (e.clientY - card.offsetHeight / 2) + 'px';
+        document.body.appendChild(ghost);
+        card.classList.add('is-dragging-source');
+
+        const mm = ev => {
+          ghost.style.left = card.getBoundingClientRect().left + 'px';
+          ghost.style.top = (ev.clientY - card.offsetHeight / 2) + 'px';
+          // Highlight target column
+          document.querySelectorAll('.kanban-col').forEach(col => {
+            const rect = col.getBoundingClientRect();
+            col.classList.toggle('is-drop-target', ev.clientX >= rect.left && ev.clientX <= rect.right && ev.clientY >= rect.top && ev.clientY <= rect.bottom);
+          });
+        };
+        const mu = ev => {
+          const targetCol = document.querySelector('.kanban-col.is-drop-target');
+          if (targetCol) {
+            const srcColKey = sourceCard.dataset.col;
+            const tgtColKey = targetCol.dataset.col;
+            if (srcColKey !== tgtColKey) {
+              const cardData = kanbanData[srcColKey].find(c => c.id === sourceCard.dataset.id);
+              kanbanData[srcColKey] = kanbanData[srcColKey].filter(c => c.id !== sourceCard.dataset.id);
+              kanbanData[tgtColKey].push(cardData);
+              announce(`${cardData.title} moved to ${targetCol.querySelector('.kanban-header').textContent.slice(0,-1)}`);
+              renderKanban();
+            }
+          }
+          document.querySelectorAll('.kanban-col').forEach(c => c.classList.remove('is-drop-target'));
+          ghost?.remove(); ghost = null;
+          sourceCard?.classList.remove('is-dragging-source');
+          window.removeEventListener('mousemove', mm);
+          window.removeEventListener('mouseup', mu);
+        };
+        window.addEventListener('mousemove', mm);
+        window.addEventListener('mouseup', mu);
+      });
+    });
+  }
+
+  // ── FILE DROP ────────────────────────────────────────────
+  function handleDragOver(e) { e.preventDefault(); document.getElementById('fileDropZone').classList.add('drag-over'); }
+  function handleDragLeave() { document.getElementById('fileDropZone').classList.remove('drag-over'); }
+  function handleFileDrop(e) {
+    e.preventDefault();
+    document.getElementById('fileDropZone').classList.remove('drag-over');
+    addFiles([...e.dataTransfer.files]);
+  }
+  function handleFileInput(e) { addFiles([...e.target.files]); }
+  function addFiles(files) {
+    const list = document.getElementById('fileList');
+    files.slice(0, 5).forEach(f => {
+      const size = f.size > 1024*1024 ? (f.size/1024/1024).toFixed(1)+' MB' : (f.size/1024).toFixed(0)+' KB';
+      const item = document.createElement('div');
+      item.className = 'file-item';
+      item.innerHTML = `
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" style="color:var(--color-text-secondary);flex-shrink:0"><path d="M10 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V5L10 2z" stroke="currentColor" stroke-width="1.5"/><path d="M10 2v3h3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <span class="file-name">${f.name}</span>
+        <span class="file-size">${size}</span>
+        <svg class="file-status" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l4 4 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      `;
+      list.appendChild(item);
+    });
+    announce(`${files.length} file${files.length>1?'s':''} added`);
+  }
+
+  function announce(msg) {
+    const el = document.getElementById('dnd-announce');
+    el.textContent = '';
+    requestAnimationFrame(() => el.textContent = msg);
+  }
+
+  function toggleMode(){const h=document.documentElement;h.setAttribute('data-mode',h.getAttribute('data-mode')==='dark'?'light':'dark');}
+
+  // Init
+  renderList();
+  renderKanban();
+</script>
+</body>
+</html>

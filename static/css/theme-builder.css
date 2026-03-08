@@ -1,0 +1,90 @@
+/* --- THEME BUILDER SCAFFOLDING --- */
+/* Strictly UI styling for the builder panels, not actual Design System tokens */
+
+body.theme-builder-body {
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    height: 100vh;
+    margin: 0;
+    background-color: var(--ds-sys-color-surface-variant);
+    overflow: hidden;
+}
+
+#builder-sidebar {
+    height: 100vh;
+    border-right: 1px solid var(--ds-sys-color-border);
+    overflow-y: auto;
+    z-index: 100;
+}
+
+#builder-mirror-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#builder-mirror-container .pane {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Base Light Mode Environment */
+#builder-mirror-container #lp {
+    background-color: #ffffff;
+    /* Hardcode fallback */
+    background-color: var(--ds-sys-color-background, #ffffff);
+    color: var(--ds-sys-color-on-background, #000000);
+}
+
+/* Base Dark Mode Environment */
+#builder-mirror-container #dp {
+    background-color: #0f172a;
+    /* Hardcode fallback */
+    background-color: var(--ds-sys-color-background, #0f172a);
+    color: var(--ds-sys-color-on-background, #ffffff);
+    border-left: 1px solid rgba(255, 255, 255, 0.05);
+    /* Separator */
+}
+
+.pane-header {
+    background: rgba(127, 127, 127, 0.1);
+    padding: 0.5rem 1.5rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--ds-sys-color-on-surface-variant);
+    border-bottom: 1px solid var(--ds-sys-color-border);
+    flex-shrink: 0;
+}
+
+.pane-content {
+    flex: 1;
+    overflow-y: auto;
+}
+
+/* Special scoping for form-range inputs inside the sidebar to match Aurora standards */
+.form-range {
+    -webkit-appearance: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+.form-range::-webkit-slider-runnable-track {
+    background: var(--ds-sys-color-surface-variant);
+    border-radius: 999px;
+    height: 6px;
+}
+
+.form-range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: var(--ds-sys-color-primary);
+    margin-top: -5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}

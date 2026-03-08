@@ -76,8 +76,8 @@ This model does *not* utilize smart auto-hiding logic.
 {{< demo >}}
 <div style="max-width: 600px; margin: 0 auto;">
     <div class="video-player" data-controls-position="external" data-controls-align="bottom">
-        <!-- Removed poster to show a different state -->
-        <video loop preload="metadata">
+        <!-- External Bottom Layout -->
+        <video poster="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/ElephantsDream.jpg" loop preload="metadata">
             <source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4" type="video/mp4">
         </video>
 
@@ -104,7 +104,7 @@ You can even switch the orientation to `vertical` and snap the controls to float
 {{< demo >}}
 <div style="width: 100%;">
     <div class="video-player" data-controls-position="overlay" data-controls-align="right" data-controls-orientation="vertical">
-        <video preload="metadata">
+        <video poster="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/Sintel.jpg" preload="metadata">
             <source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4" type="video/mp4">
         </video>
 

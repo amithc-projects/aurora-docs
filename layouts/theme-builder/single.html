@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Aurora Theme Builder</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+    <!-- Global Core System -->
+    {{ $core := resources.Get "css/core.css" }}
+    <link rel="stylesheet" href="{{ $core.RelPermalink }}">
+
+    <!-- Theme Builder Specific UI Styles -->
+    {{ $builderStyles := resources.Get "css/theme-builder.css" }}
+    <link rel="stylesheet" href="{{ $builderStyles.RelPermalink }}">
+</head>
+
+<body class="theme-builder-body pb-0">
+
+    <!-- Sidebar Configurator -->
+    <aside id="builder-sidebar" class="surface-container shadow-sm p-4">
+        <div class="d-flex align-items-center justify-content-between mb-4">
+            <h2 class="text-lg fw-bold m-0 text-primary">Aurora Prototyper</h2>
+        </div>
+
+        <hr class="mb-4">
+
+        <label class="d-flex justify-content-between text-sm fw-600 mb-2">Context View</label>
+        <select id="layoutToggle" class="form-control mb-4">
+            <option value="components">UI Components Library</option>
+            <option value="dashboard">Dashboard Interface</option>
+            <option value="marketing">Marketing Page</option>
+        </select>
+
+        <div class="mb-4">
+            <label class="d-flex justify-content-between text-sm fw-600 mb-2">Brand Primary</label>
+            <div class="d-flex align-items-center gap-2">
+                <input type="color" id="brandPicker" value="#0052cc" class="form-control p-1" style="height: 40px;">
+                <span class="text-sm text-variant" id="brandHexVal">#0052cc</span>
+            </div>
+            <div id="rampDisplay"
+                style="display:grid; grid-template-columns:repeat(10,1fr); gap:2px; height:24px; margin-top:0.75rem; border-radius:4px; overflow:hidden;">
+            </div>
+        </div>
+
+        <div class="mb-4">
+            <label class="d-flex justify-content-between text-sm fw-600 mb-2">
+                Base Corner Radius
+                <span id="radiusVal" class="text-variant fw-normal">16px</span>
+            </label>
+            <input type="range" id="radiusPicker" min="0" max="32" value="16" class="form-range w-100">
+        </div>
+
+        <div class="mb-4">
+            <label class="d-flex justify-content-between text-sm fw-600 mb-2">
+                Border Stroke Width
+                <span id="strokeVal" class="text-variant fw-normal">1px</span>
+            </label>
+            <input type="range" id="strokePicker" min="0" max="4" value="1" class="form-range w-100">
+        </div>
+
+        <div class="mb-4">
+            <label class="d-flex justify-content-between text-sm fw-600 mb-2">
+                Heading Font Family
+            </label>
+            <select id="fontPicker" class="form-control">
+                <option value="'Inter', sans-serif">Inter (Geometric Sans)</option>
+                <option value="'Outfit', sans-serif">Outfit (Modern Sans)</option>
+                <option value="system-ui, -apple-system, sans-serif">System Native UI</option>
+                <option value="Georgia, serif">Georgia (Serif)</option>
+            </select>
+        </div>
+
+        <hr class="my-4">
+
+        <!-- Export Actions -->
+        <div class="d-flex flex-column gap-2 mt-4">
+            <button id="btnExportCopy"
+                class="btn btn-primary d-flex align-items-center justify-content-center gap-2 w-100">
+                <span class="material-symbols-outlined fs-5">content_copy</span> Copy CSS
+            </button>
+            <button id="btnExportDownload"
+                class="btn btn-outline d-flex align-items-center justify-content-center gap-2 w-100">
+                <span class="material-symbols-outlined fs-5">download</span> Download .css
+            </button>
+        </div>
+    </aside>
+
+    <!-- Split Pane Mirrors Viewport -->
+    <main id="builder-mirror-container">
+        <div class="pane light-mode" id="lp" data-theme="light">
+            <div class="pane-header">Light Mode</div>
+            <div id="content-target-light" class="pane-content p-4"></div>
+        </div>
+        <div class="pane dark-mode" id="dp" data-theme="dark">
+            <div class="pane-header">Dark Mode</div>
+            <div id="content-target-dark" class="pane-content p-4"></div>
+        </div>
+    </main>
+
+
+    <!-- ============================================== -->
+    <!-- TEMPLATES (Injected into mirrors natively) -->
+    <!-- ============================================== -->
+
+    <!-- TEMPLATE 1: UI Components -->
+    <template id="tpl-components">
+        <h2 class="mb-4">Component Sandbox</h2>
+
+        <div class="grid gap-4" style="grid-template-columns: repeat(12, 1fr);">
+
+            <!-- Interactive Elements -->
+            <div class="col-8">
+                <div class="card p-4 h-100">
+                    <h3 class="text-lg mb-3">Interactive States</h3>
+                    <div class="d-flex gap-3 mb-4 flex-wrap">
+                        <button class="btn btn-primary">Primary Action</button>
+                        <button class="btn btn-secondary">Secondary Action</button>
+                        <button class="btn btn-outline">Outline Focus</button>
+                    </div>
+
+                    <h4 class="text-md mb-2 mt-4">Segmented Control Matrix</h4>
+                    <div class="segmented-control" role="radiogroup" style="max-width:300px;">
+                        <div class="segmented-control__indicator"></div>
+                        <label class="segmented-control__label">
+                            <input type="radio" name="seg_builder_1" value="day" class="segmented-control__input"
+                                checked> Day
+                        </label>
+                        <label class="segmented-control__label">
+                            <input type="radio" name="seg_builder_1" value="week" class="segmented-control__input"> Week
+                        </label>
+                        <label class="segmented-control__label">
+                            <input type="radio" name="seg_builder_1" value="month" class="segmented-control__input">
+                            Month
+                        </label>
+                    </div>
+
+                    <h4 class="text-md mb-2 mt-4">Tree Navigation</h4>
+                    <ul class="tree-view ml-0 pl-0">
+                        <li>Settings
+                            <ul>
+                                <li>Profile configurations</li>
+                                <li>Security (2FA/Passkeys)</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Badges & Inputs -->
+            <div class="col-4">
+                <div class="card p-4 h-100 bg-surface-variant">
+                    <h3 class="text-lg mb-3">Status Markers</h3>
+                    <div class="d-flex gap-2 mb-4 flex-wrap">
+                        <span class="badge badge-success">Operational</span>
+                        <span class="badge badge-warning">Warning</span>
+                        <span class="badge badge-danger">Critical</span>
+                        <span class="badge badge-info">New Feature</span>
+                    </div>
+
+                    <h3 class="text-lg mb-2">Form Inputs</h3>
+                    <label class="text-sm fw-600 mb-1 d-block">Email Address</label>
+                    <input type="email" class="form-control mb-3" placeholder="hello@aurora.dev">
+
+                    <div class="d-flex align-items-center gap-2 mt-2">
+                        <input type="checkbox" id="chk_builder_1" class="form-checkbox" checked>
+                        <label for="chk_builder_1" class="text-sm m-0">Subscribe to newsletter</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feedback & Overlays -->
+            <div class="col-12 mt-2">
+                <div class="card p-4 border-primary"
+                    style="background: var(--ds-sys-color-primary-container); color: var(--ds-sys-color-on-primary-container);">
+                    <div class="d-flex align-items-center gap-3">
+                        <span class="material-symbols-outlined fs-2 text-primary">info</span>
+                        <div>
+                            <h4 class="text-md fw-bold m-0 text-primary">System Notification</h4>
+                            <p class="text-sm m-0 opacity-80">This alert banner immediately adopts the newly dispatched
+                                primary token scales.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+
+    <!-- TEMPLATE 2: Dashboard Interface -->
+    <template id="tpl-dashboard">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2>Analytics Overview</h2>
+            <div class="d-flex align-items-center gap-3">
+                <div class="avatar bg-primary text-white d-flex align-items-center justify-content-center fw-bold"
+                    style="width: 40px; height: 40px; border-radius: 50%;">AC</div>
+                <div class="text-sm lh-sm">
+                    <strong>Amith C.</strong><br>
+                    <span class="text-variant">Administrator</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid gap-4" style="grid-template-columns: repeat(12, 1fr);">
+            <div class="col-4">
+                <div class="card p-4">
+                    <span class="text-sm text-variant fw-600 text-uppercase d-block mb-1">Total Revenue</span>
+                    <div class="text-2xl fw-bold text-primary">$48,294.00</div>
+                    <div class="text-sm text-success fw-600 mt-2 d-flex align-items-center gap-1">
+                        <span class="material-symbols-outlined fs-6">trending_up</span> +14.5% vs last month
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="card p-4">
+                    <span class="text-sm text-variant fw-600 text-uppercase d-block mb-1">Active Users</span>
+                    <div class="text-2xl fw-bold">12,490</div>
+                    <div class="text-sm text-success fw-600 mt-2 d-flex align-items-center gap-1">
+                        <span class="material-symbols-outlined fs-6">trending_up</span> +5.2% vs last month
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="card p-4">
+                    <span class="text-sm text-variant fw-600 text-uppercase d-block mb-1">Churn Rate</span>
+                    <div class="text-2xl fw-bold">1.2%</div>
+                    <div class="text-sm text-danger fw-600 mt-2 d-flex align-items-center gap-1">
+                        <span class="material-symbols-outlined fs-6">trending_down</span> +0.4% vs last month
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <div class="card p-4">
+                    <h3 class="text-lg mb-3">Traffic Dynamics</h3>
+                    <div class="bg-surface-variant w-100 rounded"
+                        style="height: 200px; display:flex; align-items:flex-end; gap: 8px; padding: 20px;">
+                        <!-- Mock Bar Chart utilizing Brand Primary -->
+                        <div
+                            style="width: 100%; height: 40%; background: var(--ds-sys-color-primary); border-radius: var(--ds-sys-radius-btn) var(--ds-sys-radius-btn) 0 0; opacity: 0.8;">
+                        </div>
+                        <div
+                            style="width: 100%; height: 70%; background: var(--ds-sys-color-primary); border-radius: var(--ds-sys-radius-btn) var(--ds-sys-radius-btn) 0 0; opacity: 0.9;">
+                        </div>
+                        <div
+                            style="width: 100%; height: 50%; background: var(--ds-sys-color-primary); border-radius: var(--ds-sys-radius-btn) var(--ds-sys-radius-btn) 0 0; opacity: 0.6;">
+                        </div>
+                        <div
+                            style="width: 100%; height: 90%; background: var(--ds-sys-color-primary); border-radius: var(--ds-sys-radius-btn) var(--ds-sys-radius-btn) 0 0;">
+                        </div>
+                        <div
+                            style="width: 100%; height: 60%; background: var(--ds-sys-color-primary); border-radius: var(--ds-sys-radius-btn) var(--ds-sys-radius-btn) 0 0; opacity: 0.7;">
+                        </div>
+                        <div
+                            style="width: 100%; height: 85%; background: var(--ds-sys-color-primary); border-radius: var(--ds-sys-radius-btn) var(--ds-sys-radius-btn) 0 0; opacity: 0.95;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+
+    <!-- TEMPLATE 3: Marketing Page -->
+    <template id="tpl-marketing">
+        <div class="text-center py-5">
+            <span class="badge badge-primary px-3 py-1 text-sm rounded-pill mb-4">v3.0 is finally here</span>
+            <h1 class="text-4xl fw-900 mb-4" style="line-height: 1.1; letter-spacing: -0.02em;">Unleash your
+                creative<br>potential with <span class="text-primary">Aurora</span></h1>
+            <p class="text-lg text-variant mx-auto mb-5" style="max-width: 600px;">Experience the first design system
+                explicitly engineered for speed, massive scale, and total dark-mode accessibility.</p>
+
+            <div class="d-flex justify-content-center gap-3">
+                <button class="btn btn-primary btn-lg px-5 border-0" style="border-radius: 999px;">Start Building
+                    Now</button>
+                <button class="btn btn-outline btn-lg px-5" style="border-radius: 999px;">Read Documentation</button>
+            </div>
+        </div>
+
+        <div class="grid gap-4 mt-4" style="grid-template-columns: repeat(12, 1fr);">
+            <div class="col-4">
+                <div class="card p-4 text-center h-100 border-0 shadow-sm surface-container-highest">
+                    <span class="material-symbols-outlined fs-1 text-primary mb-3">architecture</span>
+                    <h3 class="text-lg fw-bold mb-2">Token Driven</h3>
+                    <p class="text-sm text-variant m-0">Change one global CSS variable root to update your entire
+                        ecosystem precisely.</p>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="card p-4 text-center h-100 border-0 shadow-sm surface-container-highest">
+                    <span class="material-symbols-outlined fs-1 text-primary mb-3">grid_view</span>
+                    <h3 class="text-lg fw-bold mb-2">Responsive Scale</h3>
+                    <p class="text-sm text-variant m-0">A powerful 12-column subgrid architecture that snaps flawlessly
+                        to your creative vision.</p>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="card p-4 text-center h-100 border-0 shadow-sm surface-container-highest">
+                    <span class="material-symbols-outlined fs-1 text-primary mb-3">dark_mode</span>
+                    <h3 class="text-lg fw-bold mb-2">Dual Modality</h3>
+                    <p class="text-sm text-variant m-0">Seamlessly flips between light and dark modes universally
+                        without writing duplicate media queries.</p>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <!-- Controller Script -->
+    {{ $builderJS := resources.Get "js/theme-builder.js" }}
+    <script src="{{ $builderJS.RelPermalink }}" type="module"></script>
+
+    <!-- UI Components initialization for the injected templates -->
+    <script type="module">
+        import { initSegmentedControls } from '/aurora-docs/js/components/segmented-control.js';
+        import { initTreeViews } from '/aurora-docs/js/components/tree-view.js';
+        import "/aurora-docs/js/components/toast.js";
+
+        // Expose a global hook so our JS builder can re-initialize components when dropping templates
+        window.auroraBuilderInit = () => {
+            initSegmentedControls();
+            initTreeViews();
+        };
+    </script>
+
+</body>
+
+</html>
