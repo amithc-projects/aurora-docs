@@ -192,4 +192,11 @@
 
   --ds-cmp-vk-key-positive-bg: var(--ds-sys-color-success);
   --ds-cmp-vk-key-positive-text: var(--ds-sys-color-on-primary);
+
+  /* SPLITTER */
+  --ds-cmp-splitter-thickness: 0.5rem;
+  --ds-cmp-splitter-bg: var(--ds-sys-color-surface-container-highest);
+  --ds-cmp-splitter-hover: var(--ds-sys-color-primary);
+  --ds-cmp-splitter-knob: var(--ds-sys-color-surface);
+  --ds-cmp-splitter-knob-shadow: var(--ds-sys-shadow-sm);
 }
