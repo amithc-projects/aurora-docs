@@ -217,4 +217,13 @@
   --ds-cmp-seg-active-text: var(--ds-sys-color-on-surface);
   --ds-cmp-seg-padding: 0.25rem;
   --ds-cmp-seg-radius: var(--ds-sys-radius-btn);
+
+  /* VIDEO PLAYER */
+  --ds-cmp-video-bg: #000;
+  --ds-cmp-video-panel-bg: rgba(0, 0, 0, 0.6);
+  --ds-cmp-video-panel-blur: blur(8px);
+  --ds-cmp-video-btn-color: #fff;
+  --ds-cmp-video-btn-hover: rgba(255, 255, 255, 0.2);
+  --ds-cmp-video-radius: var(--ds-sys-radius-card);
+  --ds-cmp-video-btn-size: 3rem;
 }

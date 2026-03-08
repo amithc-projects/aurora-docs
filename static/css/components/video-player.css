@@ -1,0 +1,152 @@
+@layer components {
+
+    /* --- VARIABLES --- */
+    .video-player {
+        --ds-cmp-video-bg: #000;
+        --ds-cmp-video-panel-bg: rgba(0, 0, 0, 0.6);
+        --ds-cmp-video-panel-blur: blur(8px);
+        --ds-cmp-video-btn-color: #fff;
+        --ds-cmp-video-btn-hover: rgba(255, 255, 255, 0.2);
+        --ds-cmp-video-radius: var(--ds-sys-radius-card, 12px);
+        --ds-cmp-video-btn-size: 3rem;
+
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin-bottom: 2rem;
+        overflow: hidden;
+        /* For border-radius clipping */
+        border-radius: var(--ds-cmp-video-radius);
+        background-color: var(--ds-cmp-video-bg);
+    }
+
+    /* --- NATIVE VIDEO ELEMENT --- */
+    .video-player video {
+        width: 100%;
+        height: auto;
+        display: block;
+        cursor: pointer;
+        background-color: inherit;
+    }
+
+    /* --- CONTROLS CONTAINER --- */
+    .video-controls {
+        display: flex;
+        gap: 0.5rem;
+        padding: 0.75rem 1.5rem;
+        align-items: center;
+        background: var(--ds-cmp-video-panel-bg);
+        backdrop-filter: var(--ds-cmp-video-panel-blur);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+        z-index: 10;
+    }
+
+    /* Hide the native controls if JS failed to remove them conceptually */
+    .video-player video::-webkit-media-controls {
+        display: none !important;
+    }
+
+    /* --- POSITIONING MODES --- */
+
+    /* Extent of the Panel */
+    .video-player[data-controls-position="external"] .video-controls {
+        /* Sits normally under the video block */
+        border-bottom-left-radius: var(--ds-cmp-video-radius);
+        border-bottom-right-radius: var(--ds-cmp-video-radius);
+    }
+
+    .video-player[data-controls-position="overlay"] .video-controls {
+        position: absolute;
+        inset: 0;
+        margin: auto;
+        /* Required for center align */
+        width: max-content;
+        height: max-content;
+        border-radius: 999px;
+        /* Pill shape when floating */
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+
+        /* Default Overlay state is hidden until video is paused/tapped */
+        opacity: 0;
+        pointer-events: none;
+        transform: scale(0.95);
+    }
+
+    .video-player[data-controls-position="overlay"].is-controls-visible .video-controls {
+        opacity: 1;
+        pointer-events: auto;
+        transform: scale(1);
+    }
+
+    /* Overlay Alignments */
+    .video-player[data-controls-align="center"] .video-controls {
+        /* Handled natively by absolute inset:0 and margin:auto */
+        position: absolute;
+    }
+
+    .video-player[data-controls-align="bottom"] .video-controls {
+        inset: auto 0 1.5rem 0;
+        /* Snapped to bottom edge with padding */
+    }
+
+    .video-player[data-controls-align="top"] .video-controls {
+        inset: 1.5rem 0 auto 0;
+        /* Snapped to top edge with padding */
+    }
+
+    /* Orientations */
+    .video-player[data-controls-orientation="vertical"] .video-controls {
+        flex-direction: column;
+        padding: 1.5rem 0.75rem;
+    }
+
+    .video-player[data-controls-orientation="vertical"][data-controls-align="left"] .video-controls {
+        inset: 0 auto 0 1.5rem;
+        margin: auto;
+    }
+
+    .video-player[data-controls-orientation="vertical"][data-controls-align="right"] .video-controls {
+        inset: 0 1.5rem 0 auto;
+        margin: auto;
+    }
+
+
+    /* --- BUTTONS --- */
+    .video-controls__btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: var(--ds-cmp-video-btn-size);
+        height: var(--ds-cmp-video-btn-size);
+        border-radius: 50%;
+
+        background: transparent;
+        color: var(--ds-cmp-video-btn-color);
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.2s ease, transform 0.1s ease;
+    }
+
+    .video-controls__btn .material-symbols-outlined {
+        font-size: calc(var(--ds-cmp-video-btn-size) * 0.6);
+    }
+
+    .video-controls__btn:hover {
+        background-color: var(--ds-cmp-video-btn-hover);
+    }
+
+    .video-controls__btn:active {
+        transform: scale(0.95);
+    }
+
+    /* Special prominent styling for Play/Pause in center */
+    .video-controls__btn--primary {
+        width: calc(var(--ds-cmp-video-btn-size) * 1.25);
+        height: calc(var(--ds-cmp-video-btn-size) * 1.25);
+    }
+
+    .video-controls__btn--primary .material-symbols-outlined {
+        font-size: calc(var(--ds-cmp-video-btn-size) * 0.9);
+    }
+}
