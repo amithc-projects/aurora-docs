@@ -7,7 +7,7 @@
 
 /* 2. THEME CONFIGURATION */
 @import url('themes/corporate.css');
-@import url('themes/kids.css');
+@import url('themes/casual.css');
 
 /* 3. COMPONENT LAYER */
 
@@ -71,11 +71,11 @@
   --font-weight-bold: 700;
 }
 
-/* KIDS THEME OVERRIDES */
-[data-theme="kids"] {
+/* CASUAL THEME OVERRIDES */
+[data-theme="casual"] {
   --font-primary: 'Fredoka', cursive, sans-serif;
 
-  /* Kids theme defaults to slightly chunkier and wider */
+  /* Casual theme defaults to slightly chunkier and wider */
   --vf-wght: 450;
   --vf-wdth: 110;
 }
@@ -164,8 +164,8 @@ h6 {
   --ds-chart-seq-5: color-mix(in srgb, var(--ds-sys-color-primary), white 20%);
 }
 
-/* KIDS THEME OVERRIDES (More playful/saturated) */
-[data-theme="kids"] {
+/* CASUAL THEME OVERRIDES (More playful/saturated) */
+[data-theme="casual"] {
   --ds-chart-1: #FF5D73;
   /* Pop Pink */
   --ds-chart-2: #7CFFC4;
@@ -222,8 +222,8 @@ h6 {
   --ds-chart-seq-5: color-mix(in srgb, var(--ds-sys-color-primary), white 20%);
 }
 
-/* KIDS THEME OVERRIDES (More playful/saturated) */
-[data-theme="kids"] {
+/* CASUAL THEME OVERRIDES (More playful/saturated) */
+[data-theme="casual"] {
   --ds-chart-1: #FF5D73;
   /* Pop Pink */
   --ds-chart-2: #7CFFC4;

@@ -1,10 +1,10 @@
 {{ define "main" }}
 <div class="l-stack">
-  
+
 
 
   <div class="tpl-page" data-layout="{{ .Params.layout_type }}">
-    
+
     <header class="tpl-header">
       <div style="display: flex; gap: 0.5rem; align-items: center;">
         <div style="width: 32px; height: 32px; background: var(--ds-sys-color-primary); border-radius: 50%;"></div>
@@ -30,27 +30,36 @@
       <div class="tpl-main-content">
         <h1>{{ .Title }}</h1>
         <p class="prose">{{ .Params.description }}</p>
-        
+
         <hr style="margin: 2rem 0; border: 0; border-top: 1px solid var(--ds-sys-color-border);">
 
         {{ if eq .Params.layout_type "grid-gallery" }}
-          <div class="l-grid" style="--col-min: 200px;">
-            {{ range seq 6 }}
-              <div class="card"><div class="card__media" style="height: 150px; background: #eee;"></div><div class="card__content">Item {{ . }}</div></div>
-            {{ end }}
+        <div class="l-grid" style="--col-min: 200px;">
+          {{ range seq 12 }}
+          <div class="card">
+            <div class="card__media"
+              style="height: 150px; background: url('https://picsum.photos/seed/gallery{{ . }}/400/300') center/cover;">
+            </div>
+            <div class="card__content">
+              <h3 style="font-size: var(--text-base); margin-bottom: 0.25rem;">Project Zero {{ . }}</h3>
+              <p style="font-size: var(--text-sm); color: var(--ds-sys-color-on-surface-variant); margin: 0;">
+                Photography &bull; 2026</p>
+            </div>
           </div>
+          {{ end }}
+        </div>
         {{ else }}
-          <div class="l-stack">
-            <div class="card" style="padding: 2rem;">
-              <h3>Main Content Card</h3>
-              <p>This area expands to fill the available space defined by the grid area "main".</p>
-            </div>
-            <div class="l-grid" style="--col-min: 250px;">
-              <div class="card" style="padding: 1.5rem;">Widget A</div>
-              <div class="card" style="padding: 1.5rem;">Widget B</div>
-            </div>
-            {{ .Content }}
+        <div class="l-stack">
+          <div class="card" style="padding: 2rem;">
+            <h3>Main Content Card</h3>
+            <p>This area expands to fill the available space defined by the grid area "main".</p>
           </div>
+          <div class="l-grid" style="--col-min: 250px;">
+            <div class="card" style="padding: 1.5rem;">Widget A</div>
+            <div class="card" style="padding: 1.5rem;">Widget B</div>
+          </div>
+          {{ .Content }}
+        </div>
         {{ end }}
       </div>
     </main>

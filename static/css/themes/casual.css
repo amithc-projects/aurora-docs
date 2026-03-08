@@ -1,5 +1,5 @@
-/* css/themes/kids.css */
-[data-theme="kids"] {
+/* css/themes/casual.css */
+[data-theme="casual"] {
   /* --- REFERENCE LAYER --- */
   /* Coral Red */
   --ds-ref-primary: oklch(67% 0.19 23);
@@ -129,7 +129,7 @@
   --ds-cmp-nav-mobile-right: auto;
   --ds-cmp-nav-mobile-transform-closed: translateX(-100%);
 
-  /* Inside [data-theme="kids"] */
+  /* Inside [data-theme="casual"] */
 
   /* TABS: Chunky & Separated */
   --ds-cmp-tabs-gap: var(--space-sm);

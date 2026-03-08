@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en" data-mode="light">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Aurora — Command Palette</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root{
+      --color-neutral-0:#fff;--color-neutral-50:#f9fafb;--color-neutral-100:#f3f4f6;
+      --color-neutral-200:#e5e7eb;--color-neutral-300:#d1d5db;--color-neutral-500:#6b7280;
+      --color-neutral-900:#111827;
+      --color-brand:#2563eb;--color-brand-subtle:#eff6ff;--color-brand-hover:#1d4ed8;--color-brand-on:#fff;
+      --color-surface-base:var(--color-neutral-50);--color-surface-raised:var(--color-neutral-0);
+      --color-surface-sunken:var(--color-neutral-100);
+      --color-text-primary:var(--color-neutral-900);--color-text-secondary:var(--color-neutral-500);
+      --color-text-tertiary:#9ca3af;
+      --color-border-subtle:var(--color-neutral-200);--color-border-default:var(--color-neutral-300);
+      --shadow-2xl:0 25px 50px -12px rgb(0 0 0/.25);
+      --radius-xl:.75rem;--radius-md:.375rem;--radius-full:9999px;
+      --space-2:.5rem;--space-3:.75rem;--space-4:1rem;
+      --text-xs:.75rem;--text-sm:.875rem;--text-base:1rem;
+      --font-sans:'Instrument Sans',system-ui,sans-serif;--font-display:'Syne',system-ui,sans-serif;
+      --font-mono:'SF Mono','Fira Code',monospace;
+      --ease-out:cubic-bezier(0,0,.2,1);--duration-fast:110ms;--duration-moderate:220ms;
+    }
+    [data-mode="dark"]{
+      --color-surface-base:#0f172a;--color-surface-raised:#1a2235;--color-surface-sunken:#111827;
+      --color-text-primary:#f1f5f9;--color-text-secondary:#94a3b8;--color-text-tertiary:#64748b;
+      --color-border-subtle:#1e293b;--color-border-default:#334155;
+      --shadow-2xl:0 25px 50px -12px rgb(0 0 0/.7);
+      --color-brand-subtle:#1e3a5f;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:var(--font-sans);background:var(--color-surface-base);color:var(--color-text-primary);min-height:100vh;}
+
+    /* ─── Demo page ─── */
+    .page{padding:3rem 2rem;max-width:720px;margin:0 auto;}
+    h1{font-family:var(--font-display);font-size:2rem;font-weight:700;letter-spacing:-.03em;margin-bottom:.25rem;}
+    .lead{color:var(--color-text-secondary);font-size:.9375rem;margin-bottom:2rem;}
+    .open-hint{display:flex;align-items:center;gap:.75rem;padding:1.25rem 1.5rem;background:var(--color-surface-raised);border:1.5px dashed var(--color-border-default);border-radius:var(--radius-xl);cursor:pointer;transition:border-color 150ms,background 150ms;margin-bottom:1.5rem;}
+    .open-hint:hover{border-color:var(--color-brand);background:var(--color-brand-subtle);}
+    .open-hint svg{color:var(--color-text-secondary);}
+    .open-hint-text{flex:1;color:var(--color-text-secondary);font-size:var(--text-sm);}
+    .open-hint-keys{display:flex;gap:.25rem;}
+    .kbd{font-family:var(--font-mono);font-size:.6875rem;background:var(--color-surface-sunken);border:1px solid var(--color-border-default);border-radius:.25rem;padding:.1875rem .4375rem;color:var(--color-text-secondary);}
+    .feature-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.75rem;}
+    .feature-card{background:var(--color-surface-raised);border:1px solid var(--color-border-subtle);border-radius:var(--radius-md);padding:.875rem 1rem;font-size:var(--text-sm);}
+    .feature-card strong{display:block;margin-bottom:.25rem;font-weight:600;}
+    .feature-card span{color:var(--color-text-secondary);font-size:var(--text-xs);}
+
+    /* ─── Backdrop ─── */
+    .cmd-backdrop{
+      position:fixed;inset:0;background:rgb(0 0 0/0);
+      z-index:400;display:flex;align-items:flex-start;justify-content:center;
+      padding-top:clamp(3rem,12vh,120px);
+      opacity:0;pointer-events:none;
+      transition:background var(--duration-moderate) var(--ease-out),opacity var(--duration-fast) var(--ease-out);
+    }
+    .cmd-backdrop.is-open{background:rgb(0 0 0/.55);opacity:1;pointer-events:all;}
+    [data-mode="dark"] .cmd-backdrop.is-open{background:rgb(0 0 0/.75);}
+
+    /* ─── Panel ─── */
+    .cmd-panel{
+      width:600px;max-width:calc(100vw - 2rem);
+      background:var(--color-surface-raised);
+      border:1px solid var(--color-border-subtle);
+      border-radius:var(--radius-xl);
+      box-shadow:var(--shadow-2xl);
+      overflow:hidden;
+      transform:scale(.97) translateY(-8px);opacity:0;
+      transition:transform var(--duration-moderate) var(--ease-out),opacity var(--duration-moderate) var(--ease-out);
+    }
+    .cmd-backdrop.is-open .cmd-panel{transform:scale(1) translateY(0);opacity:1;}
+
+    /* ─── Input row ─── */
+    .cmd-input-row{
+      display:flex;align-items:center;gap:.75rem;
+      padding:0 1.125rem;height:56px;
+      border-bottom:1px solid var(--color-border-subtle);
+    }
+    .cmd-search-icon{color:var(--color-text-secondary);flex-shrink:0;}
+    .cmd-input{
+      flex:1;border:none;background:transparent;outline:none;
+      font-family:var(--font-sans);font-size:var(--text-base);
+      color:var(--color-text-primary);
+    }
+    .cmd-input::placeholder{color:var(--color-text-tertiary);}
+    .cmd-clear{display:none;align-items:center;justify-content:center;width:24px;height:24px;border-radius:var(--radius-md);background:var(--color-surface-sunken);border:none;cursor:pointer;color:var(--color-text-secondary);}
+    .cmd-clear.visible{display:flex;}
+    .cmd-clear:hover{background:var(--color-border-default);}
+
+    /* ─── Results ─── */
+    .cmd-results{max-height:420px;overflow-y:auto;overscroll-behavior:contain;}
+    .cmd-results::-webkit-scrollbar{width:4px;}
+    .cmd-results::-webkit-scrollbar-track{background:transparent;}
+    .cmd-results::-webkit-scrollbar-thumb{background:var(--color-border-default);border-radius:99px;}
+    .cmd-group{padding:.375rem 0;}
+    .cmd-group+.cmd-group{border-top:1px solid var(--color-border-subtle);}
+    .cmd-group-label{padding:.375rem 1.125rem .25rem;font-size:.6875rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--color-text-tertiary);}
+    .cmd-item{
+      display:flex;align-items:center;gap:.75rem;
+      padding:.5625rem 1rem;
+      cursor:pointer;border-radius:0;
+      transition:background 60ms;
+      outline:none;
+    }
+    .cmd-item.is-active,.cmd-item:hover{background:var(--color-surface-sunken);}
+    .cmd-item.is-active{background:var(--color-brand-subtle);}
+    .cmd-item-icon{
+      width:30px;height:30px;border-radius:var(--radius-md);
+      background:var(--color-surface-sunken);border:1px solid var(--color-border-subtle);
+      display:flex;align-items:center;justify-content:center;flex-shrink:0;
+      color:var(--color-text-secondary);
+    }
+    .cmd-item.is-active .cmd-item-icon{background:var(--color-brand-subtle);border-color:#bfdbfe;color:var(--color-brand);}
+    .cmd-item-text{flex:1;min-width:0;}
+    .cmd-item-label{font-size:var(--text-sm);color:var(--color-text-primary);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+    .cmd-item.is-active .cmd-item-label{color:var(--color-brand);}
+    .cmd-item-desc{font-size:var(--text-xs);color:var(--color-text-tertiary);margin-top:.0625rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+    .cmd-item-meta{display:flex;align-items:center;gap:.375rem;flex-shrink:0;}
+    .cmd-badge{font-size:.6875rem;font-family:var(--font-mono);background:var(--color-surface-sunken);border:1px solid var(--color-border-default);border-radius:.25rem;padding:.0625rem .375rem;color:var(--color-text-secondary);white-space:nowrap;}
+    .cmd-item.is-active .cmd-badge{background:var(--color-brand-subtle);border-color:#bfdbfe;color:var(--color-brand);}
+    mark{background:var(--color-brand-subtle);color:var(--color-brand);border-radius:2px;font-style:normal;}
+
+    /* ─── Empty state ─── */
+    .cmd-empty{padding:2.5rem 1rem;text-align:center;}
+    .cmd-empty p{font-size:var(--text-sm);color:var(--color-text-secondary);}
+    .cmd-empty strong{display:block;font-size:.9375rem;color:var(--color-text-primary);margin-bottom:.375rem;}
+
+    /* ─── Footer ─── */
+    .cmd-footer{
+      display:flex;align-items:center;justify-content:space-between;gap:1rem;
+      padding:.5rem 1.125rem;
+      border-top:1px solid var(--color-border-subtle);
+      background:var(--color-surface-sunken);
+    }
+    .cmd-footer-hints{display:flex;gap:.875rem;flex-wrap:wrap;}
+    .cmd-hint{display:flex;align-items:center;gap:.3125rem;font-size:.6875rem;color:var(--color-text-tertiary);}
+
+    .mode-toggle{position:fixed;top:1.25rem;right:1.5rem;}
+    .toggle-switch{position:relative;width:40px;height:22px;background:var(--color-border-default);border-radius:99px;cursor:pointer;border:none;transition:background 200ms;}
+    .toggle-switch::after{content:'';position:absolute;top:3px;left:3px;width:16px;height:16px;background:#fff;border-radius:50%;transition:transform 200ms;}
+    [data-mode="dark"] .toggle-switch{background:var(--color-brand);}
+    [data-mode="dark"] .toggle-switch::after{transform:translateX(18px);}
+  </style>
+</head>
+<body>
+<button class="toggle-switch mode-toggle" onclick="toggleMode()" aria-label="Toggle dark mode"></button>
+<div class="page">
+  <h1>Command Palette</h1>
+  <p class="lead">Keyboard-driven universal search for actions, pages, and data. Press <kbd class="kbd">⌘K</kbd> or click below to open.</p>
+
+  <div class="open-hint" onclick="openCmd()" role="button" tabindex="0" aria-label="Open command palette">
+    <svg class="cmd-search-icon" width="18" height="18" viewBox="0 0 20 20" fill="none"><circle cx="9" cy="9" r="6" stroke="currentColor" stroke-width="1.75"/><path d="M15 15l3 3" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>
+    <span class="open-hint-text">Search commands and pages…</span>
+    <div class="open-hint-keys"><kbd class="kbd">⌘</kbd><kbd class="kbd">K</kbd></div>
+  </div>
+
+  <div class="feature-grid">
+    <div class="feature-card"><strong>Fuzzy search</strong><span>Characters don't need to be adjacent — "tb" matches "Token Builder"</span></div>
+    <div class="feature-card"><strong>Match highlighting</strong><span>Matched characters highlighted in results to build trust</span></div>
+    <div class="feature-card"><strong>Grouped results</strong><span>Recent, Pages, Actions, and Data results in labelled sections</span></div>
+    <div class="feature-card"><strong>Full keyboard nav</strong><span>↑↓ to move, Enter to activate, Esc to close</span></div>
+  </div>
+</div>
+
+<!-- Command palette -->
+<div class="cmd-backdrop" id="cmdBackdrop" role="dialog" aria-modal="true" aria-label="Command palette">
+  <div class="cmd-panel" id="cmdPanel">
+    <div class="cmd-input-row">
+      <svg class="cmd-search-icon" width="18" height="18" viewBox="0 0 20 20" fill="none"><circle cx="9" cy="9" r="6" stroke="currentColor" stroke-width="1.75"/><path d="M15 15l3 3" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>
+      <input class="cmd-input" id="cmdInput" type="search" placeholder="Search commands and pages…" autocomplete="off" spellcheck="false" role="combobox" aria-expanded="true" aria-autocomplete="list" aria-controls="cmdResults"/>
+      <button class="cmd-clear" id="cmdClear" aria-label="Clear search" onclick="clearSearch()">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 2l8 8M10 2L2 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+    <div class="cmd-results" id="cmdResults" role="listbox" aria-label="Search results"></div>
+    <div class="cmd-footer">
+      <div class="cmd-footer-hints">
+        <span class="cmd-hint"><kbd class="kbd">↑↓</kbd> navigate</span>
+        <span class="cmd-hint"><kbd class="kbd">↵</kbd> open</span>
+        <span class="cmd-hint"><kbd class="kbd">esc</kbd> close</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const PAGES=[
+  {id:'dash',label:'Dashboard',desc:'Overview and metrics',icon:'grid',shortcut:'⌘D'},
+  {id:'tokens',label:'Design Token Reference',desc:'Full token dictionary',icon:'code'},
+  {id:'components',label:'Components',desc:'Browse all components',icon:'box'},
+  {id:'theming',label:'Theming Guide',desc:'Create and customise themes',icon:'palette'},
+  {id:'breakpoints',label:'Breakpoints & Grid',desc:'Responsive layout system',icon:'layout'},
+  {id:'typography',label:'Typography',desc:'Type scale and font tokens',icon:'type'},
+  {id:'icons',label:'Icons',desc:'Icon library and usage',icon:'star'},
+  {id:'forms',label:'Forms & Inputs',desc:'Form components reference',icon:'edit'},
+  {id:'motion',label:'Motion & Animation',desc:'Duration and easing tokens',icon:'zap'},
+  {id:'accessibility',label:'Accessibility Guide',desc:'WCAG compliance and ARIA patterns',icon:'shield'},
+];
+const ACTIONS=[
+  {id:'new-component',label:'New component',desc:'Start documenting a new component',icon:'plus',shortcut:'⌘N'},
+  {id:'toggle-theme',label:'Toggle theme',desc:'Switch between Corporate and Casual',icon:'sun'},
+  {id:'toggle-mode',label:'Toggle dark mode',desc:'Switch light / dark',icon:'moon',shortcut:'⌘⇧D'},
+  {id:'search-tokens',label:'Search tokens',desc:'Find a specific CSS token',icon:'search'},
+  {id:'export',label:'Export tokens',desc:'Download token JSON',icon:'download'},
+  {id:'changelog',label:'View changelog',desc:'Recent updates and releases',icon:'clock'},
+];
+const RECENT=['tokens','dash','components'];
+
+const ICON_SVG={
+  grid:`<svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="2" y="2" width="5" height="5" rx=".75" stroke="currentColor" stroke-width="1.5"/><rect x="9" y="2" width="5" height="5" rx=".75" stroke="currentColor" stroke-width="1.5"/><rect x="2" y="9" width="5" height="5" rx=".75" stroke="currentColor" stroke-width="1.5"/><rect x="9" y="9" width="5" height="5" rx=".75" stroke="currentColor" stroke-width="1.5"/></svg>`,
+  code:`<svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M5 5L2 8l3 3M11 5l3 3-3 3M9 3l-2 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+  box:`<svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M2 5l6-3 6 3v6l-6 3-6-3V5z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M8 2v12M2 5l6 3 6-3" stroke="currentColor" stroke-width="1.5"/></svg>`,
+  palette:`<svg width="14" height="14" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5"/><circle cx="5.5" cy="6" r="1" fill="currentColor"/><circle cx="10.5" cy="6" r="1" fill="currentColor"/><circle cx="8" cy="10" r="1" fill="currentColor"/></svg>`,
+  layout:`<svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="2" y="2" width="12" height="12" rx="1.5" stroke="currentColor" stroke-width="1.5"/><path d="M2 6h12M6 6v8" stroke="currentColor" stroke-width="1.5"/></svg>`,
+  type:`<svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 4h10M8 4v8M5 12h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>`,
+  star:`<svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M8 2l1.8 3.6L14 6.4l-3 2.9.7 4.1L8 11.5 5.3 13.4l.7-4.1-3-2.9 4.2-.8L8 2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>`,
+  edit:`<svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M11 2l3 3-8 8H3v-3L11 2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>`,
+  zap:`<svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M9 2L4 9h4l-1 5 6-7H9l1-5z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>`,
+  shield:`<svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M8 2L3 4.5V9c0 2.5 2 4.5 5 5 3-0.5 5-2.5 5-5V4.5L8 2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>`,
+  plus:`<svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>`,
+  sun:`<svg width="14" height="14" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="3" stroke="currentColor" stroke-width="1.5"/><path d="M8 1v2M8 13v2M1 8h2M13 8h2M3.1 3.1l1.4 1.4M11.5 11.5l1.4 1.4M3.1 12.9l1.4-1.4M11.5 4.5l1.4-1.4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>`,
+  moon:`<svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M13.5 10A6 6 0 1 1 6 2.5a4.5 4.5 0 0 0 7.5 7.5z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>`,
+  search:`<svg width="14" height="14" viewBox="0 0 16 16" fill="none"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.5"/><path d="M12 12l2 2" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>`,
+  download:`<svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M8 3v8M5 8l3 3 3-3M3 13h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+  clock:`<svg width="14" height="14" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5"/><path d="M8 5v3l2 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>`,
+};
+
+function highlight(text, query) {
+  if (!query) return text;
+  const chars = query.toLowerCase().split('').filter(Boolean);
+  let result = ''; let ci = 0; let inMark = false;
+  for (let i = 0; i < text.length; i++) {
+    const ch = text[i];
+    if (ci < chars.length && ch.toLowerCase() === chars[ci]) {
+      if (!inMark) { result += '<mark>'; inMark = true; }
+      result += ch; ci++;
+      // close mark if next char doesn't match
+      if (ci >= chars.length || text[i+1]?.toLowerCase() !== chars[ci]) { result += '</mark>'; inMark = false; }
+    } else {
+      if (inMark) { result += '</mark>'; inMark = false; }
+      result += ch;
+    }
+  }
+  if (inMark) result += '</mark>';
+  return result;
+}
+
+function fuzzyMatch(text, query) {
+  if (!query) return true;
+  const t = text.toLowerCase(), q = query.toLowerCase();
+  let ti = 0;
+  for (const ch of q) { ti = t.indexOf(ch, ti); if (ti === -1) return false; ti++; }
+  return true;
+}
+
+function fuzzyScore(text, query) {
+  const t = text.toLowerCase(), q = query.toLowerCase();
+  if (t === q) return 100;
+  if (t.startsWith(q)) return 80;
+  if (t.includes(q)) return 60;
+  return 30;
+}
+
+let activeIdx = -1;
+let allItems = [];
+
+function renderResults(query) {
+  const results = document.getElementById('cmdResults');
+  allItems = [];
+  let html = '';
+
+  if (!query) {
+    // Recent
+    const recents = RECENT.map(id => PAGES.find(p => p.id === id)).filter(Boolean);
+    html += `<div class="cmd-group"><div class="cmd-group-label">Recent</div>`;
+    recents.forEach(item => {
+      const idx = allItems.length;
+      allItems.push({...item, type:'page'});
+      html += renderItem(item, idx, '');
+    });
+    html += `</div>`;
+    // Actions
+    html += `<div class="cmd-group"><div class="cmd-group-label">Actions</div>`;
+    ACTIONS.slice(0,4).forEach(item => {
+      const idx = allItems.length;
+      allItems.push({...item, type:'action'});
+      html += renderItem(item, idx, '');
+    });
+    html += `</div>`;
+  } else {
+    const pMatches = PAGES.filter(p => fuzzyMatch(p.label, query) || fuzzyMatch(p.desc||'', query)).sort((a,b) => fuzzyScore(b.label,query)-fuzzyScore(a.label,query)).slice(0,6);
+    const aMatches = ACTIONS.filter(a => fuzzyMatch(a.label, query) || fuzzyMatch(a.desc||'', query)).sort((a,b) => fuzzyScore(b.label,query)-fuzzyScore(a.label,query)).slice(0,4);
+    if (pMatches.length) {
+      html += `<div class="cmd-group"><div class="cmd-group-label">Pages</div>`;
+      pMatches.forEach(item => { const idx=allItems.length; allItems.push({...item,type:'page'}); html+=renderItem(item,idx,query); });
+      html += `</div>`;
+    }
+    if (aMatches.length) {
+      html += `<div class="cmd-group"><div class="cmd-group-label">Actions</div>`;
+      aMatches.forEach(item => { const idx=allItems.length; allItems.push({...item,type:'action'}); html+=renderItem(item,idx,query); });
+      html += `</div>`;
+    }
+    if (!pMatches.length && !aMatches.length) {
+      html = `<div class="cmd-empty"><strong>No results for "${query}"</strong><p>Try a different search term or browse the navigation.</p></div>`;
+    }
+  }
+  results.innerHTML = html;
+  activeIdx = allItems.length > 0 ? 0 : -1;
+  updateActive();
+}
+
+function renderItem(item, idx, query) {
+  return `<div class="cmd-item" role="option" id="cmd-item-${idx}" aria-selected="false" data-idx="${idx}" onclick="activateItem(${idx})" onmouseenter="setActive(${idx})">
+    <div class="cmd-item-icon">${ICON_SVG[item.icon]||''}</div>
+    <div class="cmd-item-text">
+      <div class="cmd-item-label">${highlight(item.label, query)}</div>
+      ${item.desc?`<div class="cmd-item-desc">${item.desc}</div>`:''}
+    </div>
+    <div class="cmd-item-meta">${item.shortcut?`<kbd class="cmd-badge">${item.shortcut}</kbd>`:''}</div>
+  </div>`;
+}
+
+function updateActive() {
+  document.querySelectorAll('.cmd-item').forEach((el,i) => {
+    el.classList.toggle('is-active', i === activeIdx);
+    el.setAttribute('aria-selected', i === activeIdx);
+  });
+  if (activeIdx >= 0) {
+    const el = document.getElementById(`cmd-item-${activeIdx}`);
+    el?.scrollIntoView({block:'nearest'});
+    document.getElementById('cmdInput').setAttribute('aria-activedescendant', `cmd-item-${activeIdx}`);
+  }
+}
+
+function setActive(idx) { activeIdx = idx; updateActive(); }
+
+function activateItem(idx) {
+  const item = allItems[idx];
+  if (!item) return;
+  if (item.id === 'toggle-mode') toggleMode();
+  closeCmd();
+}
+
+function openCmd() {
+  document.getElementById('cmdBackdrop').classList.add('is-open');
+  document.body.style.overflow = 'hidden';
+  const input = document.getElementById('cmdInput');
+  input.value = '';
+  document.getElementById('cmdClear').classList.remove('visible');
+  renderResults('');
+  requestAnimationFrame(() => input.focus());
+  document.addEventListener('keydown', cmdKeydown);
+}
+
+function closeCmd() {
+  document.getElementById('cmdBackdrop').classList.remove('is-open');
+  document.body.style.overflow = '';
+  document.removeEventListener('keydown', cmdKeydown);
+}
+
+function clearSearch() {
+  const input = document.getElementById('cmdInput');
+  input.value = ''; input.focus();
+  document.getElementById('cmdClear').classList.remove('visible');
+  renderResults('');
+}
+
+function cmdKeydown(e) {
+  if (e.key === 'Escape') { e.preventDefault(); closeCmd(); return; }
+  if (e.key === 'ArrowDown' || (e.key === 'Tab' && !e.shiftKey)) {
+    e.preventDefault(); activeIdx = Math.min(activeIdx+1, allItems.length-1); updateActive();
+  } else if (e.key === 'ArrowUp' || (e.key === 'Tab' && e.shiftKey)) {
+    e.preventDefault(); activeIdx = Math.max(activeIdx-1, 0); updateActive();
+  } else if (e.key === 'Enter' && activeIdx >= 0) {
+    e.preventDefault(); activateItem(activeIdx);
+  }
+}
+
+document.getElementById('cmdInput').addEventListener('input', e => {
+  const q = e.target.value;
+  document.getElementById('cmdClear').classList.toggle('visible', q.length > 0);
+  renderResults(q);
+});
+
+document.getElementById('cmdBackdrop').addEventListener('click', e => {
+  if (e.target === document.getElementById('cmdBackdrop')) closeCmd();
+});
+
+document.addEventListener('keydown', e => {
+  if ((e.metaKey || e.ctrlKey) && e.key === 'k') { e.preventDefault(); openCmd(); }
+});
+
+document.querySelector('.open-hint').addEventListener('keydown', e => {
+  if (e.key === 'Enter' || e.key === ' ') openCmd();
+});
+
+function toggleMode(){const h=document.documentElement;h.setAttribute('data-mode',h.getAttribute('data-mode')==='dark'?'light':'dark');}
+</script>
+</body>
+</html>

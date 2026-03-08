@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="corporate" data-mode="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aurora — Popover</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --color-neutral-0:#fff;--color-neutral-50:#f9fafb;--color-neutral-100:#f3f4f6;
+      --color-neutral-200:#e5e7eb;--color-neutral-300:#d1d5db;--color-neutral-500:#6b7280;
+      --color-neutral-700:#374151;--color-neutral-900:#111827;
+      --color-brand:#2563eb;--color-brand-hover:#1d4ed8;--color-brand-subtle:#eff6ff;--color-brand-on:#fff;
+      --color-danger-500:#ef4444;--color-danger-bg:#fef2f2;
+      --color-surface-base:var(--color-neutral-50);--color-surface-raised:var(--color-neutral-0);
+      --color-surface-sunken:var(--color-neutral-100);
+      --color-text-primary:var(--color-neutral-900);--color-text-secondary:var(--color-neutral-500);
+      --color-border-subtle:var(--color-neutral-200);--color-border-default:var(--color-neutral-300);
+      --shadow-xl:0 20px 25px -5px rgb(0 0 0/.12),0 8px 10px -6px rgb(0 0 0/.08);
+      --radius-lg:.5rem;--radius-md:.375rem;--radius-sm:.125rem;--radius-full:9999px;
+      --space-1:.25rem;--space-2:.5rem;--space-3:.75rem;--space-4:1rem;--space-5:1.25rem;--space-6:1.5rem;
+      --text-xs:.75rem;--text-sm:.875rem;--text-base:1rem;
+      --font-sans:'Instrument Sans',system-ui,sans-serif;--font-display:'Syne',system-ui,sans-serif;
+      --ease-out:cubic-bezier(0,0,.2,1);--ease-in:cubic-bezier(.4,0,1,1);
+      --duration-fast:110ms;
+      --popover-bg:var(--color-surface-raised);
+      --popover-shadow:var(--shadow-xl);
+      --popover-radius:var(--radius-lg);
+      --popover-max-width:320px;
+      --popover-z-index:500;
+      --popover-offset:8px;
+      --popover-arrow:8px;
+    }
+    [data-mode="dark"] {
+      --color-surface-base:#0f172a;--color-surface-raised:#1e293b;--color-surface-sunken:#0f172a;
+      --color-text-primary:#f1f5f9;--color-text-secondary:#94a3b8;
+      --color-border-subtle:#334155;--color-border-default:#475569;
+      --shadow-xl:0 20px 25px -5px rgb(0 0 0/.5),0 8px 10px -6px rgb(0 0 0/.4);
+      --color-danger-bg:#450a0a;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:var(--font-sans);background:var(--color-surface-base);color:var(--color-text-primary);min-height:100vh;}
+    .demo-page{padding:3rem 2rem;max-width:860px;margin:0 auto;}
+    h1{font-family:var(--font-display);font-size:2rem;font-weight:700;letter-spacing:-.03em;margin-bottom:.25rem;}
+    .lead{color:var(--color-text-secondary);font-size:.9375rem;margin-bottom:2.5rem;}
+    .section{margin-bottom:2.75rem;}
+    .section h2{font-family:var(--font-display);font-size:.6875rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--color-text-secondary);margin-bottom:1.25rem;padding-bottom:.5rem;border-bottom:1px solid var(--color-border-subtle);}
+    .demo-row{display:flex;flex-wrap:wrap;gap:1.5rem;align-items:flex-end;}
+    .demo-label{font-size:.75rem;color:var(--color-text-secondary);margin-bottom:.375rem;font-weight:500;letter-spacing:.04em;text-transform:uppercase;}
+
+    /* ─── Buttons ─── */
+    .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.5rem 1rem;font-family:var(--font-sans);font-size:.875rem;font-weight:500;border-radius:var(--radius-md);border:1.5px solid transparent;cursor:pointer;transition:background 120ms,border-color 120ms;white-space:nowrap;position:relative;}
+    .btn-ghost{background:transparent;color:var(--color-text-primary);border-color:var(--color-border-default);}
+    .btn-ghost:hover{background:var(--color-surface-sunken);}
+    .btn-ghost[aria-expanded="true"]{border-color:var(--color-brand);}
+    .btn-brand{background:var(--color-brand);color:#fff;border-color:var(--color-brand);}
+    .btn-brand:hover{background:var(--color-brand-hover);}
+    .btn-danger{background:#dc2626;color:#fff;border-color:#dc2626;}
+    .btn-danger:hover{background:#b91c1c;}
+    .btn-sm{padding:.375rem .75rem;font-size:.8125rem;}
+    .btn:focus-visible{outline:2px solid var(--color-brand);outline-offset:2px;}
+
+    /* ─── Popover anchor wrapper ─── */
+    .pop-anchor{position:relative;display:inline-block;}
+
+    /* ─── Popover panel ─── */
+    .popover{
+      position:absolute;
+      background:var(--popover-bg);
+      border:1px solid var(--color-border-subtle);
+      border-radius:var(--popover-radius);
+      box-shadow:var(--popover-shadow);
+      z-index:var(--popover-z-index);
+      max-width:var(--popover-max-width);
+      min-width:200px;
+      width:max-content;
+      transform-origin:top center;
+      opacity:0;
+      transform:scale(.96) translateY(-4px);
+      pointer-events:none;
+      transition:opacity var(--duration-fast) var(--ease-out),transform var(--duration-fast) var(--ease-out);
+    }
+    /* bottom placement (default) */
+    .popover[data-side="bottom"]{
+      top:calc(100% + var(--popover-offset));
+      left:50%;
+      transform:translateX(-50%) scale(.96) translateY(-4px);
+      transform-origin:top center;
+    }
+    .popover[data-side="bottom"][data-align="start"]{left:0;transform:scale(.96) translateY(-4px);transform-origin:top left;}
+    .popover[data-side="bottom"][data-align="end"]{left:auto;right:0;transform:scale(.96) translateY(-4px);transform-origin:top right;}
+    /* top placement */
+    .popover[data-side="top"]{
+      bottom:calc(100% + var(--popover-offset));
+      left:50%;
+      transform:translateX(-50%) scale(.96) translateY(4px);
+      transform-origin:bottom center;
+    }
+    .popover.is-open{
+      opacity:1;pointer-events:all;
+    }
+    .popover[data-side="bottom"].is-open{transform:translateX(-50%) scale(1) translateY(0);}
+    .popover[data-side="bottom"][data-align="start"].is-open,.popover[data-side="bottom"][data-align="end"].is-open{transform:scale(1) translateY(0);}
+    .popover[data-side="top"].is-open{transform:translateX(-50%) scale(1) translateY(0);}
+
+    /* Arrow */
+    .popover-arrow{
+      position:absolute;width:calc(var(--popover-arrow)*2);height:calc(var(--popover-arrow)*2);
+      overflow:hidden;pointer-events:none;
+    }
+    .popover[data-side="bottom"] .popover-arrow{top:calc(var(--popover-arrow)*-1 + 1px);left:50%;transform:translateX(-50%);}
+    .popover[data-side="top"] .popover-arrow{bottom:calc(var(--popover-arrow)*-1 + 1px);left:50%;transform:translateX(-50%) rotate(180deg);}
+    .popover-arrow::before{
+      content:'';position:absolute;width:12px;height:12px;
+      background:var(--popover-bg);border:1px solid var(--color-border-subtle);
+      bottom:0;left:50%;transform:translateX(-50%) rotate(45deg);
+      transform-origin:bottom center;
+    }
+
+    /* ─── Popover sections ─── */
+    .popover-header{padding:.75rem 1rem .625rem;border-bottom:1px solid var(--color-border-subtle);}
+    .popover-title{font-size:var(--text-sm);font-weight:600;color:var(--color-text-primary);}
+    .popover-subtitle{font-size:var(--text-xs);color:var(--color-text-secondary);margin-top:.125rem;}
+    .popover-body{padding:.875rem 1rem;}
+    .popover-footer{padding:.625rem 1rem .75rem;border-top:1px solid var(--color-border-subtle);display:flex;justify-content:flex-end;gap:.5rem;}
+
+    /* ─── Form elements ─── */
+    .form-group{margin-bottom:.875rem;}
+    .form-group:last-child{margin-bottom:0;}
+    .form-label{display:block;font-size:.8rem;font-weight:500;color:var(--color-text-primary);margin-bottom:.3rem;}
+    .form-input{width:100%;padding:.4375rem .625rem;font-family:var(--font-sans);font-size:.875rem;color:var(--color-text-primary);background:var(--color-surface-sunken);border:1.5px solid var(--color-border-default);border-radius:var(--radius-md);transition:border-color 120ms;}
+    .form-input:focus{outline:none;border-color:var(--color-brand);}
+
+    /* ─── Confirmation variant ─── */
+    .confirm-body{padding:1rem;}
+    .confirm-body p{font-size:var(--text-sm);color:var(--color-text-secondary);line-height:1.5;margin-top:.375rem;}
+    .confirm-icon{width:32px;height:32px;border-radius:50%;background:var(--color-danger-bg);display:flex;align-items:center;justify-content:center;color:var(--color-danger-500);margin-bottom:.5rem;}
+
+    /* ─── Info content ─── */
+    .info-body{padding:1rem;}
+    .info-body p{font-size:var(--text-sm);color:var(--color-text-secondary);line-height:1.6;}
+    .info-body a{color:var(--color-brand);text-decoration:none;font-weight:500;}
+    .info-body a:hover{text-decoration:underline;}
+    .kbd{display:inline-block;font-size:.6875rem;font-family:monospace;background:var(--color-surface-sunken);border:1px solid var(--color-border-default);border-radius:.25rem;padding:.0625rem .375rem;color:var(--color-text-primary);}
+
+    /* ─── User card content ─── */
+    .user-card{padding:1rem;}
+    .user-avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#667eea,#764ba2);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:.875rem;margin-bottom:.75rem;}
+    .user-name{font-weight:600;font-size:.9375rem;}
+    .user-role{font-size:.8125rem;color:var(--color-text-secondary);margin-top:.125rem;}
+    .user-stats{display:flex;gap:1rem;margin-top:.75rem;padding-top:.75rem;border-top:1px solid var(--color-border-subtle);}
+    .user-stat{text-align:center;}
+    .user-stat-val{font-weight:700;font-size:.9375rem;}
+    .user-stat-label{font-size:.6875rem;color:var(--color-text-secondary);margin-top:.125rem;}
+
+    /* ─── Colour picker ─── */
+    .color-grid{display:grid;grid-template-columns:repeat(8,1fr);gap:.375rem;padding:.875rem;}
+    .color-swatch{width:24px;height:24px;border-radius:.25rem;cursor:pointer;border:2px solid transparent;transition:transform 100ms,border-color 100ms;}
+    .color-swatch:hover{transform:scale(1.15);}
+    .color-swatch.selected{border-color:var(--color-neutral-900);}
+    [data-mode="dark"] .color-swatch.selected{border-color:#fff;}
+
+    /* ─── Mode toggle ─── */
+    .mode-toggle{position:fixed;top:1.25rem;right:1.5rem;}
+    .toggle-switch{position:relative;width:40px;height:22px;background:var(--color-border-default);border-radius:99px;cursor:pointer;border:none;transition:background 200ms;}
+    .toggle-switch::after{content:'';position:absolute;top:3px;left:3px;width:16px;height:16px;background:#fff;border-radius:50%;transition:transform 200ms var(--ease-out);}
+    [data-mode="dark"] .toggle-switch{background:var(--color-brand);}
+    [data-mode="dark"] .toggle-switch::after{transform:translateX(18px);}
+  </style>
+</head>
+<body>
+<button class="toggle-switch mode-toggle" onclick="toggleMode()" aria-label="Toggle dark mode"></button>
+
+<div class="demo-page">
+  <h1>Popover</h1>
+  <p class="lead">Interactive floating panels anchored to a trigger. For forms, confirmations, rich content, and custom controls.</p>
+
+  <!-- Info / rich content -->
+  <div class="section">
+    <h2>Info popover</h2>
+    <div class="demo-row">
+      <div>
+        <div class="demo-label">Feature explanation</div>
+        <div class="pop-anchor">
+          <button class="btn btn-ghost" id="trig-info" aria-haspopup="dialog" aria-expanded="false" aria-controls="pop-info" onclick="togglePop('pop-info','trig-info')">
+            <svg width="15" height="15" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10a8 8 0 1 1-16 0 8 8 0 0 1 16 0zm-7-4a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM9 9a.75.75 0 0 0 0 1.5h.253a.25.25 0 0 1 .244.304l-.459 2.066A1.75 1.75 0 0 0 10.747 15H11a.75.75 0 0 0 0-1.5h-.253a.25.25 0 0 1-.244-.304l.459-2.066A1.75 1.75 0 0 0 9.253 9H9z" clip-rule="evenodd"/></svg>
+            What is smart sync?
+          </button>
+          <div class="popover" id="pop-info" role="dialog" aria-modal="false" aria-labelledby="pop-info-title" data-side="bottom">
+            <div class="popover-arrow" aria-hidden="true"></div>
+            <div class="info-body">
+              <p id="pop-info-title" style="font-weight:600;font-size:.875rem;color:var(--color-text-primary);margin-bottom:.375rem;">Smart Sync</p>
+              <p>Smart Sync keeps your local files in sync with the cloud. Files marked <kbd class="kbd">online-only</kbd> don't take up local disk space until opened.</p>
+              <p style="margin-top:.5rem"><a href="#">Learn more in the docs ↗</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="demo-label">User card</div>
+        <div class="pop-anchor">
+          <button class="btn btn-ghost" id="trig-user" aria-haspopup="dialog" aria-expanded="false" aria-controls="pop-user" onclick="togglePop('pop-user','trig-user')">
+            <div style="width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,#667eea,#764ba2);display:inline-flex;align-items:center;justify-content:center;color:#fff;font-size:.625rem;font-weight:700;">SC</div>
+            Sarah Chen
+          </button>
+          <div class="popover" id="pop-user" role="dialog" aria-modal="false" aria-label="User profile" data-side="bottom">
+            <div class="popover-arrow" aria-hidden="true"></div>
+            <div class="user-card">
+              <div class="user-avatar">SC</div>
+              <div class="user-name">Sarah Chen</div>
+              <div class="user-role">Senior Designer · Acme Corp</div>
+              <div class="user-stats">
+                <div class="user-stat"><div class="user-stat-val">142</div><div class="user-stat-label">Components</div></div>
+                <div class="user-stat"><div class="user-stat-val">28</div><div class="user-stat-label">Reviews</div></div>
+                <div class="user-stat"><div class="user-stat-val">4.9</div><div class="user-stat-label">Rating</div></div>
+              </div>
+            </div>
+            <div class="popover-footer">
+              <button class="btn btn-ghost btn-sm" onclick="closeAll()">Message</button>
+              <button class="btn btn-brand btn-sm" onclick="closeAll()">View profile</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Form popover -->
+  <div class="section">
+    <h2>Form popover</h2>
+    <div class="demo-row">
+      <div>
+        <div class="demo-label">Quick add</div>
+        <div class="pop-anchor">
+          <button class="btn btn-brand" id="trig-form" aria-haspopup="dialog" aria-expanded="false" aria-controls="pop-form" onclick="togglePop('pop-form','trig-form')">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            Add tag
+          </button>
+          <div class="popover" id="pop-form" role="dialog" aria-modal="false" aria-labelledby="pop-form-title" data-side="bottom" data-align="start">
+            <div class="popover-header">
+              <p class="popover-title" id="pop-form-title">New tag</p>
+              <p class="popover-subtitle">Add a label to this item</p>
+            </div>
+            <div class="popover-body">
+              <div class="form-group"><label class="form-label" for="tag-name">Tag name</label><input class="form-input" id="tag-name" type="text" placeholder="e.g. urgent, blocked…" /></div>
+              <div class="form-group"><label class="form-label">Colour</label>
+                <div style="display:flex;gap:.375rem;flex-wrap:wrap;margin-top:.25rem">
+                  <span onclick="pickColor(this)" style="width:20px;height:20px;border-radius:3px;background:#ef4444;cursor:pointer;border:2px solid transparent" title="Red"></span>
+                  <span onclick="pickColor(this)" style="width:20px;height:20px;border-radius:3px;background:#f59e0b;cursor:pointer;border:2px solid transparent" title="Yellow"></span>
+                  <span onclick="pickColor(this)" style="width:20px;height:20px;border-radius:3px;background:#22c55e;cursor:pointer;border:2px solid transparent" title="Green"></span>
+                  <span onclick="pickColor(this)" style="width:20px;height:20px;border-radius:3px;background:#3b82f6;cursor:pointer;border:2px solid transparent" title="Blue"></span>
+                  <span onclick="pickColor(this)" style="width:20px;height:20px;border-radius:3px;background:#8b5cf6;cursor:pointer;border:2px solid transparent" title="Purple"></span>
+                  <span onclick="pickColor(this)" style="width:20px;height:20px;border-radius:3px;background:#ec4899;cursor:pointer;border:2px solid transparent" title="Pink"></span>
+                  <span onclick="pickColor(this)" style="width:20px;height:20px;border-radius:3px;background:#6b7280;cursor:pointer;border:2px solid transparent" title="Grey"></span>
+                </div>
+              </div>
+            </div>
+            <div class="popover-footer">
+              <button class="btn btn-ghost btn-sm" onclick="closeAll()">Cancel</button>
+              <button class="btn btn-brand btn-sm" onclick="closeAll()">Create tag</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Confirmation popover -->
+  <div class="section">
+    <h2>Confirmation popover</h2>
+    <div class="demo-row">
+      <div>
+        <div class="demo-label">Destructive action</div>
+        <div class="pop-anchor">
+          <button class="btn btn-danger" id="trig-confirm" aria-haspopup="dialog" aria-expanded="false" aria-controls="pop-confirm" onclick="togglePop('pop-confirm','trig-confirm')">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 4h10M6 4V3h4v1M7 7v5M9 7v5M5 4l.5 8h5L11 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Delete workspace
+          </button>
+          <div class="popover" id="pop-confirm" role="dialog" aria-modal="false" aria-labelledby="pop-confirm-title" data-side="bottom" data-align="start" style="min-width:260px">
+            <div class="popover-arrow" aria-hidden="true"></div>
+            <div class="confirm-body">
+              <div class="confirm-icon">
+                <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M8.485 2.495c.673-1.167 2.357-1.167 3.03 0l6.28 10.875c.673 1.167-.17 2.625-1.516 2.625H3.72c-1.347 0-2.189-1.458-1.515-2.625L8.485 2.495zM10 5a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-1.5 0v-3.5A.75.75 0 0 1 10 5zm0 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" clip-rule="evenodd"/></svg>
+              </div>
+              <p id="pop-confirm-title" style="font-weight:600;font-size:.875rem;color:var(--color-text-primary);">Delete workspace?</p>
+              <p>This will permanently delete all projects and data. This action cannot be undone.</p>
+            </div>
+            <div class="popover-footer">
+              <button class="btn btn-ghost btn-sm" onclick="closeAll()">Cancel</button>
+              <button class="btn btn-danger btn-sm" onclick="closeAll()">Delete</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="demo-label">Colour picker</div>
+        <div class="pop-anchor">
+          <button class="btn btn-ghost" id="trig-color" aria-haspopup="dialog" aria-expanded="false" aria-controls="pop-color" onclick="togglePop('pop-color','trig-color')" style="gap:.625rem">
+            <span id="colorPreview" style="width:16px;height:16px;border-radius:3px;background:#3b82f6;display:inline-block;border:1px solid rgba(0,0,0,.12)"></span>
+            Label colour
+          </button>
+          <div class="popover" id="pop-color" role="dialog" aria-modal="false" aria-label="Colour picker" data-side="bottom">
+            <div class="popover-arrow" aria-hidden="true"></div>
+            <div class="color-grid" id="colorGrid">
+              <!-- Generated by JS -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Build colour grid
+  const SWATCHES = ['#ef4444','#f97316','#f59e0b','#eab308','#84cc16','#22c55e','#10b981','#14b8a6','#06b6d4','#3b82f6','#6366f1','#8b5cf6','#a855f7','#ec4899','#f43f5e','#78716c','#6b7280','#94a3b8','#0f172a','#fff'];
+  const grid = document.getElementById('colorGrid');
+  SWATCHES.forEach(c => {
+    const s = document.createElement('span');
+    s.className = 'color-swatch' + (c==='#3b82f6'?' selected':'');
+    s.style.background = c;
+    s.style.border = c==='#fff'?'1.5px solid var(--color-border-default)':'2px solid transparent';
+    s.title = c;
+    s.onclick = () => {
+      grid.querySelectorAll('.color-swatch').forEach(x=>x.classList.remove('selected'));
+      s.classList.add('selected');
+      document.getElementById('colorPreview').style.background = c;
+      setTimeout(closeAll, 300);
+    };
+    grid.appendChild(s);
+  });
+
+  let activePop = null, activeTrig = null;
+
+  function togglePop(popId, trigId) {
+    if (activePop === popId) { closeAll(); return; }
+    closeAll();
+    const pop = document.getElementById(popId);
+    const trig = document.getElementById(trigId);
+    pop.classList.add('is-open');
+    trig.setAttribute('aria-expanded','true');
+    activePop = popId; activeTrig = trigId;
+    // Focus first focusable
+    requestAnimationFrame(() => {
+      const f = pop.querySelector('input,button:not(.toggle-switch),a');
+      if (f) f.focus();
+    });
+    setTimeout(() => document.addEventListener('click', outsideClick, {capture:true}), 0);
+    document.addEventListener('keydown', handleKey);
+  }
+
+  function closeAll() {
+    if (!activePop) return;
+    const pop = document.getElementById(activePop);
+    const trig = document.getElementById(activeTrig);
+    pop.classList.remove('is-open');
+    if (trig) { trig.setAttribute('aria-expanded','false'); trig.focus(); }
+    activePop = null; activeTrig = null;
+    document.removeEventListener('click', outsideClick, {capture:true});
+    document.removeEventListener('keydown', handleKey);
+  }
+
+  function outsideClick(e) {
+    if (!activePop) return;
+    const pop = document.getElementById(activePop);
+    const trig = document.getElementById(activeTrig);
+    if (!pop.contains(e.target) && !trig.contains(e.target)) closeAll();
+  }
+
+  function handleKey(e) {
+    if (e.key === 'Escape') closeAll();
+  }
+
+  function pickColor(el) {
+    el.parentElement.querySelectorAll('span').forEach(s => s.style.border='2px solid transparent');
+    el.style.border = '2px solid var(--color-neutral-900)';
+  }
+
+  function toggleMode() {
+    const h = document.documentElement;
+    h.setAttribute('data-mode', h.getAttribute('data-mode') === 'dark' ? 'light' : 'dark');
+  }
+</script>
+</body>
+</html>

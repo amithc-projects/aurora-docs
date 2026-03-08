@@ -1,0 +1,1364 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+  <title>Forms &amp; Inputs | Aurora Design System Docs</title>
+  
+
+
+
+
+  
+
+  
+    
+    
+    
+    
+    
+
+    
+    
+      
+        
+        
+        
+        
+        
+        
+
+        
+        
+        
+
+        
+      
+    
+      
+        
+        
+        
+        
+        
+        
+
+        
+        
+        
+
+        
+      
+    
+      
+        
+        
+        
+        
+        
+        
+
+        
+        
+        
+
+        
+      
+    
+
+    
+    
+    
+    
+    
+    
+    
+
+  
+
+  
+    
+    
+    
+    
+    
+
+    
+    
+      
+    
+      
+        
+        
+        
+        
+        
+        
+
+        
+        
+        
+
+        
+      
+    
+      
+        
+        
+        
+        
+        
+        
+
+        
+        
+        
+
+        
+      
+    
+
+    
+    
+    
+    
+    
+    
+    
+
+  
+
+
+
+  <script>
+
+    const html = document.documentElement;
+
+    const savedTheme = localStorage.getItem('aurora-theme') || 'corporate';
+    const savedMode = localStorage.getItem('aurora-mode') || 'light';
+
+    html.setAttribute('data-theme', savedTheme);
+    html.setAttribute('data-mode', savedMode);
+
+
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fredoka:wdth,wght@75..125,300..700&family=Inter:wght@100..900&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href='/aurora-docs/css/aurora.css'>
+  <link rel="stylesheet" href='/aurora-docs/css/docs-theme.css'>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+</head>
+
+<body>
+
+  <header style="padding: 1rem 2rem; border-bottom: 1px solid var(--ds-sys-color-border); background: var(--ds-sys-color-surface); display: flex; align-items: center; justify-content: space-between;">
+  <div style="display: flex; align-items: center; gap: 1rem;">
+    <a href="/" style="font-weight: 800; font-size: 1.25rem; text-decoration: none; color: var(--ds-sys-color-on-surface);">AURORA DOCS</a>
+  </div>
+
+  <div style="display: flex; align-items: center; gap: 1rem;">
+    
+    <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem;">
+      <label for="theme-select">Theme:</label>
+      <select id="theme-select" style="padding: 4px; border-radius: 4px;">
+        <option value="corporate">Corporate</option>
+        <option value="kids">Kids</option>
+      </select>
+    </div>
+
+    <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem;">
+      <label for="mode-select">Mode:</label>
+      <select id="mode-select" style="padding: 4px; border-radius: 4px;">
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+      </select>
+    </div>
+
+  </div>
+</header>
+
+
+  <div class="docs-layout" style="display: grid; grid-template-columns: 250px 1fr; min-height: 100vh;">
+    <aside class="docs-sidebar"
+      style="padding: 2rem; border-right: 1px solid var(--ds-sys-color-border); background: var(--ds-sys-color-bg-app);">
+      <nav class="nav-vertical" style="font-family: sans-serif; font-size: 0.9rem;">
+  
+  <div style="margin-bottom: 2rem;">
+    <a href="/" style="font-weight: 900; font-size: 1.2rem; text-decoration: none; color: var(--ds-sys-color-on-surface); letter-spacing: -0.5px;">AURORA DOCS</a>
+    <div style="font-size: 0.75rem; opacity: 0.6; margin-top: 0.2rem;">v1.0.0 &bull; Living Guide</div>
+  </div>
+
+  
+  
+    <div class="nav-group" style="margin-bottom: 1.5rem;">
+      
+      
+      <h3 style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #999; margin-bottom: 0.75rem; font-weight: 700;">
+        Philosophy
+      </h3>
+      
+      <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.25rem;">
+        
+      </ul>
+    </div>
+  
+    <div class="nav-group" style="margin-bottom: 1.5rem;">
+      
+      
+      <h3 style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #999; margin-bottom: 0.75rem; font-weight: 700;">
+        Atoms
+      </h3>
+      
+      <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.25rem;">
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/icons/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Icons
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/page-templates/font-studio/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Variable Font Studio
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/atoms/avatars/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Avatars
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/atoms/badges/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Badges
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/atoms/buttons/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Buttons
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/atoms/typography/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Typography
+            </a>
+
+            
+            
+
+          </li>
+        
+      </ul>
+    </div>
+  
+    <div class="nav-group" style="margin-bottom: 1.5rem;">
+      
+      
+      <h3 style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #999; margin-bottom: 0.75rem; font-weight: 700;">
+        Molecules
+      </h3>
+      
+      <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.25rem;">
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/molecules/feedback/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Feedback
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/molecules/tables/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Tables
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/molecules/tooltips/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Tooltips
+            </a>
+
+            
+            
+
+          </li>
+        
+      </ul>
+    </div>
+  
+    <div class="nav-group" style="margin-bottom: 1.5rem;">
+      
+      
+      <h3 style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #999; margin-bottom: 0.75rem; font-weight: 700;">
+        Components
+      </h3>
+      
+      <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.25rem;">
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/components/breadcrumbs/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Breadcrumbs
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/components/cards/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Cards
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/components/charts/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Charts
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/components/charts-svg/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Charts (SVG)
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/components/cookie-consent/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Cookie Consent
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/components/identity/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Identity
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/components/gallery/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Ultimate Gallery
+            </a>
+
+            
+            
+
+          </li>
+        
+      </ul>
+    </div>
+  
+    <div class="nav-group" style="margin-bottom: 1.5rem;">
+      
+      
+      <h3 style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #999; margin-bottom: 0.75rem; font-weight: 700;">
+        Forms
+      </h3>
+      
+      <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.25rem;">
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/forms/text-value/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Text &amp; Value
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/forms/choice-selection/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Choice &amp; Selection
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/forms/range-date/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Range &amp; Date
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/forms/media-capture/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Media &amp; Capture
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/forms/grouping-layouts/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Grouping &amp; Layouts
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/forms/forms/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); background: var(--ds-sys-color-surface-container-highest); font-weight: 600;">
+              Forms &amp; Inputs
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/forms/inputs/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Inputs
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/forms/selects/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Selects
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/forms/slider/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Slider
+            </a>
+
+            
+            
+
+          </li>
+        
+      </ul>
+    </div>
+  
+    <div class="nav-group" style="margin-bottom: 1.5rem;">
+      
+      
+      <h3 style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #999; margin-bottom: 0.75rem; font-weight: 700;">
+        Layouts
+      </h3>
+      
+      <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.25rem;">
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/layouts/auth/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Auth Layout
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/layouts/dashboard/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Dashboard Layout
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/layouts/magazine/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Magazine Layout
+            </a>
+
+            
+            
+
+          </li>
+        
+      </ul>
+    </div>
+  
+    <div class="nav-group" style="margin-bottom: 1.5rem;">
+      
+      
+      <h3 style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #999; margin-bottom: 0.75rem; font-weight: 700;">
+        Overlays
+      </h3>
+      
+      <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.25rem;">
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/overlays/modals/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Modals
+            </a>
+
+            
+            
+
+          </li>
+        
+      </ul>
+    </div>
+  
+    <div class="nav-group" style="margin-bottom: 1.5rem;">
+      
+      
+      <h3 style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #999; margin-bottom: 0.75rem; font-weight: 700;">
+        Patterns
+      </h3>
+      
+      <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.25rem;">
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/patterns/footer/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Footer
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/patterns/hero/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Hero
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/patterns/carousel/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Modern CSS Carousel
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/patterns/content-filter/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Multi-Select Filter
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/patterns/navigation/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Navigation
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/patterns/subgrid/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Subgrid Alignment
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/patterns/wizard/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Wizard Patterns
+            </a>
+
+            
+            
+
+          </li>
+        
+      </ul>
+    </div>
+  
+    <div class="nav-group" style="margin-bottom: 1.5rem;">
+      
+      
+      <h3 style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #999; margin-bottom: 0.75rem; font-weight: 700;">
+        Sites
+      </h3>
+      
+      <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.25rem;">
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/sites/news/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Aurora News
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/sites/entertainment/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              StreamBox
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/sites/gallery/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Visual Gallery
+            </a>
+
+            
+            
+
+          </li>
+        
+      </ul>
+    </div>
+  
+
+  
+  <div class="nav-group" style="margin-top: 2rem;">
+    <h3 style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #999; margin-bottom: 0.75rem; font-weight: 700;">
+      Page Templates
+    </h3>
+    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.25rem;">
+      
+        <li>
+          <a href="/aurora-docs/page-templates/app-shell/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface);">
+            App Shell
+          </a>
+        </li>
+      
+        <li>
+          <a href="/aurora-docs/page-templates/centered/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface);">
+            Centered Reading
+          </a>
+        </li>
+      
+        <li>
+          <a href="/aurora-docs/page-templates/grid-gallery/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface);">
+            Grid Gallery
+          </a>
+        </li>
+      
+        <li>
+          <a href="/aurora-docs/page-templates/holy-grail/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface);">
+            Holy Grail
+          </a>
+        </li>
+      
+        <li>
+          <a href="/aurora-docs/page-templates/multicol/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface);">
+            Multi-Column Text
+          </a>
+        </li>
+      
+        <li>
+          <a href="/aurora-docs/page-templates/single-column/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface);">
+            Single Column
+          </a>
+        </li>
+      
+        <li>
+          <a href="/aurora-docs/page-templates/split-screen/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface);">
+            Split Screen
+          </a>
+        </li>
+      
+        <li>
+          <a href="/aurora-docs/page-templates/two-col-left/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface);">
+            Two Column (Left)
+          </a>
+        </li>
+      
+        <li>
+          <a href="/aurora-docs/page-templates/two-col-right/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface);">
+            Two Column (Right)
+          </a>
+        </li>
+      
+        <li>
+          <a href="/aurora-docs/page-templates/font-studio/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface);">
+            Variable Font Studio
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+</nav>
+
+
+    </aside>
+
+    <main class="docs-content" style="padding: 3rem; max-width: 1200px;">
+      
+  <h2 id="fieldset-grouping">Fieldset Grouping</h2>
+<div class="demo-wrapper">
+  <div class="demo-preview l-grid l-grid--auto" style="--col-min: 200px; align-items: center; justify-items: center;">
+    
+ <section class="section">
+      <h2 class="section-title">2. Fieldset Grouping</h2>
+      
+      <fieldset class="form-group">
+        <legend>Shipping Address</legend>
+        
+        <div class="l-grid" style="--col-min: 200px; gap: 1rem;">
+          <div class="field">
+            <label class="field__label">Street</label>
+            <input class="input" type="text" required>
+          </div>
+          <div class="field">
+            <label class="field__label">City</label>
+            <input class="input" type="text" required>
+          </div>
+        </div>
+        
+        <div class="l-grid" style="--col-min: 150px; gap: 1rem;">
+          <div class="field">
+            <label class="field__label">State</label>
+            <input class="input" type="text" required>
+          </div>
+          <div class="field">
+            <label class="field__label">Zip Code</label>
+            <input class="input" type="text" inputmode="numeric" pattern="[0-9]*" required>
+            <div class="field__error"><span>Numeric only.</span></div>
+          </div>
+        </div>
+      </fieldset>
+    </section>
+
+
+  </div>
+
+  <div class="demo-source">
+    <div class="demo-header">
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <span class="lang-tag">HTML <small style="opacity:0.5; font-weight:normal;">(Editable)</small></span>
+        
+        <button class="btn-toggle-code" aria-expanded="false">
+          <span class="material-symbols-outlined icon-code" style="font-size: 18px;">code</span>
+          <span class="btn-text">View Code</span>
+        </button>
+      </div>
+
+      <button class="btn-copy" aria-label="Copy code to clipboard">
+        <span class="material-symbols-outlined icon-copy" style="font-size: 16px;">content_copy</span>
+        <span class="btn-text">Copy</span>
+      </button>
+    </div>
+    
+    <div class="code-content" hidden>
+      <pre><code class="language-html live-code" contenteditable="true" spellcheck="false">
+ &lt;section class=&#34;section&#34;&gt;
+      &lt;h2 class=&#34;section-title&#34;&gt;2. Fieldset Grouping&lt;/h2&gt;
+      
+      &lt;fieldset class=&#34;form-group&#34;&gt;
+        &lt;legend&gt;Shipping Address&lt;/legend&gt;
+        
+        &lt;div class=&#34;l-grid&#34; style=&#34;--col-min: 200px; gap: 1rem;&#34;&gt;
+          &lt;div class=&#34;field&#34;&gt;
+            &lt;label class=&#34;field__label&#34;&gt;Street&lt;/label&gt;
+            &lt;input class=&#34;input&#34; type=&#34;text&#34; required&gt;
+          &lt;/div&gt;
+          &lt;div class=&#34;field&#34;&gt;
+            &lt;label class=&#34;field__label&#34;&gt;City&lt;/label&gt;
+            &lt;input class=&#34;input&#34; type=&#34;text&#34; required&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        
+        &lt;div class=&#34;l-grid&#34; style=&#34;--col-min: 150px; gap: 1rem;&#34;&gt;
+          &lt;div class=&#34;field&#34;&gt;
+            &lt;label class=&#34;field__label&#34;&gt;State&lt;/label&gt;
+            &lt;input class=&#34;input&#34; type=&#34;text&#34; required&gt;
+          &lt;/div&gt;
+          &lt;div class=&#34;field&#34;&gt;
+            &lt;label class=&#34;field__label&#34;&gt;Zip Code&lt;/label&gt;
+            &lt;input class=&#34;input&#34; type=&#34;text&#34; inputmode=&#34;numeric&#34; pattern=&#34;[0-9]*&#34; required&gt;
+            &lt;div class=&#34;field__error&#34;&gt;&lt;span&gt;Numeric only.&lt;/span&gt;&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/fieldset&gt;
+    &lt;/section&gt;
+
+</code></pre>
+    </div>
+  </div>
+</div>
+
+<h2 id="selection-controls">Selection Controls</h2>
+<p>Checkboxes, Radios, and Switches.</p>
+<div class="demo-wrapper">
+  <div class="demo-preview l-grid l-grid--auto" style="--col-min: 200px; align-items: center; justify-items: center;">
+    
+<div class="l-stack">
+  <div class="l-cluster">
+    <label class="checkbox">
+      <input type="checkbox" checked> <span>Remember me</span>
+    </label>
+    <label class="radio">
+      <input type="radio" name="plan" checked> <span>Monthly</span>
+    </label>
+    <label class="radio">
+      <input type="radio" name="plan"> <span>Yearly</span>
+    </label>
+  </div>
+
+  <label class="switch" style="display: flex; align-items: center; gap: 1rem; cursor: pointer;">
+    <div style="position: relative; width: 48px; height: 24px; background: #ddd; border-radius: 99px;">
+      <div style="position: absolute; top: 2px; left: 2px; width: 20px; height: 20px; background: white; border-radius: 50%; box-shadow: 0 1px 3px rgba(0,0,0,0.3);"></div>
+    </div>
+    <span>Enable Notifications</span>
+  </label>
+</div>
+
+  </div>
+
+  <div class="demo-source">
+    <div class="demo-header">
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <span class="lang-tag">HTML <small style="opacity:0.5; font-weight:normal;">(Editable)</small></span>
+        
+        <button class="btn-toggle-code" aria-expanded="false">
+          <span class="material-symbols-outlined icon-code" style="font-size: 18px;">code</span>
+          <span class="btn-text">View Code</span>
+        </button>
+      </div>
+
+      <button class="btn-copy" aria-label="Copy code to clipboard">
+        <span class="material-symbols-outlined icon-copy" style="font-size: 16px;">content_copy</span>
+        <span class="btn-text">Copy</span>
+      </button>
+    </div>
+    
+    <div class="code-content" hidden>
+      <pre><code class="language-html live-code" contenteditable="true" spellcheck="false">
+&lt;div class=&#34;l-stack&#34;&gt;
+  &lt;div class=&#34;l-cluster&#34;&gt;
+    &lt;label class=&#34;checkbox&#34;&gt;
+      &lt;input type=&#34;checkbox&#34; checked&gt; &lt;span&gt;Remember me&lt;/span&gt;
+    &lt;/label&gt;
+    &lt;label class=&#34;radio&#34;&gt;
+      &lt;input type=&#34;radio&#34; name=&#34;plan&#34; checked&gt; &lt;span&gt;Monthly&lt;/span&gt;
+    &lt;/label&gt;
+    &lt;label class=&#34;radio&#34;&gt;
+      &lt;input type=&#34;radio&#34; name=&#34;plan&#34;&gt; &lt;span&gt;Yearly&lt;/span&gt;
+    &lt;/label&gt;
+  &lt;/div&gt;
+
+  &lt;label class=&#34;switch&#34; style=&#34;display: flex; align-items: center; gap: 1rem; cursor: pointer;&#34;&gt;
+    &lt;div style=&#34;position: relative; width: 48px; height: 24px; background: #ddd; border-radius: 99px;&#34;&gt;
+      &lt;div style=&#34;position: absolute; top: 2px; left: 2px; width: 20px; height: 20px; background: white; border-radius: 50%; box-shadow: 0 1px 3px rgba(0,0,0,0.3);&#34;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;span&gt;Enable Notifications&lt;/span&gt;
+  &lt;/label&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+  </div>
+</div>
+
+<h2 id="validation">Validation</h2>
+<p>Error states slide in without layout shift.
+Try typing an invalid email below. Notice the error slides in without jumping the layout.</p>
+<div class="demo-wrapper">
+  <div class="demo-preview l-grid l-grid--auto" style="--col-min: 200px; align-items: center; justify-items: center;">
+    
+
+      
+      <div class="card" style="padding: 2rem;">
+        <form onsubmit="return false;" novalidate>
+          
+          <div class="field">
+            <label class="field__label" for="email">Email Address</label>
+            <input class="input" type="email" id="email" placeholder="you@example.com" required>
+            <div class="field__hint">We'll never share your email.</div>
+            <div class="field__error">
+              <span>Please enter a valid email address containing '@'.</span>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="pass">Password</label>
+            <input class="input" type="password" id="pass" pattern=".{8,}" required placeholder="••••••••">
+            <div class="field__error">
+              <span>Password must be at least 8 characters.</span>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="role">Role</label>
+            <select class="select" id="role" required>
+              <option value="" disabled selected>Select a role...</option>
+              <option value="dev">Developer</option>
+              <option value="des">Designer</option>
+            </select>
+            <div class="field__error">
+              <span>Please select a role.</span>
+            </div>
+          </div>
+
+          <button class="primary">Submit Form</button>
+        </form>
+      </div>
+
+  </div>
+
+  <div class="demo-source">
+    <div class="demo-header">
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <span class="lang-tag">HTML <small style="opacity:0.5; font-weight:normal;">(Editable)</small></span>
+        
+        <button class="btn-toggle-code" aria-expanded="false">
+          <span class="material-symbols-outlined icon-code" style="font-size: 18px;">code</span>
+          <span class="btn-text">View Code</span>
+        </button>
+      </div>
+
+      <button class="btn-copy" aria-label="Copy code to clipboard">
+        <span class="material-symbols-outlined icon-copy" style="font-size: 16px;">content_copy</span>
+        <span class="btn-text">Copy</span>
+      </button>
+    </div>
+    
+    <div class="code-content" hidden>
+      <pre><code class="language-html live-code" contenteditable="true" spellcheck="false">
+
+      
+      &lt;div class=&#34;card&#34; style=&#34;padding: 2rem;&#34;&gt;
+        &lt;form onsubmit=&#34;return false;&#34; novalidate&gt;
+          
+          &lt;div class=&#34;field&#34;&gt;
+            &lt;label class=&#34;field__label&#34; for=&#34;email&#34;&gt;Email Address&lt;/label&gt;
+            &lt;input class=&#34;input&#34; type=&#34;email&#34; id=&#34;email&#34; placeholder=&#34;you@example.com&#34; required&gt;
+            &lt;div class=&#34;field__hint&#34;&gt;We&#39;ll never share your email.&lt;/div&gt;
+            &lt;div class=&#34;field__error&#34;&gt;
+              &lt;span&gt;Please enter a valid email address containing &#39;@&#39;.&lt;/span&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+
+          &lt;div class=&#34;field&#34;&gt;
+            &lt;label class=&#34;field__label&#34; for=&#34;pass&#34;&gt;Password&lt;/label&gt;
+            &lt;input class=&#34;input&#34; type=&#34;password&#34; id=&#34;pass&#34; pattern=&#34;.{8,}&#34; required placeholder=&#34;••••••••&#34;&gt;
+            &lt;div class=&#34;field__error&#34;&gt;
+              &lt;span&gt;Password must be at least 8 characters.&lt;/span&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+
+          &lt;div class=&#34;field&#34;&gt;
+            &lt;label class=&#34;field__label&#34; for=&#34;role&#34;&gt;Role&lt;/label&gt;
+            &lt;select class=&#34;select&#34; id=&#34;role&#34; required&gt;
+              &lt;option value=&#34;&#34; disabled selected&gt;Select a role...&lt;/option&gt;
+              &lt;option value=&#34;dev&#34;&gt;Developer&lt;/option&gt;
+              &lt;option value=&#34;des&#34;&gt;Designer&lt;/option&gt;
+            &lt;/select&gt;
+            &lt;div class=&#34;field__error&#34;&gt;
+              &lt;span&gt;Please select a role.&lt;/span&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+
+          &lt;button class=&#34;primary&#34;&gt;Submit Form&lt;/button&gt;
+        &lt;/form&gt;
+      &lt;/div&gt;
+</code></pre>
+    </div>
+  </div>
+</div>
+
+<h2 id="multi-step-wizard">Multi-Step Wizard</h2>
+<div class="demo-wrapper">
+  <div class="demo-preview l-grid l-grid--auto" style="--col-min: 200px; align-items: center; justify-items: center;">
+    
+ <section class="section">
+      <h2 class="section-title">3. Multi-Step Wizard</h2>
+      
+      <div class="wizard card" style="padding: 2rem;">
+        
+        <div class="wizard__steps">
+          <div class="wizard__step is-active" data-step="1">1</div>
+          <div class="wizard__step" data-step="2">2</div>
+          <div class="wizard__step" data-step="3">3</div>
+        </div>
+
+        <form id="wizard-form">
+          <div class="wizard__panel is-active" data-panel="1">
+            <h3>Step 1: Account Info</h3>
+            <div class="field">
+              <label class="field__label">Username</label>
+              <input class="input" type="text" required placeholder="Choose a username">
+            </div>
+          </div>
+
+          <div class="wizard__panel" data-panel="2">
+            <h3>Step 2: Personal Details</h3>
+            <div class="field">
+              <label class="field__label">Full Name</label>
+              <input class="input" type="text" required>
+            </div>
+            <div class="field">
+              <label class="field__label">Bio</label>
+              <textarea class="textarea"></textarea>
+            </div>
+          </div>
+
+          <div class="wizard__panel" data-panel="3">
+            <h3>Step 3: Review</h3>
+            <p>Everything looks good! Click Finish to submit.</p>
+          </div>
+
+          <div class="wizard__footer">
+            <button type="button" class="secondary" id="wiz-prev" disabled>Back</button>
+            <button type="button" class="primary" id="wiz-next">Next</button>
+          </div>
+        </form>
+
+      </div>
+      
+    </section>
+    <script>
+     // --- Simple Wizard Logic (For Demo) ---
+    const wizNext = document.getElementById('wiz-next');
+    const wizPrev = document.getElementById('wiz-prev');
+    let currentStep = 1;
+    const totalSteps = 3;
+
+    function updateWizard() {
+      // 1. Panels
+      document.querySelectorAll('.wizard__panel').forEach(p => {
+        p.classList.toggle('is-active', parseInt(p.dataset.panel) === currentStep);
+      });
+
+      // 2. Steps Indicator
+      document.querySelectorAll('.wizard__step').forEach(s => {
+        const stepNum = parseInt(s.dataset.step);
+        s.classList.toggle('is-active', stepNum === currentStep);
+        s.classList.toggle('is-complete', stepNum < currentStep);
+      });
+
+      // 3. Buttons
+      wizPrev.disabled = currentStep === 1;
+      wizNext.textContent = currentStep === totalSteps ? 'Finish' : 'Next';
+    }
+
+    wizNext.addEventListener('click', () => {
+      // Basic check: is current step valid?
+      const currentPanel = document.querySelector(`.wizard__panel[data-panel="${currentStep}"]`);
+      const inputs = currentPanel.querySelectorAll('input, select, textarea');
+      let valid = true;
+      inputs.forEach(i => { if (!i.checkValidity()) { i.reportValidity(); valid = false; } });
+      
+      if (valid) {
+        if (currentStep < totalSteps) {
+          currentStep++;
+          updateWizard();
+        } else {
+          alert('Wizard Complete!');
+        }
+      }
+    });
+
+    wizPrev.addEventListener('click', () => {
+      if (currentStep > 1) {
+        currentStep--;
+        updateWizard();
+      }
+    });
+  </script>
+    
+  </div>
+
+  <div class="demo-source">
+    <div class="demo-header">
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <span class="lang-tag">HTML <small style="opacity:0.5; font-weight:normal;">(Editable)</small></span>
+        
+        <button class="btn-toggle-code" aria-expanded="false">
+          <span class="material-symbols-outlined icon-code" style="font-size: 18px;">code</span>
+          <span class="btn-text">View Code</span>
+        </button>
+      </div>
+
+      <button class="btn-copy" aria-label="Copy code to clipboard">
+        <span class="material-symbols-outlined icon-copy" style="font-size: 16px;">content_copy</span>
+        <span class="btn-text">Copy</span>
+      </button>
+    </div>
+    
+    <div class="code-content" hidden>
+      <pre><code class="language-html live-code" contenteditable="true" spellcheck="false">
+ &lt;section class=&#34;section&#34;&gt;
+      &lt;h2 class=&#34;section-title&#34;&gt;3. Multi-Step Wizard&lt;/h2&gt;
+      
+      &lt;div class=&#34;wizard card&#34; style=&#34;padding: 2rem;&#34;&gt;
+        
+        &lt;div class=&#34;wizard__steps&#34;&gt;
+          &lt;div class=&#34;wizard__step is-active&#34; data-step=&#34;1&#34;&gt;1&lt;/div&gt;
+          &lt;div class=&#34;wizard__step&#34; data-step=&#34;2&#34;&gt;2&lt;/div&gt;
+          &lt;div class=&#34;wizard__step&#34; data-step=&#34;3&#34;&gt;3&lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;form id=&#34;wizard-form&#34;&gt;
+          &lt;div class=&#34;wizard__panel is-active&#34; data-panel=&#34;1&#34;&gt;
+            &lt;h3&gt;Step 1: Account Info&lt;/h3&gt;
+            &lt;div class=&#34;field&#34;&gt;
+              &lt;label class=&#34;field__label&#34;&gt;Username&lt;/label&gt;
+              &lt;input class=&#34;input&#34; type=&#34;text&#34; required placeholder=&#34;Choose a username&#34;&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+
+          &lt;div class=&#34;wizard__panel&#34; data-panel=&#34;2&#34;&gt;
+            &lt;h3&gt;Step 2: Personal Details&lt;/h3&gt;
+            &lt;div class=&#34;field&#34;&gt;
+              &lt;label class=&#34;field__label&#34;&gt;Full Name&lt;/label&gt;
+              &lt;input class=&#34;input&#34; type=&#34;text&#34; required&gt;
+            &lt;/div&gt;
+            &lt;div class=&#34;field&#34;&gt;
+              &lt;label class=&#34;field__label&#34;&gt;Bio&lt;/label&gt;
+              &lt;textarea class=&#34;textarea&#34;&gt;&lt;/textarea&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+
+          &lt;div class=&#34;wizard__panel&#34; data-panel=&#34;3&#34;&gt;
+            &lt;h3&gt;Step 3: Review&lt;/h3&gt;
+            &lt;p&gt;Everything looks good! Click Finish to submit.&lt;/p&gt;
+          &lt;/div&gt;
+
+          &lt;div class=&#34;wizard__footer&#34;&gt;
+            &lt;button type=&#34;button&#34; class=&#34;secondary&#34; id=&#34;wiz-prev&#34; disabled&gt;Back&lt;/button&gt;
+            &lt;button type=&#34;button&#34; class=&#34;primary&#34; id=&#34;wiz-next&#34;&gt;Next&lt;/button&gt;
+          &lt;/div&gt;
+        &lt;/form&gt;
+
+      &lt;/div&gt;
+      
+    &lt;/section&gt;
+    &lt;script&gt;
+     // --- Simple Wizard Logic (For Demo) ---
+    const wizNext = document.getElementById(&#39;wiz-next&#39;);
+    const wizPrev = document.getElementById(&#39;wiz-prev&#39;);
+    let currentStep = 1;
+    const totalSteps = 3;
+
+    function updateWizard() {
+      // 1. Panels
+      document.querySelectorAll(&#39;.wizard__panel&#39;).forEach(p =&gt; {
+        p.classList.toggle(&#39;is-active&#39;, parseInt(p.dataset.panel) === currentStep);
+      });
+
+      // 2. Steps Indicator
+      document.querySelectorAll(&#39;.wizard__step&#39;).forEach(s =&gt; {
+        const stepNum = parseInt(s.dataset.step);
+        s.classList.toggle(&#39;is-active&#39;, stepNum === currentStep);
+        s.classList.toggle(&#39;is-complete&#39;, stepNum &lt; currentStep);
+      });
+
+      // 3. Buttons
+      wizPrev.disabled = currentStep === 1;
+      wizNext.textContent = currentStep === totalSteps ? &#39;Finish&#39; : &#39;Next&#39;;
+    }
+
+    wizNext.addEventListener(&#39;click&#39;, () =&gt; {
+      // Basic check: is current step valid?
+      const currentPanel = document.querySelector(`.wizard__panel[data-panel=&#34;${currentStep}&#34;]`);
+      const inputs = currentPanel.querySelectorAll(&#39;input, select, textarea&#39;);
+      let valid = true;
+      inputs.forEach(i =&gt; { if (!i.checkValidity()) { i.reportValidity(); valid = false; } });
+      
+      if (valid) {
+        if (currentStep &lt; totalSteps) {
+          currentStep++;
+          updateWizard();
+        } else {
+          alert(&#39;Wizard Complete!&#39;);
+        }
+      }
+    });
+
+    wizPrev.addEventListener(&#39;click&#39;, () =&gt; {
+      if (currentStep &gt; 1) {
+        currentStep--;
+        updateWizard();
+      }
+    });
+  &lt;/script&gt;
+    </code></pre>
+    </div>
+  </div>
+</div>
+
+
+
+    </main>
+  </div>
+
+  <script src='/aurora-docs/js/docs.js'></script>
+  <script type="module">
+    import { initConfigurator } from '\/aurora-docs\/js\/configurator.js';
+    initConfigurator();
+  </script>
+
+  <script type="module">import { initCharts } from '\/aurora-docs\/js\/charts.js'; initCharts();</script>
+  <script type="module">import { initFilters } from '\/aurora-docs\/js\/filters.js'; initFilters();</script>
+  <script
+    type="module">import { initAccordions } from '\/aurora-docs\/js\/components\/accordion.js'; initAccordions();</script>
+  <script type="module">import { initWizards } from '\/aurora-docs\/js\/patterns\/wizard.js'; initWizards();</script>
+  <script type="module">import { initGallery } from '\/aurora-docs\/js\/components\/gallery.js'; initGallery();</script>
+</body>
+
+</html>

@@ -1,0 +1,1309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+  <title>Media &amp; Capture | Aurora Design System Docs</title>
+  
+
+
+
+
+  
+
+  
+    
+    
+    
+    
+    
+
+    
+    
+      
+        
+        
+        
+        
+        
+        
+
+        
+        
+        
+
+        
+      
+    
+      
+        
+        
+        
+        
+        
+        
+
+        
+        
+        
+
+        
+      
+    
+      
+        
+        
+        
+        
+        
+        
+
+        
+        
+        
+
+        
+      
+    
+
+    
+    
+    
+    
+    
+    
+    
+
+  
+
+  
+    
+    
+    
+    
+    
+
+    
+    
+      
+    
+      
+        
+        
+        
+        
+        
+        
+
+        
+        
+        
+
+        
+      
+    
+      
+        
+        
+        
+        
+        
+        
+
+        
+        
+        
+
+        
+      
+    
+
+    
+    
+    
+    
+    
+    
+    
+
+  
+
+
+
+  <script>
+
+    const html = document.documentElement;
+
+    const savedTheme = localStorage.getItem('aurora-theme') || 'corporate';
+    const savedMode = localStorage.getItem('aurora-mode') || 'light';
+
+    html.setAttribute('data-theme', savedTheme);
+    html.setAttribute('data-mode', savedMode);
+
+
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fredoka:wdth,wght@75..125,300..700&family=Inter:wght@100..900&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href='/aurora-docs/css/aurora.css'>
+  <link rel="stylesheet" href='/aurora-docs/css/docs-theme.css'>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+</head>
+
+<body>
+
+  <header style="padding: 1rem 2rem; border-bottom: 1px solid var(--ds-sys-color-border); background: var(--ds-sys-color-surface); display: flex; align-items: center; justify-content: space-between;">
+  <div style="display: flex; align-items: center; gap: 1rem;">
+    <a href="/" style="font-weight: 800; font-size: 1.25rem; text-decoration: none; color: var(--ds-sys-color-on-surface);">AURORA DOCS</a>
+  </div>
+
+  <div style="display: flex; align-items: center; gap: 1rem;">
+    
+    <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem;">
+      <label for="theme-select">Theme:</label>
+      <select id="theme-select" style="padding: 4px; border-radius: 4px;">
+        <option value="corporate">Corporate</option>
+        <option value="kids">Kids</option>
+      </select>
+    </div>
+
+    <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem;">
+      <label for="mode-select">Mode:</label>
+      <select id="mode-select" style="padding: 4px; border-radius: 4px;">
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+      </select>
+    </div>
+
+  </div>
+</header>
+
+
+  <div class="docs-layout" style="display: grid; grid-template-columns: 250px 1fr; min-height: 100vh;">
+    <aside class="docs-sidebar"
+      style="padding: 2rem; border-right: 1px solid var(--ds-sys-color-border); background: var(--ds-sys-color-bg-app);">
+      <nav class="nav-vertical" style="font-family: sans-serif; font-size: 0.9rem;">
+  
+  <div style="margin-bottom: 2rem;">
+    <a href="/" style="font-weight: 900; font-size: 1.2rem; text-decoration: none; color: var(--ds-sys-color-on-surface); letter-spacing: -0.5px;">AURORA DOCS</a>
+    <div style="font-size: 0.75rem; opacity: 0.6; margin-top: 0.2rem;">v1.0.0 &bull; Living Guide</div>
+  </div>
+
+  
+  
+    <div class="nav-group" style="margin-bottom: 1.5rem;">
+      
+      
+      <h3 style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #999; margin-bottom: 0.75rem; font-weight: 700;">
+        Philosophy
+      </h3>
+      
+      <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.25rem;">
+        
+      </ul>
+    </div>
+  
+    <div class="nav-group" style="margin-bottom: 1.5rem;">
+      
+      
+      <h3 style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #999; margin-bottom: 0.75rem; font-weight: 700;">
+        Atoms
+      </h3>
+      
+      <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.25rem;">
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/icons/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Icons
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/page-templates/font-studio/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Variable Font Studio
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/atoms/avatars/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Avatars
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/atoms/badges/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Badges
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/atoms/buttons/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Buttons
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/atoms/typography/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Typography
+            </a>
+
+            
+            
+
+          </li>
+        
+      </ul>
+    </div>
+  
+    <div class="nav-group" style="margin-bottom: 1.5rem;">
+      
+      
+      <h3 style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #999; margin-bottom: 0.75rem; font-weight: 700;">
+        Molecules
+      </h3>
+      
+      <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.25rem;">
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/molecules/feedback/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Feedback
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/molecules/tables/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Tables
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/molecules/tooltips/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Tooltips
+            </a>
+
+            
+            
+
+          </li>
+        
+      </ul>
+    </div>
+  
+    <div class="nav-group" style="margin-bottom: 1.5rem;">
+      
+      
+      <h3 style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #999; margin-bottom: 0.75rem; font-weight: 700;">
+        Components
+      </h3>
+      
+      <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.25rem;">
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/components/breadcrumbs/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Breadcrumbs
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/components/cards/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Cards
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/components/charts/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Charts
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/components/charts-svg/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Charts (SVG)
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/components/cookie-consent/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Cookie Consent
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/components/identity/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Identity
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/components/gallery/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Ultimate Gallery
+            </a>
+
+            
+            
+
+          </li>
+        
+      </ul>
+    </div>
+  
+    <div class="nav-group" style="margin-bottom: 1.5rem;">
+      
+      
+      <h3 style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #999; margin-bottom: 0.75rem; font-weight: 700;">
+        Forms
+      </h3>
+      
+      <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.25rem;">
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/forms/text-value/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Text &amp; Value
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/forms/choice-selection/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Choice &amp; Selection
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/forms/range-date/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Range &amp; Date
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/forms/media-capture/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); background: var(--ds-sys-color-surface-container-highest); font-weight: 600;">
+              Media &amp; Capture
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/forms/grouping-layouts/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Grouping &amp; Layouts
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/forms/forms/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Forms &amp; Inputs
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/forms/inputs/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Inputs
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/forms/selects/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Selects
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/forms/slider/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Slider
+            </a>
+
+            
+            
+
+          </li>
+        
+      </ul>
+    </div>
+  
+    <div class="nav-group" style="margin-bottom: 1.5rem;">
+      
+      
+      <h3 style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #999; margin-bottom: 0.75rem; font-weight: 700;">
+        Layouts
+      </h3>
+      
+      <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.25rem;">
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/layouts/auth/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Auth Layout
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/layouts/dashboard/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Dashboard Layout
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/layouts/magazine/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Magazine Layout
+            </a>
+
+            
+            
+
+          </li>
+        
+      </ul>
+    </div>
+  
+    <div class="nav-group" style="margin-bottom: 1.5rem;">
+      
+      
+      <h3 style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #999; margin-bottom: 0.75rem; font-weight: 700;">
+        Overlays
+      </h3>
+      
+      <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.25rem;">
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/overlays/modals/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Modals
+            </a>
+
+            
+            
+
+          </li>
+        
+      </ul>
+    </div>
+  
+    <div class="nav-group" style="margin-bottom: 1.5rem;">
+      
+      
+      <h3 style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #999; margin-bottom: 0.75rem; font-weight: 700;">
+        Patterns
+      </h3>
+      
+      <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.25rem;">
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/patterns/footer/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Footer
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/patterns/hero/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Hero
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/patterns/carousel/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Modern CSS Carousel
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/patterns/content-filter/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Multi-Select Filter
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/patterns/navigation/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Navigation
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/patterns/subgrid/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Subgrid Alignment
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/patterns/wizard/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Wizard Patterns
+            </a>
+
+            
+            
+
+          </li>
+        
+      </ul>
+    </div>
+  
+    <div class="nav-group" style="margin-bottom: 1.5rem;">
+      
+      
+      <h3 style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #999; margin-bottom: 0.75rem; font-weight: 700;">
+        Sites
+      </h3>
+      
+      <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.25rem;">
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/sites/news/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Aurora News
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/sites/entertainment/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              StreamBox
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/sites/gallery/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Visual Gallery
+            </a>
+
+            
+            
+
+          </li>
+        
+      </ul>
+    </div>
+  
+
+  
+  <div class="nav-group" style="margin-top: 2rem;">
+    <h3 style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #999; margin-bottom: 0.75rem; font-weight: 700;">
+      Page Templates
+    </h3>
+    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.25rem;">
+      
+        <li>
+          <a href="/aurora-docs/page-templates/app-shell/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface);">
+            App Shell
+          </a>
+        </li>
+      
+        <li>
+          <a href="/aurora-docs/page-templates/centered/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface);">
+            Centered Reading
+          </a>
+        </li>
+      
+        <li>
+          <a href="/aurora-docs/page-templates/grid-gallery/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface);">
+            Grid Gallery
+          </a>
+        </li>
+      
+        <li>
+          <a href="/aurora-docs/page-templates/holy-grail/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface);">
+            Holy Grail
+          </a>
+        </li>
+      
+        <li>
+          <a href="/aurora-docs/page-templates/multicol/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface);">
+            Multi-Column Text
+          </a>
+        </li>
+      
+        <li>
+          <a href="/aurora-docs/page-templates/single-column/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface);">
+            Single Column
+          </a>
+        </li>
+      
+        <li>
+          <a href="/aurora-docs/page-templates/split-screen/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface);">
+            Split Screen
+          </a>
+        </li>
+      
+        <li>
+          <a href="/aurora-docs/page-templates/two-col-left/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface);">
+            Two Column (Left)
+          </a>
+        </li>
+      
+        <li>
+          <a href="/aurora-docs/page-templates/two-col-right/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface);">
+            Two Column (Right)
+          </a>
+        </li>
+      
+        <li>
+          <a href="/aurora-docs/page-templates/font-studio/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface);">
+            Variable Font Studio
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+</nav>
+
+
+    </aside>
+
+    <main class="docs-content" style="padding: 3rem; max-width: 1200px;">
+      
+  <h2 id="1-file-upload-drag--drop--preview">1. File Upload (Drag &amp; Drop + Preview)</h2>
+<p>Drag files here or click to browse. Displays an instant thumbnail for images.</p>
+<div class="demo-wrapper">
+  <div class="demo-preview l-grid l-grid--auto" style="--col-min: 200px; align-items: center; justify-items: center;">
+    
+<div class="field">
+  <label class="field__label">Project Assets</label>
+  
+  <div class="drop-zone" id="drop-zone" onclick="document.getElementById('file-input').click()">
+    <input type="file" id="file-input" hidden accept="image/*">
+    
+    <div class="dz-content" id="dz-content">
+      <span class="material-symbols-outlined" style="font-size: 3rem; color: var(--ds-sys-color-primary);">cloud_upload</span>
+      <p style="margin:0;"><strong>Click to upload</strong> or drag and drop</p>
+      <p style="font-size: 0.85rem; opacity: 0.7;">SVG, PNG, JPG (max 2MB)</p>
+    </div>
+
+    <div class="dz-preview" id="dz-preview" style="display:none;">
+      <img id="dz-img" src="" alt="Preview">
+      <div class="dz-remove" onclick="event.stopPropagation(); removeFile()">
+        <span class="material-symbols-outlined">delete</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<script>
+  const dz = document.getElementById('drop-zone');
+  const input = document.getElementById('file-input');
+
+  // Drag Events
+  dz.addEventListener('dragover', (e) => { e.preventDefault(); dz.classList.add('is-dragover'); });
+  dz.addEventListener('dragleave', () => dz.classList.remove('is-dragover'));
+  dz.addEventListener('drop', (e) => {
+    e.preventDefault();
+    dz.classList.remove('is-dragover');
+    if(e.dataTransfer.files.length) handleFile(e.dataTransfer.files[0]);
+  });
+
+  // Input Change
+  input.addEventListener('change', () => { if(input.files.length) handleFile(input.files[0]); });
+
+  function handleFile(file) {
+    if (file.type.startsWith('image/')) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        document.getElementById('dz-img').src = e.target.result;
+        document.getElementById('dz-content').style.display = 'none';
+        document.getElementById('dz-preview').style.display = 'flex';
+      };
+      reader.readAsDataURL(file);
+    }
+  }
+
+  function removeFile() {
+    input.value = '';
+    document.getElementById('dz-content').style.display = 'flex';
+    document.getElementById('dz-preview').style.display = 'none';
+  }
+</script>
+
+  </div>
+
+  <div class="demo-source">
+    <div class="demo-header">
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <span class="lang-tag">HTML <small style="opacity:0.5; font-weight:normal;">(Editable)</small></span>
+        
+        <button class="btn-toggle-code" aria-expanded="false">
+          <span class="material-symbols-outlined icon-code" style="font-size: 18px;">code</span>
+          <span class="btn-text">View Code</span>
+        </button>
+      </div>
+
+      <button class="btn-copy" aria-label="Copy code to clipboard">
+        <span class="material-symbols-outlined icon-copy" style="font-size: 16px;">content_copy</span>
+        <span class="btn-text">Copy</span>
+      </button>
+    </div>
+    
+    <div class="code-content" hidden>
+      <pre><code class="language-html live-code" contenteditable="true" spellcheck="false">
+&lt;div class=&#34;field&#34;&gt;
+  &lt;label class=&#34;field__label&#34;&gt;Project Assets&lt;/label&gt;
+  
+  &lt;div class=&#34;drop-zone&#34; id=&#34;drop-zone&#34; onclick=&#34;document.getElementById(&#39;file-input&#39;).click()&#34;&gt;
+    &lt;input type=&#34;file&#34; id=&#34;file-input&#34; hidden accept=&#34;image/*&#34;&gt;
+    
+    &lt;div class=&#34;dz-content&#34; id=&#34;dz-content&#34;&gt;
+      &lt;span class=&#34;material-symbols-outlined&#34; style=&#34;font-size: 3rem; color: var(--ds-sys-color-primary);&#34;&gt;cloud_upload&lt;/span&gt;
+      &lt;p style=&#34;margin:0;&#34;&gt;&lt;strong&gt;Click to upload&lt;/strong&gt; or drag and drop&lt;/p&gt;
+      &lt;p style=&#34;font-size: 0.85rem; opacity: 0.7;&#34;&gt;SVG, PNG, JPG (max 2MB)&lt;/p&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&#34;dz-preview&#34; id=&#34;dz-preview&#34; style=&#34;display:none;&#34;&gt;
+      &lt;img id=&#34;dz-img&#34; src=&#34;&#34; alt=&#34;Preview&#34;&gt;
+      &lt;div class=&#34;dz-remove&#34; onclick=&#34;event.stopPropagation(); removeFile()&#34;&gt;
+        &lt;span class=&#34;material-symbols-outlined&#34;&gt;delete&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+
+
+&lt;script&gt;
+  const dz = document.getElementById(&#39;drop-zone&#39;);
+  const input = document.getElementById(&#39;file-input&#39;);
+
+  // Drag Events
+  dz.addEventListener(&#39;dragover&#39;, (e) =&gt; { e.preventDefault(); dz.classList.add(&#39;is-dragover&#39;); });
+  dz.addEventListener(&#39;dragleave&#39;, () =&gt; dz.classList.remove(&#39;is-dragover&#39;));
+  dz.addEventListener(&#39;drop&#39;, (e) =&gt; {
+    e.preventDefault();
+    dz.classList.remove(&#39;is-dragover&#39;);
+    if(e.dataTransfer.files.length) handleFile(e.dataTransfer.files[0]);
+  });
+
+  // Input Change
+  input.addEventListener(&#39;change&#39;, () =&gt; { if(input.files.length) handleFile(input.files[0]); });
+
+  function handleFile(file) {
+    if (file.type.startsWith(&#39;image/&#39;)) {
+      const reader = new FileReader();
+      reader.onload = (e) =&gt; {
+        document.getElementById(&#39;dz-img&#39;).src = e.target.result;
+        document.getElementById(&#39;dz-content&#39;).style.display = &#39;none&#39;;
+        document.getElementById(&#39;dz-preview&#39;).style.display = &#39;flex&#39;;
+      };
+      reader.readAsDataURL(file);
+    }
+  }
+
+  function removeFile() {
+    input.value = &#39;&#39;;
+    document.getElementById(&#39;dz-content&#39;).style.display = &#39;flex&#39;;
+    document.getElementById(&#39;dz-preview&#39;).style.display = &#39;none&#39;;
+  }
+&lt;/script&gt;
+</code></pre>
+    </div>
+  </div>
+</div>
+
+<h2 id="2-audio-recorder">2. Audio Recorder</h2>
+<p>Capture voice memos directly in the browser.</p>
+<div class="demo-wrapper">
+  <div class="demo-preview l-grid l-grid--auto" style="--col-min: 200px; align-items: center; justify-items: center;">
+    
+<div class="field">
+  <label class="field__label">Voice Memo</label>
+  <div class="audio-recorder">
+    <button type="button" class="rec-btn" id="rec-btn" onclick="toggleRecord()">
+      <span class="material-symbols-outlined">mic</span>
+    </button>
+    <div class="rec-status" id="rec-status">Ready to record</div>
+    <audio id="audio-playback" controls style="display:none; height: 32px;"></audio>
+  </div>
+</div>
+
+
+
+<script>
+  let mediaRecorder;
+  let audioChunks = [];
+  let isRecording = false;
+
+  async function toggleRecord() {
+    const btn = document.getElementById('rec-btn');
+    const status = document.getElementById('rec-status');
+    const player = document.getElementById('audio-playback');
+
+    if (!isRecording) {
+      // Start
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        mediaRecorder = new MediaRecorder(stream);
+        audioChunks = [];
+        
+        mediaRecorder.ondataavailable = event => audioChunks.push(event.data);
+        mediaRecorder.onstop = () => {
+          const audioBlob = new Blob(audioChunks, { type: 'audio/wav' });
+          const audioUrl = URL.createObjectURL(audioBlob);
+          player.src = audioUrl;
+          player.style.display = 'block';
+          status.innerText = "Recording saved.";
+        };
+
+        mediaRecorder.start();
+        isRecording = true;
+        btn.classList.add('is-recording');
+        btn.innerHTML = '<span class="material-symbols-outlined">stop</span>';
+        status.innerText = "Recording... (Click stop)";
+        player.style.display = 'none';
+      } catch (err) {
+        status.innerText = "Microphone access denied.";
+        console.error(err);
+      }
+    } else {
+      // Stop
+      mediaRecorder.stop();
+      isRecording = false;
+      btn.classList.remove('is-recording');
+      btn.innerHTML = '<span class="material-symbols-outlined">mic</span>';
+    }
+  }
+</script>
+
+  </div>
+
+  <div class="demo-source">
+    <div class="demo-header">
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <span class="lang-tag">HTML <small style="opacity:0.5; font-weight:normal;">(Editable)</small></span>
+        
+        <button class="btn-toggle-code" aria-expanded="false">
+          <span class="material-symbols-outlined icon-code" style="font-size: 18px;">code</span>
+          <span class="btn-text">View Code</span>
+        </button>
+      </div>
+
+      <button class="btn-copy" aria-label="Copy code to clipboard">
+        <span class="material-symbols-outlined icon-copy" style="font-size: 16px;">content_copy</span>
+        <span class="btn-text">Copy</span>
+      </button>
+    </div>
+    
+    <div class="code-content" hidden>
+      <pre><code class="language-html live-code" contenteditable="true" spellcheck="false">
+&lt;div class=&#34;field&#34;&gt;
+  &lt;label class=&#34;field__label&#34;&gt;Voice Memo&lt;/label&gt;
+  &lt;div class=&#34;audio-recorder&#34;&gt;
+    &lt;button type=&#34;button&#34; class=&#34;rec-btn&#34; id=&#34;rec-btn&#34; onclick=&#34;toggleRecord()&#34;&gt;
+      &lt;span class=&#34;material-symbols-outlined&#34;&gt;mic&lt;/span&gt;
+    &lt;/button&gt;
+    &lt;div class=&#34;rec-status&#34; id=&#34;rec-status&#34;&gt;Ready to record&lt;/div&gt;
+    &lt;audio id=&#34;audio-playback&#34; controls style=&#34;display:none; height: 32px;&#34;&gt;&lt;/audio&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+
+
+&lt;script&gt;
+  let mediaRecorder;
+  let audioChunks = [];
+  let isRecording = false;
+
+  async function toggleRecord() {
+    const btn = document.getElementById(&#39;rec-btn&#39;);
+    const status = document.getElementById(&#39;rec-status&#39;);
+    const player = document.getElementById(&#39;audio-playback&#39;);
+
+    if (!isRecording) {
+      // Start
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        mediaRecorder = new MediaRecorder(stream);
+        audioChunks = [];
+        
+        mediaRecorder.ondataavailable = event =&gt; audioChunks.push(event.data);
+        mediaRecorder.onstop = () =&gt; {
+          const audioBlob = new Blob(audioChunks, { type: &#39;audio/wav&#39; });
+          const audioUrl = URL.createObjectURL(audioBlob);
+          player.src = audioUrl;
+          player.style.display = &#39;block&#39;;
+          status.innerText = &#34;Recording saved.&#34;;
+        };
+
+        mediaRecorder.start();
+        isRecording = true;
+        btn.classList.add(&#39;is-recording&#39;);
+        btn.innerHTML = &#39;&lt;span class=&#34;material-symbols-outlined&#34;&gt;stop&lt;/span&gt;&#39;;
+        status.innerText = &#34;Recording... (Click stop)&#34;;
+        player.style.display = &#39;none&#39;;
+      } catch (err) {
+        status.innerText = &#34;Microphone access denied.&#34;;
+        console.error(err);
+      }
+    } else {
+      // Stop
+      mediaRecorder.stop();
+      isRecording = false;
+      btn.classList.remove(&#39;is-recording&#39;);
+      btn.innerHTML = &#39;&lt;span class=&#34;material-symbols-outlined&#34;&gt;mic&lt;/span&gt;&#39;;
+    }
+  }
+&lt;/script&gt;
+</code></pre>
+    </div>
+  </div>
+</div>
+
+<h2 id="3-signature-pad">3. Signature Pad</h2>
+<p>Canvas-based drawing for signatures.</p>
+<div class="demo-wrapper">
+  <div class="demo-preview l-grid l-grid--auto" style="--col-min: 200px; align-items: center; justify-items: center;">
+    
+<div class="field">
+  <label class="field__label">Sign Here</label>
+  <div class="sig-wrapper">
+    <canvas id="sig-canvas" width="400" height="150"></canvas>
+    <button type="button" class="clear-btn" onclick="clearSig()">Clear</button>
+  </div>
+  <div class="field__hint">Use mouse or touch to sign.</div>
+</div>
+
+
+
+<script>
+  const canvas = document.getElementById('sig-canvas');
+  const ctx = canvas.getContext('2d');
+  let drawing = false;
+
+  // Mouse
+  canvas.addEventListener('mousedown', startDraw);
+  canvas.addEventListener('mouseup', stopDraw);
+  canvas.addEventListener('mousemove', draw);
+  
+  // Touch
+  canvas.addEventListener('touchstart', (e) => { e.preventDefault(); startDraw(e.touches[0]); });
+  canvas.addEventListener('touchend', (e) => { e.preventDefault(); stopDraw(); });
+  canvas.addEventListener('touchmove', (e) => { e.preventDefault(); draw(e.touches[0]); });
+
+  function startDraw(e) {
+    drawing = true;
+    draw(e); // Draw dot
+  }
+  function stopDraw() {
+    drawing = false;
+    ctx.beginPath(); // Reset path
+  }
+  function draw(e) {
+    if (!drawing) return;
+    
+    // Get correct coordinates relative to canvas
+    const rect = canvas.getBoundingClientRect();
+    const x = (e.clientX || e.pageX) - rect.left;
+    const y = (e.clientY || e.pageY) - rect.top;
+
+    ctx.lineWidth = 2;
+    ctx.lineCap = 'round';
+    ctx.strokeStyle = '#000';
+
+    ctx.lineTo(x, y);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(x, y);
+  }
+
+  function clearSig() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+  }
+</script>
+
+  </div>
+
+  <div class="demo-source">
+    <div class="demo-header">
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <span class="lang-tag">HTML <small style="opacity:0.5; font-weight:normal;">(Editable)</small></span>
+        
+        <button class="btn-toggle-code" aria-expanded="false">
+          <span class="material-symbols-outlined icon-code" style="font-size: 18px;">code</span>
+          <span class="btn-text">View Code</span>
+        </button>
+      </div>
+
+      <button class="btn-copy" aria-label="Copy code to clipboard">
+        <span class="material-symbols-outlined icon-copy" style="font-size: 16px;">content_copy</span>
+        <span class="btn-text">Copy</span>
+      </button>
+    </div>
+    
+    <div class="code-content" hidden>
+      <pre><code class="language-html live-code" contenteditable="true" spellcheck="false">
+&lt;div class=&#34;field&#34;&gt;
+  &lt;label class=&#34;field__label&#34;&gt;Sign Here&lt;/label&gt;
+  &lt;div class=&#34;sig-wrapper&#34;&gt;
+    &lt;canvas id=&#34;sig-canvas&#34; width=&#34;400&#34; height=&#34;150&#34;&gt;&lt;/canvas&gt;
+    &lt;button type=&#34;button&#34; class=&#34;clear-btn&#34; onclick=&#34;clearSig()&#34;&gt;Clear&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div class=&#34;field__hint&#34;&gt;Use mouse or touch to sign.&lt;/div&gt;
+&lt;/div&gt;
+
+
+
+&lt;script&gt;
+  const canvas = document.getElementById(&#39;sig-canvas&#39;);
+  const ctx = canvas.getContext(&#39;2d&#39;);
+  let drawing = false;
+
+  // Mouse
+  canvas.addEventListener(&#39;mousedown&#39;, startDraw);
+  canvas.addEventListener(&#39;mouseup&#39;, stopDraw);
+  canvas.addEventListener(&#39;mousemove&#39;, draw);
+  
+  // Touch
+  canvas.addEventListener(&#39;touchstart&#39;, (e) =&gt; { e.preventDefault(); startDraw(e.touches[0]); });
+  canvas.addEventListener(&#39;touchend&#39;, (e) =&gt; { e.preventDefault(); stopDraw(); });
+  canvas.addEventListener(&#39;touchmove&#39;, (e) =&gt; { e.preventDefault(); draw(e.touches[0]); });
+
+  function startDraw(e) {
+    drawing = true;
+    draw(e); // Draw dot
+  }
+  function stopDraw() {
+    drawing = false;
+    ctx.beginPath(); // Reset path
+  }
+  function draw(e) {
+    if (!drawing) return;
+    
+    // Get correct coordinates relative to canvas
+    const rect = canvas.getBoundingClientRect();
+    const x = (e.clientX || e.pageX) - rect.left;
+    const y = (e.clientY || e.pageY) - rect.top;
+
+    ctx.lineWidth = 2;
+    ctx.lineCap = &#39;round&#39;;
+    ctx.strokeStyle = &#39;#000&#39;;
+
+    ctx.lineTo(x, y);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(x, y);
+  }
+
+  function clearSig() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+  }
+&lt;/script&gt;
+</code></pre>
+    </div>
+  </div>
+</div>
+
+
+
+    </main>
+  </div>
+
+  <script src='/aurora-docs/js/docs.js'></script>
+  <script type="module">
+    import { initConfigurator } from '\/aurora-docs\/js\/configurator.js';
+    initConfigurator();
+  </script>
+
+  <script type="module">import { initCharts } from '\/aurora-docs\/js\/charts.js'; initCharts();</script>
+  <script type="module">import { initFilters } from '\/aurora-docs\/js\/filters.js'; initFilters();</script>
+  <script
+    type="module">import { initAccordions } from '\/aurora-docs\/js\/components\/accordion.js'; initAccordions();</script>
+  <script type="module">import { initWizards } from '\/aurora-docs\/js\/patterns\/wizard.js'; initWizards();</script>
+  <script type="module">import { initGallery } from '\/aurora-docs\/js\/components\/gallery.js'; initGallery();</script>
+</body>
+
+</html>

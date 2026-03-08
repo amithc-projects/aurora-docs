@@ -1,0 +1,1154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+  <title>Tables | Aurora Design System Docs</title>
+  
+
+
+
+
+  
+
+  
+    
+    
+    
+    
+    
+
+    
+    
+      
+        
+        
+        
+        
+        
+        
+
+        
+        
+        
+
+        
+      
+    
+      
+        
+        
+        
+        
+        
+        
+
+        
+        
+        
+
+        
+      
+    
+      
+        
+        
+        
+        
+        
+        
+
+        
+        
+        
+
+        
+      
+    
+
+    
+    
+    
+    
+    
+    
+    
+
+  
+
+  
+    
+    
+    
+    
+    
+
+    
+    
+      
+    
+      
+        
+        
+        
+        
+        
+        
+
+        
+        
+        
+
+        
+      
+    
+      
+        
+        
+        
+        
+        
+        
+
+        
+        
+        
+
+        
+      
+    
+
+    
+    
+    
+    
+    
+    
+    
+
+  
+
+
+
+  <script>
+
+    const html = document.documentElement;
+
+    const savedTheme = localStorage.getItem('aurora-theme') || 'corporate';
+    const savedMode = localStorage.getItem('aurora-mode') || 'light';
+
+    html.setAttribute('data-theme', savedTheme);
+    html.setAttribute('data-mode', savedMode);
+
+
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fredoka:wdth,wght@75..125,300..700&family=Inter:wght@100..900&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href='/aurora-docs/css/aurora.css'>
+  <link rel="stylesheet" href='/aurora-docs/css/docs-theme.css'>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+</head>
+
+<body>
+
+  <header style="padding: 1rem 2rem; border-bottom: 1px solid var(--ds-sys-color-border); background: var(--ds-sys-color-surface); display: flex; align-items: center; justify-content: space-between;">
+  <div style="display: flex; align-items: center; gap: 1rem;">
+    <a href="/" style="font-weight: 800; font-size: 1.25rem; text-decoration: none; color: var(--ds-sys-color-on-surface);">AURORA DOCS</a>
+  </div>
+
+  <div style="display: flex; align-items: center; gap: 1rem;">
+    
+    <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem;">
+      <label for="theme-select">Theme:</label>
+      <select id="theme-select" style="padding: 4px; border-radius: 4px;">
+        <option value="corporate">Corporate</option>
+        <option value="kids">Kids</option>
+      </select>
+    </div>
+
+    <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem;">
+      <label for="mode-select">Mode:</label>
+      <select id="mode-select" style="padding: 4px; border-radius: 4px;">
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+      </select>
+    </div>
+
+  </div>
+</header>
+
+
+  <div class="docs-layout" style="display: grid; grid-template-columns: 250px 1fr; min-height: 100vh;">
+    <aside class="docs-sidebar"
+      style="padding: 2rem; border-right: 1px solid var(--ds-sys-color-border); background: var(--ds-sys-color-bg-app);">
+      <nav class="nav-vertical" style="font-family: sans-serif; font-size: 0.9rem;">
+  
+  <div style="margin-bottom: 2rem;">
+    <a href="/" style="font-weight: 900; font-size: 1.2rem; text-decoration: none; color: var(--ds-sys-color-on-surface); letter-spacing: -0.5px;">AURORA DOCS</a>
+    <div style="font-size: 0.75rem; opacity: 0.6; margin-top: 0.2rem;">v1.0.0 &bull; Living Guide</div>
+  </div>
+
+  
+  
+    <div class="nav-group" style="margin-bottom: 1.5rem;">
+      
+      
+      <h3 style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #999; margin-bottom: 0.75rem; font-weight: 700;">
+        Philosophy
+      </h3>
+      
+      <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.25rem;">
+        
+      </ul>
+    </div>
+  
+    <div class="nav-group" style="margin-bottom: 1.5rem;">
+      
+      
+      <h3 style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #999; margin-bottom: 0.75rem; font-weight: 700;">
+        Atoms
+      </h3>
+      
+      <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.25rem;">
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/icons/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Icons
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/page-templates/font-studio/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Variable Font Studio
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/atoms/avatars/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Avatars
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/atoms/badges/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Badges
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/atoms/buttons/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Buttons
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/atoms/typography/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Typography
+            </a>
+
+            
+            
+
+          </li>
+        
+      </ul>
+    </div>
+  
+    <div class="nav-group" style="margin-bottom: 1.5rem;">
+      
+      
+      <h3 style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #999; margin-bottom: 0.75rem; font-weight: 700;">
+        Molecules
+      </h3>
+      
+      <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.25rem;">
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/molecules/feedback/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Feedback
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/molecules/tables/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); background: var(--ds-sys-color-surface-container-highest); font-weight: 600;">
+              Tables
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/molecules/tooltips/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Tooltips
+            </a>
+
+            
+            
+
+          </li>
+        
+      </ul>
+    </div>
+  
+    <div class="nav-group" style="margin-bottom: 1.5rem;">
+      
+      
+      <h3 style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #999; margin-bottom: 0.75rem; font-weight: 700;">
+        Components
+      </h3>
+      
+      <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.25rem;">
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/components/breadcrumbs/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Breadcrumbs
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/components/cards/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Cards
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/components/charts/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Charts
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/components/charts-svg/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Charts (SVG)
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/components/cookie-consent/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Cookie Consent
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/components/identity/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Identity
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/components/gallery/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Ultimate Gallery
+            </a>
+
+            
+            
+
+          </li>
+        
+      </ul>
+    </div>
+  
+    <div class="nav-group" style="margin-bottom: 1.5rem;">
+      
+      
+      <h3 style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #999; margin-bottom: 0.75rem; font-weight: 700;">
+        Forms
+      </h3>
+      
+      <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.25rem;">
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/forms/text-value/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Text &amp; Value
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/forms/choice-selection/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Choice &amp; Selection
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/forms/range-date/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Range &amp; Date
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/forms/media-capture/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Media &amp; Capture
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/forms/grouping-layouts/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Grouping &amp; Layouts
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/forms/forms/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Forms &amp; Inputs
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/forms/inputs/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Inputs
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/forms/selects/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Selects
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/forms/slider/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Slider
+            </a>
+
+            
+            
+
+          </li>
+        
+      </ul>
+    </div>
+  
+    <div class="nav-group" style="margin-bottom: 1.5rem;">
+      
+      
+      <h3 style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #999; margin-bottom: 0.75rem; font-weight: 700;">
+        Layouts
+      </h3>
+      
+      <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.25rem;">
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/layouts/auth/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Auth Layout
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/layouts/dashboard/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Dashboard Layout
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/layouts/magazine/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Magazine Layout
+            </a>
+
+            
+            
+
+          </li>
+        
+      </ul>
+    </div>
+  
+    <div class="nav-group" style="margin-bottom: 1.5rem;">
+      
+      
+      <h3 style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #999; margin-bottom: 0.75rem; font-weight: 700;">
+        Overlays
+      </h3>
+      
+      <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.25rem;">
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/overlays/modals/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Modals
+            </a>
+
+            
+            
+
+          </li>
+        
+      </ul>
+    </div>
+  
+    <div class="nav-group" style="margin-bottom: 1.5rem;">
+      
+      
+      <h3 style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #999; margin-bottom: 0.75rem; font-weight: 700;">
+        Patterns
+      </h3>
+      
+      <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.25rem;">
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/patterns/footer/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Footer
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/patterns/hero/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Hero
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/patterns/carousel/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Modern CSS Carousel
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/patterns/content-filter/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Multi-Select Filter
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/patterns/navigation/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Navigation
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/patterns/subgrid/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Subgrid Alignment
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/patterns/wizard/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Wizard Patterns
+            </a>
+
+            
+            
+
+          </li>
+        
+      </ul>
+    </div>
+  
+    <div class="nav-group" style="margin-bottom: 1.5rem;">
+      
+      
+      <h3 style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #999; margin-bottom: 0.75rem; font-weight: 700;">
+        Sites
+      </h3>
+      
+      <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.25rem;">
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/sites/news/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Aurora News
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/sites/entertainment/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              StreamBox
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/sites/gallery/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Visual Gallery
+            </a>
+
+            
+            
+
+          </li>
+        
+      </ul>
+    </div>
+  
+
+  
+  <div class="nav-group" style="margin-top: 2rem;">
+    <h3 style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #999; margin-bottom: 0.75rem; font-weight: 700;">
+      Page Templates
+    </h3>
+    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.25rem;">
+      
+        <li>
+          <a href="/aurora-docs/page-templates/app-shell/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface);">
+            App Shell
+          </a>
+        </li>
+      
+        <li>
+          <a href="/aurora-docs/page-templates/centered/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface);">
+            Centered Reading
+          </a>
+        </li>
+      
+        <li>
+          <a href="/aurora-docs/page-templates/grid-gallery/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface);">
+            Grid Gallery
+          </a>
+        </li>
+      
+        <li>
+          <a href="/aurora-docs/page-templates/holy-grail/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface);">
+            Holy Grail
+          </a>
+        </li>
+      
+        <li>
+          <a href="/aurora-docs/page-templates/multicol/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface);">
+            Multi-Column Text
+          </a>
+        </li>
+      
+        <li>
+          <a href="/aurora-docs/page-templates/single-column/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface);">
+            Single Column
+          </a>
+        </li>
+      
+        <li>
+          <a href="/aurora-docs/page-templates/split-screen/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface);">
+            Split Screen
+          </a>
+        </li>
+      
+        <li>
+          <a href="/aurora-docs/page-templates/two-col-left/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface);">
+            Two Column (Left)
+          </a>
+        </li>
+      
+        <li>
+          <a href="/aurora-docs/page-templates/two-col-right/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface);">
+            Two Column (Right)
+          </a>
+        </li>
+      
+        <li>
+          <a href="/aurora-docs/page-templates/font-studio/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface);">
+            Variable Font Studio
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+</nav>
+
+
+    </aside>
+
+    <main class="docs-content" style="padding: 3rem; max-width: 1200px;">
+      
+  <h2 id="static-table">Static Table</h2>
+<p>Visual styles for standard HTML tables.</p>
+<div class="demo-wrapper">
+  <div class="demo-preview l-grid l-grid--auto" style="--col-min: 200px; align-items: center; justify-items: center;">
+    
+<div class="table-container">
+  <table class="table table--bordered">
+    <thead>
+      <tr><th>Status</th><th>User</th><th>Actions</th></tr>
+    </thead>
+    <tbody>
+      <tr class="table-row--success">
+        <td><span class="badge badge--soft badge--success">Active</span></td>
+        <td>Jane Doe</td>
+        <td><button class="secondary" >Edit</button></td>
+      </tr>
+      <tr>
+        <td><span class="badge badge--soft badge--neutral">Offline</span></td>
+        <td>Bob Smith</td>
+        <td><button class="secondary" >Edit</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+  </div>
+
+  <div class="demo-source">
+    <div class="demo-header">
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <span class="lang-tag">HTML <small style="opacity:0.5; font-weight:normal;">(Editable)</small></span>
+        
+        <button class="btn-toggle-code" aria-expanded="false">
+          <span class="material-symbols-outlined icon-code" style="font-size: 18px;">code</span>
+          <span class="btn-text">View Code</span>
+        </button>
+      </div>
+
+      <button class="btn-copy" aria-label="Copy code to clipboard">
+        <span class="material-symbols-outlined icon-copy" style="font-size: 16px;">content_copy</span>
+        <span class="btn-text">Copy</span>
+      </button>
+    </div>
+    
+    <div class="code-content" hidden>
+      <pre><code class="language-html live-code" contenteditable="true" spellcheck="false">
+&lt;div class=&#34;table-container&#34;&gt;
+  &lt;table class=&#34;table table--bordered&#34;&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;&lt;th&gt;Status&lt;/th&gt;&lt;th&gt;User&lt;/th&gt;&lt;th&gt;Actions&lt;/th&gt;&lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr class=&#34;table-row--success&#34;&gt;
+        &lt;td&gt;&lt;span class=&#34;badge badge--soft badge--success&#34;&gt;Active&lt;/span&gt;&lt;/td&gt;
+        &lt;td&gt;Jane Doe&lt;/td&gt;
+        &lt;td&gt;&lt;button class=&#34;secondary&#34; &gt;Edit&lt;/button&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;&lt;span class=&#34;badge badge--soft badge--neutral&#34;&gt;Offline&lt;/span&gt;&lt;/td&gt;
+        &lt;td&gt;Bob Smith&lt;/td&gt;
+        &lt;td&gt;&lt;button class=&#34;secondary&#34; &gt;Edit&lt;/button&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+  </div>
+</div>
+
+<h2 id="league-table">League Table</h2>
+<div class="demo-wrapper">
+  <div class="demo-preview l-grid l-grid--auto" style="--col-min: 200px; align-items: center; justify-items: center;">
+     
+  <div class="table-container" style="max-height: 500px; overflow-y: auto;">
+        <table class="table table--sticky table--fixed-col table--fixed-row table--matrix table-sortable">
+          <thead>
+            <tr>
+              <th data-sort="string" aria-sort="none">Team</th>
+              <th data-sort="number" aria-sort="none">P</th>
+              <th data-sort="number" aria-sort="none">W</th>
+              <th data-sort="number" aria-sort="none">D</th>
+              <th data-sort="number" aria-sort="none">L</th>
+              <th data-sort="number" aria-sort="none">GF</th>
+              <th data-sort="number" aria-sort="none">GA</th>
+              <th data-sort="number" aria-sort="none">+/-</th>
+              <th data-sort="number" aria-sort="descending">Pts</th>
+              <th data-sort="string" aria-sort="none">Form</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Liverpool</th><td>38</td><td>25</td><td>9</td><td>4</td><td>86</td><td>41</td><td>+45</td><td>84</td><td>W L D L D</td></tr>
+            <tr><th scope="row">Arsenal</th><td>38</td><td>20</td><td>14</td><td>4</td><td>69</td><td>34</td><td>+35</td><td>74</td><td>D L D W W</td></tr>
+            <tr><th scope="row">Manchester City</th><td>38</td><td>21</td><td>8</td><td>9</td><td>72</td><td>44</td><td>+28</td><td>71</td><td>W W D W W</td></tr>
+            <tr><th scope="row">Chelsea</th><td>38</td><td>20</td><td>9</td><td>9</td><td>64</td><td>43</td><td>+21</td><td>69</td><td>W W L W W</td></tr>
+            <tr><th scope="row">Newcastle United</th><td>38</td><td>20</td><td>6</td><td>12</td><td>68</td><td>47</td><td>+21</td><td>66</td><td>W D W L L</td></tr>
+            <tr><th scope="row">Aston Villa</th><td>38</td><td>19</td><td>9</td><td>10</td><td>58</td><td>51</td><td>+7</td><td>66</td><td>L W W W L</td></tr>
+            <tr><th scope="row">Nottingham Forest</th><td>38</td><td>19</td><td>8</td><td>11</td><td>58</td><td>46</td><td>+12</td><td>65</td><td>L D D W L</td></tr>
+            <tr><th scope="row">Brighton &amp; Hove Albion</th><td>38</td><td>16</td><td>13</td><td>9</td><td>66</td><td>59</td><td>+7</td><td>61</td><td>W D W W W</td></tr>
+            <tr><th scope="row">Bournemouth</th><td>38</td><td>15</td><td>11</td><td>12</td><td>58</td><td>46</td><td>+12</td><td>56</td><td>D W L L W</td></tr>
+            <tr><th scope="row">Brentford</th><td>38</td><td>16</td><td>8</td><td>14</td><td>66</td><td>57</td><td>+9</td><td>56</td><td>W W W L D</td></tr>
+            <tr><th scope="row">Fulham</th><td>38</td><td>15</td><td>9</td><td>14</td><td>54</td><td>54</td><td>0</td><td>54</td><td>W L L W L</td></tr>
+            <tr><th scope="row">Crystal Palace</th><td>38</td><td>13</td><td>14</td><td>11</td><td>51</td><td>51</td><td>0</td><td>53</td><td>D D W W D</td></tr>
+            <tr><th scope="row">Everton</th><td>38</td><td>11</td><td>15</td><td>12</td><td>42</td><td>44</td><td>-2</td><td>48</td><td>L D W W W</td></tr>
+            <tr><th scope="row">West Ham United</th><td>38</td><td>11</td><td>10</td><td>17</td><td>46</td><td>62</td><td>-16</td><td>43</td><td>L D W L W</td></tr>
+            <tr><th scope="row">Manchester United</th><td>38</td><td>11</td><td>9</td><td>18</td><td>44</td><td>54</td><td>-10</td><td>42</td><td>D L L L W</td></tr>
+            <tr><th scope="row">Wolverhampton Wanderers</th><td>38</td><td>12</td><td>6</td><td>20</td><td>54</td><td>69</td><td>-15</td><td>42</td><td>W L L L D</td></tr>
+            <tr><th scope="row">Tottenham Hotspur</th><td>38</td><td>11</td><td>5</td><td>22</td><td>64</td><td>65</td><td>-1</td><td>38</td><td>L D L L L</td></tr>
+            <tr><th scope="row">Leicester City</th><td>38</td><td>6</td><td>7</td><td>25</td><td>33</td><td>80</td><td>-47</td><td>25</td><td>L W D W L</td></tr>
+            <tr><th scope="row">Ipswich Town</th><td>38</td><td>4</td><td>10</td><td>24</td><td>36</td><td>82</td><td>-46</td><td>22</td><td>L D L L L</td></tr>
+            <tr><th scope="row">Southampton</th><td>38</td><td>2</td><td>6</td><td>30</td><td>26</td><td>86</td><td>-60</td><td>12</td><td>L L D L L</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+  </div>
+
+  <div class="demo-source">
+    <div class="demo-header">
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <span class="lang-tag">HTML <small style="opacity:0.5; font-weight:normal;">(Editable)</small></span>
+        
+        <button class="btn-toggle-code" aria-expanded="false">
+          <span class="material-symbols-outlined icon-code" style="font-size: 18px;">code</span>
+          <span class="btn-text">View Code</span>
+        </button>
+      </div>
+
+      <button class="btn-copy" aria-label="Copy code to clipboard">
+        <span class="material-symbols-outlined icon-copy" style="font-size: 16px;">content_copy</span>
+        <span class="btn-text">Copy</span>
+      </button>
+    </div>
+    
+    <div class="code-content" hidden>
+      <pre><code class="language-html live-code" contenteditable="true" spellcheck="false"> 
+  &lt;div class=&#34;table-container&#34; style=&#34;max-height: 500px; overflow-y: auto;&#34;&gt;
+        &lt;table class=&#34;table table--sticky table--fixed-col table--fixed-row table--matrix table-sortable&#34;&gt;
+          &lt;thead&gt;
+            &lt;tr&gt;
+              &lt;th data-sort=&#34;string&#34; aria-sort=&#34;none&#34;&gt;Team&lt;/th&gt;
+              &lt;th data-sort=&#34;number&#34; aria-sort=&#34;none&#34;&gt;P&lt;/th&gt;
+              &lt;th data-sort=&#34;number&#34; aria-sort=&#34;none&#34;&gt;W&lt;/th&gt;
+              &lt;th data-sort=&#34;number&#34; aria-sort=&#34;none&#34;&gt;D&lt;/th&gt;
+              &lt;th data-sort=&#34;number&#34; aria-sort=&#34;none&#34;&gt;L&lt;/th&gt;
+              &lt;th data-sort=&#34;number&#34; aria-sort=&#34;none&#34;&gt;GF&lt;/th&gt;
+              &lt;th data-sort=&#34;number&#34; aria-sort=&#34;none&#34;&gt;GA&lt;/th&gt;
+              &lt;th data-sort=&#34;number&#34; aria-sort=&#34;none&#34;&gt;+/-&lt;/th&gt;
+              &lt;th data-sort=&#34;number&#34; aria-sort=&#34;descending&#34;&gt;Pts&lt;/th&gt;
+              &lt;th data-sort=&#34;string&#34; aria-sort=&#34;none&#34;&gt;Form&lt;/th&gt;
+            &lt;/tr&gt;
+          &lt;/thead&gt;
+          &lt;tbody&gt;
+            &lt;tr&gt;&lt;th scope=&#34;row&#34;&gt;Liverpool&lt;/th&gt;&lt;td&gt;38&lt;/td&gt;&lt;td&gt;25&lt;/td&gt;&lt;td&gt;9&lt;/td&gt;&lt;td&gt;4&lt;/td&gt;&lt;td&gt;86&lt;/td&gt;&lt;td&gt;41&lt;/td&gt;&lt;td&gt;+45&lt;/td&gt;&lt;td&gt;84&lt;/td&gt;&lt;td&gt;W L D L D&lt;/td&gt;&lt;/tr&gt;
+            &lt;tr&gt;&lt;th scope=&#34;row&#34;&gt;Arsenal&lt;/th&gt;&lt;td&gt;38&lt;/td&gt;&lt;td&gt;20&lt;/td&gt;&lt;td&gt;14&lt;/td&gt;&lt;td&gt;4&lt;/td&gt;&lt;td&gt;69&lt;/td&gt;&lt;td&gt;34&lt;/td&gt;&lt;td&gt;+35&lt;/td&gt;&lt;td&gt;74&lt;/td&gt;&lt;td&gt;D L D W W&lt;/td&gt;&lt;/tr&gt;
+            &lt;tr&gt;&lt;th scope=&#34;row&#34;&gt;Manchester City&lt;/th&gt;&lt;td&gt;38&lt;/td&gt;&lt;td&gt;21&lt;/td&gt;&lt;td&gt;8&lt;/td&gt;&lt;td&gt;9&lt;/td&gt;&lt;td&gt;72&lt;/td&gt;&lt;td&gt;44&lt;/td&gt;&lt;td&gt;+28&lt;/td&gt;&lt;td&gt;71&lt;/td&gt;&lt;td&gt;W W D W W&lt;/td&gt;&lt;/tr&gt;
+            &lt;tr&gt;&lt;th scope=&#34;row&#34;&gt;Chelsea&lt;/th&gt;&lt;td&gt;38&lt;/td&gt;&lt;td&gt;20&lt;/td&gt;&lt;td&gt;9&lt;/td&gt;&lt;td&gt;9&lt;/td&gt;&lt;td&gt;64&lt;/td&gt;&lt;td&gt;43&lt;/td&gt;&lt;td&gt;+21&lt;/td&gt;&lt;td&gt;69&lt;/td&gt;&lt;td&gt;W W L W W&lt;/td&gt;&lt;/tr&gt;
+            &lt;tr&gt;&lt;th scope=&#34;row&#34;&gt;Newcastle United&lt;/th&gt;&lt;td&gt;38&lt;/td&gt;&lt;td&gt;20&lt;/td&gt;&lt;td&gt;6&lt;/td&gt;&lt;td&gt;12&lt;/td&gt;&lt;td&gt;68&lt;/td&gt;&lt;td&gt;47&lt;/td&gt;&lt;td&gt;+21&lt;/td&gt;&lt;td&gt;66&lt;/td&gt;&lt;td&gt;W D W L L&lt;/td&gt;&lt;/tr&gt;
+            &lt;tr&gt;&lt;th scope=&#34;row&#34;&gt;Aston Villa&lt;/th&gt;&lt;td&gt;38&lt;/td&gt;&lt;td&gt;19&lt;/td&gt;&lt;td&gt;9&lt;/td&gt;&lt;td&gt;10&lt;/td&gt;&lt;td&gt;58&lt;/td&gt;&lt;td&gt;51&lt;/td&gt;&lt;td&gt;+7&lt;/td&gt;&lt;td&gt;66&lt;/td&gt;&lt;td&gt;L W W W L&lt;/td&gt;&lt;/tr&gt;
+            &lt;tr&gt;&lt;th scope=&#34;row&#34;&gt;Nottingham Forest&lt;/th&gt;&lt;td&gt;38&lt;/td&gt;&lt;td&gt;19&lt;/td&gt;&lt;td&gt;8&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;td&gt;58&lt;/td&gt;&lt;td&gt;46&lt;/td&gt;&lt;td&gt;+12&lt;/td&gt;&lt;td&gt;65&lt;/td&gt;&lt;td&gt;L D D W L&lt;/td&gt;&lt;/tr&gt;
+            &lt;tr&gt;&lt;th scope=&#34;row&#34;&gt;Brighton &amp;amp; Hove Albion&lt;/th&gt;&lt;td&gt;38&lt;/td&gt;&lt;td&gt;16&lt;/td&gt;&lt;td&gt;13&lt;/td&gt;&lt;td&gt;9&lt;/td&gt;&lt;td&gt;66&lt;/td&gt;&lt;td&gt;59&lt;/td&gt;&lt;td&gt;+7&lt;/td&gt;&lt;td&gt;61&lt;/td&gt;&lt;td&gt;W D W W W&lt;/td&gt;&lt;/tr&gt;
+            &lt;tr&gt;&lt;th scope=&#34;row&#34;&gt;Bournemouth&lt;/th&gt;&lt;td&gt;38&lt;/td&gt;&lt;td&gt;15&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;td&gt;12&lt;/td&gt;&lt;td&gt;58&lt;/td&gt;&lt;td&gt;46&lt;/td&gt;&lt;td&gt;+12&lt;/td&gt;&lt;td&gt;56&lt;/td&gt;&lt;td&gt;D W L L W&lt;/td&gt;&lt;/tr&gt;
+            &lt;tr&gt;&lt;th scope=&#34;row&#34;&gt;Brentford&lt;/th&gt;&lt;td&gt;38&lt;/td&gt;&lt;td&gt;16&lt;/td&gt;&lt;td&gt;8&lt;/td&gt;&lt;td&gt;14&lt;/td&gt;&lt;td&gt;66&lt;/td&gt;&lt;td&gt;57&lt;/td&gt;&lt;td&gt;+9&lt;/td&gt;&lt;td&gt;56&lt;/td&gt;&lt;td&gt;W W W L D&lt;/td&gt;&lt;/tr&gt;
+            &lt;tr&gt;&lt;th scope=&#34;row&#34;&gt;Fulham&lt;/th&gt;&lt;td&gt;38&lt;/td&gt;&lt;td&gt;15&lt;/td&gt;&lt;td&gt;9&lt;/td&gt;&lt;td&gt;14&lt;/td&gt;&lt;td&gt;54&lt;/td&gt;&lt;td&gt;54&lt;/td&gt;&lt;td&gt;0&lt;/td&gt;&lt;td&gt;54&lt;/td&gt;&lt;td&gt;W L L W L&lt;/td&gt;&lt;/tr&gt;
+            &lt;tr&gt;&lt;th scope=&#34;row&#34;&gt;Crystal Palace&lt;/th&gt;&lt;td&gt;38&lt;/td&gt;&lt;td&gt;13&lt;/td&gt;&lt;td&gt;14&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;td&gt;51&lt;/td&gt;&lt;td&gt;51&lt;/td&gt;&lt;td&gt;0&lt;/td&gt;&lt;td&gt;53&lt;/td&gt;&lt;td&gt;D D W W D&lt;/td&gt;&lt;/tr&gt;
+            &lt;tr&gt;&lt;th scope=&#34;row&#34;&gt;Everton&lt;/th&gt;&lt;td&gt;38&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;td&gt;15&lt;/td&gt;&lt;td&gt;12&lt;/td&gt;&lt;td&gt;42&lt;/td&gt;&lt;td&gt;44&lt;/td&gt;&lt;td&gt;-2&lt;/td&gt;&lt;td&gt;48&lt;/td&gt;&lt;td&gt;L D W W W&lt;/td&gt;&lt;/tr&gt;
+            &lt;tr&gt;&lt;th scope=&#34;row&#34;&gt;West Ham United&lt;/th&gt;&lt;td&gt;38&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;td&gt;10&lt;/td&gt;&lt;td&gt;17&lt;/td&gt;&lt;td&gt;46&lt;/td&gt;&lt;td&gt;62&lt;/td&gt;&lt;td&gt;-16&lt;/td&gt;&lt;td&gt;43&lt;/td&gt;&lt;td&gt;L D W L W&lt;/td&gt;&lt;/tr&gt;
+            &lt;tr&gt;&lt;th scope=&#34;row&#34;&gt;Manchester United&lt;/th&gt;&lt;td&gt;38&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;td&gt;9&lt;/td&gt;&lt;td&gt;18&lt;/td&gt;&lt;td&gt;44&lt;/td&gt;&lt;td&gt;54&lt;/td&gt;&lt;td&gt;-10&lt;/td&gt;&lt;td&gt;42&lt;/td&gt;&lt;td&gt;D L L L W&lt;/td&gt;&lt;/tr&gt;
+            &lt;tr&gt;&lt;th scope=&#34;row&#34;&gt;Wolverhampton Wanderers&lt;/th&gt;&lt;td&gt;38&lt;/td&gt;&lt;td&gt;12&lt;/td&gt;&lt;td&gt;6&lt;/td&gt;&lt;td&gt;20&lt;/td&gt;&lt;td&gt;54&lt;/td&gt;&lt;td&gt;69&lt;/td&gt;&lt;td&gt;-15&lt;/td&gt;&lt;td&gt;42&lt;/td&gt;&lt;td&gt;W L L L D&lt;/td&gt;&lt;/tr&gt;
+            &lt;tr&gt;&lt;th scope=&#34;row&#34;&gt;Tottenham Hotspur&lt;/th&gt;&lt;td&gt;38&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;td&gt;5&lt;/td&gt;&lt;td&gt;22&lt;/td&gt;&lt;td&gt;64&lt;/td&gt;&lt;td&gt;65&lt;/td&gt;&lt;td&gt;-1&lt;/td&gt;&lt;td&gt;38&lt;/td&gt;&lt;td&gt;L D L L L&lt;/td&gt;&lt;/tr&gt;
+            &lt;tr&gt;&lt;th scope=&#34;row&#34;&gt;Leicester City&lt;/th&gt;&lt;td&gt;38&lt;/td&gt;&lt;td&gt;6&lt;/td&gt;&lt;td&gt;7&lt;/td&gt;&lt;td&gt;25&lt;/td&gt;&lt;td&gt;33&lt;/td&gt;&lt;td&gt;80&lt;/td&gt;&lt;td&gt;-47&lt;/td&gt;&lt;td&gt;25&lt;/td&gt;&lt;td&gt;L W D W L&lt;/td&gt;&lt;/tr&gt;
+            &lt;tr&gt;&lt;th scope=&#34;row&#34;&gt;Ipswich Town&lt;/th&gt;&lt;td&gt;38&lt;/td&gt;&lt;td&gt;4&lt;/td&gt;&lt;td&gt;10&lt;/td&gt;&lt;td&gt;24&lt;/td&gt;&lt;td&gt;36&lt;/td&gt;&lt;td&gt;82&lt;/td&gt;&lt;td&gt;-46&lt;/td&gt;&lt;td&gt;22&lt;/td&gt;&lt;td&gt;L D L L L&lt;/td&gt;&lt;/tr&gt;
+            &lt;tr&gt;&lt;th scope=&#34;row&#34;&gt;Southampton&lt;/th&gt;&lt;td&gt;38&lt;/td&gt;&lt;td&gt;2&lt;/td&gt;&lt;td&gt;6&lt;/td&gt;&lt;td&gt;30&lt;/td&gt;&lt;td&gt;26&lt;/td&gt;&lt;td&gt;86&lt;/td&gt;&lt;td&gt;-60&lt;/td&gt;&lt;td&gt;12&lt;/td&gt;&lt;td&gt;L L D L L&lt;/td&gt;&lt;/tr&gt;
+          &lt;/tbody&gt;
+        &lt;/table&gt;
+      &lt;/div&gt;
+</code></pre>
+    </div>
+  </div>
+</div>
+
+<h2 id="remote-data-table">Remote Data Table</h2>
+<p>Fetches data from an API () and renders it.</p>
+<div class="demo-wrapper">
+  <div class="demo-preview l-grid l-grid--auto" style="--col-min: 200px; align-items: center; justify-items: center;">
+    
+<div class="table-container" style="height: 400px; overflow-y: auto; border: 1px solid var(--ds-sys-color-border);">
+  <table id="remote-table" class="table table--sticky">
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Category</th>
+        <th style="text-align: right;">Price</th>
+      </tr>
+    </thead>
+    <tbody id="remote-body">
+      <tr><td colspan="3" style="text-align:center; padding: 2rem;">Loading data...</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<script>
+  // Simple fetch logic for demo purposes
+  fetch('https://dummyjson.com/products?limit=25')
+    .then(res => res.json())
+    .then(data => {
+      const tbody = document.getElementById('remote-body');
+      tbody.innerHTML = data.products.map(p => `
+        <tr>
+          <td>
+            <div >
+              <img src="${p.thumbnail}" >
+              <span style="font-weight: 500;">${p.title}</span>
+            </div>
+          </td>
+          <td><span class="badge badge--soft badge--primary">${p.category}</span></td>
+          <td >$${p.price}</td>
+        </tr>
+      `).join('');
+    });
+</script>
+
+  </div>
+
+  <div class="demo-source">
+    <div class="demo-header">
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <span class="lang-tag">HTML <small style="opacity:0.5; font-weight:normal;">(Editable)</small></span>
+        
+        <button class="btn-toggle-code" aria-expanded="false">
+          <span class="material-symbols-outlined icon-code" style="font-size: 18px;">code</span>
+          <span class="btn-text">View Code</span>
+        </button>
+      </div>
+
+      <button class="btn-copy" aria-label="Copy code to clipboard">
+        <span class="material-symbols-outlined icon-copy" style="font-size: 16px;">content_copy</span>
+        <span class="btn-text">Copy</span>
+      </button>
+    </div>
+    
+    <div class="code-content" hidden>
+      <pre><code class="language-html live-code" contenteditable="true" spellcheck="false">
+&lt;div class=&#34;table-container&#34; style=&#34;height: 400px; overflow-y: auto; border: 1px solid var(--ds-sys-color-border);&#34;&gt;
+  &lt;table id=&#34;remote-table&#34; class=&#34;table table--sticky&#34;&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;
+        &lt;th&gt;Product&lt;/th&gt;
+        &lt;th&gt;Category&lt;/th&gt;
+        &lt;th style=&#34;text-align: right;&#34;&gt;Price&lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody id=&#34;remote-body&#34;&gt;
+      &lt;tr&gt;&lt;td colspan=&#34;3&#34; style=&#34;text-align:center; padding: 2rem;&#34;&gt;Loading data...&lt;/td&gt;&lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+  // Simple fetch logic for demo purposes
+  fetch(&#39;https://dummyjson.com/products?limit=25&#39;)
+    .then(res =&gt; res.json())
+    .then(data =&gt; {
+      const tbody = document.getElementById(&#39;remote-body&#39;);
+      tbody.innerHTML = data.products.map(p =&gt; `
+        &lt;tr&gt;
+          &lt;td&gt;
+            &lt;div &gt;
+              &lt;img src=&#34;${p.thumbnail}&#34; &gt;
+              &lt;span style=&#34;font-weight: 500;&#34;&gt;${p.title}&lt;/span&gt;
+            &lt;/div&gt;
+          &lt;/td&gt;
+          &lt;td&gt;&lt;span class=&#34;badge badge--soft badge--primary&#34;&gt;${p.category}&lt;/span&gt;&lt;/td&gt;
+          &lt;td &gt;$${p.price}&lt;/td&gt;
+        &lt;/tr&gt;
+      `).join(&#39;&#39;);
+    });
+&lt;/script&gt;
+</code></pre>
+    </div>
+  </div>
+</div>
+
+
+
+    </main>
+  </div>
+
+  <script src='/aurora-docs/js/docs.js'></script>
+  <script type="module">
+    import { initConfigurator } from '\/aurora-docs\/js\/configurator.js';
+    initConfigurator();
+  </script>
+
+  <script type="module">import { initCharts } from '\/aurora-docs\/js\/charts.js'; initCharts();</script>
+  <script type="module">import { initFilters } from '\/aurora-docs\/js\/filters.js'; initFilters();</script>
+  <script
+    type="module">import { initAccordions } from '\/aurora-docs\/js\/components\/accordion.js'; initAccordions();</script>
+  <script type="module">import { initWizards } from '\/aurora-docs\/js\/patterns\/wizard.js'; initWizards();</script>
+  <script type="module">import { initGallery } from '\/aurora-docs\/js\/components\/gallery.js'; initGallery();</script>
+</body>
+
+</html>

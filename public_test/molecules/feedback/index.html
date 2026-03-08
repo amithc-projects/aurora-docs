@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+  <title>Feedback | Aurora Design System Docs</title>
+  
+
+
+
+
+  
+
+  
+    
+    
+    
+    
+    
+
+    
+    
+      
+        
+        
+        
+        
+        
+        
+
+        
+        
+        
+
+        
+      
+    
+      
+        
+        
+        
+        
+        
+        
+
+        
+        
+        
+
+        
+      
+    
+      
+        
+        
+        
+        
+        
+        
+
+        
+        
+        
+
+        
+      
+    
+
+    
+    
+    
+    
+    
+    
+    
+
+  
+
+  
+    
+    
+    
+    
+    
+
+    
+    
+      
+    
+      
+        
+        
+        
+        
+        
+        
+
+        
+        
+        
+
+        
+      
+    
+      
+        
+        
+        
+        
+        
+        
+
+        
+        
+        
+
+        
+      
+    
+
+    
+    
+    
+    
+    
+    
+    
+
+  
+
+
+
+  <script>
+
+    const html = document.documentElement;
+
+    const savedTheme = localStorage.getItem('aurora-theme') || 'corporate';
+    const savedMode = localStorage.getItem('aurora-mode') || 'light';
+
+    html.setAttribute('data-theme', savedTheme);
+    html.setAttribute('data-mode', savedMode);
+
+
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fredoka:wdth,wght@75..125,300..700&family=Inter:wght@100..900&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href='/aurora-docs/css/aurora.css'>
+  <link rel="stylesheet" href='/aurora-docs/css/docs-theme.css'>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+</head>
+
+<body>
+
+  <header style="padding: 1rem 2rem; border-bottom: 1px solid var(--ds-sys-color-border); background: var(--ds-sys-color-surface); display: flex; align-items: center; justify-content: space-between;">
+  <div style="display: flex; align-items: center; gap: 1rem;">
+    <a href="/" style="font-weight: 800; font-size: 1.25rem; text-decoration: none; color: var(--ds-sys-color-on-surface);">AURORA DOCS</a>
+  </div>
+
+  <div style="display: flex; align-items: center; gap: 1rem;">
+    
+    <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem;">
+      <label for="theme-select">Theme:</label>
+      <select id="theme-select" style="padding: 4px; border-radius: 4px;">
+        <option value="corporate">Corporate</option>
+        <option value="kids">Kids</option>
+      </select>
+    </div>
+
+    <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem;">
+      <label for="mode-select">Mode:</label>
+      <select id="mode-select" style="padding: 4px; border-radius: 4px;">
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+      </select>
+    </div>
+
+  </div>
+</header>
+
+
+  <div class="docs-layout" style="display: grid; grid-template-columns: 250px 1fr; min-height: 100vh;">
+    <aside class="docs-sidebar"
+      style="padding: 2rem; border-right: 1px solid var(--ds-sys-color-border); background: var(--ds-sys-color-bg-app);">
+      <nav class="nav-vertical" style="font-family: sans-serif; font-size: 0.9rem;">
+  
+  <div style="margin-bottom: 2rem;">
+    <a href="/" style="font-weight: 900; font-size: 1.2rem; text-decoration: none; color: var(--ds-sys-color-on-surface); letter-spacing: -0.5px;">AURORA DOCS</a>
+    <div style="font-size: 0.75rem; opacity: 0.6; margin-top: 0.2rem;">v1.0.0 &bull; Living Guide</div>
+  </div>
+
+  
+  
+    <div class="nav-group" style="margin-bottom: 1.5rem;">
+      
+      
+      <h3 style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #999; margin-bottom: 0.75rem; font-weight: 700;">
+        Philosophy
+      </h3>
+      
+      <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.25rem;">
+        
+      </ul>
+    </div>
+  
+    <div class="nav-group" style="margin-bottom: 1.5rem;">
+      
+      
+      <h3 style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #999; margin-bottom: 0.75rem; font-weight: 700;">
+        Atoms
+      </h3>
+      
+      <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.25rem;">
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/icons/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Icons
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/page-templates/font-studio/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Variable Font Studio
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/atoms/avatars/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Avatars
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/atoms/badges/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Badges
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/atoms/buttons/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Buttons
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/atoms/typography/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Typography
+            </a>
+
+            
+            
+
+          </li>
+        
+      </ul>
+    </div>
+  
+    <div class="nav-group" style="margin-bottom: 1.5rem;">
+      
+      
+      <h3 style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #999; margin-bottom: 0.75rem; font-weight: 700;">
+        Molecules
+      </h3>
+      
+      <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.25rem;">
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/molecules/feedback/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); background: var(--ds-sys-color-surface-container-highest); font-weight: 600;">
+              Feedback
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/molecules/tables/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Tables
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/molecules/tooltips/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Tooltips
+            </a>
+
+            
+            
+
+          </li>
+        
+      </ul>
+    </div>
+  
+    <div class="nav-group" style="margin-bottom: 1.5rem;">
+      
+      
+      <h3 style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #999; margin-bottom: 0.75rem; font-weight: 700;">
+        Components
+      </h3>
+      
+      <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.25rem;">
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/components/breadcrumbs/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Breadcrumbs
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/components/cards/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Cards
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/components/charts/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Charts
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/components/charts-svg/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Charts (SVG)
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/components/cookie-consent/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Cookie Consent
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/components/identity/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Identity
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/components/gallery/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Ultimate Gallery
+            </a>
+
+            
+            
+
+          </li>
+        
+      </ul>
+    </div>
+  
+    <div class="nav-group" style="margin-bottom: 1.5rem;">
+      
+      
+      <h3 style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #999; margin-bottom: 0.75rem; font-weight: 700;">
+        Forms
+      </h3>
+      
+      <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.25rem;">
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/forms/text-value/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Text &amp; Value
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/forms/choice-selection/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Choice &amp; Selection
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/forms/range-date/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Range &amp; Date
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/forms/media-capture/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Media &amp; Capture
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/forms/grouping-layouts/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Grouping &amp; Layouts
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/forms/forms/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Forms &amp; Inputs
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/forms/inputs/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Inputs
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/forms/selects/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Selects
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/forms/slider/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Slider
+            </a>
+
+            
+            
+
+          </li>
+        
+      </ul>
+    </div>
+  
+    <div class="nav-group" style="margin-bottom: 1.5rem;">
+      
+      
+      <h3 style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #999; margin-bottom: 0.75rem; font-weight: 700;">
+        Layouts
+      </h3>
+      
+      <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.25rem;">
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/layouts/auth/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Auth Layout
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/layouts/dashboard/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Dashboard Layout
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/layouts/magazine/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Magazine Layout
+            </a>
+
+            
+            
+
+          </li>
+        
+      </ul>
+    </div>
+  
+    <div class="nav-group" style="margin-bottom: 1.5rem;">
+      
+      
+      <h3 style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #999; margin-bottom: 0.75rem; font-weight: 700;">
+        Overlays
+      </h3>
+      
+      <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.25rem;">
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/overlays/modals/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Modals
+            </a>
+
+            
+            
+
+          </li>
+        
+      </ul>
+    </div>
+  
+    <div class="nav-group" style="margin-bottom: 1.5rem;">
+      
+      
+      <h3 style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #999; margin-bottom: 0.75rem; font-weight: 700;">
+        Patterns
+      </h3>
+      
+      <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.25rem;">
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/patterns/footer/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Footer
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/patterns/hero/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Hero
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/patterns/carousel/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Modern CSS Carousel
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/patterns/content-filter/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Multi-Select Filter
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/patterns/navigation/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Navigation
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/patterns/subgrid/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Subgrid Alignment
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/patterns/wizard/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Wizard Patterns
+            </a>
+
+            
+            
+
+          </li>
+        
+      </ul>
+    </div>
+  
+    <div class="nav-group" style="margin-bottom: 1.5rem;">
+      
+      
+      <h3 style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #999; margin-bottom: 0.75rem; font-weight: 700;">
+        Sites
+      </h3>
+      
+      <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.25rem;">
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/sites/news/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Aurora News
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/sites/entertainment/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              StreamBox
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/sites/gallery/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Visual Gallery
+            </a>
+
+            
+            
+
+          </li>
+        
+      </ul>
+    </div>
+  
+
+  
+  <div class="nav-group" style="margin-top: 2rem;">
+    <h3 style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #999; margin-bottom: 0.75rem; font-weight: 700;">
+      Page Templates
+    </h3>
+    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.25rem;">
+      
+        <li>
+          <a href="/aurora-docs/page-templates/app-shell/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface);">
+            App Shell
+          </a>
+        </li>
+      
+        <li>
+          <a href="/aurora-docs/page-templates/centered/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface);">
+            Centered Reading
+          </a>
+        </li>
+      
+        <li>
+          <a href="/aurora-docs/page-templates/grid-gallery/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface);">
+            Grid Gallery
+          </a>
+        </li>
+      
+        <li>
+          <a href="/aurora-docs/page-templates/holy-grail/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface);">
+            Holy Grail
+          </a>
+        </li>
+      
+        <li>
+          <a href="/aurora-docs/page-templates/multicol/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface);">
+            Multi-Column Text
+          </a>
+        </li>
+      
+        <li>
+          <a href="/aurora-docs/page-templates/single-column/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface);">
+            Single Column
+          </a>
+        </li>
+      
+        <li>
+          <a href="/aurora-docs/page-templates/split-screen/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface);">
+            Split Screen
+          </a>
+        </li>
+      
+        <li>
+          <a href="/aurora-docs/page-templates/two-col-left/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface);">
+            Two Column (Left)
+          </a>
+        </li>
+      
+        <li>
+          <a href="/aurora-docs/page-templates/two-col-right/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface);">
+            Two Column (Right)
+          </a>
+        </li>
+      
+        <li>
+          <a href="/aurora-docs/page-templates/font-studio/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface);">
+            Variable Font Studio
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+</nav>
+
+
+    </aside>
+
+    <main class="docs-content" style="padding: 3rem; max-width: 1200px;">
+      
+  <h2 id="toast-notifications">Toast Notifications</h2>
+<p>Triggers a toast message in the dock.</p>
+<div class="demo-wrapper">
+  <div class="demo-preview l-grid l-grid--auto" style="--col-min: 200px; align-items: center; justify-items: center;">
+    
+<div class="l-cluster">
+ <section class="card" style="padding: 2rem;">
+      <h3>1. Toast Positioning</h3>
+      <p>Select a position for the toast dock:</p>
+      
+      <div class="l-grid" >
+        <button class="secondary" onclick="setPos('top-left')">Top Left</button>
+        <button class="secondary" onclick="setPos('top-center')">Top Center</button>
+        <button class="secondary" onclick="setPos('top-right')">Top Right</button>
+        
+        <button class="secondary" onclick="setPos('middle-left')">Mid Left</button>
+        <button class="secondary" onclick="setPos('middle-center')">Mid Center</button>
+        <button class="secondary" onclick="setPos('middle-right')">Mid Right</button>
+        
+        <button class="secondary" onclick="setPos('bottom-left')">Bot Left</button>
+        <button class="secondary" onclick="setPos('bottom-center')">Bot Center</button>
+        <button class="secondary" onclick="setPos('bottom-right')">Bot Right</button>
+      </div>
+    </section>
+
+    <section class="card" >
+      <h3>2. Triggers & Persistence</h3>
+      
+      <div class="l-cluster" >
+        <button class="primary" onclick="showToast('success', 'Saved', 'Auto-dismiss in 5s (Hover to pause).')">
+          Auto Dismiss (5s)
+        </button>
+        
+        <button class="secondary" onclick="showToast('info', 'Update Available', 'I will stay until you close me.', true)">
+          Persistent Toast
+        </button>
+        
+        <button class="secondary" onclick="showToast('error', 'Error', 'Something went wrong!')">
+          Error Toast
+        </button>
+      </div>
+    </section>
+    <section>
+      <section class="card" >
+      <h3>3. Native Popover (Minimal JS)</h3>
+      <p>
+        Uses the browser's <code>popover</code> API. Great for single, static messages (like "You are offline") 
+        that don't need to stack.
+      </p>
+      
+      <div class="l-cluster" >
+        <button class="primary" popovertarget="offline-toast">
+          Toggle Offline Alerts
+        </button>
+      </div>
+      <div id="offline-toast" popover="manual" class="toast toast--popover toast--warning">
+  <span class="material-symbols-outlined toast__icon">wifi_off</span>
+  <div class="toast__content">
+    <div class="toast__title">Connection Lost</div>
+    <div class="toast__message">We are trying to reconnect...</div>
+  </div>
+  <button class="toast__close" onclick="this.closest('[popover]').hidePopover()">
+    <span class="material-symbols-outlined">close</span>
+  </button>
+</div>
+    </section>
+
+</div>
+
+<div id="toast-dock" class="toast-container"></div>
+
+<script>
+    (function() {
+        const storedTheme = localStorage.getItem('aurora-theme') || 'corporate';
+        document.body.setAttribute('data-theme', storedTheme);
+    })();
+
+    // 1. POSITIONING LOGIC
+    function setPos(pos) {
+      const dock = document.getElementById('toast-dock');
+      // Reset classes
+      dock.className = 'toast-container';
+      // Add new position
+      dock.classList.add(`toast-container--${pos}`);
+      
+      showToast('info', 'Position Changed', `Dock moved to ${pos}`);
+    }
+
+    // 2. TOAST LOGIC
+    function showToast(type, title, message, persist = false) {
+      const dock = document.getElementById('toast-dock');
+      const el = document.createElement('div');
+      
+      const icons = { success: 'check_circle', error: 'error', warning: 'warning', info: 'info' };
+
+      // Base Classes
+      el.className = `toast toast--${type}`;
+      
+      // Persistence Logic (CSS Class)
+      if (persist) {
+        el.classList.add('toast--persist');
+      }
+
+      el.innerHTML = `
+        <span class="material-symbols-outlined toast__icon">${icons[type]}</span>
+        <div class="toast__content">
+          <div class="toast__title">${title}</div>
+          <div class="toast__message">${message}</div>
+        </div>
+        <button class="toast__close">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      `;
+
+      // MANUAL CLOSE HANDLER
+      const closeBtn = el.querySelector('.toast__close');
+      closeBtn.onclick = () => {
+        el.classList.add('is-leaving'); // Trigger Exit Animation
+        el.addEventListener('animationend', () => el.remove());
+      };
+
+      // AUTO DISMISS HANDLER (Listen for CSS Animation End)
+      // This allows CSS variables to control the duration entirely!
+      if (!persist) {
+        el.addEventListener('animationend', (e) => {
+          // Only remove if it was the lifecycle animation that finished
+          if (e.animationName === 'toast-lifecycle') {
+            el.remove();
+          }
+        });
+      }
+
+      dock.appendChild(el);
+    }
+  </script>
+
+
+  </div>
+
+  <div class="demo-source">
+    <div class="demo-header">
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <span class="lang-tag">HTML <small style="opacity:0.5; font-weight:normal;">(Editable)</small></span>
+        
+        <button class="btn-toggle-code" aria-expanded="false">
+          <span class="material-symbols-outlined icon-code" style="font-size: 18px;">code</span>
+          <span class="btn-text">View Code</span>
+        </button>
+      </div>
+
+      <button class="btn-copy" aria-label="Copy code to clipboard">
+        <span class="material-symbols-outlined icon-copy" style="font-size: 16px;">content_copy</span>
+        <span class="btn-text">Copy</span>
+      </button>
+    </div>
+    
+    <div class="code-content" hidden>
+      <pre><code class="language-html live-code" contenteditable="true" spellcheck="false">
+&lt;div class=&#34;l-cluster&#34;&gt;
+ &lt;section class=&#34;card&#34; style=&#34;padding: 2rem;&#34;&gt;
+      &lt;h3&gt;1. Toast Positioning&lt;/h3&gt;
+      &lt;p&gt;Select a position for the toast dock:&lt;/p&gt;
+      
+      &lt;div class=&#34;l-grid&#34; &gt;
+        &lt;button class=&#34;secondary&#34; onclick=&#34;setPos(&#39;top-left&#39;)&#34;&gt;Top Left&lt;/button&gt;
+        &lt;button class=&#34;secondary&#34; onclick=&#34;setPos(&#39;top-center&#39;)&#34;&gt;Top Center&lt;/button&gt;
+        &lt;button class=&#34;secondary&#34; onclick=&#34;setPos(&#39;top-right&#39;)&#34;&gt;Top Right&lt;/button&gt;
+        
+        &lt;button class=&#34;secondary&#34; onclick=&#34;setPos(&#39;middle-left&#39;)&#34;&gt;Mid Left&lt;/button&gt;
+        &lt;button class=&#34;secondary&#34; onclick=&#34;setPos(&#39;middle-center&#39;)&#34;&gt;Mid Center&lt;/button&gt;
+        &lt;button class=&#34;secondary&#34; onclick=&#34;setPos(&#39;middle-right&#39;)&#34;&gt;Mid Right&lt;/button&gt;
+        
+        &lt;button class=&#34;secondary&#34; onclick=&#34;setPos(&#39;bottom-left&#39;)&#34;&gt;Bot Left&lt;/button&gt;
+        &lt;button class=&#34;secondary&#34; onclick=&#34;setPos(&#39;bottom-center&#39;)&#34;&gt;Bot Center&lt;/button&gt;
+        &lt;button class=&#34;secondary&#34; onclick=&#34;setPos(&#39;bottom-right&#39;)&#34;&gt;Bot Right&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;section class=&#34;card&#34; &gt;
+      &lt;h3&gt;2. Triggers &amp; Persistence&lt;/h3&gt;
+      
+      &lt;div class=&#34;l-cluster&#34; &gt;
+        &lt;button class=&#34;primary&#34; onclick=&#34;showToast(&#39;success&#39;, &#39;Saved&#39;, &#39;Auto-dismiss in 5s (Hover to pause).&#39;)&#34;&gt;
+          Auto Dismiss (5s)
+        &lt;/button&gt;
+        
+        &lt;button class=&#34;secondary&#34; onclick=&#34;showToast(&#39;info&#39;, &#39;Update Available&#39;, &#39;I will stay until you close me.&#39;, true)&#34;&gt;
+          Persistent Toast
+        &lt;/button&gt;
+        
+        &lt;button class=&#34;secondary&#34; onclick=&#34;showToast(&#39;error&#39;, &#39;Error&#39;, &#39;Something went wrong!&#39;)&#34;&gt;
+          Error Toast
+        &lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
+    &lt;section&gt;
+      &lt;section class=&#34;card&#34; &gt;
+      &lt;h3&gt;3. Native Popover (Minimal JS)&lt;/h3&gt;
+      &lt;p&gt;
+        Uses the browser&#39;s &lt;code&gt;popover&lt;/code&gt; API. Great for single, static messages (like &#34;You are offline&#34;) 
+        that don&#39;t need to stack.
+      &lt;/p&gt;
+      
+      &lt;div class=&#34;l-cluster&#34; &gt;
+        &lt;button class=&#34;primary&#34; popovertarget=&#34;offline-toast&#34;&gt;
+          Toggle Offline Alerts
+        &lt;/button&gt;
+      &lt;/div&gt;
+      &lt;div id=&#34;offline-toast&#34; popover=&#34;manual&#34; class=&#34;toast toast--popover toast--warning&#34;&gt;
+  &lt;span class=&#34;material-symbols-outlined toast__icon&#34;&gt;wifi_off&lt;/span&gt;
+  &lt;div class=&#34;toast__content&#34;&gt;
+    &lt;div class=&#34;toast__title&#34;&gt;Connection Lost&lt;/div&gt;
+    &lt;div class=&#34;toast__message&#34;&gt;We are trying to reconnect...&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;button class=&#34;toast__close&#34; onclick=&#34;this.closest(&#39;[popover]&#39;).hidePopover()&#34;&gt;
+    &lt;span class=&#34;material-symbols-outlined&#34;&gt;close&lt;/span&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+    &lt;/section&gt;
+
+&lt;/div&gt;
+
+&lt;div id=&#34;toast-dock&#34; class=&#34;toast-container&#34;&gt;&lt;/div&gt;
+
+&lt;script&gt;
+    (function() {
+        const storedTheme = localStorage.getItem(&#39;aurora-theme&#39;) || &#39;corporate&#39;;
+        document.body.setAttribute(&#39;data-theme&#39;, storedTheme);
+    })();
+
+    // 1. POSITIONING LOGIC
+    function setPos(pos) {
+      const dock = document.getElementById(&#39;toast-dock&#39;);
+      // Reset classes
+      dock.className = &#39;toast-container&#39;;
+      // Add new position
+      dock.classList.add(`toast-container--${pos}`);
+      
+      showToast(&#39;info&#39;, &#39;Position Changed&#39;, `Dock moved to ${pos}`);
+    }
+
+    // 2. TOAST LOGIC
+    function showToast(type, title, message, persist = false) {
+      const dock = document.getElementById(&#39;toast-dock&#39;);
+      const el = document.createElement(&#39;div&#39;);
+      
+      const icons = { success: &#39;check_circle&#39;, error: &#39;error&#39;, warning: &#39;warning&#39;, info: &#39;info&#39; };
+
+      // Base Classes
+      el.className = `toast toast--${type}`;
+      
+      // Persistence Logic (CSS Class)
+      if (persist) {
+        el.classList.add(&#39;toast--persist&#39;);
+      }
+
+      el.innerHTML = `
+        &lt;span class=&#34;material-symbols-outlined toast__icon&#34;&gt;${icons[type]}&lt;/span&gt;
+        &lt;div class=&#34;toast__content&#34;&gt;
+          &lt;div class=&#34;toast__title&#34;&gt;${title}&lt;/div&gt;
+          &lt;div class=&#34;toast__message&#34;&gt;${message}&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;button class=&#34;toast__close&#34;&gt;
+          &lt;span class=&#34;material-symbols-outlined&#34;&gt;close&lt;/span&gt;
+        &lt;/button&gt;
+      `;
+
+      // MANUAL CLOSE HANDLER
+      const closeBtn = el.querySelector(&#39;.toast__close&#39;);
+      closeBtn.onclick = () =&gt; {
+        el.classList.add(&#39;is-leaving&#39;); // Trigger Exit Animation
+        el.addEventListener(&#39;animationend&#39;, () =&gt; el.remove());
+      };
+
+      // AUTO DISMISS HANDLER (Listen for CSS Animation End)
+      // This allows CSS variables to control the duration entirely!
+      if (!persist) {
+        el.addEventListener(&#39;animationend&#39;, (e) =&gt; {
+          // Only remove if it was the lifecycle animation that finished
+          if (e.animationName === &#39;toast-lifecycle&#39;) {
+            el.remove();
+          }
+        });
+      }
+
+      dock.appendChild(el);
+    }
+  &lt;/script&gt;
+
+</code></pre>
+    </div>
+  </div>
+</div>
+
+
+
+    </main>
+  </div>
+
+  <script src='/aurora-docs/js/docs.js'></script>
+  <script type="module">
+    import { initConfigurator } from '\/aurora-docs\/js\/configurator.js';
+    initConfigurator();
+  </script>
+
+  <script type="module">import { initCharts } from '\/aurora-docs\/js\/charts.js'; initCharts();</script>
+  <script type="module">import { initFilters } from '\/aurora-docs\/js\/filters.js'; initFilters();</script>
+  <script
+    type="module">import { initAccordions } from '\/aurora-docs\/js\/components\/accordion.js'; initAccordions();</script>
+  <script type="module">import { initWizards } from '\/aurora-docs\/js\/patterns\/wizard.js'; initWizards();</script>
+  <script type="module">import { initGallery } from '\/aurora-docs\/js\/components\/gallery.js'; initGallery();</script>
+</body>
+
+</html>

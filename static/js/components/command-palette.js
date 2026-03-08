@@ -13,7 +13,7 @@ export function initCommandPalette() {
     ];
     const ACTIONS = [
         { id: 'new-component', label: 'New component', desc: 'Start documenting a new component', icon: 'plus', shortcut: '⌘N' },
-        { id: 'toggle-theme', label: 'Toggle theme', desc: 'Switch between Corporate and Kids', icon: 'sun' },
+        { id: 'toggle-theme', label: 'Toggle theme', desc: 'Switch between Corporate and Casual', icon: 'sun' },
         { id: 'toggle-mode', label: 'Toggle dark mode', desc: 'Switch light / dark', icon: 'moon', shortcut: '⌘⇧D' },
         { id: 'search-tokens', label: 'Search tokens', desc: 'Find a specific CSS token', icon: 'search' },
         { id: 'export', label: 'Export tokens', desc: 'Download token JSON', icon: 'download' },
@@ -161,7 +161,7 @@ export function initCommandPalette() {
         }
         else if (item.id === 'toggle-theme') {
             const h = document.documentElement;
-            const nextTheme = h.getAttribute('data-theme') === 'corporate' ? 'kids' : 'corporate';
+            const nextTheme = h.getAttribute('data-theme') === 'corporate' ? 'casual' : 'corporate';
             h.setAttribute('data-theme', nextTheme);
             localStorage.setItem('aurora-theme', nextTheme);
         }

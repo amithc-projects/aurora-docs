@@ -8,7 +8,7 @@
     initial-value: 150px;
   }
 
-  /* 2. Colors: Allows smooth theme interpolation (e.g., Kids -> Corporate) */
+  /* 2. Colors: Allows smooth theme interpolation (e.g., Casual -> Corporate) */
   @property --ds-sys-color-primary {
     syntax: "<color>";
     inherits: true;

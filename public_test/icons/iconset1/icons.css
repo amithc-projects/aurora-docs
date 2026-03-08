@@ -1,0 +1,45 @@
+
+.icon-cross {
+  display: inline-block;
+  width: 1em; 
+  height: 1em;
+  background-color: currentColor; /* Inherits text color from parent */
+  -webkit-mask-image: url('/icons/iconset1/cross.svg');
+  mask-image: url('/icons/iconset1/cross.svg');
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+}
+
+.icon-save {
+  display: inline-block;
+  width: 1em; 
+  height: 1em;
+  background-color: currentColor; /* Inherits text color from parent */
+  -webkit-mask-image: url('/icons/iconset1/save.svg');
+  mask-image: url('/icons/iconset1/save.svg');
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+}
+
+.icon-tick {
+  display: inline-block;
+  width: 1em; 
+  height: 1em;
+  background-color: currentColor; /* Inherits text color from parent */
+  -webkit-mask-image: url('/icons/iconset1/tick.svg');
+  mask-image: url('/icons/iconset1/tick.svg');
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+}

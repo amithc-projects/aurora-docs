@@ -11,7 +11,7 @@ menu:
 Use the **Theme Tuner** on the right to adjust Weight and Width in real-time.
 
 * **Corporate Theme:** Uses `Inter`. Adjustable **Weight**.
-* **Kids Theme:** Uses `Fredoka`. Adjustable **Weight** AND **Width**.
+* **Casual Theme:** Uses `Fredoka`. Adjustable **Weight** AND **Width**.
 
 {{< demo >}}
 <div class="l-stack">
@@ -24,7 +24,7 @@ Use the **Theme Tuner** on the right to adjust Weight and Width in real-time.
   
   <div class="l-cluster" >
     <button class="secondary" onclick="document.body.setAttribute('data-theme', 'corporate')">Corporate (Inter)</button>
-    <button class="primary" onclick="document.body.setAttribute('data-theme', 'kids')">Kids (Fredoka)</button>
+    <button class="primary" onclick="document.body.setAttribute('data-theme', 'casual')">Casual (Fredoka)</button>
   </div>
 </div>
 {{< /demo >}}
@@ -41,7 +41,7 @@ We can lock specific variations using CSS classes.
   </div>
   
   <div >
-    <small >(Switch to Kids theme to see Width effects)</small>
+    <small >(Switch to Casual theme to see Width effects)</small>
     <div class="text-narrow">Narrow Text (Width 75%)</div>
     <div>Normal Width (Width 100%)</div>
     <div class="text-wide">Wide Text (Width 125%)</div>

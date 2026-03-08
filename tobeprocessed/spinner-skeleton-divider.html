@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="corporate" data-mode="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aurora — Spinner · Skeleton · Divider</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --color-neutral-0:#fff;--color-neutral-50:#f9fafb;--color-neutral-100:#f3f4f6;
+      --color-neutral-200:#e5e7eb;--color-neutral-300:#d1d5db;--color-neutral-500:#6b7280;
+      --color-neutral-600:#4b5563;--color-neutral-700:#374151;--color-neutral-900:#111827;
+      --color-brand:#2563eb;--color-brand-hover:#1d4ed8;--color-brand-on:#fff;
+      --color-surface-base:var(--color-neutral-50);--color-surface-raised:var(--color-neutral-0);
+      --color-surface-sunken:var(--color-neutral-100);
+      --color-text-primary:var(--color-neutral-900);--color-text-secondary:var(--color-neutral-500);
+      --color-border-subtle:var(--color-neutral-200);--color-border-default:var(--color-neutral-300);
+      --shadow-sm:0 1px 3px 0 rgb(0 0 0/.08);
+      --radius-sm:.125rem;--radius-md:.375rem;--radius-lg:.5rem;--radius-full:9999px;
+      --space-2:.5rem;--space-3:.75rem;--space-4:1rem;--space-6:1.5rem;
+      --text-xs:.75rem;--text-sm:.875rem;
+      --font-sans:'Instrument Sans',system-ui,sans-serif;--font-display:'Syne',system-ui,sans-serif;
+      --ease-out:cubic-bezier(0,0,.2,1);
+
+      /* Spinner tokens */
+      --spinner-track-color:var(--color-border-default);
+      --spinner-arc-color:var(--color-brand);
+      --spinner-duration:700ms;
+
+      /* Skeleton tokens */
+      --skeleton-bg:var(--color-neutral-200);
+      --skeleton-shine:var(--color-neutral-100);
+      --skeleton-radius:var(--radius-md);
+      --skeleton-duration:1.5s;
+
+      /* Divider tokens */
+      --divider-color:var(--color-border-subtle);
+      --divider-label-color:var(--color-text-secondary);
+    }
+    [data-mode="dark"] {
+      --color-surface-base:#0f172a;--color-surface-raised:#1e293b;--color-surface-sunken:#0f172a;
+      --color-text-primary:#f1f5f9;--color-text-secondary:#94a3b8;
+      --color-border-subtle:#334155;--color-border-default:#475569;
+      --color-neutral-200:#334155;--color-neutral-300:#475569;
+      --skeleton-bg:#334155;--skeleton-shine:#3f4f68;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:var(--font-sans);background:var(--color-surface-base);color:var(--color-text-primary);min-height:100vh;}
+    .demo-page{padding:3rem 2rem;max-width:860px;margin:0 auto;}
+    .demo-page h1{font-family:var(--font-display);font-size:2rem;font-weight:700;letter-spacing:-.03em;margin-bottom:.25rem;}
+    .demo-page>p{color:var(--color-text-secondary);font-size:.9375rem;margin-bottom:2.5rem;}
+    .demo-section{margin-bottom:3rem;}
+    .demo-section h2{font-family:var(--font-display);font-size:.6875rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--color-text-secondary);margin-bottom:1.25rem;padding-bottom:.5rem;border-bottom:1px solid var(--color-border-subtle);}
+    .demo-section h3{font-size:.8125rem;font-weight:600;color:var(--color-text-secondary);margin:1.5rem 0 .75rem;text-transform:uppercase;letter-spacing:.06em;}
+
+    /* ════════════════════════════════
+       SPINNER
+    ════════════════════════════════ */
+    .spinner{
+      display:inline-block;
+      animation:spin var(--spinner-duration) linear infinite;
+    }
+    .spinner circle.track{
+      fill:none;
+      stroke:var(--spinner-track-color);
+    }
+    .spinner circle.arc{
+      fill:none;
+      stroke:var(--spinner-arc-color);
+      stroke-linecap:round;
+      stroke-dasharray:60 100;
+    }
+    @keyframes spin{to{transform:rotate(360deg);transform-origin:center;}}
+
+    /* Sizes */
+    .spinner-xs{width:12px;height:12px;}
+    .spinner-sm{width:16px;height:16px;}
+    .spinner-md{width:24px;height:24px;}
+    .spinner-lg{width:40px;height:40px;}
+    .spinner-xl{width:64px;height:64px;}
+
+    /* Variants */
+    .spinner-muted circle.arc{stroke:var(--color-text-secondary);}
+    .spinner-inverted circle.track{stroke:rgba(255,255,255,.25);}
+    .spinner-inverted circle.arc{stroke:#fff;}
+
+    .spinner-row{display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;}
+
+    /* Button with loading */
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
+      padding:.5rem 1.125rem;font-family:var(--font-sans);font-size:.875rem;font-weight:500;
+      border-radius:var(--radius-md);border:1.5px solid transparent;cursor:pointer;
+      transition:background 150ms var(--ease-out);
+    }
+    .btn-primary{background:var(--color-brand);color:#fff;border-color:var(--color-brand);}
+    .btn-primary:hover{background:var(--color-brand-hover);}
+    .btn-primary:disabled{opacity:.7;cursor:wait;}
+    .btn-ghost{background:transparent;color:var(--color-text-primary);border-color:var(--color-border-default);}
+    .btn-ghost:hover{background:var(--color-surface-sunken);}
+
+    @media (prefers-reduced-motion: reduce) {
+      .spinner { animation: pulse 1.5s ease-in-out infinite; }
+      @keyframes pulse { 0%,100% {opacity:.4} 50%{opacity:1} }
+    }
+
+    /* ════════════════════════════════
+       SKELETON
+    ════════════════════════════════ */
+    @keyframes shimmer {
+      0%   { background-position: -200% 0; }
+      100% { background-position:  200% 0; }
+    }
+    .skeleton{
+      background: linear-gradient(
+        90deg,
+        var(--skeleton-bg) 25%,
+        var(--skeleton-shine) 50%,
+        var(--skeleton-bg) 75%
+      );
+      background-size: 200% 100%;
+      animation: shimmer var(--skeleton-duration) ease-in-out infinite;
+      border-radius: var(--skeleton-radius);
+      display: block;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .skeleton { animation: pulse 1.5s ease-in-out infinite; background: var(--skeleton-bg); }
+    }
+
+    /* Preset shapes */
+    .skeleton-text       { height: 1em;    width: 100%; }
+    .skeleton-text-short { height: 1em;    width: 60%; }
+    .skeleton-heading    { height: 1.375em; width: 70%; }
+    .skeleton-button     { height: 36px;   width: 100px; border-radius: var(--radius-md); }
+    .skeleton-badge      { height: 22px;   width: 60px;  border-radius: var(--radius-full); }
+    .skeleton-avatar-sm  { width: 32px;  height: 32px;  border-radius: 50%; flex-shrink:0; }
+    .skeleton-avatar-md  { width: 40px;  height: 40px;  border-radius: 50%; flex-shrink:0; }
+    .skeleton-avatar-lg  { width: 56px;  height: 56px;  border-radius: 50%; flex-shrink:0; }
+    .skeleton-image      { width: 100%; aspect-ratio: 16/9; border-radius: var(--radius-lg); }
+
+    /* Card skeleton */
+    .skeleton-card{
+      background:var(--color-surface-raised);
+      border:1px solid var(--color-border-subtle);
+      border-radius:var(--radius-lg);
+      padding:1rem;
+      display:flex;flex-direction:column;gap:.75rem;
+    }
+    .skeleton-card-header{display:flex;align-items:center;gap:.75rem;}
+    .skeleton-card-body{display:flex;flex-direction:column;gap:.5rem;}
+
+    /* List skeleton */
+    .skeleton-list-item{display:flex;align-items:center;gap:.875rem;padding:.625rem 0;border-bottom:1px solid var(--color-border-subtle);}
+    .skeleton-list-item:last-child{border-bottom:none;}
+    .skeleton-list-text{flex:1;display:flex;flex-direction:column;gap:.375rem;}
+
+    .skeleton-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;}
+
+    /* ════════════════════════════════
+       DIVIDER
+    ════════════════════════════════ */
+    .divider{
+      display:block;height:1px;
+      background:var(--divider-color);
+      margin:var(--space-4) 0;
+      border:none;
+    }
+    .divider-subtle { opacity:.5; }
+
+    /* Divider with label */
+    .divider-labeled{
+      display:flex;align-items:center;gap:var(--space-3);
+      margin:var(--space-4) 0;
+    }
+    .divider-labeled::before,
+    .divider-labeled::after{
+      content:'';flex:1;height:1px;background:var(--divider-color);
+    }
+    .divider-labeled-text{
+      font-size:var(--text-xs);
+      color:var(--divider-label-color);
+      white-space:nowrap;
+      font-weight:500;
+      letter-spacing:.04em;
+    }
+
+    /* Vertical divider */
+    .divider-vertical{
+      display:inline-block;width:1px;
+      background:var(--divider-color);
+      height:1em;align-self:stretch;
+      margin:0 var(--space-3);
+    }
+
+    /* Demo layout helpers */
+    .inline-row{display:flex;align-items:center;flex-wrap:wrap;}
+    .card-demo{background:var(--color-surface-raised);border:1px solid var(--color-border-subtle);border-radius:var(--radius-lg);padding:1.25rem;}
+    .section-content{color:var(--color-text-secondary);font-size:.9375rem;line-height:1.7;margin-bottom:.75rem;}
+
+    .mode-toggle{position:fixed;top:1.25rem;right:1.5rem;}
+    .toggle-switch{position:relative;width:40px;height:22px;background:var(--color-border-default);border-radius:99px;cursor:pointer;border:none;transition:background 200ms;}
+    .toggle-switch::after{content:'';position:absolute;top:3px;left:3px;width:16px;height:16px;background:#fff;border-radius:50%;transition:transform 200ms var(--ease-out);}
+    [data-mode="dark"] .toggle-switch{background:var(--color-brand);}
+    [data-mode="dark"] .toggle-switch::after{transform:translateX(18px);}
+  </style>
+</head>
+<body>
+<button class="toggle-switch mode-toggle" onclick="toggleMode()" aria-label="Toggle dark mode"></button>
+
+<div class="demo-page">
+  <h1>Spinner · Skeleton · Divider</h1>
+  <p>Three loading and structural primitives for Aurora's component library.</p>
+
+  <!-- ── SPINNER ── -->
+  <div class="demo-section">
+    <h2>Spinner</h2>
+
+    <h3>Sizes</h3>
+    <div class="spinner-row" role="status" aria-label="Loading">
+      <div title="xs — 12px"><svg class="spinner spinner-xs" viewBox="0 0 24 24"><circle class="track" cx="12" cy="12" r="9" stroke-width="2.5"/><circle class="arc" cx="12" cy="12" r="9" stroke-width="2.5"/></svg></div>
+      <div title="sm — 16px"><svg class="spinner spinner-sm" viewBox="0 0 24 24"><circle class="track" cx="12" cy="12" r="9" stroke-width="2.5"/><circle class="arc" cx="12" cy="12" r="9" stroke-width="2.5"/></svg></div>
+      <div title="md — 24px (default)"><svg class="spinner spinner-md" viewBox="0 0 24 24"><circle class="track" cx="12" cy="12" r="9" stroke-width="2.5"/><circle class="arc" cx="12" cy="12" r="9" stroke-width="2.5"/></svg></div>
+      <div title="lg — 40px"><svg class="spinner spinner-lg" viewBox="0 0 24 24"><circle class="track" cx="12" cy="12" r="9" stroke-width="2"/><circle class="arc" cx="12" cy="12" r="9" stroke-width="2"/></svg></div>
+      <div title="xl — 64px"><svg class="spinner spinner-xl" viewBox="0 0 24 24"><circle class="track" cx="12" cy="12" r="9" stroke-width="1.75"/><circle class="arc" cx="12" cy="12" r="9" stroke-width="1.75"/></svg></div>
+    </div>
+
+    <h3>Variants</h3>
+    <div class="spinner-row">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:.5rem;font-size:var(--text-xs);color:var(--color-text-secondary)">
+        <svg class="spinner spinner-md" viewBox="0 0 24 24"><circle class="track" cx="12" cy="12" r="9" stroke-width="2.5"/><circle class="arc" cx="12" cy="12" r="9" stroke-width="2.5"/></svg>
+        Brand (default)
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:.5rem;font-size:var(--text-xs);color:var(--color-text-secondary)">
+        <svg class="spinner spinner-md spinner-muted" viewBox="0 0 24 24"><circle class="track" cx="12" cy="12" r="9" stroke-width="2.5"/><circle class="arc" cx="12" cy="12" r="9" stroke-width="2.5"/></svg>
+        Muted
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:.5rem;font-size:var(--text-xs);color:var(--color-text-secondary)">
+        <div style="background:var(--color-brand);padding:.75rem;border-radius:var(--radius-md);">
+          <svg class="spinner spinner-md spinner-inverted" viewBox="0 0 24 24"><circle class="track" cx="12" cy="12" r="9" stroke-width="2.5"/><circle class="arc" cx="12" cy="12" r="9" stroke-width="2.5"/></svg>
+        </div>
+        Inverted
+      </div>
+    </div>
+
+    <h3>In context — button loading state</h3>
+    <div style="display:flex;gap:.75rem;flex-wrap:wrap;align-items:center">
+      <button class="btn btn-primary" disabled>
+        <svg class="spinner spinner-sm spinner-inverted" viewBox="0 0 24 24"><circle class="track" cx="12" cy="12" r="9" stroke-width="2.5"/><circle class="arc" cx="12" cy="12" r="9" stroke-width="2.5"/></svg>
+        Saving…
+      </button>
+      <button class="btn btn-ghost" disabled>
+        <svg class="spinner spinner-sm spinner-muted" viewBox="0 0 24 24"><circle class="track" cx="12" cy="12" r="9" stroke-width="2.5"/><circle class="arc" cx="12" cy="12" r="9" stroke-width="2.5"/></svg>
+        Loading
+      </button>
+      <span style="display:inline-flex;align-items:center;gap:.375rem;font-size:var(--text-sm);color:var(--color-text-secondary)">
+        <svg class="spinner spinner-xs spinner-muted" viewBox="0 0 24 24"><circle class="track" cx="12" cy="12" r="9" stroke-width="2.5"/><circle class="arc" cx="12" cy="12" r="9" stroke-width="2.5"/></svg>
+        Syncing data
+      </span>
+    </div>
+  </div>
+
+  <!-- ── SKELETON ── -->
+  <div class="demo-section">
+    <h2>Skeleton</h2>
+
+    <h3>Card skeleton</h3>
+    <div class="skeleton-grid">
+      <div class="skeleton-card" aria-busy="true" aria-label="Loading content">
+        <div class="skeleton skeleton-image"></div>
+        <div class="skeleton skeleton-heading"></div>
+        <div class="skeleton-card-body">
+          <div class="skeleton skeleton-text"></div>
+          <div class="skeleton skeleton-text"></div>
+          <div class="skeleton skeleton-text-short"></div>
+        </div>
+        <div style="display:flex;gap:.5rem">
+          <div class="skeleton skeleton-badge"></div>
+          <div class="skeleton skeleton-button" style="width:80px;height:22px;border-radius:var(--radius-full)"></div>
+        </div>
+      </div>
+      <div class="skeleton-card" aria-busy="true" aria-label="Loading content">
+        <div class="skeleton skeleton-image"></div>
+        <div class="skeleton skeleton-heading" style="width:85%"></div>
+        <div class="skeleton-card-body">
+          <div class="skeleton skeleton-text"></div>
+          <div class="skeleton skeleton-text" style="width:90%"></div>
+          <div class="skeleton skeleton-text-short"></div>
+        </div>
+        <div style="display:flex;gap:.5rem">
+          <div class="skeleton skeleton-badge"></div>
+        </div>
+      </div>
+      <div class="skeleton-card" aria-busy="true" aria-label="Loading content">
+        <div class="skeleton skeleton-image"></div>
+        <div class="skeleton skeleton-heading" style="width:60%"></div>
+        <div class="skeleton-card-body">
+          <div class="skeleton skeleton-text"></div>
+          <div class="skeleton skeleton-text-short"></div>
+        </div>
+        <div style="display:flex;gap:.5rem">
+          <div class="skeleton skeleton-badge"></div>
+          <div class="skeleton skeleton-badge" style="width:48px"></div>
+        </div>
+      </div>
+    </div>
+
+    <h3>List skeleton</h3>
+    <div class="card-demo" aria-busy="true" aria-label="Loading list">
+      <div class="skeleton-list-item">
+        <div class="skeleton skeleton-avatar-md"></div>
+        <div class="skeleton-list-text">
+          <div class="skeleton skeleton-text" style="width:55%"></div>
+          <div class="skeleton skeleton-text" style="width:35%;height:.875em"></div>
+        </div>
+        <div class="skeleton skeleton-button" style="width:64px;height:28px"></div>
+      </div>
+      <div class="skeleton-list-item">
+        <div class="skeleton skeleton-avatar-md"></div>
+        <div class="skeleton-list-text">
+          <div class="skeleton skeleton-text" style="width:40%"></div>
+          <div class="skeleton skeleton-text" style="width:25%;height:.875em"></div>
+        </div>
+        <div class="skeleton skeleton-button" style="width:64px;height:28px"></div>
+      </div>
+      <div class="skeleton-list-item">
+        <div class="skeleton skeleton-avatar-md"></div>
+        <div class="skeleton-list-text">
+          <div class="skeleton skeleton-text" style="width:65%"></div>
+          <div class="skeleton skeleton-text" style="width:45%;height:.875em"></div>
+        </div>
+        <div class="skeleton skeleton-button" style="width:64px;height:28px"></div>
+      </div>
+    </div>
+
+    <h3>Inline / text content</h3>
+    <div style="display:flex;flex-direction:column;gap:.625rem;max-width:480px">
+      <div class="skeleton skeleton-heading"></div>
+      <div class="skeleton skeleton-text"></div>
+      <div class="skeleton skeleton-text"></div>
+      <div class="skeleton skeleton-text" style="width:80%"></div>
+      <div class="skeleton skeleton-text-short"></div>
+    </div>
+  </div>
+
+  <!-- ── DIVIDER ── -->
+  <div class="demo-section">
+    <h2>Divider</h2>
+
+    <h3>Horizontal (default)</h3>
+    <div class="card-demo">
+      <p class="section-content">This section contains introductory content about the topic.</p>
+      <hr class="divider" role="separator" />
+      <p class="section-content">This section contains supplementary information below the divider.</p>
+      <hr class="divider divider-subtle" role="separator" />
+      <p class="section-content" style="margin-bottom:0">Subtle variant — lower contrast for denser layouts.</p>
+    </div>
+
+    <h3>With label</h3>
+    <div class="card-demo" style="display:flex;flex-direction:column;gap:0">
+      <p class="section-content">Content above</p>
+      <div class="divider-labeled" role="separator"><span class="divider-labeled-text" aria-hidden="true">OR</span></div>
+      <p class="section-content">Alternative content below</p>
+      <div class="divider-labeled" role="separator"><span class="divider-labeled-text" aria-hidden="true">This week</span></div>
+      <p class="section-content" style="margin-bottom:0">Date-grouped list content</p>
+    </div>
+
+    <h3>Vertical</h3>
+    <div class="card-demo">
+      <div class="inline-row" style="gap:0">
+        <span style="font-size:var(--text-sm);color:var(--color-text-secondary)">12 items</span>
+        <span class="divider-vertical" role="separator" aria-orientation="vertical"></span>
+        <span style="font-size:var(--text-sm);color:var(--color-text-secondary)">3 selected</span>
+        <span class="divider-vertical" role="separator" aria-orientation="vertical"></span>
+        <span style="font-size:var(--text-sm);color:var(--color-brand);font-weight:500;cursor:pointer">Clear all</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function toggleMode() {
+    const h = document.documentElement;
+    h.setAttribute('data-mode', h.getAttribute('data-mode') === 'dark' ? 'light' : 'dark');
+  }
+</script>
+</body>
+</html>

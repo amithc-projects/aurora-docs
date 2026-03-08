@@ -1,0 +1,1482 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+  <title>Inputs | Aurora Design System Docs</title>
+  
+
+
+
+
+  
+
+  
+    
+    
+    
+    
+    
+
+    
+    
+      
+        
+        
+        
+        
+        
+        
+
+        
+        
+        
+
+        
+      
+    
+      
+        
+        
+        
+        
+        
+        
+
+        
+        
+        
+
+        
+      
+    
+      
+        
+        
+        
+        
+        
+        
+
+        
+        
+        
+
+        
+      
+    
+
+    
+    
+    
+    
+    
+    
+    
+
+  
+
+  
+    
+    
+    
+    
+    
+
+    
+    
+      
+    
+      
+        
+        
+        
+        
+        
+        
+
+        
+        
+        
+
+        
+      
+    
+      
+        
+        
+        
+        
+        
+        
+
+        
+        
+        
+
+        
+      
+    
+
+    
+    
+    
+    
+    
+    
+    
+
+  
+
+
+
+  <script>
+
+    const html = document.documentElement;
+
+    const savedTheme = localStorage.getItem('aurora-theme') || 'corporate';
+    const savedMode = localStorage.getItem('aurora-mode') || 'light';
+
+    html.setAttribute('data-theme', savedTheme);
+    html.setAttribute('data-mode', savedMode);
+
+
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fredoka:wdth,wght@75..125,300..700&family=Inter:wght@100..900&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href='/aurora-docs/css/aurora.css'>
+  <link rel="stylesheet" href='/aurora-docs/css/docs-theme.css'>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+</head>
+
+<body>
+
+  <header style="padding: 1rem 2rem; border-bottom: 1px solid var(--ds-sys-color-border); background: var(--ds-sys-color-surface); display: flex; align-items: center; justify-content: space-between;">
+  <div style="display: flex; align-items: center; gap: 1rem;">
+    <a href="/" style="font-weight: 800; font-size: 1.25rem; text-decoration: none; color: var(--ds-sys-color-on-surface);">AURORA DOCS</a>
+  </div>
+
+  <div style="display: flex; align-items: center; gap: 1rem;">
+    
+    <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem;">
+      <label for="theme-select">Theme:</label>
+      <select id="theme-select" style="padding: 4px; border-radius: 4px;">
+        <option value="corporate">Corporate</option>
+        <option value="kids">Kids</option>
+      </select>
+    </div>
+
+    <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem;">
+      <label for="mode-select">Mode:</label>
+      <select id="mode-select" style="padding: 4px; border-radius: 4px;">
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+      </select>
+    </div>
+
+  </div>
+</header>
+
+
+  <div class="docs-layout" style="display: grid; grid-template-columns: 250px 1fr; min-height: 100vh;">
+    <aside class="docs-sidebar"
+      style="padding: 2rem; border-right: 1px solid var(--ds-sys-color-border); background: var(--ds-sys-color-bg-app);">
+      <nav class="nav-vertical" style="font-family: sans-serif; font-size: 0.9rem;">
+  
+  <div style="margin-bottom: 2rem;">
+    <a href="/" style="font-weight: 900; font-size: 1.2rem; text-decoration: none; color: var(--ds-sys-color-on-surface); letter-spacing: -0.5px;">AURORA DOCS</a>
+    <div style="font-size: 0.75rem; opacity: 0.6; margin-top: 0.2rem;">v1.0.0 &bull; Living Guide</div>
+  </div>
+
+  
+  
+    <div class="nav-group" style="margin-bottom: 1.5rem;">
+      
+      
+      <h3 style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #999; margin-bottom: 0.75rem; font-weight: 700;">
+        Philosophy
+      </h3>
+      
+      <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.25rem;">
+        
+      </ul>
+    </div>
+  
+    <div class="nav-group" style="margin-bottom: 1.5rem;">
+      
+      
+      <h3 style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #999; margin-bottom: 0.75rem; font-weight: 700;">
+        Atoms
+      </h3>
+      
+      <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.25rem;">
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/icons/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Icons
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/page-templates/font-studio/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Variable Font Studio
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/atoms/avatars/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Avatars
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/atoms/badges/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Badges
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/atoms/buttons/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Buttons
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/atoms/typography/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Typography
+            </a>
+
+            
+            
+
+          </li>
+        
+      </ul>
+    </div>
+  
+    <div class="nav-group" style="margin-bottom: 1.5rem;">
+      
+      
+      <h3 style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #999; margin-bottom: 0.75rem; font-weight: 700;">
+        Molecules
+      </h3>
+      
+      <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.25rem;">
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/molecules/feedback/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Feedback
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/molecules/tables/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Tables
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/molecules/tooltips/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Tooltips
+            </a>
+
+            
+            
+
+          </li>
+        
+      </ul>
+    </div>
+  
+    <div class="nav-group" style="margin-bottom: 1.5rem;">
+      
+      
+      <h3 style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #999; margin-bottom: 0.75rem; font-weight: 700;">
+        Components
+      </h3>
+      
+      <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.25rem;">
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/components/breadcrumbs/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Breadcrumbs
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/components/cards/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Cards
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/components/charts/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Charts
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/components/charts-svg/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Charts (SVG)
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/components/cookie-consent/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Cookie Consent
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/components/identity/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Identity
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/components/gallery/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Ultimate Gallery
+            </a>
+
+            
+            
+
+          </li>
+        
+      </ul>
+    </div>
+  
+    <div class="nav-group" style="margin-bottom: 1.5rem;">
+      
+      
+      <h3 style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #999; margin-bottom: 0.75rem; font-weight: 700;">
+        Forms
+      </h3>
+      
+      <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.25rem;">
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/forms/text-value/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Text &amp; Value
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/forms/choice-selection/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Choice &amp; Selection
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/forms/range-date/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Range &amp; Date
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/forms/media-capture/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Media &amp; Capture
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/forms/grouping-layouts/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Grouping &amp; Layouts
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/forms/forms/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Forms &amp; Inputs
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/forms/inputs/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); background: var(--ds-sys-color-surface-container-highest); font-weight: 600;">
+              Inputs
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/forms/selects/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Selects
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/forms/slider/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Slider
+            </a>
+
+            
+            
+
+          </li>
+        
+      </ul>
+    </div>
+  
+    <div class="nav-group" style="margin-bottom: 1.5rem;">
+      
+      
+      <h3 style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #999; margin-bottom: 0.75rem; font-weight: 700;">
+        Layouts
+      </h3>
+      
+      <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.25rem;">
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/layouts/auth/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Auth Layout
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/layouts/dashboard/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Dashboard Layout
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/layouts/magazine/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Magazine Layout
+            </a>
+
+            
+            
+
+          </li>
+        
+      </ul>
+    </div>
+  
+    <div class="nav-group" style="margin-bottom: 1.5rem;">
+      
+      
+      <h3 style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #999; margin-bottom: 0.75rem; font-weight: 700;">
+        Overlays
+      </h3>
+      
+      <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.25rem;">
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/overlays/modals/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Modals
+            </a>
+
+            
+            
+
+          </li>
+        
+      </ul>
+    </div>
+  
+    <div class="nav-group" style="margin-bottom: 1.5rem;">
+      
+      
+      <h3 style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #999; margin-bottom: 0.75rem; font-weight: 700;">
+        Patterns
+      </h3>
+      
+      <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.25rem;">
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/patterns/footer/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Footer
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/patterns/hero/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Hero
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/patterns/carousel/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Modern CSS Carousel
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/patterns/content-filter/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Multi-Select Filter
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/patterns/navigation/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Navigation
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/patterns/subgrid/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Subgrid Alignment
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/patterns/wizard/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Wizard Patterns
+            </a>
+
+            
+            
+
+          </li>
+        
+      </ul>
+    </div>
+  
+    <div class="nav-group" style="margin-bottom: 1.5rem;">
+      
+      
+      <h3 style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #999; margin-bottom: 0.75rem; font-weight: 700;">
+        Sites
+      </h3>
+      
+      <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.25rem;">
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/sites/news/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Aurora News
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/sites/entertainment/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              StreamBox
+            </a>
+
+            
+            
+
+          </li>
+        
+          
+          <li>
+            
+            <a href="/aurora-docs/sites/gallery/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface); ">
+              Visual Gallery
+            </a>
+
+            
+            
+
+          </li>
+        
+      </ul>
+    </div>
+  
+
+  
+  <div class="nav-group" style="margin-top: 2rem;">
+    <h3 style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #999; margin-bottom: 0.75rem; font-weight: 700;">
+      Page Templates
+    </h3>
+    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.25rem;">
+      
+        <li>
+          <a href="/aurora-docs/page-templates/app-shell/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface);">
+            App Shell
+          </a>
+        </li>
+      
+        <li>
+          <a href="/aurora-docs/page-templates/centered/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface);">
+            Centered Reading
+          </a>
+        </li>
+      
+        <li>
+          <a href="/aurora-docs/page-templates/grid-gallery/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface);">
+            Grid Gallery
+          </a>
+        </li>
+      
+        <li>
+          <a href="/aurora-docs/page-templates/holy-grail/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface);">
+            Holy Grail
+          </a>
+        </li>
+      
+        <li>
+          <a href="/aurora-docs/page-templates/multicol/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface);">
+            Multi-Column Text
+          </a>
+        </li>
+      
+        <li>
+          <a href="/aurora-docs/page-templates/single-column/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface);">
+            Single Column
+          </a>
+        </li>
+      
+        <li>
+          <a href="/aurora-docs/page-templates/split-screen/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface);">
+            Split Screen
+          </a>
+        </li>
+      
+        <li>
+          <a href="/aurora-docs/page-templates/two-col-left/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface);">
+            Two Column (Left)
+          </a>
+        </li>
+      
+        <li>
+          <a href="/aurora-docs/page-templates/two-col-right/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface);">
+            Two Column (Right)
+          </a>
+        </li>
+      
+        <li>
+          <a href="/aurora-docs/page-templates/font-studio/" style="text-decoration: none; display: block; padding: 6px 10px; border-radius: 4px; color: var(--ds-sys-color-on-surface);">
+            Variable Font Studio
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+</nav>
+
+
+    </aside>
+
+    <main class="docs-content" style="padding: 3rem; max-width: 1200px;">
+      
+  <h2 id="checkboxes">Checkboxes</h2>
+<div class="demo-wrapper">
+  <div class="demo-preview l-grid l-grid--auto" style="--col-min: 200px; align-items: center; justify-items: center;">
+    
+  <section class="card" style="padding: 2rem;">
+        <h3 style="margin-bottom: 1rem;">Checkboxes</h3>
+        <div class="l-stack" style="gap: 1rem;">
+          
+          <label class="field--checkbox">
+            <input type="checkbox" name="opt1">
+            <span>Standard Checkbox</span>
+          </label>
+
+          <label class="field--checkbox">
+            <input type="checkbox" name="opt2" checked>
+            <span>Pre-selected</span>
+          </label>
+
+          <label class="field--checkbox">
+            <input type="checkbox" disabled>
+            <span>Disabled State</span>
+          </label>
+          
+        </div>
+      </section>
+
+  </div>
+
+  <div class="demo-source">
+    <div class="demo-header">
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <span class="lang-tag">HTML <small style="opacity:0.5; font-weight:normal;">(Editable)</small></span>
+        
+        <button class="btn-toggle-code" aria-expanded="false">
+          <span class="material-symbols-outlined icon-code" style="font-size: 18px;">code</span>
+          <span class="btn-text">View Code</span>
+        </button>
+      </div>
+
+      <button class="btn-copy" aria-label="Copy code to clipboard">
+        <span class="material-symbols-outlined icon-copy" style="font-size: 16px;">content_copy</span>
+        <span class="btn-text">Copy</span>
+      </button>
+    </div>
+    
+    <div class="code-content" hidden>
+      <pre><code class="language-html live-code" contenteditable="true" spellcheck="false">
+  &lt;section class=&#34;card&#34; style=&#34;padding: 2rem;&#34;&gt;
+        &lt;h3 style=&#34;margin-bottom: 1rem;&#34;&gt;Checkboxes&lt;/h3&gt;
+        &lt;div class=&#34;l-stack&#34; style=&#34;gap: 1rem;&#34;&gt;
+          
+          &lt;label class=&#34;field--checkbox&#34;&gt;
+            &lt;input type=&#34;checkbox&#34; name=&#34;opt1&#34;&gt;
+            &lt;span&gt;Standard Checkbox&lt;/span&gt;
+          &lt;/label&gt;
+
+          &lt;label class=&#34;field--checkbox&#34;&gt;
+            &lt;input type=&#34;checkbox&#34; name=&#34;opt2&#34; checked&gt;
+            &lt;span&gt;Pre-selected&lt;/span&gt;
+          &lt;/label&gt;
+
+          &lt;label class=&#34;field--checkbox&#34;&gt;
+            &lt;input type=&#34;checkbox&#34; disabled&gt;
+            &lt;span&gt;Disabled State&lt;/span&gt;
+          &lt;/label&gt;
+          
+        &lt;/div&gt;
+      &lt;/section&gt;
+</code></pre>
+    </div>
+  </div>
+</div>
+
+<h2 id="radio-buttons">Radio Buttons</h2>
+<div class="demo-wrapper">
+  <div class="demo-preview l-grid l-grid--auto" style="--col-min: 200px; align-items: center; justify-items: center;">
+    
+      <section class="card" style="padding: 2rem;">
+        <h3 style="margin-bottom: 1rem;">Radio Buttons</h3>
+        <div class="l-stack" style="gap: 1rem;">
+          
+          <label class="field--radio">
+            <input type="radio" name="plan" value="free">
+            <span>Free Tier</span>
+          </label>
+
+          <label class="field--radio">
+            <input type="radio" name="plan" value="pro" checked>
+            <span>Pro Tier</span>
+          </label>
+
+          <label class="field--radio">
+            <input type="radio" name="plan" value="ent" disabled>
+            <span>Enterprise (Locked)</span>
+          </label>
+
+        </div>
+      </section>
+
+  </div>
+
+  <div class="demo-source">
+    <div class="demo-header">
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <span class="lang-tag">HTML <small style="opacity:0.5; font-weight:normal;">(Editable)</small></span>
+        
+        <button class="btn-toggle-code" aria-expanded="false">
+          <span class="material-symbols-outlined icon-code" style="font-size: 18px;">code</span>
+          <span class="btn-text">View Code</span>
+        </button>
+      </div>
+
+      <button class="btn-copy" aria-label="Copy code to clipboard">
+        <span class="material-symbols-outlined icon-copy" style="font-size: 16px;">content_copy</span>
+        <span class="btn-text">Copy</span>
+      </button>
+    </div>
+    
+    <div class="code-content" hidden>
+      <pre><code class="language-html live-code" contenteditable="true" spellcheck="false">
+      &lt;section class=&#34;card&#34; style=&#34;padding: 2rem;&#34;&gt;
+        &lt;h3 style=&#34;margin-bottom: 1rem;&#34;&gt;Radio Buttons&lt;/h3&gt;
+        &lt;div class=&#34;l-stack&#34; style=&#34;gap: 1rem;&#34;&gt;
+          
+          &lt;label class=&#34;field--radio&#34;&gt;
+            &lt;input type=&#34;radio&#34; name=&#34;plan&#34; value=&#34;free&#34;&gt;
+            &lt;span&gt;Free Tier&lt;/span&gt;
+          &lt;/label&gt;
+
+          &lt;label class=&#34;field--radio&#34;&gt;
+            &lt;input type=&#34;radio&#34; name=&#34;plan&#34; value=&#34;pro&#34; checked&gt;
+            &lt;span&gt;Pro Tier&lt;/span&gt;
+          &lt;/label&gt;
+
+          &lt;label class=&#34;field--radio&#34;&gt;
+            &lt;input type=&#34;radio&#34; name=&#34;plan&#34; value=&#34;ent&#34; disabled&gt;
+            &lt;span&gt;Enterprise (Locked)&lt;/span&gt;
+          &lt;/label&gt;
+
+        &lt;/div&gt;
+      &lt;/section&gt;
+</code></pre>
+    </div>
+  </div>
+</div>
+
+<h2 id="switches">Switches</h2>
+<div class="demo-wrapper">
+  <div class="demo-preview l-grid l-grid--auto" style="--col-min: 200px; align-items: center; justify-items: center;">
+    
+      <section class="card" style="padding: 2rem;">
+        <h3 style="margin-bottom: 1rem;">Switches</h3>
+        <div class="l-stack" style="gap: 1rem;">
+          
+          <label class="field--checkbox">
+            <input type="checkbox" class="toggle">
+            <span>Notifications</span>
+          </label>
+
+          <label class="field--checkbox">
+            <input type="checkbox" class="toggle" checked>
+            <span>Dark Mode (checked)</span>
+          </label>
+
+        </div>
+      </section>
+
+
+  </div>
+
+  <div class="demo-source">
+    <div class="demo-header">
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <span class="lang-tag">HTML <small style="opacity:0.5; font-weight:normal;">(Editable)</small></span>
+        
+        <button class="btn-toggle-code" aria-expanded="false">
+          <span class="material-symbols-outlined icon-code" style="font-size: 18px;">code</span>
+          <span class="btn-text">View Code</span>
+        </button>
+      </div>
+
+      <button class="btn-copy" aria-label="Copy code to clipboard">
+        <span class="material-symbols-outlined icon-copy" style="font-size: 16px;">content_copy</span>
+        <span class="btn-text">Copy</span>
+      </button>
+    </div>
+    
+    <div class="code-content" hidden>
+      <pre><code class="language-html live-code" contenteditable="true" spellcheck="false">
+      &lt;section class=&#34;card&#34; style=&#34;padding: 2rem;&#34;&gt;
+        &lt;h3 style=&#34;margin-bottom: 1rem;&#34;&gt;Switches&lt;/h3&gt;
+        &lt;div class=&#34;l-stack&#34; style=&#34;gap: 1rem;&#34;&gt;
+          
+          &lt;label class=&#34;field--checkbox&#34;&gt;
+            &lt;input type=&#34;checkbox&#34; class=&#34;toggle&#34;&gt;
+            &lt;span&gt;Notifications&lt;/span&gt;
+          &lt;/label&gt;
+
+          &lt;label class=&#34;field--checkbox&#34;&gt;
+            &lt;input type=&#34;checkbox&#34; class=&#34;toggle&#34; checked&gt;
+            &lt;span&gt;Dark Mode (checked)&lt;/span&gt;
+          &lt;/label&gt;
+
+        &lt;/div&gt;
+      &lt;/section&gt;
+
+</code></pre>
+    </div>
+  </div>
+</div>
+
+<h2 id="text-fields">Text Fields</h2>
+<p>Standard text inputs.</p>
+<div class="demo-wrapper">
+  <div class="demo-preview l-grid l-grid--auto" style="--col-min: 200px; align-items: center; justify-items: center;">
+    
+<div class="l-stack">
+  
+  <div class="field">
+    <label class="field__label">Full Name</label>
+    <input type="text" class="input" placeholder="e.g. Jane Doe">
+  </div>
+
+  <div class="field">
+    <label class="field__label">Email</label>
+    <input type="email" class="input" placeholder="name@company.com">
+    <div class="field__hint">We will never share your email.</div>
+  </div>
+
+  <div class="field">
+    <label class="field__label">Password</label>
+    <input type="password" class="input" value="123456">
+  </div>
+
+</div>
+
+  </div>
+
+  <div class="demo-source">
+    <div class="demo-header">
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <span class="lang-tag">HTML <small style="opacity:0.5; font-weight:normal;">(Editable)</small></span>
+        
+        <button class="btn-toggle-code" aria-expanded="false">
+          <span class="material-symbols-outlined icon-code" style="font-size: 18px;">code</span>
+          <span class="btn-text">View Code</span>
+        </button>
+      </div>
+
+      <button class="btn-copy" aria-label="Copy code to clipboard">
+        <span class="material-symbols-outlined icon-copy" style="font-size: 16px;">content_copy</span>
+        <span class="btn-text">Copy</span>
+      </button>
+    </div>
+    
+    <div class="code-content" hidden>
+      <pre><code class="language-html live-code" contenteditable="true" spellcheck="false">
+&lt;div class=&#34;l-stack&#34;&gt;
+  
+  &lt;div class=&#34;field&#34;&gt;
+    &lt;label class=&#34;field__label&#34;&gt;Full Name&lt;/label&gt;
+    &lt;input type=&#34;text&#34; class=&#34;input&#34; placeholder=&#34;e.g. Jane Doe&#34;&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&#34;field&#34;&gt;
+    &lt;label class=&#34;field__label&#34;&gt;Email&lt;/label&gt;
+    &lt;input type=&#34;email&#34; class=&#34;input&#34; placeholder=&#34;name@company.com&#34;&gt;
+    &lt;div class=&#34;field__hint&#34;&gt;We will never share your email.&lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&#34;field&#34;&gt;
+    &lt;label class=&#34;field__label&#34;&gt;Password&lt;/label&gt;
+    &lt;input type=&#34;password&#34; class=&#34;input&#34; value=&#34;123456&#34;&gt;
+  &lt;/div&gt;
+
+&lt;/div&gt;
+</code></pre>
+    </div>
+  </div>
+</div>
+
+<h2 id="date-time">Date Time</h2>
+<div class="demo-wrapper">
+  <div class="demo-preview l-grid l-grid--auto" style="--col-min: 200px; align-items: center; justify-items: center;">
+    
+ <section class="card" style="padding: 2rem;">
+        <h3>Date & Time</h3>
+        <p>Native pickers styled to match the theme.</p>
+        
+        <div class="l-stack" style="margin-top: 1rem;">
+          <div class="form-row">
+            <div class="field">
+              <label class="field__label">Start Date</label>
+              <input type="date">
+            </div>
+            <div class="field">
+              <label class="field__label">Start Time</label>
+              <input type="time">
+            </div>
+          </div>
+        </div>
+      </section>
+
+  </div>
+
+  <div class="demo-source">
+    <div class="demo-header">
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <span class="lang-tag">HTML <small style="opacity:0.5; font-weight:normal;">(Editable)</small></span>
+        
+        <button class="btn-toggle-code" aria-expanded="false">
+          <span class="material-symbols-outlined icon-code" style="font-size: 18px;">code</span>
+          <span class="btn-text">View Code</span>
+        </button>
+      </div>
+
+      <button class="btn-copy" aria-label="Copy code to clipboard">
+        <span class="material-symbols-outlined icon-copy" style="font-size: 16px;">content_copy</span>
+        <span class="btn-text">Copy</span>
+      </button>
+    </div>
+    
+    <div class="code-content" hidden>
+      <pre><code class="language-html live-code" contenteditable="true" spellcheck="false">
+ &lt;section class=&#34;card&#34; style=&#34;padding: 2rem;&#34;&gt;
+        &lt;h3&gt;Date &amp; Time&lt;/h3&gt;
+        &lt;p&gt;Native pickers styled to match the theme.&lt;/p&gt;
+        
+        &lt;div class=&#34;l-stack&#34; style=&#34;margin-top: 1rem;&#34;&gt;
+          &lt;div class=&#34;form-row&#34;&gt;
+            &lt;div class=&#34;field&#34;&gt;
+              &lt;label class=&#34;field__label&#34;&gt;Start Date&lt;/label&gt;
+              &lt;input type=&#34;date&#34;&gt;
+            &lt;/div&gt;
+            &lt;div class=&#34;field&#34;&gt;
+              &lt;label class=&#34;field__label&#34;&gt;Start Time&lt;/label&gt;
+              &lt;input type=&#34;time&#34;&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/section&gt;
+</code></pre>
+    </div>
+  </div>
+</div>
+
+<h2 id="file-upload">File Upload</h2>
+<div class="demo-wrapper">
+  <div class="demo-preview l-grid l-grid--auto" style="--col-min: 200px; align-items: center; justify-items: center;">
+    
+ <section class="card" style="padding: 2rem;">
+        <h3>File Upload</h3>
+        <p>Custom styling for the native file input.</p>
+        
+        <div class="field" style="margin-top: 1rem;">
+          <label class="field__label">Profile Picture</label>
+          
+          <label class="file-input-wrapper">
+            <input type="file" onchange="updateFileName(this)">
+            <span class="file-input-button">
+              <span class="material-symbols-outlined">cloud_upload</span>
+              Choose Image...
+            </span>
+          </label>
+          <span id="file-name" style="margin-left: 1rem; opacity: 0.6; font-size: 0.9rem;">No file chosen</span>
+        </div>
+      </section>
+        <script>
+    (function() {
+      const storedTheme = localStorage.getItem('aurora-theme') || 'corporate';
+      document.body.setAttribute('data-theme', storedTheme);
+    })();
+
+    // Simple JS for the file upload text update
+    function updateFileName(input) {
+      const display = document.getElementById('file-name');
+      if (input.files && input.files.length > 0) {
+        display.textContent = input.files[0].name;
+      } else {
+        display.textContent = "No file chosen";
+      }
+    }
+  </script>
+
+  </div>
+
+  <div class="demo-source">
+    <div class="demo-header">
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <span class="lang-tag">HTML <small style="opacity:0.5; font-weight:normal;">(Editable)</small></span>
+        
+        <button class="btn-toggle-code" aria-expanded="false">
+          <span class="material-symbols-outlined icon-code" style="font-size: 18px;">code</span>
+          <span class="btn-text">View Code</span>
+        </button>
+      </div>
+
+      <button class="btn-copy" aria-label="Copy code to clipboard">
+        <span class="material-symbols-outlined icon-copy" style="font-size: 16px;">content_copy</span>
+        <span class="btn-text">Copy</span>
+      </button>
+    </div>
+    
+    <div class="code-content" hidden>
+      <pre><code class="language-html live-code" contenteditable="true" spellcheck="false">
+ &lt;section class=&#34;card&#34; style=&#34;padding: 2rem;&#34;&gt;
+        &lt;h3&gt;File Upload&lt;/h3&gt;
+        &lt;p&gt;Custom styling for the native file input.&lt;/p&gt;
+        
+        &lt;div class=&#34;field&#34; style=&#34;margin-top: 1rem;&#34;&gt;
+          &lt;label class=&#34;field__label&#34;&gt;Profile Picture&lt;/label&gt;
+          
+          &lt;label class=&#34;file-input-wrapper&#34;&gt;
+            &lt;input type=&#34;file&#34; onchange=&#34;updateFileName(this)&#34;&gt;
+            &lt;span class=&#34;file-input-button&#34;&gt;
+              &lt;span class=&#34;material-symbols-outlined&#34;&gt;cloud_upload&lt;/span&gt;
+              Choose Image...
+            &lt;/span&gt;
+          &lt;/label&gt;
+          &lt;span id=&#34;file-name&#34; style=&#34;margin-left: 1rem; opacity: 0.6; font-size: 0.9rem;&#34;&gt;No file chosen&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/section&gt;
+        &lt;script&gt;
+    (function() {
+      const storedTheme = localStorage.getItem(&#39;aurora-theme&#39;) || &#39;corporate&#39;;
+      document.body.setAttribute(&#39;data-theme&#39;, storedTheme);
+    })();
+
+    // Simple JS for the file upload text update
+    function updateFileName(input) {
+      const display = document.getElementById(&#39;file-name&#39;);
+      if (input.files &amp;&amp; input.files.length &gt; 0) {
+        display.textContent = input.files[0].name;
+      } else {
+        display.textContent = &#34;No file chosen&#34;;
+      }
+    }
+  &lt;/script&gt;
+</code></pre>
+    </div>
+  </div>
+</div>
+
+<h2 id="text-area">Text Area</h2>
+<p>For longer form content.</p>
+<div class="demo-wrapper">
+  <div class="demo-preview l-grid l-grid--auto" style="--col-min: 200px; align-items: center; justify-items: center;">
+    
+<div class="field">
+  <label class="field__label">Biography</label>
+  <textarea class="input" rows="4" placeholder="Tell us about yourself..."></textarea>
+</div>
+
+  </div>
+
+  <div class="demo-source">
+    <div class="demo-header">
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <span class="lang-tag">HTML <small style="opacity:0.5; font-weight:normal;">(Editable)</small></span>
+        
+        <button class="btn-toggle-code" aria-expanded="false">
+          <span class="material-symbols-outlined icon-code" style="font-size: 18px;">code</span>
+          <span class="btn-text">View Code</span>
+        </button>
+      </div>
+
+      <button class="btn-copy" aria-label="Copy code to clipboard">
+        <span class="material-symbols-outlined icon-copy" style="font-size: 16px;">content_copy</span>
+        <span class="btn-text">Copy</span>
+      </button>
+    </div>
+    
+    <div class="code-content" hidden>
+      <pre><code class="language-html live-code" contenteditable="true" spellcheck="false">
+&lt;div class=&#34;field&#34;&gt;
+  &lt;label class=&#34;field__label&#34;&gt;Biography&lt;/label&gt;
+  &lt;textarea class=&#34;input&#34; rows=&#34;4&#34; placeholder=&#34;Tell us about yourself...&#34;&gt;&lt;/textarea&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+  </div>
+</div>
+
+<h2 id="special-types">Special Types</h2>
+<p>Date, File, and Color pickers.</p>
+<div class="demo-wrapper">
+  <div class="demo-preview l-grid l-grid--auto" style="--col-min: 200px; align-items: center; justify-items: center;">
+    
+<div class="l-grid" style="--col-min: 200px;">
+  
+  <div class="field">
+    <label class="field__label">Date</label>
+    <input type="date" class="input">
+  </div>
+
+  <div class="field">
+    <label class="field__label">File Upload</label>
+    <input type="file" class="input">
+  </div>
+
+  <div class="field">
+    <label class="field__label">Color</label>
+    <input type="color" class="input" style="height: 3rem; padding: 0.25rem;">
+  </div>
+
+</div>
+
+  </div>
+
+  <div class="demo-source">
+    <div class="demo-header">
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <span class="lang-tag">HTML <small style="opacity:0.5; font-weight:normal;">(Editable)</small></span>
+        
+        <button class="btn-toggle-code" aria-expanded="false">
+          <span class="material-symbols-outlined icon-code" style="font-size: 18px;">code</span>
+          <span class="btn-text">View Code</span>
+        </button>
+      </div>
+
+      <button class="btn-copy" aria-label="Copy code to clipboard">
+        <span class="material-symbols-outlined icon-copy" style="font-size: 16px;">content_copy</span>
+        <span class="btn-text">Copy</span>
+      </button>
+    </div>
+    
+    <div class="code-content" hidden>
+      <pre><code class="language-html live-code" contenteditable="true" spellcheck="false">
+&lt;div class=&#34;l-grid&#34; style=&#34;--col-min: 200px;&#34;&gt;
+  
+  &lt;div class=&#34;field&#34;&gt;
+    &lt;label class=&#34;field__label&#34;&gt;Date&lt;/label&gt;
+    &lt;input type=&#34;date&#34; class=&#34;input&#34;&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&#34;field&#34;&gt;
+    &lt;label class=&#34;field__label&#34;&gt;File Upload&lt;/label&gt;
+    &lt;input type=&#34;file&#34; class=&#34;input&#34;&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&#34;field&#34;&gt;
+    &lt;label class=&#34;field__label&#34;&gt;Color&lt;/label&gt;
+    &lt;input type=&#34;color&#34; class=&#34;input&#34; style=&#34;height: 3rem; padding: 0.25rem;&#34;&gt;
+  &lt;/div&gt;
+
+&lt;/div&gt;
+</code></pre>
+    </div>
+  </div>
+</div>
+
+<h2 id="validation-states">Validation States</h2>
+<p>Visual feedback for user interactions.</p>
+<div class="demo-wrapper">
+  <div class="demo-preview l-grid l-grid--auto" style="--col-min: 200px; align-items: center; justify-items: center;">
+    
+<div class="l-stack">
+  
+  <div class="field">
+    <label class="field__label" style="color: var(--ds-sys-color-success);">Valid Input</label>
+    <input type="text" class="input" value="Correct Value" style="border-color: var(--ds-sys-color-success);">
+  </div>
+
+  <div class="field">
+    <label class="field__label" style="color: var(--ds-sys-color-error);">Error Input</label>
+    <input type="text" class="input" value="Wrong Value" style="border-color: var(--ds-sys-color-error);">
+    <div class="field__hint" style="color: var(--ds-sys-color-error);">Username is already taken.</div>
+  </div>
+
+</div>
+
+  </div>
+
+  <div class="demo-source">
+    <div class="demo-header">
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <span class="lang-tag">HTML <small style="opacity:0.5; font-weight:normal;">(Editable)</small></span>
+        
+        <button class="btn-toggle-code" aria-expanded="false">
+          <span class="material-symbols-outlined icon-code" style="font-size: 18px;">code</span>
+          <span class="btn-text">View Code</span>
+        </button>
+      </div>
+
+      <button class="btn-copy" aria-label="Copy code to clipboard">
+        <span class="material-symbols-outlined icon-copy" style="font-size: 16px;">content_copy</span>
+        <span class="btn-text">Copy</span>
+      </button>
+    </div>
+    
+    <div class="code-content" hidden>
+      <pre><code class="language-html live-code" contenteditable="true" spellcheck="false">
+&lt;div class=&#34;l-stack&#34;&gt;
+  
+  &lt;div class=&#34;field&#34;&gt;
+    &lt;label class=&#34;field__label&#34; style=&#34;color: var(--ds-sys-color-success);&#34;&gt;Valid Input&lt;/label&gt;
+    &lt;input type=&#34;text&#34; class=&#34;input&#34; value=&#34;Correct Value&#34; style=&#34;border-color: var(--ds-sys-color-success);&#34;&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&#34;field&#34;&gt;
+    &lt;label class=&#34;field__label&#34; style=&#34;color: var(--ds-sys-color-error);&#34;&gt;Error Input&lt;/label&gt;
+    &lt;input type=&#34;text&#34; class=&#34;input&#34; value=&#34;Wrong Value&#34; style=&#34;border-color: var(--ds-sys-color-error);&#34;&gt;
+    &lt;div class=&#34;field__hint&#34; style=&#34;color: var(--ds-sys-color-error);&#34;&gt;Username is already taken.&lt;/div&gt;
+  &lt;/div&gt;
+
+&lt;/div&gt;
+</code></pre>
+    </div>
+  </div>
+</div>
+
+
+
+    </main>
+  </div>
+
+  <script src='/aurora-docs/js/docs.js'></script>
+  <script type="module">
+    import { initConfigurator } from '\/aurora-docs\/js\/configurator.js';
+    initConfigurator();
+  </script>
+
+  <script type="module">import { initCharts } from '\/aurora-docs\/js\/charts.js'; initCharts();</script>
+  <script type="module">import { initFilters } from '\/aurora-docs\/js\/filters.js'; initFilters();</script>
+  <script
+    type="module">import { initAccordions } from '\/aurora-docs\/js\/components\/accordion.js'; initAccordions();</script>
+  <script type="module">import { initWizards } from '\/aurora-docs\/js\/patterns\/wizard.js'; initWizards();</script>
+  <script type="module">import { initGallery } from '\/aurora-docs\/js\/components\/gallery.js'; initGallery();</script>
+</body>
+
+</html>

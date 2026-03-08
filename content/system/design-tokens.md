@@ -99,9 +99,9 @@ Primitive colors are defined once in the base stylesheet. They are **never refer
 | `--color-brand-800` | — | |
 | `--color-brand-900` | — | Deepest shade |
 
-#### Accent (Kids theme)
+#### Accent (Casual theme)
 
-> **To fill in:** Replace placeholder values with the actual Kids palette.
+> **To fill in:** Replace placeholder values with the actual Casual palette.
 
 | Token | Value |
 |---|---|
@@ -223,9 +223,9 @@ Aurora's token system works by overriding semantic tokens at the theme level. Ea
   /* ... */
 }
 
-/* Kids theme */
-[data-theme="kids"] {
-  --color-brand-500: /* kids accent */;
+/* Casual theme */
+[data-theme="casual"] {
+  --color-brand-500: /* casual accent */;
   --color-brand: var(--color-brand-500);
   /* ... */
 }
@@ -493,7 +493,7 @@ Z-index values are named to avoid conflicts between layered components.
 | `--ease-in` | `cubic-bezier(0.4, 0, 1, 1)` | Elements exiting (fade out, slide out) |
 | `--ease-out` | `cubic-bezier(0, 0, 0.2, 1)` | **Default** — elements entering (fade in, slide in) |
 | `--ease-in-out` | `cubic-bezier(0.4, 0, 0.2, 1)` | Continuous animations, toggles |
-| `--ease-spring` | `cubic-bezier(0.34, 1.56, 0.64, 1)` | Playful/kids-theme interactions with overshoot |
+| `--ease-spring` | `cubic-bezier(0.34, 1.56, 0.64, 1)` | Playful/casual-theme interactions with overshoot |
 | `--ease-decelerate` | `cubic-bezier(0, 0, 0.2, 1)` | Elements coming to rest |
 
 ### Reduced motion

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Visual Gallery | Aurora Demos 3</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fredoka:wdth,wght@75..125,300..700&family=Inter:wght@100..900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+
+  <link rel="stylesheet" href='/css/aurora.css'>
+
+  <style>
+     
+    .site-controls {
+      position: fixed;
+      bottom: 1rem;
+      left: 1rem;
+      z-index: 1000;
+      background: white;
+      padding: 0.5rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      display: flex;
+      gap: 0.5rem;
+    }
+  </style>
+  <script>
+    const html = document.documentElement;
+
+    const savedTheme = localStorage.getItem('aurora-theme') || 'corporate';
+    const savedMode = localStorage.getItem('aurora-mode') || 'light';
+
+    html.setAttribute('data-theme', savedTheme);
+    html.setAttribute('data-mode', savedMode);
+  </script>
+</head>
+
+<body>
+
+  
+  <header style="text-align: center; padding: 4rem 1rem;">
+<h1 style="font-size: 3rem;">Captured Moments</h1>
+<p style="color: var(--ds-sys-color-secondary);">A photography portfolio powered by CSS Grid.</p>
+</header>
+<main class="l-center" style="padding-bottom: 4rem;">
+<div style="columns: 3 300px; column-gap: 1.5rem;">
+<div style="break-inside: avoid; margin-bottom: 1.5rem;">
+<div class="card">
+<img src="https://picsum.photos/id/101/400/300" class="card__media">
+<div class="card__content">
+<h4>Architecture</h4>
+</div>
+</div>
+</div>
+<div style="break-inside: avoid; margin-bottom: 1.5rem;">
+<div class="card">
+<img src="https://picsum.photos/id/102/400/500" class="card__media">
+<div class="card__content">
+<h4>Raspberry</h4>
+</div>
+</div>
+</div>
+<div style="break-inside: avoid; margin-bottom: 1.5rem;">
+<div class="card">
+<img src="https://picsum.photos/id/103/400/300" class="card__media">
+<div class="card__content">
+<h4>Feet?</h4>
+</div>
+</div>
+</div>
+<div style="break-inside: avoid; margin-bottom: 1.5rem;">
+<div class="card">
+<img src="https://picsum.photos/id/104/400/600" class="card__media">
+<div class="card__content">
+<h4>Dreamscape</h4>
+</div>
+</div>
+</div>
+<div style="break-inside: avoid; margin-bottom: 1.5rem;">
+<div class="card">
+<img src="https://picsum.photos/id/106/400/400" class="card__media">
+<div class="card__content">
+<h4>Magic Hour</h4>
+</div>
+</div>
+</div>
+<div style="break-inside: avoid; margin-bottom: 1.5rem;">
+<div class="card">
+<div style="padding: 2rem; background: var(--ds-sys-color-primary); color: white; text-align: center;">
+<h3>Hire Me</h3>
+<p>Available for shoots.</p>
+<button class="btn secondary" style="background:white; color: black;">Contact</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+
+
+
+  <div class="site-controls">
+    <select onchange="document.body.setAttribute('data-theme', this.value)">
+      <option value="corporate">Theme: Corporate</option>
+      <option value="kids">Theme: Kids</option>
+    </select>
+    <select onchange="document.body.setAttribute('data-mode', this.value)">
+      <option value="light">Mode: Light</option>
+      <option value="dark">Mode: Dark</option>
+    </select>
+  </div>
+
+</body>
+
+</html>

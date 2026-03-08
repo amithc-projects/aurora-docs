@@ -8,7 +8,7 @@ menu:
 
 > **Status:** Proposed · **Owner:** Design Systems Team · **Last updated:** 2026-03-07
 >
-> Aurora ships with two themes — **Corporate** and **Kids** — and a **light/dark mode** toggle that works across both. This page explains how the theme system works, how to switch themes, and how to build a new theme from scratch.
+> Aurora ships with two themes — **Corporate** and **Casual** — and a **light/dark mode** toggle that works across both. This page explains how the theme system works, how to switch themes, and how to build a new theme from scratch.
 
 ---
 
@@ -33,7 +33,7 @@ Base tokens (always loaded)
     ↓
 Mode override  [data-mode="dark"]
     ↓
-Theme override  [data-theme="corporate"] | [data-theme="kids"]
+Theme override  [data-theme="corporate"] | [data-theme="casual"]
 ```
 
 1. **Base tokens** define the default values for every semantic token (colours, radius, fonts, motion). These are the light-mode, theme-neutral defaults loaded for every user.
@@ -64,7 +64,7 @@ A professional, trust-oriented theme. Characteristics:
 - **Motion:** Functional — fast durations, `ease-out` preferred. No spring animations.
 - **Density:** Medium — comfortable padding, clear hierarchy
 
-### Kids
+### Casual
 
 A playful, high-energy theme. Characteristics:
 
@@ -78,7 +78,7 @@ A playful, high-energy theme. Characteristics:
 
 ## Light & dark mode
 
-Mode is **separate from theme**. Both Corporate and Kids support light and dark modes. The mode toggle only overrides colour tokens — it never changes font, radius, or motion.
+Mode is **separate from theme**. Both Corporate and Casual support light and dark modes. The mode toggle only overrides colour tokens — it never changes font, radius, or motion.
 
 ### Colour tokens that change between modes
 
@@ -135,7 +135,7 @@ To create a new Aurora theme, you override a defined set of semantic tokens unde
 ```
 /themes/
   corporate.css   ← existing
-  kids.css        ← existing
+  casual.css        ← existing
   your-theme.css  ← new file
 ```
 
@@ -237,7 +237,7 @@ Add your theme name to the list of valid themes in Aurora's configuration so the
 
 ```js
 // aurora.config.js
-export const themes = ['corporate', 'kids', 'your-theme'];
+export const themes = ['corporate', 'casual', 'your-theme'];
 ```
 
 ---

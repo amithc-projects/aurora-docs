@@ -1,0 +1,159 @@
+/* ACCORDION COMPONENT
+   Structure: 
+   <ul class="accordion">
+     <li>
+       <details>
+         <summary>Title</summary>
+         <div>Content</div>
+       </details>
+     </li>
+   </ul>
+*/
+
+.accordion {
+  /* GLOBAL ANIMATION SPEED CONTROL */
+  --ds-accordion-speed: var(--ds-motion-norm, 0.3s);
+  --ds-accordion-ease: var(--ds-ease-out, ease-out);
+
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0;
+  border: 1px solid var(--ds-sys-color-border);
+  border-radius: var(--ds-sys-radius-card);
+  overflow: hidden;
+  background: var(--ds-sys-color-surface);
+}
+
+/* CHILD SELECTOR: No class needed on LI */
+.accordion > li {
+  border-bottom: 1px solid var(--ds-sys-color-border);
+}
+
+.accordion > li:last-child {
+  border-bottom: none;
+}
+
+/* HEADER */
+.accordion details > summary {
+  padding: 1rem 1.5rem;
+  cursor: pointer;
+  font-weight: 600;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--ds-sys-color-surface);
+  transition: background 0.2s;
+  color: var(--ds-sys-color-on-surface);
+  user-select: none; 
+}
+
+.accordion details > summary::-webkit-details-marker {
+  display: none;
+}
+
+.accordion details > summary:hover {
+  background: var(--ds-sys-color-surface-variant);
+}
+
+/* ICON */
+.accordion details > summary::after {
+  content: '+';
+  font-weight: 300;
+  font-size: 1.5rem;
+  line-height: 1;
+  transition: transform var(--ds-accordion-speed) var(--ds-accordion-ease);
+}
+
+.accordion details[open] > summary {
+  background: var(--ds-sys-color-surface-variant);
+  border-bottom: 1px solid var(--ds-sys-color-border);
+}
+
+.accordion details[open] > summary::after {
+  transform: rotate(45deg);
+}
+
+/* CONTENT CONTAINER
+   We target the div immediately following the summary.
+   This avoids needing a specific class like .accordion__content
+*/
+.accordion details > summary + * {
+  padding: 0 1.5rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  background: var(--ds-sys-color-surface);
+  color: var(--ds-sys-color-on-surface-variant);
+  overflow: hidden;
+  
+  /* Transition Props */
+  transition: height var(--ds-accordion-speed) var(--ds-accordion-ease),
+              opacity var(--ds-accordion-speed) var(--ds-accordion-ease),
+              padding var(--ds-accordion-speed) var(--ds-accordion-ease);
+              
+  /* Closed State Defaults */
+  height: 0;
+  opacity: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+/* Open State (Applied by JS) */
+.accordion details[open] > summary + * {
+  opacity: 1;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+/* --- HORIZONTAL VARIANT --- */
+.accordion--horizontal {
+  display: flex;
+  flex-direction: row;
+  height: 400px;
+}
+
+.accordion--horizontal > li {
+  border-bottom: none;
+  border-right: 1px solid var(--ds-sys-color-border);
+  flex: 0 0 auto;
+  display: flex;
+  transition: flex var(--ds-accordion-speed) ease;
+}
+
+.accordion--horizontal > li:last-child {
+  border-right: none;
+}
+
+.accordion--horizontal details {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+
+.accordion--horizontal summary {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  width: 3rem;
+  padding: 1.5rem 0.5rem;
+  text-align: center;
+  border-bottom: none;
+}
+
+.accordion--horizontal details[open] > summary {
+  border-bottom: none;
+  border-left: 1px solid var(--ds-sys-color-border);
+}
+
+/* Expand the LI that contains the open detail */
+.accordion--horizontal > li:has(details[open]) {
+  flex: 1 1 auto;
+}
+
+.accordion--horizontal details > summary + * {
+  width: 100%;
+  min-width: 300px;
+  overflow-y: auto;
+  height: auto;
+  opacity: 1;
+  padding: 1.5rem;
+}

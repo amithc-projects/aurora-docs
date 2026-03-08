@@ -35,7 +35,7 @@ Colors are automatically assigned from `--ds-chart-1` to `--ds-chart-6`.
 {{< /demo >}}
 
 ## Donut Chart (Themed)
-Uses the same logic. Try switching to "Kids" theme or "Dark" mode!
+Uses the same logic. Try switching to "Casual" theme or "Dark" mode!
 
 {{< demo >}}
 <table class="chart" data-type="donut">
