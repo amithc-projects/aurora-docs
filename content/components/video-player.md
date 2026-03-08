@@ -92,18 +92,27 @@ This model does *not* utilize smart auto-hiding logic.
 You can even switch the orientation to `vertical` and snap the controls to floating sidebars natively!
 
 {{< demo >}}
-<div style="max-width: 400px; margin: 0 auto;">
+<div style="width: 100%;">
     <div class="video-player" data-controls-position="overlay" data-controls-align="right" data-controls-orientation="vertical">
         <video preload="metadata">
             <source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4" type="video/mp4">
         </video>
 
         <div class="video-controls">
+            <button class="video-controls__btn" data-action="restart" aria-label="Restart">
+                <span class="material-symbols-outlined">first_page</span>
+            </button>
+            <button class="video-controls__btn" data-action="rewind" aria-label="Rewind 10s">
+                <span class="material-symbols-outlined">fast_rewind</span>
+            </button>
             <button class="video-controls__btn video-controls__btn--primary" data-action="play-pause" aria-label="Play/Pause">
                 <span class="material-symbols-outlined">play_arrow</span>
             </button>
-            <button class="video-controls__btn" data-action="restart" aria-label="Restart">
-                <span class="material-symbols-outlined">first_page</span>
+             <button class="video-controls__btn" data-action="forward" aria-label="Forward 10s">
+                <span class="material-symbols-outlined">fast_forward</span>
+            </button>
+            <button class="video-controls__btn" data-action="end" aria-label="End">
+                <span class="material-symbols-outlined">last_page</span>
             </button>
         </div>
     </div>
