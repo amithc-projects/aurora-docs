@@ -32,7 +32,7 @@ Click the buttons below to **reset your local storage** and trigger different la
 </script>
 
 <script type="module">
-  import { initCookieConsent } from "/js/components/cookie-consent.js";
+  import { initCookieConsent } from "/aurora-docs/js/components/cookie-consent.js";
 
   // Expose for demo buttons
   window.triggerCookie = (mode) => {
