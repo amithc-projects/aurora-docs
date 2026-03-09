@@ -98,11 +98,11 @@ The Aurora Javascript controller will automatically locate the `.hotspot-target`
 
     <!-- 2. The Bottom Trigger Buttons -->
     <div class="hotspot-controls">
-        <button class="hotspot-dot" data-anchor-target="target-sofa" popovertarget="drawer-sofa">Sofa</button>
-        <button class="hotspot-dot" data-anchor-target="target-lamp" popovertarget="drawer-lamp">Lamp</button>
-        <button class="hotspot-dot" data-anchor-target="target-table" popovertarget="drawer-table">Table</button>
-        <button class="hotspot-dot" data-anchor-target="target-hanging" popovertarget="drawer-hanging">Hanging</button>
-        <button class="hotspot-dot" data-anchor-target="target-posters" popovertarget="drawer-posters">Posters</button>
+        <button class="hotspot-drawer-btn" data-anchor-target="target-sofa" popovertarget="drawer-sofa">Sofa</button>
+        <button class="hotspot-drawer-btn" data-anchor-target="target-lamp" popovertarget="drawer-lamp">Lamp</button>
+        <button class="hotspot-drawer-btn" data-anchor-target="target-table" popovertarget="drawer-table">Table</button>
+        <button class="hotspot-drawer-btn" data-anchor-target="target-hanging" popovertarget="drawer-hanging">Hanging</button>
+        <button class="hotspot-drawer-btn" data-anchor-target="target-posters" popovertarget="drawer-posters">Posters</button>
     </div>
 
     <!-- 3. The Contextual Overlays -->

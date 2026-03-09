@@ -7,10 +7,10 @@
  */
 
 window.auroraHotspotInit = function () {
-    const dots = document.querySelectorAll('.hotspot-dot');
+    const triggers = document.querySelectorAll('.hotspot-dot, .hotspot-drawer-btn');
 
-    dots.forEach((dot, index) => {
-        const targetId = dot.getAttribute('popovertarget');
+    triggers.forEach((trigger, index) => {
+        const targetId = trigger.getAttribute('popovertarget');
         if (!targetId) return;
 
         const popover = document.getElementById(targetId);
@@ -20,12 +20,12 @@ window.auroraHotspotInit = function () {
         // to save the developer from writing manual inline CSS
         const anchorName = `--aurora-hotspot-${index}-${Math.random().toString(36).substr(2, 5)}`;
 
-        if (!dot.style.anchorName) {
-            dot.style.anchorName = anchorName;
+        if (!trigger.style.anchorName) {
+            trigger.style.anchorName = anchorName;
         }
 
         if (!popover.style.positionAnchor) {
-            popover.style.positionAnchor = dot.style.anchorName;
+            popover.style.positionAnchor = trigger.style.anchorName;
         }
 
         // 2. Ensure the popover attribute is set natively
@@ -36,7 +36,7 @@ window.auroraHotspotInit = function () {
         // --- DRAWER MODE ENHANCEMENTS ---
         // If this button controls a remote anchor (drawer mode), link its anchor
         // instead of itself so the popover physically attaches to the picture coordinates.
-        const remoteTargetId = dot.getAttribute('data-anchor-target');
+        const remoteTargetId = trigger.getAttribute('data-anchor-target');
         if (remoteTargetId) {
             const remoteAnchor = document.getElementById(remoteTargetId);
             if (remoteAnchor) {
@@ -50,10 +50,10 @@ window.auroraHotspotInit = function () {
                 popover.addEventListener('toggle', (event) => {
                     if (event.newState === 'open') {
                         remoteAnchor.classList.add('is-active');
-                        dot.classList.add('is-active');
+                        trigger.classList.add('is-active');
                     } else {
                         remoteAnchor.classList.remove('is-active');
-                        dot.classList.remove('is-active');
+                        trigger.classList.remove('is-active');
                     }
                 });
             }
