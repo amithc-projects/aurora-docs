@@ -43,6 +43,7 @@
 @import "components/divider.css";
 @import "components/qrcode.css";
 @import "components/qrscanner.css";
+@import "components/image-hotspot.css";
 
 /* 4. Choose the icon set */
 @import "icons/sets/material.css";
