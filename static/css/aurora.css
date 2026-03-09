@@ -14,6 +14,7 @@
 @import "components/nav-global.css";
 @import "components/nav-local.css";
 @import "components/nav-side.css";
+@import "components/nav-rail.css";
 @import "layouts/subgrid.css";
 @import "layouts/page-grid.css";
 @import "layouts/templates.css";

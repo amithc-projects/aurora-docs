@@ -1,0 +1,131 @@
+/* css/components/nav-rail.css */
+@layer components {
+
+    /* --- BASE RAIL CONSTRAINTS --- */
+    .nav-rail {
+        /* Default compressed state: ~72px wide just for icons + padding */
+        width: 4.5rem;
+        height: 100%;
+        background-color: var(--ds-sys-color-surface);
+        border-right: var(--ds-sys-border-width) solid var(--ds-sys-color-border);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* Center icons horizontally */
+        overflow: hidden;
+        transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        font-family: var(--font-body);
+        /* Force elevated z-index so expanding over body content works securely */
+        position: relative;
+        z-index: 50;
+    }
+
+    /* Expanding hover engine */
+    .nav-rail:hover {
+        /* Opens up to full Side Nav equivalent width */
+        width: var(--ds-cmp-nav-side-width, 280px);
+        align-items: flex-start;
+        /* Switch alignments so text tracks cleanly from the left edge */
+        box-shadow: var(--ds-sys-shadow-card);
+    }
+
+
+    /* --- LIST ARCHITECTURE --- */
+    .nav-rail ul {
+        list-style: none;
+        padding: var(--ds-ref-space-sm) 0;
+        margin: 0;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: var(--ds-ref-space-sm);
+    }
+
+    /* Anchor layout mapping */
+    .nav-rail a {
+        display: flex;
+        flex-direction: column;
+        /* Stack naturally in compressed mode (icon over tiny text potentially) */
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        color: var(--ds-sys-color-on-surface);
+        min-height: 3.5rem;
+        width: calc(100% - var(--ds-ref-space-base));
+        /* Reserve space for hover radius curve */
+        margin: 0 auto;
+        border-radius: var(--ds-sys-radius-btn);
+        transition: background-color 0.2s ease, color 0.2s ease;
+        padding: 0.5rem;
+    }
+
+    .nav-rail a:hover {
+        background-color: var(--ds-sys-color-surface-container-highest, rgba(0, 0, 0, 0.05));
+    }
+
+    .nav-rail a:active {
+        background-color: color-mix(in srgb, var(--ds-sys-color-primary), transparent 90%);
+        color: var(--ds-sys-color-primary);
+    }
+
+    /* --- CONDITIONAL TEXT RENDERING --- */
+    /* The core intelligence: Visually hide the textual label in compressed mode */
+    .nav-rail .nav-rail-label {
+        font-size: 0.75rem;
+        /* Tiny label size natively */
+        opacity: 0;
+        white-space: nowrap;
+        height: 0;
+        /* Squash it natively */
+        overflow: hidden;
+        transition: opacity 0.2s ease;
+    }
+
+    /* When the rail expands via hover, reconfigure the Flexbox to row and fade in the text! */
+    .nav-rail:hover a {
+        flex-direction: row;
+        /* Icon and text sit tightly horizontally */
+        justify-content: flex-start;
+        /* Anchor everything to the left side */
+        padding-left: 1.5rem;
+    }
+
+    /* Inject generous space between the icon and the new inline text */
+    .nav-rail:hover .material-symbols-outlined {
+        margin-right: var(--ds-ref-space-base);
+    }
+
+    /* Resurrect the text label */
+    .nav-rail:hover .nav-rail-label {
+        opacity: 1;
+        height: auto;
+        font-size: 0.95rem;
+        /* Scale it up to match standard Side Navigation size! */
+        font-weight: 500;
+    }
+
+
+    /* --- ACTIVE STATE DEMARCATION --- */
+    .nav-rail a.is-active {
+        background-color: color-mix(in srgb, var(--ds-sys-color-primary), transparent 92%);
+        color: var(--ds-sys-color-primary);
+    }
+
+    /* The visual vertical indicator */
+    .nav-rail a.is-active::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        height: 50%;
+        width: 4px;
+        background-color: var(--ds-sys-color-primary);
+        border-radius: 0 4px 4px 0;
+    }
+
+    /* Specific overrides for the Bottom "User / Settings" section */
+    .nav-rail .nav-rail-bottom-group {
+        margin-top: auto;
+        /* Force the Flex layout to slam this group to the absolute bottom of viewport */
+        padding-bottom: var(--ds-ref-space-base);
+    }
+}
