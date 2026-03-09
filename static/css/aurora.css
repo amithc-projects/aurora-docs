@@ -42,6 +42,7 @@
 @import "components/skeleton.css";
 @import "components/divider.css";
 @import "components/qrcode.css";
+@import "components/qrscanner.css";
 
 /* 4. Choose the icon set */
 @import "icons/sets/material.css";

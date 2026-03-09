@@ -10,6 +10,9 @@ menu:
 
 The `QR Code` component generates scan-able codes directly on the client side without needing a server trip. It dynamically loads a lightweight script *only* when a QR code exists on the page, keeping the global Aurora JS bundle extremely fast.
 
+> [!WARNING]
+> Because this logic is highly complex, Aurora relies on the [EasyQRCodeJS Library](https://github.com/ushelp/EasyQRCodeJS) to render the `<canvas>`. The javascript file asynchronously fetches `https://cdn.jsdelivr.net/npm/easyqrcodejs@4.6.2/dist/easy.qrcode.min.js` from jsDelivr. Be aware of this external network dependency for strict offline or air-gapped environments.
+
 By default, the QR Code reads the active `[data-theme]` to seamlessly blend its Dark and Light colors into the Aurora framework.
 
 ## Basic Usage
