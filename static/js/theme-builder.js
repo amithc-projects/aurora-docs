@@ -1,6 +1,4 @@
 export function initThemeBuilder() {
-    const root = document.documentElement;
-
     // DOM References
     const layoutToggle = document.getElementById('layoutToggle');
     const brandPicker = document.getElementById('brandPicker');
@@ -55,30 +53,38 @@ export function initThemeBuilder() {
         });
 
         // --- 3. Rewrite Official Aurora Tokens Natively ---
-        // Brand Scale
-        root.style.setProperty('--ds-sys-color-primary', brand);
-        root.style.setProperty('--ds-sys-color-primary-container', `color-mix(in srgb, ${brand} 15%, transparent)`);
-        root.style.setProperty('--ds-sys-color-on-primary-container', `color-mix(in srgb, ${brand} 20%, currentColor)`);
-        root.style.setProperty('--ds-sys-color-on-primary', '#ffffff');
 
-        // Borders and Geometry
-        root.style.setProperty('--ds-sys-radius-card', radius);
-        root.style.setProperty('--ds-sys-radius-btn', `${Math.max(4, parseInt(radius) / 2)}px`);
-        root.style.setProperty('--ds-sys-border-width', stroke);
+        // Because data-theme="corporate" is now applied individually to the .pane elements 
+        // to fix the light-dark() CSS color-scheme evaluations simultaneously, we MUST 
+        // apply our Javascript token overrides directly to the panes so they beat the CSS cascade.
+        const panes = document.querySelectorAll('.pane');
 
-        // Force Border Overrides on Components that hardcode them
-        root.style.setProperty('--ds-cmp-btn-sec-border-width', stroke);
+        panes.forEach(pane => {
+            // Brand Scale
+            pane.style.setProperty('--ds-sys-color-primary', brand);
+            pane.style.setProperty('--ds-sys-color-primary-container', `color-mix(in srgb, ${brand} 15%, transparent)`);
+            pane.style.setProperty('--ds-sys-color-on-primary-container', `color-mix(in srgb, ${brand} 20%, currentColor)`);
+            pane.style.setProperty('--ds-sys-color-on-primary', '#ffffff');
 
-        // Subgrid Spacing Engine
-        root.style.setProperty('--ds-ref-space-base', spacing);
+            // Borders and Geometry
+            pane.style.setProperty('--ds-sys-radius-card', radius);
+            pane.style.setProperty('--ds-sys-radius-btn', `${Math.max(4, parseInt(radius) / 2)}px`);
+            pane.style.setProperty('--ds-sys-border-width', stroke);
 
-        // Shadows & Elevation
-        root.style.setProperty('--ds-sys-shadow-card', elevation);
+            // Force Border Overrides on Components that hardcode them
+            pane.style.setProperty('--ds-cmp-btn-sec-border-width', stroke);
 
-        // Typography
-        root.style.setProperty('--font-primary', font);
-        root.style.setProperty('--font-heading', font);
-        root.style.setProperty('--font-body', bodyFont);
+            // Subgrid Spacing Engine
+            pane.style.setProperty('--ds-ref-space-base', spacing);
+
+            // Shadows & Elevation
+            pane.style.setProperty('--ds-sys-shadow-card', elevation);
+
+            // Typography
+            pane.style.setProperty('--font-primary', font);
+            pane.style.setProperty('--font-heading', font);
+            pane.style.setProperty('--font-body', bodyFont);
+        });
     }
 
     // Template Injector

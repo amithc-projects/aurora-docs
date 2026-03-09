@@ -33,6 +33,7 @@ body.theme-builder-body {
 
 /* Base Light Mode Environment */
 #builder-mirror-container #lp {
+    color-scheme: light;
     background-color: #ffffff;
     /* Hardcode fallback */
     background-color: var(--ds-sys-color-background, #ffffff);
