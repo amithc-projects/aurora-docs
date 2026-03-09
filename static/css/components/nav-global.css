@@ -1,93 +1,112 @@
-.nav-global {
-  background-color: var(--ds-sys-color-surface-inverse, #111);
-  color: var(--ds-sys-color-on-surface-inverse, #fff);
-  font-family: system-ui, sans-serif;
-  font-size: 0.9rem;
-  position: relative;
-  z-index: 100;
-}
+/* css/components/nav-global.css */
+@layer components {
+  .nav-global {
+    background-color: var(--ds-sys-color-surface-inverse);
+    color: var(--ds-sys-color-on-surface-inverse);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    position: relative;
+    z-index: 100;
+    width: 100%;
+    /* Subtle drop shadow bridging the dark bar over light surfaces */
+    box-shadow: var(--ds-sys-shadow-card);
+  }
 
-.nav-global__container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.75rem 1rem;
-  min-height: 60px;
-}
+  .nav-global__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 var(--ds-ref-space-base);
+    min-height: 4rem;
+  }
 
-/* Left Cluster: Burger + Brand/Links */
-.nav-global__left {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
+  /* Left Cluster: Burger + Brand/Links */
+  .nav-global__left {
+    display: flex;
+    align-items: center;
+    gap: var(--ds-ref-space-md);
+  }
 
-/* Right Cluster: Search + Profile */
-.nav-global__right {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
+  /* Right Cluster: Search + Profile */
+  .nav-global__right {
+    display: flex;
+    align-items: center;
+    gap: var(--ds-ref-space-md);
+  }
 
-/* Links */
-.nav-global__menu {
-  display: flex;
-  gap: 1.5rem;
-}
+  /* Links */
+  .nav-global__menu {
+    display: flex;
+    gap: var(--ds-ref-space-md);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
 
-.nav-global a.nav-link {
-  color: inherit;
-  text-decoration: none;
-  font-weight: 600;
-  opacity: 0.9;
-  transition: opacity 0.2s;
-  white-space: nowrap;
-}
-.nav-global a.nav-link:hover { opacity: 1; }
+  .nav-global a.nav-link {
+    color: inherit;
+    text-decoration: none;
+    font-weight: 500;
+    opacity: 0.8;
+    transition: opacity 0.2s ease, color 0.2s ease;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
 
-/* Hamburger (Hidden by default, shown in narrow mode) */
-.nav-toggle {
-  display: none; /* Hidden on Desktop */
-  background: transparent;
-  border: none;
-  color: inherit;
-  cursor: pointer;
-  padding: 4px;
-}
+  .nav-global a.nav-link:hover,
+  .nav-global a.nav-link.is-active {
+    opacity: 1;
+    color: var(--ds-sys-color-primary, white);
+    /* Inherit primary color if passed down, else pure light */
+  }
 
-/* Search Bar Styling */
-.nav-global .search-group {
-  position: relative;
-}
-.nav-global .search-input {
-  background: rgba(255,255,255,0.15);
-  border: 1px solid transparent;
-  border-radius: 99px;
-  padding: 0.5rem 1rem 0.5rem 2.5rem;
-  color: white;
-  width: 200px;
-  font-size: 0.9rem;
-  transition: width 0.3s;
-}
-.nav-global .search-input::placeholder { color: rgba(255,255,255,0.6); }
-.nav-global .search-input:focus {
-  background: black;
-  border-color: var(--ds-sys-color-primary);
-  outline: none;
-  width: 280px;
-}
-.nav-global .search-icon {
-  position: absolute;
-  left: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  opacity: 0.7;
-  pointer-events: none;
-}
+  /* Search Bar Styling */
+  .nav-global .search-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
 
-/* --- RESPONSIVE MODIFIERS (For Demo Purposes) --- */
-/* Simulate Mobile View */
-.nav-global--narrow .nav-global__menu { display: none; } /* Hide links */
-.nav-global--narrow .nav-toggle { display: block; } /* Show Burger */
-.nav-global--narrow .search-input { width: 36px; padding: 0.5rem; cursor: pointer; } /* Collapse search to icon */
-.nav-global--narrow .search-input:focus { width: 100%; padding-left: 2.5rem; cursor: text; }
+  .nav-global .search-input {
+    background: color-mix(in srgb, var(--ds-sys-color-on-surface-inverse) 15%, transparent);
+    border: 1px solid transparent;
+    border-radius: 99px;
+    padding: 0.5rem 1rem 0.5rem 2.5rem;
+    color: var(--ds-sys-color-on-surface-inverse);
+    width: 240px;
+    font-size: 0.9rem;
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s, border-color 0.2s;
+  }
+
+  .nav-global .search-input::placeholder {
+    color: color-mix(in srgb, var(--ds-sys-color-on-surface-inverse) 60%, transparent);
+  }
+
+  .nav-global .search-input:focus {
+    background: var(--ds-sys-color-surface-inverse);
+    border-color: var(--ds-sys-color-primary, currentColor);
+    outline: none;
+    width: 320px;
+  }
+
+  .nav-global .search-icon {
+    position: absolute;
+    left: 12px;
+    opacity: 0.7;
+    pointer-events: none;
+  }
+
+  /* Brand Header Lockup */
+  .nav-global-brand {
+    font-weight: 700;
+    font-size: 1.25rem;
+    letter-spacing: -0.02em;
+    display: flex;
+    align-items: center;
+    gap: var(--ds-ref-space-sm);
+    color: var(--ds-sys-color-on-surface-inverse);
+    text-decoration: none;
+  }
+}
