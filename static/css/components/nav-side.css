@@ -30,7 +30,7 @@
         display: flex;
         align-items: center;
         width: 100%;
-        padding: var(--ds-ref-space-sm) var(--ds-ref-space-base);
+        padding: var(--ds-ref-space-sm) var(--ds-ref-space-base) var(--ds-ref-space-sm) 1.25rem;
         min-height: 2.75rem;
         color: var(--ds-sys-color-on-surface);
         text-decoration: none;
