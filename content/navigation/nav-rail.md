@@ -23,26 +23,34 @@ In its resting state, the Navigation Rail is an icon-only strip. When hovered, t
     <ul>
       <li>
         <a href="#" class="is-active" aria-current="page">
-          <span class="material-symbols-outlined">dashboard</span>
-          <span class="nav-rail-label">Dashboard</span>
+          <div class="nav-rail-inner">
+            <span class="material-symbols-outlined">dashboard</span>
+            <span class="nav-rail-label">Dashboard</span>
+          </div>
         </a>
       </li>
       <li>
         <a href="#">
-          <span class="material-symbols-outlined">analytics</span>
-          <span class="nav-rail-label">Analytics</span>
+          <div class="nav-rail-inner">
+            <span class="material-symbols-outlined">analytics</span>
+            <span class="nav-rail-label">Analytics</span>
+          </div>
         </a>
       </li>
       <li>
         <a href="#">
-          <span class="material-symbols-outlined">group</span>
-          <span class="nav-rail-label">Audiences</span>
+          <div class="nav-rail-inner">
+            <span class="material-symbols-outlined">group</span>
+            <span class="nav-rail-label">Audiences</span>
+          </div>
         </a>
       </li>
       <li>
         <a href="#">
-          <span class="material-symbols-outlined">campaign</span>
-          <span class="nav-rail-label">Campaigns</span>
+          <div class="nav-rail-inner">
+            <span class="material-symbols-outlined">campaign</span>
+            <span class="nav-rail-label">Campaigns</span>
+          </div>
         </a>
       </li>
     </ul>
@@ -51,14 +59,18 @@ In its resting state, the Navigation Rail is an icon-only strip. When hovered, t
     <ul class="nav-rail-bottom-group">
       <li>
         <a href="#">
-          <span class="material-symbols-outlined">settings</span>
-          <span class="nav-rail-label">Settings</span>
+          <div class="nav-rail-inner">
+            <span class="material-symbols-outlined">settings</span>
+            <span class="nav-rail-label">Settings</span>
+          </div>
         </a>
       </li>
       <li>
         <a href="#">
-          <div style="width: 24px; height: 24px; border-radius: 50%; background: var(--ds-sys-color-primary); display: flex; align-items: center; justify-content: center; color: white; font-size: 12px; font-weight: bold;">AJ</div>
-          <span class="nav-rail-label">Profile</span>
+          <div class="nav-rail-inner">
+            <div style="width: 24px; height: 24px; border-radius: 50%; background: var(--ds-sys-color-primary); display: flex; align-items: center; justify-content: center; color: white; font-size: 12px; font-weight: bold;">AJ</div>
+            <span class="nav-rail-label">Profile</span>
+          </div>
         </a>
       </li>
     </ul>
@@ -87,14 +99,18 @@ By applying the `.is-pinned` modifier class to the `<nav>` wrapper, the rail wil
     <ul>
       <li>
         <a href="#" class="is-active" aria-current="page">
-          <span class="material-symbols-outlined">dashboard</span>
-          <span class="nav-rail-label">Dashboard</span>
+          <div class="nav-rail-inner">
+            <span class="material-symbols-outlined">dashboard</span>
+            <span class="nav-rail-label">Dashboard</span>
+          </div>
         </a>
       </li>
       <li>
         <a href="#">
-          <span class="material-symbols-outlined">analytics</span>
-          <span class="nav-rail-label">Analytics</span>
+          <div class="nav-rail-inner">
+            <span class="material-symbols-outlined">analytics</span>
+            <span class="nav-rail-label">Analytics</span>
+          </div>
         </a>
       </li>
     </ul>
@@ -120,15 +136,19 @@ During the compressed state, the expansion chevrons and nested links are complet
     <ul>
       <li>
         <a href="#">
-          <span class="material-symbols-outlined">home</span>
-          <span class="nav-rail-label">Home</span>
+          <div class="nav-rail-inner">
+            <span class="material-symbols-outlined">home</span>
+            <span class="nav-rail-label">Home</span>
+          </div>
         </a>
       </li>
       <li>
         <details>
           <summary>
+          <div class="nav-rail-inner">
              <span class="material-symbols-outlined">group</span>
-               <span class="nav-rail-label">Audiences</span>
+             <span class="nav-rail-label">Audiences</span>
+          </div>
         </summary>
           <ul>
             <li><a href="#">Demographics</a></li>
@@ -140,8 +160,10 @@ During the compressed state, the expansion chevrons and nested links are complet
       <li>
         <details>
           <summary>
+          <div class="nav-rail-inner">
              <span class="material-symbols-outlined">shopping_cart</span>
-               <span class="nav-rail-label">Commerce</span>
+             <span class="nav-rail-label">Commerce</span>
+          </div>
         </summary>
           <ul>
             <li><a href="#" class="is-active">Transactions</a></li>
