@@ -393,7 +393,7 @@ function formatDuration(ms) {
     return `${d}d ${h % 24}h`;
 }
 
-initSmartRanges = function () {
+window.initSmartRanges = function () {
     const inputs = document.querySelectorAll('.smart-date-range');
 
     inputs.forEach(input => {
@@ -491,4 +491,5 @@ document.addEventListener('click', (e) => {
     }
 });
 
-
+// Automatically initialize when the DOM is ready
+document.addEventListener('DOMContentLoaded', window.initSmartRanges);

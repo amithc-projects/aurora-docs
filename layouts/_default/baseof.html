@@ -99,11 +99,6 @@
     import "/aurora-docs/js/components/qrscanner.js";
     import "/aurora-docs/js/components/image-hotspot.js";
     import "/aurora-docs/js/components/smart-date-range.js";
-
-    // Non-module initializers
-    if (typeof initSmartRanges === 'function') {
-      initSmartRanges();
-    }
   </script>
   <script type="module">import { initWizards } from '{{ relURL "js/patterns/wizard.js" }}'; initWizards();</script>
   <script type="module">import { initGallery } from '{{ relURL "js/components/gallery.js" }}'; initGallery();</script>
