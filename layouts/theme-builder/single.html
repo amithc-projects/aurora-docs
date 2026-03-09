@@ -66,9 +66,39 @@
 
         <div class="mb-4">
             <label class="d-flex justify-content-between text-sm fw-600 mb-2">
+                Spacing Scale Base
+                <span id="spacingVal" class="text-variant fw-normal">1rem</span>
+            </label>
+            <input type="range" id="spacingPicker" min="0.5" max="2" step="0.125" value="1" class="form-range w-100">
+        </div>
+
+        <div class="mb-4">
+            <label class="d-flex justify-content-between text-sm fw-600 mb-2">
+                Card Elevation
+            </label>
+            <select id="elevationPicker" class="form-control">
+                <option value="none">Flat (0px)</option>
+                <option value="0 1px 3px 0 rgb(0 0 0 / 0.1)" selected>Subtle (sm)</option>
+                <option value="0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)">Floating (md)</option>
+                <option value="0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)">Elevated (lg)
+                </option>
+            </select>
+        </div>
+
+        <div class="mb-4">
+            <label class="d-flex justify-content-between text-sm fw-600 mb-2">
                 Heading Font Family
             </label>
-            <select id="fontPicker" class="form-control">
+            <select id="fontPicker" class="form-control mb-3">
+                <option value="'Inter', sans-serif">Inter (Geometric Sans)</option>
+                <option value="'Outfit', sans-serif">Outfit (Modern Sans)</option>
+                <option value="system-ui, -apple-system, sans-serif">System Native UI</option>
+                <option value="Georgia, serif">Georgia (Serif)</option>
+            </select>
+            <label class="d-flex justify-content-between text-sm fw-600 mb-2">
+                Body Font Family
+            </label>
+            <select id="bodyFontPicker" class="form-control">
                 <option value="'Inter', sans-serif">Inter (Geometric Sans)</option>
                 <option value="'Outfit', sans-serif">Outfit (Modern Sans)</option>
                 <option value="system-ui, -apple-system, sans-serif">System Native UI</option>

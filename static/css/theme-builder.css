@@ -41,6 +41,7 @@ body.theme-builder-body {
 
 /* Base Dark Mode Environment */
 #builder-mirror-container #dp {
+    color-scheme: dark;
     background-color: #0f172a;
     /* Hardcode fallback */
     background-color: var(--ds-sys-color-background, #0f172a);
@@ -318,6 +319,10 @@ body.theme-builder-body {
 
 .bg-surface-variant {
     background-color: var(--ds-sys-color-surface-variant, rgba(127, 127, 127, 0.1));
+}
+
+.surface-container-highest {
+    background-color: var(--ds-sys-color-surface-container-highest, light-dark(#e2e8f0, #1e293b));
 }
 
 .opacity-80 {

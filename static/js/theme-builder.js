@@ -10,6 +10,10 @@ export function initThemeBuilder() {
     const strokePicker = document.getElementById('strokePicker');
     const strokeVal = document.getElementById('strokeVal');
     const fontPicker = document.getElementById('fontPicker');
+    const bodyFontPicker = document.getElementById('bodyFontPicker');
+    const spacingPicker = document.getElementById('spacingPicker');
+    const spacingVal = document.getElementById('spacingVal');
+    const elevationPicker = document.getElementById('elevationPicker');
 
     // Export Buttons
     const btnCopy = document.getElementById('btnExportCopy');
@@ -25,11 +29,15 @@ export function initThemeBuilder() {
         const radius = radiusPicker.value + 'px';
         const stroke = strokePicker.value + 'px';
         const font = fontPicker.value;
+        const bodyFont = bodyFontPicker.value;
+        const spacing = spacingPicker.value + 'rem';
+        const elevation = elevationPicker.value;
 
         // --- 1. Update UI Labels ---
         brandHexVal.textContent = brand;
         radiusVal.textContent = radius;
         strokeVal.textContent = stroke;
+        spacingVal.textContent = spacing;
 
         // --- 2. Build the Color Ramp Visually ---
         const ramp = document.getElementById('rampDisplay');
@@ -58,8 +66,19 @@ export function initThemeBuilder() {
         root.style.setProperty('--ds-sys-radius-btn', `${Math.max(4, parseInt(radius) / 2)}px`);
         root.style.setProperty('--ds-sys-border-width', stroke);
 
+        // Force Border Overrides on Components that hardcode them
+        root.style.setProperty('--ds-cmp-btn-sec-border-width', stroke);
+
+        // Subgrid Spacing Engine
+        root.style.setProperty('--ds-ref-space-base', spacing);
+
+        // Shadows & Elevation
+        root.style.setProperty('--ds-sys-shadow-card', elevation);
+
         // Typography
-        root.style.setProperty('--ds-sys-font-family-sans', font);
+        root.style.setProperty('--font-primary', font);
+        root.style.setProperty('--font-heading', font);
+        root.style.setProperty('--font-body', bodyFont);
     }
 
     // Template Injector
@@ -92,12 +111,21 @@ export function initThemeBuilder() {
   --ds-sys-color-on-primary: #ffffff;
 
   /* Typography */
-  --ds-sys-font-family-sans: ${fontPicker.value};
+  --font-primary: ${fontPicker.value};
+  --font-heading: ${fontPicker.value};
+  --font-body: ${bodyFontPicker.value};
 
   /* Structural Geometry */
   --ds-sys-radius-card: ${radiusPicker.value}px;
   --ds-sys-radius-btn: ${Math.max(4, parseInt(radiusPicker.value) / 2)}px;
   --ds-sys-border-width: ${strokePicker.value}px;
+  --ds-cmp-btn-sec-border-width: ${strokePicker.value}px;
+
+  /* Spacing Base */
+  --ds-ref-space-base: ${spacingPicker.value}rem;
+
+  /* Elevation */
+  --ds-sys-shadow-card: ${elevationPicker.value};
 }`;
     }
 
