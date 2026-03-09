@@ -48,6 +48,11 @@
         background-color: var(--ds-sys-color-surface-container-highest, rgba(0, 0, 0, 0.05));
     }
 
+    /* Target icons directly to ensure they never bleed into the left padding */
+    .nav-side .material-symbols-outlined {
+        margin-left: 0.25rem;
+    }
+
     .nav-side a:active,
     .nav-side summary:active {
         background-color: color-mix(in srgb, var(--ds-sys-color-primary), transparent 90%);
