@@ -1,5 +1,6 @@
 ---
 title: "Theme Builder"
-layout: "theme-builder"
+type: "theme-builder"
+layout: "single"
 description: "Interactively prototype customized color ramps and token adjustments across the entire Aurora Design System."
 ---

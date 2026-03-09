@@ -14,12 +14,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
 
     <!-- Global Core System -->
-    {{ $core := resources.Get "css/core.css" }}
-    <link rel="stylesheet" href="{{ $core.RelPermalink }}">
+    <link rel="stylesheet" href="{{ " css/core.css" | relURL }}">
 
     <!-- Theme Builder Specific UI Styles -->
-    {{ $builderStyles := resources.Get "css/theme-builder.css" }}
-    <link rel="stylesheet" href="{{ $builderStyles.RelPermalink }}">
+    <link rel="stylesheet" href="{{ " css/theme-builder.css" | relURL }}">
 </head>
 
 <body class="theme-builder-body pb-0">
@@ -313,8 +311,7 @@
     </template>
 
     <!-- Controller Script -->
-    {{ $builderJS := resources.Get "js/theme-builder.js" }}
-    <script src="{{ $builderJS.RelPermalink }}" type="module"></script>
+    <script src="{{ " js/theme-builder.js" | relURL }}" type="module"></script>
 
     <!-- UI Components initialization for the injected templates -->
     <script type="module">
