@@ -167,6 +167,9 @@ Instead of routing `startAbs`, you can explicitly point the Smart Date Range to 
             </div>
         </div>
     </div>
+</div>
+{{< /demo >}}
+
 ---
 
 ## 5. Manual Explicit Mode
