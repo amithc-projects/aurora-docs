@@ -6,13 +6,13 @@
  */
 
 window.auroraQRCodeInit = function () {
-    const qrElements = document.querySelectorAll('.qr-code-canvas');
+    const qrElements = document.querySelectorAll('.qr-code');
     if (qrElements.length === 0) return;
 
     // Load library if not present
     if (typeof QRCode === 'undefined') {
         const script = document.createElement('script');
-        script.src = 'https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js';
+        script.src = 'https://cdn.jsdelivr.net/npm/easyqrcodejs@4.6.2/dist/easy.qrcode.min.js';
         script.async = true;
 
         script.onload = () => {
@@ -44,36 +44,40 @@ window.auroraQRCodeInit = function () {
             const primaryColor = styles.getPropertyValue('--ds-sys-color-primary').trim() || '#000000';
             const surfaceColor = styles.getPropertyValue('--ds-sys-color-surface').trim() || '#ffffff';
 
+            const width = parseInt(canvas.getAttribute('data-qr-width') || '128', 10);
+            const errorLvl = canvas.getAttribute('data-qr-error') || 'M';
+
             const opts = {
-                errorCorrectionLevel: canvas.getAttribute('data-qr-error') || 'M',
-                margin: parseInt(canvas.getAttribute('data-qr-margin') || '2', 10),
-                scale: parseInt(canvas.getAttribute('data-qr-scale') || '4', 10),
-                width: canvas.getAttribute('data-qr-width') ? parseInt(canvas.getAttribute('data-qr-width'), 10) : undefined,
-                color: {
-                    dark: canvas.getAttribute('data-qr-color-dark') || primaryColor, // Use brand primary by default
-                    light: canvas.getAttribute('data-qr-color-light') || surfaceColor // transparent back
-                }
+                text: text,
+                width: width,
+                height: width, // Default to square
+                quietZone: parseInt(canvas.getAttribute('data-qr-margin') || '10', 10),
+                colorDark: canvas.getAttribute('data-qr-color-dark') || primaryColor,
+                colorLight: canvas.getAttribute('data-qr-color-light') || surfaceColor,
+                correctLevel: typeof QRCode !== 'undefined' && QRCode.CorrectLevel ? QRCode.CorrectLevel[errorLvl] : 1
             };
 
             // For OKLCH or complex CSS colors that canvas can't parse easily in current browsers,
             // we might fallback to black/white if qrcode library complains, but modern browsers usually support it
             // if it's evaluated. However, light-dark() cannot be evaluated by Canvas fillstyle.
             // A robust solution for light-dark() is to read the *computed* color of a dummy element.
-            if (opts.color.dark.includes('light-dark') || opts.color.dark.includes('var(')) {
-                opts.color.dark = resolveColorToHex('--ds-sys-color-primary');
+            if (opts.colorDark.includes('light-dark') || opts.colorDark.includes('var(')) {
+                opts.colorDark = resolveColorToHex('--ds-sys-color-primary');
             }
-            if (opts.color.light.includes('light-dark') || opts.color.light.includes('var(')) {
-                opts.color.light = resolveColorToHex('--ds-sys-color-surface');
+            if (opts.colorLight.includes('light-dark') || opts.colorLight.includes('var(')) {
+                opts.colorLight = resolveColorToHex('--ds-sys-color-surface');
             }
 
             // Override with explicit defaults if requested
-            if (canvas.hasAttribute('data-qr-color-dark')) opts.color.dark = canvas.getAttribute('data-qr-color-dark');
-            if (canvas.hasAttribute('data-qr-color-light')) opts.color.light = canvas.getAttribute('data-qr-color-light');
+            if (canvas.hasAttribute('data-qr-color-dark')) opts.colorDark = canvas.getAttribute('data-qr-color-dark');
+            if (canvas.hasAttribute('data-qr-color-light')) opts.colorLight = canvas.getAttribute('data-qr-color-light');
 
-            QRCode.toCanvas(canvas, text, opts, function (error) {
-                if (error) console.error(error);
-                else canvas.setAttribute('data-qr-rendered', 'true');
-            });
+            try {
+                new QRCode(canvas, opts);
+                canvas.setAttribute('data-qr-rendered', 'true');
+            } catch (error) {
+                console.error(error);
+            }
         });
     }
 

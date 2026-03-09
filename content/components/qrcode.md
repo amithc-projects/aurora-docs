@@ -14,14 +14,14 @@ By default, the QR Code reads the active `[data-theme]` to seamlessly blend its 
 
 ## Basic Usage
 
-The most robust way to use the QR code is within an Aurora `.qr-container` which yields an elevated card, padding, and an optional caption. Give a `<canvas>` element the `.qr-code-canvas` class and pass your data via `data-qr-value`.
+The most robust way to use the QR code is within an Aurora `.qr-container` which yields an elevated card, padding, and an optional caption. Give a `<div>` element the `.qr-code` class and pass your data via `data-qr-value`.
 
 {{< demo >}}
 <div class="qr-container">
-    <canvas class="qr-code-canvas" 
+    <div class="qr-code" 
             data-qr-value="https://aurora.design/system" 
             data-qr-width="200">
-    </canvas>
+    </div>
     <p class="qr-caption">Scan to view Design System</p>
 </div>
 {{< /demo >}}
@@ -39,12 +39,12 @@ You can configure the generated QR code directly through `data-*` attributes on 
 
 {{< demo >}}
 <div class="qr-container">
-    <canvas class="qr-code-canvas" 
+    <div class="qr-code" 
             data-qr-value="WIFI:S:MyNetwork;T:WPA;P:SuperSecret123;;" 
             data-qr-width="150"
             data-qr-error="H"
             data-qr-margin="0">
-    </canvas>
+    </div>
     <p class="qr-caption">Zero Margin (Level H)</p>
 </div>
 {{< /demo >}}
@@ -54,10 +54,10 @@ You can configure the generated QR code directly through `data-*` attributes on 
 If you just need raw generation without the Aurora Card padding, you can omit the `.qr-container` or attach the `.no-style` class.
 
 {{< demo >}}
-<canvas class="qr-code-canvas" 
+<div class="qr-code" 
         data-qr-value="https://example.com"
         data-qr-width="128">
-</canvas>
+</div>
 {{< /demo >}}
 
 ## Hardcoded Custom Colors
@@ -68,17 +68,17 @@ While Aurora automatically resolves your current `--ds-sys-color-primary` as the
 <div class="l-cluster gap-4">
     <!-- Brand Specific -->
     <div class="qr-container">
-        <canvas class="qr-code-canvas" 
+        <div class="qr-code" 
                 data-qr-value="https://instagram.com" 
                 data-qr-width="128"
                 data-qr-color-dark="#E1306Cff"
                 data-qr-color-light="#ffffff00">
-        </canvas>
+        </div>
     </div>
 
     <!-- Warning Override -->
     <div class="qr-container">
-         <canvas class="qr-code-canvas" 
+         <div class="qr-code" 
                 data-qr-value="SECURITY_ALERT_92A" 
                 data-qr-width="128"
                 data-qr-color-dark="#dc2626ff"
