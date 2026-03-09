@@ -88,3 +88,262 @@ body.theme-builder-body {
     margin-top: -5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
+
+/* --- THEME BUILDER LOCAL UTILITIES --- */
+/* Aurora avoids global utility classes natively, so we scaffold them securely here for the mock layouts */
+
+/* Grid */
+.grid {
+    display: grid;
+}
+
+.col-4 {
+    grid-column: span 4;
+}
+
+.col-8 {
+    grid-column: span 8;
+}
+
+.col-12 {
+    grid-column: span 12;
+}
+
+/* Flexbox */
+.d-flex {
+    display: flex;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+.align-items-start {
+    align-items: flex-start;
+}
+
+.justify-content-between {
+    justify-content: space-between;
+}
+
+.justify-content-center {
+    justify-content: center;
+}
+
+/* Spacing */
+.gap-1 {
+    gap: 0.25rem;
+}
+
+.gap-2 {
+    gap: 0.5rem;
+}
+
+.gap-3 {
+    gap: 1rem;
+}
+
+.gap-4 {
+    gap: 1.5rem;
+}
+
+.m-0 {
+    margin: 0;
+}
+
+.mt-2 {
+    margin-top: 0.5rem;
+}
+
+.mt-4 {
+    margin-top: 1.5rem;
+}
+
+.mb-1 {
+    margin-bottom: 0.25rem;
+}
+
+.mb-2 {
+    margin-bottom: 0.5rem;
+}
+
+.mb-3 {
+    margin-bottom: 1rem;
+}
+
+.mb-4 {
+    margin-bottom: 1.5rem;
+}
+
+.mb-5 {
+    margin-bottom: 3rem;
+}
+
+.mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.p-1 {
+    padding: 0.25rem;
+}
+
+.p-2 {
+    padding: 0.5rem;
+}
+
+.p-3 {
+    padding: 1rem;
+}
+
+.p-4 {
+    padding: 1.5rem;
+}
+
+.px-3 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.px-5 {
+    padding-left: 3rem;
+    padding-right: 3rem;
+}
+
+.py-1 {
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+}
+
+.py-5 {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+/* Sizing */
+.w-100 {
+    width: 100%;
+}
+
+.h-100 {
+    height: 100%;
+}
+
+/* Typography */
+.text-center {
+    text-align: center;
+}
+
+.text-sm {
+    font-size: 0.875rem;
+}
+
+.text-md {
+    font-size: 1rem;
+}
+
+.text-lg {
+    font-size: 1.25rem;
+}
+
+.text-2xl {
+    font-size: 2rem;
+}
+
+.text-4xl {
+    font-size: 3rem;
+}
+
+.fw-normal {
+    font-weight: 400;
+}
+
+.fw-600 {
+    font-weight: 600;
+}
+
+.fw-bold {
+    font-weight: 700;
+}
+
+.fw-900 {
+    font-weight: 900;
+}
+
+.text-uppercase {
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.lh-sm {
+    line-height: 1.25;
+}
+
+/* Colors & Theming Masks */
+.text-primary {
+    color: var(--ds-sys-color-primary, #0ea5e9);
+}
+
+.text-success {
+    color: #10b981;
+}
+
+.text-warning {
+    color: #f59e0b;
+}
+
+.text-danger {
+    color: #ef4444;
+}
+
+.text-info {
+    color: #3b82f6;
+}
+
+.text-variant {
+    color: var(--ds-sys-color-on-surface-variant, #64748b);
+}
+
+.bg-primary {
+    background-color: var(--ds-sys-color-primary, #0ea5e9);
+}
+
+.bg-surface-variant {
+    background-color: var(--ds-sys-color-surface-variant, rgba(127, 127, 127, 0.1));
+}
+
+.opacity-80 {
+    opacity: 0.8;
+}
+
+.border-0 {
+    border: 0 !important;
+}
+
+.border-primary {
+    border: 1px solid var(--ds-sys-color-primary, #0ea5e9);
+}
+
+.shadow-sm {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.rounded-pill {
+    border-radius: 9999px;
+}
+
+.rounded {
+    border-radius: calc(var(--ds-sys-radius-card, 16px) / 2);
+}
+
+.d-block {
+    display: block;
+}
