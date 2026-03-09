@@ -194,6 +194,12 @@
     }
 
 
+    .smart-input-container[data-entry-mode="both"] {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--ds-ref-space-base);
+    }
+
     .smart-input-container[data-entry-mode="manual"] .smart-manual-controls {
         margin-top: 0;
     }
