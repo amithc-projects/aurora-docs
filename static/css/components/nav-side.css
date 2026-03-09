@@ -26,6 +26,7 @@
     /* Target links and summary triggers uniformly */
     .nav-side a,
     .nav-side summary {
+        position: relative;
         display: flex;
         align-items: center;
         width: 100%;
@@ -33,22 +34,23 @@
         min-height: 2.75rem;
         color: var(--ds-sys-color-on-surface);
         text-decoration: none;
-        font-size: 0.95rem;
+        font-family: var(--font-body);
+        font-size: 1rem;
         transition: background-color 0.2s ease, color 0.2s ease;
         cursor: pointer;
         border-radius: var(--ds-sys-radius-btn);
         margin: 2px 0;
+        gap: var(--ds-ref-space-sm);
     }
 
     .nav-side a:hover,
     .nav-side summary:hover {
-        background-color: var(--ds-sys-color-surface-variant);
-        color: var(--ds-sys-color-primary);
+        background-color: var(--ds-sys-color-surface-container-highest, rgba(0, 0, 0, 0.05));
     }
 
     .nav-side a:active,
     .nav-side summary:active {
-        background-color: var(--ds-sys-color-primary-container);
+        background-color: color-mix(in srgb, var(--ds-sys-color-primary), transparent 90%);
         color: var(--ds-sys-color-primary);
     }
 
@@ -62,12 +64,22 @@
     /* Active Page Demarcation */
     .nav-side a.is-active,
     .nav-side .nav-side-item.is-active>summary {
-        background-color: var(--ds-sys-color-primary-container);
+        background-color: color-mix(in srgb, var(--ds-sys-color-primary), transparent 92%);
         color: var(--ds-sys-color-primary);
         font-weight: 600;
-        border-left: 3px solid var(--ds-sys-color-primary);
-        padding-left: calc(var(--ds-ref-space-base) - 3px);
-        /* Offset border width */
+    }
+
+    /* Perfectly straight active indicator overcoming the anchor's border-radius */
+    .nav-side a.is-active::before,
+    .nav-side .nav-side-item.is-active>summary::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 15%;
+        bottom: 15%;
+        width: 4px;
+        background-color: var(--ds-sys-color-primary);
+        border-radius: 0 4px 4px 0;
     }
 
     /* --- NATIVE ACCORDION (DETAILS) --- */
@@ -118,22 +130,26 @@
     /* --- NESTING HIERARCHY --- */
     /* Add structural indentation for deeply nested lists */
     .nav-side ul ul {
-        margin-left: var(--ds-ref-space-base);
+        margin-left: 1.5rem;
         border-left: 1px solid var(--ds-sys-color-border);
-        padding-left: calc(var(--ds-ref-space-sm) / 2);
+        padding-left: 0;
     }
 
-    /* Adjust font sizing slightly for nested tiers */
+    /* Adjust padding and font sizing slightly for nested tiers */
     .nav-side ul ul a,
     .nav-side ul ul summary {
         font-size: 0.9rem;
         min-height: 2.25rem;
         color: var(--ds-sys-color-on-surface-variant);
+        padding-left: 1.25rem;
+        border-radius: 0 var(--ds-sys-radius-btn) var(--ds-sys-radius-btn) 0;
+        margin: 1px 0;
     }
 
     .nav-side ul ul a:hover,
     .nav-side ul ul summary:hover {
-        color: var(--ds-sys-color-primary);
+        color: var(--ds-sys-color-on-surface);
+        background-color: var(--ds-sys-color-surface-container-highest, rgba(0, 0, 0, 0.05));
     }
 
 }
