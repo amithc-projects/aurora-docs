@@ -32,7 +32,7 @@
   /* Scrollable Menu Area */
   .nav-local__menu {
     display: flex;
-    gap: var(--ds-ref-space-sm);
+    gap: 0.5rem;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -42,6 +42,7 @@
     /* Firefox */
     -ms-overflow-style: none;
     /* IE */
+    align-items: center;
   }
 
   .nav-local__menu::-webkit-scrollbar {
@@ -53,19 +54,14 @@
     text-decoration: none;
     font-size: 0.95rem;
     font-weight: 500;
-    padding: 0 var(--ds-ref-space-sm);
-    height: 3.5rem;
-    /* Match container height securely */
+    padding: 0 1rem;
+    height: 2.5rem;
+    /* Rounded pill height */
     display: flex;
     align-items: center;
     white-space: nowrap;
-    border-bottom: 2px solid transparent;
-    /* Bottom borders indicate currently active local page */
-    transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
-    margin-bottom: -1px;
-    /* Overlap the global bottom border */
-    border-radius: var(--ds-sys-radius-btn) var(--ds-sys-radius-btn) 0 0;
-    /* Only curve tops */
+    border-radius: var(--ds-sys-radius-btn);
+    transition: color 0.2s ease, background-color 0.2s ease;
   }
 
   .nav-local__menu a:hover {
@@ -75,6 +71,7 @@
 
   .nav-local__menu a.is-active {
     color: var(--ds-sys-color-primary);
-    border-bottom-color: var(--ds-sys-color-primary);
+    background-color: color-mix(in srgb, var(--ds-sys-color-primary) 12%, transparent);
+    font-weight: 600;
   }
 }

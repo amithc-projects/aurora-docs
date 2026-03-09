@@ -37,7 +37,7 @@
   /* Links */
   .nav-global__menu {
     display: flex;
-    gap: var(--ds-ref-space-md);
+    gap: 0.5rem;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -47,19 +47,25 @@
     color: inherit;
     text-decoration: none;
     font-weight: 500;
-    opacity: 0.8;
-    transition: opacity 0.2s ease, color 0.2s ease;
+    opacity: 0.85;
+    transition: opacity 0.2s ease, color 0.2s ease, background-color 0.2s ease;
     white-space: nowrap;
     display: flex;
     align-items: center;
-    height: 100%;
+    height: 2.5rem;
+    padding: 0 1rem;
+    border-radius: var(--ds-sys-radius-btn);
   }
 
-  .nav-global a.nav-link:hover,
+  .nav-global a.nav-link:hover {
+    opacity: 1;
+    background-color: color-mix(in srgb, var(--ds-sys-color-on-surface-inverse) 12%, transparent);
+  }
+
   .nav-global a.nav-link.is-active {
     opacity: 1;
     color: var(--ds-sys-color-primary, white);
-    /* Inherit primary color if passed down, else pure light */
+    background-color: color-mix(in srgb, var(--ds-sys-color-primary) 15%, transparent);
   }
 
   /* Search Bar Styling */
