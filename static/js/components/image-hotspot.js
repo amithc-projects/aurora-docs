@@ -33,11 +33,31 @@ window.auroraHotspotInit = function () {
             popover.setAttribute('popover', 'auto');
         }
 
-        // 3. Fallback Polyfill logic:
-        // Currently, Firefox and Safari lag slightly behind Chromium on `position-anchor`.
-        // If we detect the browser doesn't natively support anchor positioning, 
-        // we could intercept the click and use getBoundingClientRect() here, 
-        // but for modern CSS environments, we let the browser handle it entirely!
+        // --- DRAWER MODE ENHANCEMENTS ---
+        // If this button controls a remote anchor (drawer mode), link its anchor
+        // instead of itself so the popover physically attaches to the picture coordinates.
+        const remoteTargetId = dot.getAttribute('data-anchor-target');
+        if (remoteTargetId) {
+            const remoteAnchor = document.getElementById(remoteTargetId);
+            if (remoteAnchor) {
+                if (!remoteAnchor.style.anchorName) {
+                    remoteAnchor.style.anchorName = anchorName;
+                }
+                popover.style.positionAnchor = remoteAnchor.style.anchorName;
+
+                // Listen for Popover Toggle to illuminate the remote anchor and highlight the button
+                // The popover spec fires 'toggle' events on the popover element itself.
+                popover.addEventListener('toggle', (event) => {
+                    if (event.newState === 'open') {
+                        remoteAnchor.classList.add('is-active');
+                        dot.classList.add('is-active');
+                    } else {
+                        remoteAnchor.classList.remove('is-active');
+                        dot.classList.remove('is-active');
+                    }
+                });
+            }
+        }
     });
 };
 
