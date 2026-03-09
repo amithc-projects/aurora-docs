@@ -52,11 +52,17 @@
   --ds-sem-corporate-hover: var(--color-primary-hover);
   --ds-sem-blog-main: var(--color-secondary-500);
 
-  /* --- SYSTEM LAYER --- */
+  /* SYSTEM LAYER */
   /* Using light-dark() with new OKLCH values works exactly the same */
   --ds-sys-color-bg-app: light-dark(oklch(96% 0.01 260), oklch(19% 0.04 265));
   --ds-sys-color-surface: light-dark(oklch(100% 0 0), oklch(25% 0.04 265));
   --ds-sys-color-on-surface: light-dark(oklch(32% 0.04 260), oklch(98% 0.01 260));
+
+  /* Surface Containers */
+  --ds-sys-color-surface-container-low: light-dark(oklch(98% 0.005 260), oklch(22% 0.04 265));
+  --ds-sys-color-surface-container: light-dark(oklch(96% 0.01 260), oklch(25% 0.04 265));
+  --ds-sys-color-surface-container-high: light-dark(oklch(94% 0.015 260), oklch(28% 0.04 265));
+  --ds-sys-color-surface-container-highest: light-dark(oklch(90% 0.02 260), oklch(34% 0.04 265));
 
   /* Inverse surface for high-contrast floating components like Toasts */
   --ds-sys-color-surface-inverse: light-dark(oklch(25% 0.04 265), oklch(98% 0.01 260));
