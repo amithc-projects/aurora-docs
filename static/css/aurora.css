@@ -44,6 +44,7 @@
 @import "components/qrcode.css";
 @import "components/qrscanner.css";
 @import "components/image-hotspot.css";
+@import "components/smart-date-range.css";
 
 /* 4. Choose the icon set */
 @import "icons/sets/material.css";

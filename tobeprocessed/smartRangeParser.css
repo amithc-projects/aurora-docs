@@ -1,0 +1,182 @@
+      /* Scoping styles to prevent clashing with host sites */
+@scope (.smart-range-wrapper) {
+    :scope {
+        display: block;
+        position: relative;
+    }
+
+    input.smart-date-range {
+        width: 100%;
+        padding: 12px 35px 12px 12px;
+        border: 2px solid #e2e8f0;
+        border-radius: 8px;
+        font-size: 14px;
+        transition: border-color 0.2s;
+    }
+
+    input.smart-date-range:focus {
+        border-color: #2563eb;
+        outline: none;
+    }
+
+    .smart-date-range-hint {
+        margin-top: 8px;
+        font-size: 11px;
+        padding: 10px;
+        border-radius: 6px;
+        background: #f8fafc;
+        border-left: 4px solid #cbd5e1;
+    }
+
+    .smart-date-range-hint.invalid {
+        background: #fef2f2;
+        color: #dc2626;
+        border-left-color: #ef4444;
+    }
+
+    .info-icon {
+        position: absolute;
+        right: 12px;
+        top: 12px;
+        cursor: pointer;
+        opacity: 0.5;
+    }
+
+    .info-icon:hover { opacity: 1; }
+        #helpModal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0; top: 0; width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+#helpModal .modal-content {
+    background-color: white;
+    margin: 10% auto;
+    padding: 20px;
+    width: 400px;
+    border-radius: 8px;
+    color: #333; /* Ensure text is visible if main theme is dark */
+}
+
+ input.smart-date-range,
+        .smart-daterange-abs  { flex: 1; padding: 15px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 1.1rem; transition: 0.2s; }
+        input.smart-date-range:focus { border-color: #2563eb; outline: none; }
+             .invalid { color: #ef4444 !important; background: #fef2f2; }
+        
+ 
+
+        .smart-date-range { padding-right: 30px; width: 100%; }
+        .info-icon {
+            position: absolute;
+            right: 10px;
+            top: 32px;
+            cursor: pointer;
+            opacity: 0.6;
+        }
+        .info-icon:hover { opacity: 1; }
+        .smart-date-range-hint {
+            margin-top: 8px;
+            font-size: 11px;
+            padding: 8px;
+            border-radius: 4px;
+            background: #f1f5f9;
+        }
+        .hint.invalid { background: #fef2f2; color: #dc2626; border: 1px solid #fee2e2; }
+
+}
+      
+      
+      /* Input & Live Hint 
+
+.input-wrapper {
+    position: relative;
+    display: inline-flex; 
+    align-items: center;
+}
+*/
+
+      /* Update these in SmartRangeParser.css or styles.css */
+.smart-input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+input.smart-date-range {
+    width: 100%;
+    padding: 10px 40px 10px 12px !important; /* Extra padding on right for button */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 13px;
+}
+
+.smart-refresh-btn {
+    position: absolute;
+    right: 8px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    transition: transform 0.2s;
+}
+
+.smart-refresh-btn:hover {
+    transform: rotate(180deg);
+    color: #2563eb;
+}
+
+.help-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    background: #6c757d;
+    color: white;
+    border-radius: 50%;
+    font-size: 11px;
+    cursor: pointer;
+    margin-left: 5px;
+    vertical-align: middle;
+}
+
+.help-icon:hover {
+    background: #007bff;
+}
+
+/* Native Modal Styling */
+.modern-modal {
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    padding: 20px;
+    width: 350px;
+}
+
+.modern-modal::backdrop {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #888;
+}
+
