@@ -62,10 +62,8 @@ The CSS `.nav-side` class automatically identifies `details > summary` triggers 
     <li class="nav-side-item">
       <details>
         <summary>
-          <div class="ds-flex ds-items-center">
-            <span class="material-symbols-outlined ds-mr-2">group</span>
+          <span class="material-symbols-outlined ds-mr-2">group</span>
             Audience
-          </div>
         </summary>
         <ul>
           <li><a href="#">Demographics</a></li>
@@ -78,10 +76,8 @@ The CSS `.nav-side` class automatically identifies `details > summary` triggers 
     <li class="nav-side-item">
       <details open>
         <summary>
-          <div class="ds-flex ds-items-center">
-            <span class="material-symbols-outlined ds-mr-2">shopping_cart</span>
+          <span class="material-symbols-outlined ds-mr-2">shopping_cart</span>
             E-Commerce
-          </div>
         </summary>
         <ul>
           <li><a href="#">Transactions</a></li>
@@ -106,10 +102,8 @@ Because the engine relies purely on CSS combinators, there is no limit to how de
     <li class="nav-side-item">
       <details open>
         <summary>
-          <div class="ds-flex ds-items-center">
-             <span class="material-symbols-outlined ds-mr-2">folder</span>
+          <span class="material-symbols-outlined ds-mr-2">folder</span>
              Corporate Drive
-          </div>
         </summary>
         <ul>
           <li>

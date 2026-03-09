@@ -121,7 +121,10 @@
         opacity: 0;
         white-space: nowrap;
         height: 0;
-        /* Squash it natively */
+        width: 0;
+        padding: 0;
+        margin: 0;
+        /* Squash it completely without breaking alignment */
         overflow: hidden;
         transition: opacity 0.2s ease;
     }
@@ -149,6 +152,7 @@
     .nav-rail.is-pinned .nav-rail-label {
         opacity: 1;
         height: auto;
+        width: auto;
         font-size: 0.95rem;
         /* Scale it up to match standard Side Navigation size! */
         font-weight: 500;

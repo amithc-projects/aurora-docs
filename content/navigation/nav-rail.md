@@ -127,11 +127,9 @@ During the compressed state, the expansion chevrons and nested links are complet
       <li>
         <details>
           <summary>
-             <div class="ds-flex ds-items-center">
-               <span class="material-symbols-outlined">group</span>
+             <span class="material-symbols-outlined">group</span>
                <span class="nav-rail-label">Audiences</span>
-             </div>
-          </summary>
+        </summary>
           <ul>
             <li><a href="#">Demographics</a></li>
             <li><a href="#">Geographies</a></li>
@@ -142,11 +140,9 @@ During the compressed state, the expansion chevrons and nested links are complet
       <li>
         <details>
           <summary>
-             <div class="ds-flex ds-items-center">
-               <span class="material-symbols-outlined">shopping_cart</span>
+             <span class="material-symbols-outlined">shopping_cart</span>
                <span class="nav-rail-label">Commerce</span>
-             </div>
-          </summary>
+        </summary>
           <ul>
             <li><a href="#" class="is-active">Transactions</a></li>
             <li><a href="#">Disputes</a></li>
