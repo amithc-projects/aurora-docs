@@ -167,6 +167,71 @@ Instead of routing `startAbs`, you can explicitly point the Smart Date Range to 
             </div>
         </div>
     </div>
+---
+
+## 5. Manual Explicit Mode
+
+If you don't want the user to have natural-language access, simply pass `data-entry-mode="manual"` on the wrapping `.smart-input-container`. 
+
+The Javascript will completely hide the smart string box and build literal HTML5 `<input type="date">` boxes, meaning you get a unified parsing backend for your developers without compromising the UI requirement for the end-user.
+
+{{< demo >}}
+<div class="l-stack gap-2">
+    <!-- Note the data-entry-mode explicit flag here! -->
+    <div class="smart-input-container" data-entry-mode="manual">
+        <input type="text" 
+               class="smart-date-range" 
+               data-hint-id="dt-hint-5"
+               data-start-abs="demo5-start"
+               data-end-abs="demo5-end">
+    </div>
+    
+    <div id="dt-hint-5" class="smart-date-range-hint"></div>
+    
+    <div style="display:none;">
+        <input type="text" id="demo5-start">
+        <input type="text" id="demo5-end">
+    </div>
+</div>
+{{< /demo >}}
+
+---
+
+## 6. Hybrid Mode (Bi-Directional Sync)
+
+For power-users, you can supply `data-entry-mode="both"`. 
+
+In this configuration, Aurora generates both interfaces. The magic occurs under the hood:
+1. Try typing "**yesterday**" into the natural language box below. The calendar inputs immediately recalculate and reflect the exact dates.
+2. Now, **click the tiny calendar icon** on the Start date and pick something explicitly like June 12th. The native calendar input instantly fires an override recalculation back into the parser, feeding the ultimate form variables identically!
+
+{{< demo >}}
+<div class="l-stack gap-2">
+    <!-- Notice data-entry-mode="both" -->
+    <div class="smart-input-container" data-entry-mode="both">
+        <input type="text" 
+               class="smart-date-range" 
+               placeholder="e.g., 'yesterday' or manually click the calendars!"
+               data-hint-id="dt-hint-6"
+               data-start-abs="demo6-start"
+               data-end-abs="demo6-end">
+    </div>
+    
+    <div id="dt-hint-6" class="smart-date-range-hint"></div>
+    
+    <div class="mt-4" style="padding: 1rem; border: 1px dashed var(--ds-sys-color-primary);">
+        <strong>Final Synchronized Output:</strong>
+        <div class="l-cluster gap-4 mt-2">
+            <div>
+                <label>Active Start Bound</label>
+                <input class="ds-input" type="text" id="demo6-start" readonly>
+            </div>
+            <div>
+                <label>Active End Bound</label>
+                <input class="ds-input" type="text" id="demo6-end" readonly>
+            </div>
+        </div>
+    </div>
 </div>
 {{< /demo >}}
 

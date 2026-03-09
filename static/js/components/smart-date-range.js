@@ -397,6 +397,28 @@ window.initSmartRanges = function () {
     const inputs = document.querySelectorAll('.smart-date-range');
 
     inputs.forEach(input => {
+        const wrapper = input.closest('.smart-input-container');
+        if (!wrapper) return;
+
+        const mode = wrapper.getAttribute('data-entry-mode') || 'smart';
+
+        // 1. Generate Manual Controls if requested
+        let manualControls = null;
+        if (mode === 'manual' || mode === 'both') {
+            manualControls = generateManualControls(wrapper, input.dataset);
+            wrapper.appendChild(manualControls);
+
+            // If strictly manual, hide the smart text parser entirely
+            if (mode === 'manual') {
+                input.style.display = 'none';
+                const hint = document.getElementById(input.dataset.hintId);
+                if (hint) hint.style.display = 'none';
+                const helpBtn = wrapper.querySelector('.info-icon');
+                if (helpBtn) helpBtn.style.display = 'none';
+            }
+        }
+
+        // 2. The core natural language listener (Flows Smart -> Native/Hidden)
         input.addEventListener('input', (e) => {
             const val = e.target.value;
             const hintBox = document.getElementById(input.dataset.hintId);
@@ -406,32 +428,118 @@ window.initSmartRanges = function () {
 
             // Check for valid parse first
             if (res && res.start && !isNaN(res.start.getTime())) {
-                const startRule = input.dataset.startRule; // "past" or "future"
+                const startRule = input.dataset.startRule;
                 const endRule = input.dataset.endRule;
 
                 const isStartValid = smartParser.validateRule(res.start, startRule);
                 const isEndValid = smartParser.validateRule(res.end, endRule);
 
                 if (isStartValid && isEndValid) {
-                    // Update the fields only if rules are met
                     const duration = res.end - res.start;
 
+                    // Route to hidden backend submissions
                     updateLinkedFields(input.dataset, res);
-                    hintBox.classList.remove('invalid');
-                    hintBox.innerHTML = `✅ <strong>Range:</strong> ${res.start.toLocaleString()} — ${res.end.toLocaleString()} : ( Duration: ${formatDuration(duration)})`;
+
+                    // If in hybrid mode, explicitly push these new calculated dates into the visual calendar widgets
+                    if (mode === 'both' && manualControls) {
+                        syncManualControls(manualControls, res);
+                    }
+
+                    if (hintBox) {
+                        hintBox.classList.remove('invalid');
+                        hintBox.innerHTML = `✅ <strong>Range:</strong> ${res.start.toLocaleString()} — ${res.end.toLocaleString()} : ( Duration: ${formatDuration(duration)})`;
+                    }
                 } else {
-                    // Provide specific error feedback
-                    hintBox.classList.add('invalid');
-                    const errorMsg = !isStartValid ? `Start date must be in the ${startRule}` : `End date must be in the ${endRule}`;
-                    hintBox.innerHTML = `⚠️ <strong>Validation Error:</strong> ${errorMsg}`;
+                    if (hintBox) {
+                        hintBox.classList.add('invalid');
+                        const errorMsg = !isStartValid ? `Start date must be in the ${startRule}` : `End date must be in the ${endRule}`;
+                        hintBox.innerHTML = `⚠️ <strong>Validation Error:</strong> ${errorMsg}`;
+                    }
                 }
             } else {
-                hintBox.classList.add('invalid');
-                hintBox.innerHTML = `❌ Unrecognized range string.`;
+                if (hintBox) {
+                    hintBox.classList.add('invalid');
+                    hintBox.innerHTML = `❌ Unrecognized range string.`;
+                }
             }
         });
     });
 };
+
+/**
+ * Dynamically builds the physical HTML5 calendar pickers, avoiding DOM bloat for the developer
+ */
+function generateManualControls(wrapper, datasets) {
+    const container = document.createElement('div');
+    container.className = 'smart-manual-controls';
+
+    // Start Block
+    const startWrap = document.createElement('div');
+    startWrap.className = 'smart-control-group';
+    const sDate = document.createElement('input'); sDate.type = 'date'; sDate.className = 'smart-manual-date';
+    const sTime = document.createElement('input'); sTime.type = 'time'; sTime.className = 'smart-manual-time';
+    startWrap.innerHTML = `<label>Start</label>`;
+    startWrap.appendChild(sDate);
+    startWrap.appendChild(sTime);
+
+    // End Block
+    const endWrap = document.createElement('div');
+    endWrap.className = 'smart-control-group';
+    const eDate = document.createElement('input'); eDate.type = 'date'; eDate.className = 'smart-manual-date';
+    const eTime = document.createElement('input'); eTime.type = 'time'; eTime.className = 'smart-manual-time';
+    endWrap.innerHTML = `<label>End</label>`;
+    endWrap.appendChild(eDate);
+    endWrap.appendChild(eTime);
+
+    container.appendChild(startWrap);
+    container.appendChild(endWrap);
+
+    // Bind listeners to sync Backwards (Manual -> Smart/Hidden)
+    const updateFromManual = () => {
+        if (!sDate.value || !eDate.value) return;
+
+        // Assemble native Date objects
+        const start = new Date(`${sDate.value}T${sTime.value || '00:00'}:00`);
+        const end = new Date(`${eDate.value}T${eTime.value || '23:59'}:59`);
+
+        // Push to hidden inputs
+        updateLinkedFields(datasets, { start, end });
+
+        // If in Hybrid Mode, empty out the natural language text since they manually overode it
+        // Or inject a synthesized string. Here we'll just clear it for clarity.
+        const smartInput = wrapper.querySelector('.smart-date-range');
+        if (smartInput && smartInput.style.display !== 'none') {
+            smartInput.value = 'Custom Manual Selection';
+            smartInput.dataset.overridden = 'true';
+
+            const hintBox = document.getElementById(datasets.hintId);
+            if (hintBox) {
+                hintBox.classList.remove('invalid');
+                hintBox.innerHTML = `⚙️ <strong>Manual Override:</strong> Calendar values are driving the query.`;
+            }
+        }
+    };
+
+    [sDate, sTime, eDate, eTime].forEach(el => el.addEventListener('change', updateFromManual));
+
+    return container;
+}
+
+/**
+ * Pushes Date calculations INTO the calendar widgets
+ */
+function syncManualControls(container, res) {
+    const sDate = container.querySelectorAll('.smart-manual-date')[0];
+    const sTime = container.querySelectorAll('.smart-manual-time')[0];
+    const eDate = container.querySelectorAll('.smart-manual-date')[1];
+    const eTime = container.querySelectorAll('.smart-manual-time')[1];
+
+    sDate.value = res.start.toISOString().split('T')[0];
+    sTime.value = res.start.toTimeString().slice(0, 5); // HH:MM
+
+    eDate.value = res.end.toISOString().split('T')[0];
+    eTime.value = res.end.toTimeString().slice(0, 5);
+}
 
 function updateLinkedFields(datasets, res) {
 

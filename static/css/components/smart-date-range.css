@@ -190,4 +190,72 @@
             transform: translateY(0);
         }
     }
+
+    /* =========================================
+       MANUAL / HYBRID CALENDAR CONTROLS
+       ========================================= */
+}
+
+.smart-input-container[data-entry-mode="manual"] .smart-manual-controls {
+    margin-top: 0;
+}
+
+.smart-manual-controls {
+    display: flex;
+    flex-direction: row;
+    gap: var(--ds-ref-space-base);
+    width: 100%;
+    max-width: 600px;
+}
+
+.smart-control-group {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: calc(var(--ds-ref-space-base) / 2);
+    padding: calc(var(--ds-ref-space-base) / 1.5);
+    border: var(--ds-sys-border-width) solid var(--ds-sys-color-border);
+    border-radius: var(--ds-sys-radius-input);
+    background: var(--ds-sys-color-surface-variant);
+}
+
+.smart-control-group label {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--ds-sys-color-on-surface-variant);
+    white-space: nowrap;
+    margin-right: calc(var(--ds-ref-space-base) / 2);
+}
+
+.smart-manual-date,
+.smart-manual-time {
+    border: none;
+    background: transparent;
+    color: var(--ds-sys-color-on-surface);
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    padding: 4px;
+    min-width: 0;
+    /* Prevent flex overflow */
+}
+
+.smart-manual-date:focus,
+.smart-manual-time:focus {
+    outline: none;
+    color: var(--ds-sys-color-primary);
+}
+
+.smart-manual-time {
+    border-left: 1px solid var(--ds-sys-color-border);
+    padding-left: calc(var(--ds-ref-space-base) / 2);
+}
+
+/* Stack on very small screens */
+@media (max-width: 480px) {
+    .smart-manual-controls {
+        flex-direction: column;
+    }
 }
