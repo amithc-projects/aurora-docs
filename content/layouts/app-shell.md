@@ -30,12 +30,37 @@ Resize your browser to see the layout natively collapse: the Desktop Sidebar wil
     </header>
 
     <!-- SIDEBAR -->
-    <nav class="app-sidebar" style="background: var(--ds-sys-color-surface-container-low); border-right: 1px solid var(--ds-sys-color-border); padding: 1rem;">
-      <h4 style="margin-top:0;">Navigation</h4>
-      <ul style="list-style: none; padding: 0;">
-        <li style="padding: 0.5rem 0;">Dashboard</li>
-        <li style="padding: 0.5rem 0;">Analytics</li>
-        <li style="padding: 0.5rem 0;">Settings</li>
+    <nav class="app-sidebar nav-side" style="background: var(--ds-sys-color-surface-container-low); border-right: 1px solid var(--ds-sys-color-border);">
+      <div style="padding: 1rem; border-bottom: 1px solid var(--ds-sys-color-border);">
+        <h3 style="margin: 0;">Aurora App</h3>
+      </div>
+      <ul style="padding: 1rem 0;">
+        <li>
+          <a href="#" class="is-active">
+            <span class="material-symbols-outlined">dashboard</span>
+            Dashboard
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <span class="material-symbols-outlined">analytics</span>
+            Analytics
+          </a>
+        </li>
+        <li>
+          <details>
+            <summary>
+              <div class="ds-flex ds-items-center">
+                <span class="material-symbols-outlined">settings</span>
+                <span style="margin-left: 0.5rem;">Settings</span>
+              </div>
+            </summary>
+            <ul>
+              <li><a href="#">Profile</a></li>
+              <li><a href="#">Billing</a></li>
+            </ul>
+          </details>
+        </li>
       </ul>
     </nav>
 
@@ -62,12 +87,38 @@ In a classic documentation portal configuration, the Top Header spans the *entir
   
   <div class="l-app-shell l-app-shell--docs" style="height: 100%; border: 1px solid var(--ds-sys-color-border); border-radius: var(--ds-sys-radius-card);">
     
-    <header class="app-header" style="background: var(--ds-sys-color-surface-inverse); color: var(--ds-sys-color-on-surface-inverse); display: flex; align-items: center; padding: 0 1rem;">
-      <h3 style="margin: 0;">Full Width Top Nav</h3>
+    <header class="app-header nav-global" style="background: var(--ds-sys-color-surface-inverse); color: var(--ds-sys-color-on-surface-inverse); padding: 0 1rem;">
+      <div class="nav-global__brand">
+        <span class="material-symbols-outlined" style="font-size: 24px;">menu_book</span>
+        <span style="font-weight: bold; margin-left: 0.5rem; letter-spacing: 0.5px;">AURORA DOCS</span>
+      </div>
+      <div class="nav-global__search ds-mx-auto" style="min-width: 300px;">
+        <span class="material-symbols-outlined">search</span>
+        <input type="text" placeholder="Search documentation... (Cmd+K)" />
+      </div>
+      <ul class="nav-global__menu">
+        <li><a href="#" class="nav-link">Components</a></li>
+        <li><a href="#" class="nav-link">Layouts</a></li>
+        <li><a href="#" class="nav-link">GitHub</a></li>
+      </ul>
     </header>
 
-    <nav class="app-sidebar" style="background: var(--ds-sys-color-surface); border-right: 1px solid var(--ds-sys-color-border); padding: 1rem;">
-      <p>I start below the header!</p>
+    <nav class="app-sidebar nav-side" style="background: var(--ds-sys-color-surface); border-right: 1px solid var(--ds-sys-color-border);">
+      <ul style="padding: 1rem 0;">
+        <li>
+          <details open>
+            <summary>
+              <div class="ds-flex ds-items-center">
+                <span>Getting Started</span>
+              </div>
+            </summary>
+            <ul>
+              <li><a href="#">Installation</a></li>
+              <li><a href="#">Theming</a></li>
+            </ul>
+          </details>
+        </li>
+      </ul>
     </nav>
 
     <main class="app-main" style="padding: 2rem; background: var(--ds-sys-color-surface-container-low);">
@@ -81,19 +132,44 @@ In a classic documentation portal configuration, the Top Header spans the *entir
 
 ## 3. Complex 3-Column Layout
 
-Adding a right-hand sidebar (an `aside`) is trivial. By switching to the `.l-app-shell--complex` variant, the CSS Grid introduces a third column tracked to the `.app-aside` identity tag.
+Adding a right-hand sidebar (an `aside`) is trivial. By switching to the `.l-app-shell--rail` variant, the CSS Grid introduces a third column tracked to the `.app-aside` identity tag.
 
 {{< demo >}}
 <div style="height: 500px; transform: scale(1);">
   
-  <div class="l-app-shell l-app-shell--complex" style="height: 100%; border: 1px solid var(--ds-sys-color-border); border-radius: var(--ds-sys-radius-card);">
+  <div class="l-app-shell l-app-shell--rail" style="height: 100%; border: 1px solid var(--ds-sys-color-border); border-radius: var(--ds-sys-radius-card);">
     
     <header class="app-header" style="background: var(--ds-sys-color-surface); border-bottom: 1px solid var(--ds-sys-color-border); padding: 0 1rem; display: flex; align-items: center;">
       Editor Header
     </header>
 
-    <nav class="app-sidebar" style="background: var(--ds-sys-color-surface-container-highest); border-right: 1px solid var(--ds-sys-color-border); padding: 1rem;">
-      Left Tools
+    <nav class="app-sidebar nav-rail" style="background: var(--ds-sys-color-surface-container-highest); border-right: 1px solid var(--ds-sys-color-border);">
+      <ul>
+        <li>
+          <a href="#" class="is-active">
+             <div class="nav-rail-inner">
+               <span class="material-symbols-outlined">edit</span>
+               <span class="nav-rail-label">Draw</span>
+             </div>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+             <div class="nav-rail-inner">
+               <span class="material-symbols-outlined">text_fields</span>
+               <span class="nav-rail-label">Text</span>
+             </div>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+             <div class="nav-rail-inner">
+               <span class="material-symbols-outlined">image</span>
+               <span class="nav-rail-label">Media</span>
+             </div>
+          </a>
+        </li>
+      </ul>
     </nav>
 
     <main class="app-main" style="padding: 2rem;">
