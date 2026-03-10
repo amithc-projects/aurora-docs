@@ -73,6 +73,12 @@
     import { initCommandPalette } from "/aurora-docs/js/components/command-palette.js";
     initCommandPalette();
 
+    import { initSteppers } from "/aurora-docs/js/components/stepper.js";
+    initSteppers();
+
+    import { initDataGrids } from "/aurora-docs/js/components/table-datagrid.js";
+    initDataGrids();
+
     import { initPopovers } from "/aurora-docs/js/components/popover.js";
     initPopovers();
 
@@ -94,16 +100,36 @@
     import { initVideoPlayers } from '/aurora-docs/js/components/video-player.js';
     initVideoPlayers();
 
+    import { initAudioPlayers } from '/aurora-docs/js/components/audio-player.js';
+    initAudioPlayers();
+
+    import { initCodeBlocks } from '/aurora-docs/js/components/code-block.js';
+    initCodeBlocks();
+
+    import { initAlertBanners } from '/aurora-docs/js/components/alert-banner.js';
+    initAlertBanners();
+
     import "/aurora-docs/js/components/toast.js";
     import "/aurora-docs/js/components/qrcode.js";
     import "/aurora-docs/js/components/qrscanner.js";
     import "/aurora-docs/js/components/image-hotspot.js";
     import "/aurora-docs/js/components/smart-date-range.js";
+
+    import { initScrollspy } from '/aurora-docs/js/components/scrollspy.js';
+    initScrollspy();
   </script>
   <script type="module">import { initWizards } from '{{ relURL "js/patterns/wizard.js" }}'; initWizards();</script>
   <script type="module">import { initGallery } from '{{ relURL "js/components/gallery.js" }}'; initGallery();</script>
   <script
     type="module">import { initTableSort } from '{{ relURL "css/components/content/table/table-sort.js" }}'; initTableSort();</script>
+
+  <!-- Non-module Global Scripts -->
+  <script src="/aurora-docs/js/components/editor.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.initEditors) window.initEditors();
+    });
+  </script>
 </body>
 
 </html>

@@ -95,29 +95,30 @@ By defining the page trees and component requirements for each archetype, we can
 *Derived from the requirements above. Items already built (like Navigation, Toasts) are omitted.*
 
 ### Layouts & Composition
-- [ ] Masonry / Complex Grid Engine (News)
-- [ ] Splittable Layout Panes / Resizable Columns (Dashboard)
-- [ ] "On this page" Table of Contents Scrollspy (Docs)
+- [x] Masonry / Complex Grid Engine (News)
+- [x] Splittable Layout Panes / Resizable Columns (Dashboard)
+- [x] "On this page" Table of Contents Scrollspy (Docs)
 
 ### Complex UI
-- [ ] Image Gallery with Lightbox/Zoom (E-commerce)
-- [ ] Infinite Horizontal Carousel (Streaming)
-- [ ] Video/Audio Player Custom UI Wrapper (Streaming)
-- [ ] Command Palette / Omni-Search Overlay (Docs/Dashboard)
-- [ ] Interactive Step Progress Indicator (Government)
+- [x] Image Gallery with Lightbox/Zoom (E-commerce)
+- [x] Infinite Horizontal Carousel (Streaming)
+- [x] Video/Audio Player Custom UI Wrapper (Streaming)
+- [x] Command Palette / Omni-Search Overlay (Docs/Dashboard)
+- [x] Interactive Step Progress Indicator (Government)
 
 ### Data Display
-- [ ] Data Grids / Complex Tables (Sorting, Filtering, Pagination) (SaaS, Dashboard)
-- [ ] Metric / Stat Cards (SaaS, Dashboard)
-- [ ] Pricing Cards (SaaS)
-- [ ] Star Rating Component (E-commerce)
+- [x] Data Grids / Complex Tables (Sorting, Filtering, Pagination) (SaaS, Dashboard)
+- [x] Rich Text Editor (CMS, Dashboard)
+- [x] Metric / Stat Cards (SaaS, Dashboard)
+- [x] Pricing Cards (SaaS)
+- [x] Star Rating Component (E-commerce)
 
 ### Advanced Form Inputs
-- [ ] Range Multi-Slider (E-commerce Filters)
-- [ ] Advanced Date Picker / Calendar (Government)
+- [x] Range Multi-Slider (E-commerce Filters)
+- [x] Advanced Date Picker / Calendar (Government)
 - [ ] Quantity Stepper (E-commerce)
 - [ ] File Upload with Drag & Drop Zone (Government)
 
 ### Typography & Informational
-- [ ] Code Syntax Highlighter / Block (Docs)
-- [ ] Breaking News / Sticky Alert Banner (News)
+- [x] Code Syntax Highlighter / Block (Docs)
+- [x] Breaking News / Sticky Alert Banner (News)

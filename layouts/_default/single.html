@@ -1,3 +1,15 @@
 {{ define "main" }}
-  {{ .Content }}
+<div class="docs-page-layout">
+  <div class="docs-page-content">
+    {{ .Content }}
+  </div>
+  {{ if and (gt (len .TableOfContents) 32) (not .Params.hide_toc) }}
+  <aside class="docs-page-toc">
+    <div class="toc-wrapper">
+      <h4 class="toc-title">On this page</h4>
+      {{ .TableOfContents }}
+    </div>
+  </aside>
+  {{ end }}
+</div>
 {{ end }}

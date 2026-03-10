@@ -36,7 +36,7 @@ Visual styles for standard HTML tables.
 ## League Table
 {{< demo >}} 
   <div class="table-container" style="max-height: 500px; overflow-y: auto;">
-        <table class="table table--sticky table--fixed-col table--fixed-row table--matrix table-sortable">
+        <table class="table table--sticky table--fixed-col table--fixed-row table--matrix table-datagrid" data-page-size="7">
           <thead>
             <tr>
               <th data-sort="string" aria-sort="none">Team</th>

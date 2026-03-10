@@ -162,8 +162,8 @@ Interactive examples.
   </div>
 
   <div class="field">
-    <label class="field__label">Rating</label>
-    <div class="star-group">
+    <label class="field__label">Rating (Interactive)</label>
+    <div class="rating-input" title="Tap a star to rate">
       <input type="radio" name="star" id="s5"><label for="s5">★</label>
       <input type="radio" name="star" id="s4"><label for="s4">★</label>
       <input type="radio" name="star" id="s3"><label for="s3">★</label>

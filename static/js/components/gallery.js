@@ -13,10 +13,18 @@ export function initGallery() {
   const state = {
     isOpen: false,
     currentIndex: 0,
-    items: [], 
+    items: [],
     isPlaying: false,
     interval: null,
-    activeGalleryLoop: false
+    activeGalleryLoop: false,
+
+    // Zoom & Pan State
+    zoomLevel: 1,
+    panX: 0,
+    panY: 0,
+    isDragging: false,
+    startX: 0,
+    startY: 0
   };
 
   const els = {
@@ -25,7 +33,7 @@ export function initGallery() {
     counter: modal.querySelector('.js-counter'),
     metaPanel: modal.querySelector('.gallery-modal__meta'),
     // FIXED: Selector updated from .js-play-icon to .js-play to match HTML
-    btnPlay: modal.querySelector('.js-play'), 
+    btnPlay: modal.querySelector('.js-play'),
     loader: modal.querySelector('.gallery-loader')
   };
 
@@ -66,21 +74,43 @@ export function initGallery() {
     state.currentIndex = index;
     state.isOpen = true;
     state.activeGalleryLoop = true;
-    
-    modal.classList.add('is-open');
-    renderThumbnails(); 
+
+    modal.showModal(); // Native API
+    renderThumbnails();
     loadItem(index);
-    
-    document.body.style.overflow = 'hidden'; 
-    modal.setAttribute('aria-hidden', 'false');
+
+    // Zoom specific resets
+    resetZoom();
+  }
+
+  function resetZoom() {
+    state.zoomLevel = 1;
+    state.panX = 0;
+    state.panY = 0;
+    state.isDragging = false;
+    applyZoom();
+  }
+
+  function applyZoom() {
+    const media = els.container.querySelector('.gallery-modal__media');
+    if (!media || state.items[state.currentIndex].type !== 'image') return;
+
+    // Boundary checks for panning
+    if (state.zoomLevel <= 1) {
+      state.panX = 0;
+      state.panY = 0;
+      media.style.cursor = 'zoom-in';
+    } else {
+      media.style.cursor = state.isDragging ? 'grabbing' : 'grab';
+    }
+
+    media.style.transform = `translate(${state.panX}px, ${state.panY}px) scale(${state.zoomLevel})`;
   }
 
   function closeLightbox() {
     state.isOpen = false;
     stopSlideshow();
-    modal.classList.remove('is-open');
-    document.body.style.overflow = '';
-    modal.setAttribute('aria-hidden', 'true');
+    modal.close(); // Native API
     els.container.innerHTML = '';
   }
 
@@ -98,7 +128,7 @@ export function initGallery() {
     // Highlight Thumb
     const thumbs = els.thumbs.querySelectorAll('.gallery-modal__thumb');
     thumbs.forEach((t, i) => t.classList.toggle('is-active', i === index));
-    if(thumbs[index]) thumbs[index].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    if (thumbs[index]) thumbs[index].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
 
     // Render Media
     if (item.type === 'image') {
@@ -138,7 +168,7 @@ export function initGallery() {
       } else if (item.src.includes('youtu.be/')) {
         embedSrc = item.src.replace('youtu.be/', 'www.youtube.com/embed/');
       }
-      
+
       const iframe = document.createElement('iframe');
       iframe.className = 'gallery-modal__media';
       iframe.src = embedSrc + '?autoplay=1';
@@ -156,8 +186,9 @@ export function initGallery() {
     let newIndex = state.currentIndex + 1;
     if (newIndex >= state.items.length) {
       if (state.activeGalleryLoop) newIndex = 0;
-      else return; 
+      else return;
     }
+    resetZoom();
     loadItem(newIndex);
   }
 
@@ -167,6 +198,7 @@ export function initGallery() {
       if (state.activeGalleryLoop) newIndex = state.items.length - 1;
       else return;
     }
+    resetZoom();
     loadItem(newIndex);
   }
 
@@ -190,7 +222,7 @@ export function initGallery() {
 
   function renderThumbnails() {
     els.thumbs.innerHTML = state.items.map((item, i) => `
-      <img src="${item.thumb}" class="gallery-modal__thumb" data-index="${i}" alt="Thumbnail ${i+1}" loading="lazy">
+      <img src="${item.thumb}" class="gallery-modal__thumb" data-index="${i}" alt="Thumbnail ${i + 1}" loading="lazy">
     `).join('');
   }
 
@@ -200,7 +232,7 @@ export function initGallery() {
     const list = els.metaPanel.querySelector('dl');
 
     title.textContent = item.caption || '';
-    desc.textContent = ''; 
+    desc.textContent = '';
     list.innerHTML = '';
     if (item.meta) {
       Object.entries(item.meta).forEach(([key, val]) => {
@@ -223,25 +255,80 @@ export function initGallery() {
   if (els.btnPlay) els.btnPlay.addEventListener('click', toggleSlideshow);
   modal.querySelector('.js-info').addEventListener('click', () => els.metaPanel.classList.toggle('is-visible'));
 
+  // Dialog Backdrop Click Handler
+  modal.addEventListener('click', (e) => {
+    // If clicking exactly the dialog element (not its children), it means clicking the backdrop
+    if (e.target === modal) {
+      closeLightbox();
+    }
+  });
+
   document.addEventListener('keydown', (e) => {
     if (!state.isOpen) return;
-    switch(e.key) {
-      case 'Escape': closeLightbox(); break;
+    switch (e.key) {
       case 'ArrowRight': stopSlideshow(); nextSlide(); break;
       case 'ArrowLeft': stopSlideshow(); prevSlide(); break;
       case ' ': e.preventDefault(); toggleSlideshow(); break;
     }
   });
 
-  // Touch Swipe
+  // Zoom & Pan Event Listeners
+  els.container.addEventListener('wheel', (e) => {
+    if (state.items[state.currentIndex].type !== 'image') return;
+    e.preventDefault();
+
+    const zoomStep = 0.1;
+    const maxZoom = 4;
+
+    if (e.deltaY < 0) {
+      state.zoomLevel = Math.min(maxZoom, state.zoomLevel + zoomStep);
+    } else {
+      state.zoomLevel = Math.max(1, state.zoomLevel - zoomStep);
+    }
+    applyZoom();
+  });
+
+  els.container.addEventListener('dblclick', (e) => {
+    if (state.items[state.currentIndex].type !== 'image') return;
+    state.zoomLevel = state.zoomLevel > 1 ? 1 : 2;
+    applyZoom();
+  });
+
+  els.container.addEventListener('mousedown', (e) => {
+    if (state.items[state.currentIndex].type !== 'image' || state.zoomLevel <= 1) return;
+    state.isDragging = true;
+    state.startX = e.clientX - state.panX;
+    state.startY = e.clientY - state.panY;
+    applyZoom();
+  });
+
+  window.addEventListener('mousemove', (e) => {
+    if (!state.isDragging) return;
+    state.panX = e.clientX - state.startX;
+    state.panY = e.clientY - state.startY;
+    applyZoom();
+  });
+
+  window.addEventListener('mouseup', () => {
+    if (state.isDragging) {
+      state.isDragging = false;
+      applyZoom();
+    }
+  });
+
+  // Touch Swipe & Zoom Constraints (Basic swipe retained, native pinch-to-zoom is preferred on mobile but we can prevent default swipe if zoomed)
   let touchStartX = 0;
   const stage = modal.querySelector('.gallery-modal__stage');
-  stage.addEventListener('touchstart', e => touchStartX = e.changedTouches[0].screenX, {passive: true});
+  stage.addEventListener('touchstart', e => {
+    if (state.zoomLevel === 1) touchStartX = e.changedTouches[0].screenX;
+  }, { passive: true });
+
   stage.addEventListener('touchend', e => {
+    if (state.zoomLevel > 1) return; // Disable swipe-to-next if zoomed in
     const touchEndX = e.changedTouches[0].screenX;
     if (touchStartX - touchEndX > 50) nextSlide();
     if (touchEndX - touchStartX > 50) prevSlide();
-  }, {passive: true});
+  }, { passive: true });
 }
 
 // ICONS
@@ -255,11 +342,9 @@ const ICONS = {
 };
 
 function createModalDOM() {
-  const div = document.createElement('div');
-  div.className = 'gallery-modal';
-  div.setAttribute('aria-modal', 'true');
-  div.setAttribute('role', 'dialog');
-  div.innerHTML = `
+  const dialog = document.createElement('dialog');
+  dialog.className = 'gallery-modal';
+  dialog.innerHTML = `
     <header class="gallery-modal__header">
       <div class="js-counter"></div>
       <div style="display:flex; gap:0.5rem">
@@ -281,5 +366,5 @@ function createModalDOM() {
     </div>
     <footer class="gallery-modal__footer"><div class="gallery-modal__thumbs"></div></footer>
   `;
-  return div;
+  return dialog;
 }

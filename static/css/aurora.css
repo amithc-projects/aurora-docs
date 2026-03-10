@@ -20,6 +20,7 @@
 @import "layouts/app-shell.css";
 @import "layouts/subgrid.css";
 @import "layouts/page-grid.css";
+@import "layouts/layout-switcher.css";
 @import "layouts/templates.css";
 @import "components/charts.css";
 @import "patterns/filter.css";
@@ -48,8 +49,13 @@
 @import "components/divider.css";
 @import "components/qrcode.css";
 @import "components/qrscanner.css";
+@import "components/rating.css";
+@import "components/editor.css";
+@import "components/code-block.css";
+@import "components/alert-banner.css";
 @import "components/image-hotspot.css";
 @import "components/smart-date-range.css";
+@import "components/scrollspy.css";
 
 /* 4. Choose the icon set */
 @import "icons/sets/material.css";
