@@ -132,7 +132,45 @@ In a classic documentation portal configuration, the Top Header spans the *entir
 
 ## 3. Complex 3-Column Layout
 
-Adding a right-hand sidebar (an `aside`) is trivial. By switching to the `.l-app-shell--rail` variant, the CSS Grid introduces a third column tracked to the `.app-aside` identity tag.
+Adding a right-hand sidebar (an `aside`) is trivial. By switching to the `.l-app-shell--complex` variant, the CSS Grid introduces a third column tracked to the `.app-aside` identity tag.
+
+{{< demo >}}
+<div style="height: 500px; transform: scale(1);">
+  
+  <div class="l-app-shell l-app-shell--complex" style="height: 100%; border: 1px solid var(--ds-sys-color-border); border-radius: var(--ds-sys-radius-card);">
+    
+    <header class="app-header" style="background: var(--ds-sys-color-surface); border-bottom: 1px solid var(--ds-sys-color-border); padding: 0 1rem; display: flex; align-items: center;">
+      Editor Header
+    </header>
+
+    <nav class="app-sidebar nav-side" style="background: var(--ds-sys-color-surface-container-highest); border-right: 1px solid var(--ds-sys-color-border); padding: 1rem;">
+      <ul style="padding: 0; margin: 0; list-style: none;">
+        <li><a href="#" style="font-weight: 500;">Tools</a></li>
+        <li><a href="#" style="font-weight: 500;">Layers</a></li>
+        <li><a href="#" style="font-weight: 500;">Assets</a></li>
+      </ul>
+    </nav>
+
+    <main class="app-main" style="padding: 2rem;">
+      <div style="width: 100%; height: 100%; border: 2px dashed var(--ds-sys-color-border); border-radius: var(--ds-sys-radius-card); display: flex; align-items: center; justify-content: center; color: var(--ds-sys-color-on-surface-variant);">
+        Canvas Area
+      </div>
+    </main>
+
+    <aside class="app-aside" style="background: var(--ds-sys-color-surface-container-highest); border-left: 1px solid var(--ds-sys-color-border); padding: 1rem;">
+      <h4 style="margin-top: 0;">Properties</h4>
+      <div style="height: 20px; background: var(--ds-sys-color-surface); margin-bottom: 0.5rem; border-radius: 4px;"></div>
+      <div style="height: 20px; background: var(--ds-sys-color-surface); margin-bottom: 0.5rem; border-radius: 4px;"></div>
+    </aside>
+    
+  </div>
+
+</div>
+{{< /demo >}}
+
+## 4. Ultra-Compact Rail Layout
+
+For highly dense data applications, replacing the 280px sidebar with the 72px `.nav-rail` dramatically increases horizontal real estate. Notice the `l-app-shell--rail` wrapper completely re-indexes the columns to tightly hug the `.nav-rail` width!
 
 {{< demo >}}
 <div style="height: 500px; transform: scale(1);">
@@ -140,7 +178,7 @@ Adding a right-hand sidebar (an `aside`) is trivial. By switching to the `.l-app
   <div class="l-app-shell l-app-shell--rail" style="height: 100%; border: 1px solid var(--ds-sys-color-border); border-radius: var(--ds-sys-radius-card);">
     
     <header class="app-header" style="background: var(--ds-sys-color-surface); border-bottom: 1px solid var(--ds-sys-color-border); padding: 0 1rem; display: flex; align-items: center;">
-      Editor Header
+      Rail Admin Header
     </header>
 
     <nav class="app-sidebar nav-rail" style="background: var(--ds-sys-color-surface-container-highest); border-right: 1px solid var(--ds-sys-color-border);">
@@ -173,12 +211,9 @@ Adding a right-hand sidebar (an `aside`) is trivial. By switching to the `.l-app
     </nav>
 
     <main class="app-main" style="padding: 2rem;">
-      Canvas Area
+      <h3 style="margin-top: 0">High Density Content</h3>
+      <p style="color: var(--ds-sys-color-on-surface-variant)">Look at all this extra horizontal room!</p>
     </main>
-
-    <aside class="app-aside" style="background: var(--ds-sys-color-surface-container-highest); border-left: 1px solid var(--ds-sys-color-border); padding: 1rem;">
-      Right Properties Panel
-    </aside>
     
   </div>
 
