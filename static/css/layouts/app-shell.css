@@ -8,10 +8,11 @@
 
     .l-app-shell {
         display: grid;
-        height: 100vh;
-        width: 100vw;
+        height: 100%;
+        /* Contains the app shell neatly within any parent bounding box */
+        width: 100%;
+        /* Prevents layout blowout when nested inside documentation containers */
         overflow: hidden;
-        /* Contains the app shell to the viewport */
         background-color: var(--ds-sys-color-bg-app, #f8fafc);
     }
 
