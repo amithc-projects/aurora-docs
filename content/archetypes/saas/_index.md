@@ -19,7 +19,7 @@ The marketing view utilizes an expansive edge-to-edge layout, a Mega Menu for co
     <div style="display: flex; align-items: center; gap: 2rem;">
       <div style="font-weight: 800; font-size: 1.2rem; letter-spacing: -0.5px; color: var(--ds-sys-color-primary);">ACME UI</div>
       <nav style="display: flex; gap: 1.5rem; font-size: 0.9rem; font-weight: 500;">
-        <span style="color: var(--ds-sys-color-on-surface); cursor: pointer;">Products</span>
+        <span style="color: var(--ds-sys-color-on-surface); cursor: pointer;"><a href="/aurora-docs/archetypes/saas/products/" style="color: inherit; text-decoration: none;">Products</a></span>
         <span style="color: var(--ds-sys-color-on-surface-variant); cursor: pointer;">Solutions</span>
         <span style="color: var(--ds-sys-color-on-surface-variant); cursor: pointer;">Pricing</span>
       </nav>
@@ -39,7 +39,7 @@ The marketing view utilizes an expansive edge-to-edge layout, a Mega Menu for co
       Join millions of companies of all sizes—from startups to Fortune 500s—who use Acme's software and APIs to accept payments and manage businesses online.
     </p>
     <div style="display: flex; justify-content: center; gap: 1rem;">
-      <button class="btn btn-primary btn-lg" style="border-radius: 999px; padding: 0 2rem;">Start now</button>
+      <a href="/aurora-docs/archetypes/saas/products/" style="text-decoration: none;"><button class="btn btn-primary btn-lg" style="border-radius: 999px; padding: 0 2rem; cursor: pointer;">Start now</button></a>
       <button class="btn btn-outline btn-lg" style="border-radius: 999px; padding: 0 2rem;">Contact sales</button>
     </div>
   </section>
@@ -48,11 +48,13 @@ The marketing view utilizes an expansive edge-to-edge layout, a Mega Menu for co
   <section style="padding: 4rem 2rem; background: var(--ds-sys-color-surface);">
     <div class="l-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; max-width: 1000px; margin: 0 auto;">
       
-      <div class="card" style="padding: 2rem; border: none; background: var(--ds-sys-color-surface-container-low);">
-        <span class="material-symbols-outlined" style="color: var(--ds-sys-color-primary); font-size: 2rem; margin-bottom: 1rem;">insights</span>
-        <h3 style="margin-top: 0; margin-bottom: 0.5rem; font-size: 1.1rem;">Deep Analytics</h3>
-        <p style="color: var(--ds-sys-color-on-surface-variant); font-size: 0.9rem; line-height: 1.5; margin: 0;">Access real-time business insights with intelligent dashboards and custom reporting tools.</p>
-      </div>
+      <a href="/aurora-docs/archetypes/saas/products/analytics/" style="text-decoration: none; color: inherit; display: block; cursor: pointer;">
+        <div class="card" style="padding: 2rem; border: none; background: var(--ds-sys-color-surface-container-low); height: 100%;">
+          <span class="material-symbols-outlined" style="color: var(--ds-sys-color-primary); font-size: 2rem; margin-bottom: 1rem;">insights</span>
+          <h3 style="margin-top: 0; margin-bottom: 0.5rem; font-size: 1.1rem;">Deep Analytics</h3>
+          <p style="color: var(--ds-sys-color-on-surface-variant); font-size: 0.9rem; line-height: 1.5; margin: 0;">Access real-time business insights with intelligent dashboards and custom reporting tools.</p>
+        </div>
+      </a>
 
       <div class="card" style="padding: 2rem; border: none; background: var(--ds-sys-color-surface-container-low);">
         <span class="material-symbols-outlined" style="color: var(--ds-sys-color-primary); font-size: 2rem; margin-bottom: 1rem;">security</span>
@@ -60,11 +62,13 @@ The marketing view utilizes an expansive edge-to-edge layout, a Mega Menu for co
         <p style="color: var(--ds-sys-color-on-surface-variant); font-size: 0.9rem; line-height: 1.5; margin: 0;">Our systems are audited by third parties to ensure maximum protection for customer data.</p>
       </div>
 
-      <div class="card" style="padding: 2rem; border: none; background: var(--ds-sys-color-surface-container-low);">
-        <span class="material-symbols-outlined" style="color: var(--ds-sys-color-primary); font-size: 2rem; margin-bottom: 1rem;">speed</span>
-        <h3 style="margin-top: 0; margin-bottom: 0.5rem; font-size: 1.1rem;">Lightning Fast</h3>
-        <p style="color: var(--ds-sys-color-on-surface-variant); font-size: 0.9rem; line-height: 1.5; margin: 0;">Deploy with confidence using APIs designed for sub-millisecond latency worldwide.</p>
-      </div>
+      <a href="/aurora-docs/archetypes/saas/products/payments/" style="text-decoration: none; color: inherit; display: block; cursor: pointer;">
+        <div class="card" style="padding: 2rem; border: none; background: var(--ds-sys-color-surface-container-low); height: 100%;">
+          <span class="material-symbols-outlined" style="color: var(--ds-sys-color-primary); font-size: 2rem; margin-bottom: 1rem;">payments</span>
+          <h3 style="margin-top: 0; margin-bottom: 0.5rem; font-size: 1.1rem;">Global Payments</h3>
+          <p style="color: var(--ds-sys-color-on-surface-variant); font-size: 0.9rem; line-height: 1.5; margin: 0;">Deploy with confidence using global payment APIs designed for sub-millisecond latency worldwide.</p>
+        </div>
+      </a>
 
     </div>
   </section>

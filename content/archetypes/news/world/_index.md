@@ -15,7 +15,7 @@ This is a demonstration of a child page within the **News / Editorial Site** arc
     <article style="display: flex; gap: 2rem; padding-bottom: 2rem; border-bottom: 1px solid var(--ds-sys-color-border);">
       <div style="width: 250px; height: 160px; background: url('/aurora-docs/images/archetypes/summit.png') center/cover; flex-shrink: 0;"></div>
       <div>
-        <h3 style="font-size: 1.75rem; font-weight: 800; line-height: 1.1; margin: 0 0 0.5rem 0;">Climate Accords See Unexpected Bipartisan Support</h3>
+        <h3 style="font-size: 1.75rem; font-weight: 800; line-height: 1.1; margin: 0 0 0.5rem 0;"><a href="/aurora-docs/archetypes/news/world/climate-accords/" style="color: inherit; text-decoration: none;">Climate Accords See Unexpected Bipartisan Support</a></h3>
         <p style="color: var(--ds-sys-color-on-surface-variant); line-height: 1.5; margin-bottom: 0.5rem;">Leaders shocked the international press by ratifying entirely new sweeping regulations over the weekend, bypassing local legislations.</p>
         <div style="font-size: 0.85rem; font-weight: 600; text-transform: uppercase; color: var(--ds-sys-color-primary);">4 Hours Ago</div>
       </div>
@@ -24,7 +24,7 @@ This is a demonstration of a child page within the **News / Editorial Site** arc
     <article style="display: flex; gap: 2rem; padding-bottom: 2rem; border-bottom: 1px solid var(--ds-sys-color-border);">
       <div style="width: 250px; height: 160px; background: url('/aurora-docs/images/archetypes/bank.png') center/cover; flex-shrink: 0;"></div>
       <div>
-        <h3 style="font-size: 1.75rem; font-weight: 800; line-height: 1.1; margin: 0 0 0.5rem 0;">European Central Bank Navigates Slowing Growth</h3>
+        <h3 style="font-size: 1.75rem; font-weight: 800; line-height: 1.1; margin: 0 0 0.5rem 0;"><a href="/aurora-docs/archetypes/news/world/central-bank/" style="color: inherit; text-decoration: none;">European Central Bank Navigates Slowing Growth</a></h3>
         <p style="color: var(--ds-sys-color-on-surface-variant); line-height: 1.5; margin-bottom: 0.5rem;">The latest reports from Frankfurt indicate a hesitant approach to further tightening measures as the global economy stumbles.</p>
         <div style="font-size: 0.85rem; font-weight: 600; text-transform: uppercase; color: var(--ds-sys-color-primary);">6 Hours Ago</div>
       </div>

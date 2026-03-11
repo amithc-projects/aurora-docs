@@ -29,7 +29,7 @@ A classic "hero billboard" layout layered above multiple cascading rows of horiz
     <div style="display: flex; align-items: center; gap: 1.5rem; color: #ffffff;">
       <span class="material-symbols-outlined" style="cursor: pointer; font-size: 1.5rem;">search</span>
       <span class="material-symbols-outlined" style="cursor: pointer; font-size: 1.5rem;">notifications</span>
-      <div style="width: 32px; height: 32px; border-radius: 4px; background: #333; cursor: pointer; border: 1px solid #444;"></div>
+      <div class="avatar avatar--sm" style="cursor: pointer;"><img src="https://i.pravatar.cc/150?u=a" alt="User" style="border-radius: 4px;"></div>
     </div>
   </header>
 
@@ -47,9 +47,9 @@ A classic "hero billboard" layout layered above multiple cascading rows of horiz
       </p>
       
       <div style="display: flex; gap: 1rem;">
-        <button class="btn btn-primary" style="background: white; color: black; padding: 0.5rem 1.5rem; border-radius: 4px; font-weight: 700; font-size: 1.1rem; border: none; display: flex; align-items: center; gap: 0.5rem;">
+        <a href="/aurora-docs/archetypes/streaming/titles/neon-streets/" style="text-decoration: none;"><button class="btn btn-primary" style="background: white; color: black; padding: 0.5rem 1.5rem; border-radius: 4px; font-weight: 700; font-size: 1.1rem; border: none; display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
           <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_arrow</span> Play
-        </button>
+        </button></a>
         <button class="btn btn-outline" style="background: rgba(109, 109, 110, 0.7); color: white; padding: 0.5rem 1.5rem; border-radius: 4px; font-weight: 700; font-size: 1.1rem; border: none; display: flex; align-items: center; gap: 0.5rem;">
           <span class="material-symbols-outlined">info</span> More Info
         </button>
@@ -63,17 +63,59 @@ A classic "hero billboard" layout layered above multiple cascading rows of horiz
     <!-- Row 1 -->
     <div style="margin-bottom: 3rem;">
       <h2 style="font-size: 1.25rem; font-weight: 700; color: #e5e5e5; margin-bottom: 1rem;">Trending Now</h2>
-      <div style="display: flex; gap: 0.5rem; overflow-x: auto; padding-bottom: 1rem; margin-inline: -3rem; padding-inline: 3rem; scroll-snap-type: x mandatory; scrollbar-width: none;">
+      <div class="carousel carousel--multi" role="region" aria-label="Trending Now">
         
-        <!-- Hover-expanding Cards -->
-        <div style="min-width: 250px; height: 140px; background: url('/aurora-docs/images/archetypes/fantasy.png') center/cover; border-radius: 4px; cursor: pointer; scroll-snap-align: start; transition: transform 0.2s; position: relative;" onmouseover="this.style.transform='scale(1.05)'; this.style.zIndex='10'" onmouseout="this.style.transform='scale(1)'; this.style.zIndex='1'">
-          <div style="position: absolute; top: 0; left: 0; background: #e50914; font-size: 0.7rem; font-weight: 800; padding: 2px 6px; border-bottom-right-radius: 4px; text-transform: uppercase; letter-spacing: 1px;">Top 10</div>
+        <!-- Hover-expanding Cards with Top 10 Overlay Styling -->
+        <div>
+          <div style="position: relative; overflow: visible; background: transparent; border: none; box-shadow: none; align-items: stretch; justify-content: flex-start;">
+            <span style="position: absolute; left: -10px; bottom: -4px; font-size: 7.5rem; font-family: 'Arial Black', sans-serif; font-weight: 900; line-height: 0.8; -webkit-text-stroke: 2px #fff; color: #141414; z-index: 20;">1</span>
+            <a href="/aurora-docs/archetypes/streaming/titles/stranger-things/" style="display: block; width: 100%; height: 100%; overflow: visible; padding-left: 35px; box-sizing: border-box;">
+              <div style="width: 100%; height: 140px; background: url('/aurora-docs/images/archetypes/horror.png') center/cover; border-radius: 4px; transition: border-color 0.2s; border: 1px solid transparent; position: relative;" onmouseover="this.style.borderColor='white'" onmouseout="this.style.borderColor='transparent'">
+                <div style="position: absolute; top: 0; left: 0; background: #e50914; color: white; font-size: 0.7rem; font-weight: 800; padding: 2px 6px; border-bottom-right-radius: 4px; text-transform: uppercase; letter-spacing: 1px;">Top 10</div>
+              </div>
+            </a>
+          </div>
         </div>
-        <div style="min-width: 250px; height: 140px; background: url('/aurora-docs/images/archetypes/scifi.png') center/cover; border-radius: 4px; cursor: pointer; scroll-snap-align: start;"></div>
-        <div style="min-width: 250px; height: 140px; background: url('/aurora-docs/images/archetypes/horror.png') center/cover; border-radius: 4px; cursor: pointer; scroll-snap-align: start;"></div>
-        <div style="min-width: 250px; height: 140px; background: url('/aurora-docs/images/archetypes/fantasy.png') center/cover; border-radius: 4px; cursor: pointer; scroll-snap-align: start;"></div>
-        <div style="min-width: 250px; height: 140px; background: url('/aurora-docs/images/archetypes/cyberpunk.png') center/cover; border-radius: 4px; cursor: pointer; scroll-snap-align: start;"></div>
-        <div style="min-width: 250px; height: 140px; background: url('/aurora-docs/images/archetypes/scifi.png') center/cover; border-radius: 4px; cursor: pointer; scroll-snap-align: start;"></div>
+        <div>
+          <div style="position: relative; overflow: visible; background: transparent; border: none; box-shadow: none; align-items: stretch; justify-content: flex-start;">
+            <span style="position: absolute; left: -10px; bottom: -4px; font-size: 7.5rem; font-family: 'Arial Black', sans-serif; font-weight: 900; line-height: 0.8; -webkit-text-stroke: 2px #fff; color: #141414; z-index: 20;">2</span>
+            <a href="#" style="display: block; width: 100%; height: 100%; overflow: visible; padding-left: 35px; box-sizing: border-box;">
+              <div style="width: 100%; height: 140px; background: url('/aurora-docs/images/archetypes/scifi.png') center/cover; border-radius: 4px;"></div>
+            </a>
+          </div>
+        </div>
+        <div>
+          <div style="position: relative; overflow: visible; background: transparent; border: none; box-shadow: none; align-items: stretch; justify-content: flex-start;">
+            <span style="position: absolute; left: -10px; bottom: -4px; font-size: 7.5rem; font-family: 'Arial Black', sans-serif; font-weight: 900; line-height: 0.8; -webkit-text-stroke: 2px #fff; color: #141414; z-index: 20;">3</span>
+            <a href="#" style="display: block; width: 100%; height: 100%; overflow: visible; padding-left: 35px; box-sizing: border-box;">
+              <div style="width: 100%; height: 140px; background: url('/aurora-docs/images/archetypes/fantasy.png') center/cover; border-radius: 4px;"></div>
+            </a>
+          </div>
+        </div>
+        <div>
+          <div style="position: relative; overflow: visible; background: transparent; border: none; box-shadow: none; align-items: stretch; justify-content: flex-start;">
+            <span style="position: absolute; left: -10px; bottom: -4px; font-size: 7.5rem; font-family: 'Arial Black', sans-serif; font-weight: 900; line-height: 0.8; -webkit-text-stroke: 2px #fff; color: #141414; z-index: 20;">4</span>
+            <a href="#" style="display: block; width: 100%; height: 100%; overflow: visible; padding-left: 35px; box-sizing: border-box;">
+              <div style="width: 100%; height: 140px; background: url('/aurora-docs/images/archetypes/cyberpunk.png') center/cover; border-radius: 4px;"></div>
+            </a>
+          </div>
+        </div>
+        <div>
+          <div style="position: relative; overflow: visible; background: transparent; border: none; box-shadow: none; align-items: stretch; justify-content: flex-start;">
+            <span style="position: absolute; left: -10px; bottom: -4px; font-size: 7.5rem; font-family: 'Arial Black', sans-serif; font-weight: 900; line-height: 0.8; -webkit-text-stroke: 2px #fff; color: #141414; z-index: 20;">5</span>
+            <a href="#" style="display: block; width: 100%; height: 100%; overflow: visible; padding-left: 35px; box-sizing: border-box;">
+              <div style="width: 100%; height: 140px; background: url('/aurora-docs/images/archetypes/scifi.png') center/cover; border-radius: 4px;"></div>
+            </a>
+          </div>
+        </div>
+        <div>
+          <div style="position: relative; overflow: visible; background: transparent; border: none; box-shadow: none; align-items: stretch; justify-content: flex-start;">
+            <span style="position: absolute; left: -10px; bottom: -4px; font-size: 7.5rem; font-family: 'Arial Black', sans-serif; font-weight: 900; line-height: 0.8; -webkit-text-stroke: 2px #fff; color: #141414; z-index: 20;">6</span>
+            <a href="#" style="display: block; width: 100%; height: 100%; overflow: visible; padding-left: 35px; box-sizing: border-box;">
+              <div style="width: 100%; height: 140px; background: url('/aurora-docs/images/archetypes/horror.png') center/cover; border-radius: 4px;"></div>
+            </a>
+          </div>
+        </div>
         
       </div>
     </div>
@@ -81,18 +123,108 @@ A classic "hero billboard" layout layered above multiple cascading rows of horiz
     <!-- Row 2 -->
     <div style="margin-bottom: 0;">
       <h2 style="font-size: 1.25rem; font-weight: 700; color: #e5e5e5; margin-bottom: 1rem;">Sci-Fi & Fantasy</h2>
-      <div style="display: flex; gap: 0.5rem; overflow-x: auto; padding-bottom: 1rem; margin-inline: -3rem; padding-inline: 3rem; scroll-snap-type: x mandatory; scrollbar-width: none;">
+      <div class="carousel carousel--multi" role="region" aria-label="Sci-Fi & Fantasy">
         
-        <div style="min-width: 250px; height: 140px; background: url('/aurora-docs/images/archetypes/fantasy.png') center/cover; border-radius: 4px; cursor: pointer; scroll-snap-align: start; position: relative;">
-          <!-- "Netflix Original" N -->
+        <div><a href="/aurora-docs/archetypes/streaming/titles/neon-streets/"><div style="width: 100%; height: 140px; background: url('/aurora-docs/images/archetypes/cyberpunk.png') center/cover; border-radius: 4px; transition: border-color 0.2s; border: 1px solid transparent; position: relative;" onmouseover="this.style.borderColor='white'" onmouseout="this.style.borderColor='transparent'">
           <svg style="position: absolute; top: 8px; left: 8px; width: 12px; height: 12px;" viewBox="0 0 100 100" fill="#e50914"><path d="M78,14.6L78,85.4C78,88,75.9,90,73.3,90L26.7,90C24.1,90,22,88,22,85.4L22,14.6C22,12,24.1,10,26.7,10L73.3,10C75.9,10,78,12,78,14.6z M64,36.5L36,75.2L36,25L64,64.8L64,36.5z"/></svg>
-        </div>
-        <div style="min-width: 250px; height: 140px; background: url('/aurora-docs/images/archetypes/horror.png') center/cover; border-radius: 4px; cursor: pointer; scroll-snap-align: start;"></div>
-        <div style="min-width: 250px; height: 140px; background: url('/aurora-docs/images/archetypes/scifi.png') center/cover; border-radius: 4px; cursor: pointer; scroll-snap-align: start;"></div>
-        <div style="min-width: 250px; height: 140px; background: url('/aurora-docs/images/archetypes/cyberpunk.png') center/cover; border-radius: 4px; cursor: pointer; scroll-snap-align: start;"></div>
-        <div style="min-width: 250px; height: 140px; background: url('/aurora-docs/images/archetypes/fantasy.png') center/cover; border-radius: 4px; cursor: pointer; scroll-snap-align: start;"></div>
-        <div style="min-width: 250px; height: 140px; background: url('/aurora-docs/images/archetypes/horror.png') center/cover; border-radius: 4px; cursor: pointer; scroll-snap-align: start;"></div>
+        </div></a></div>
+        <div><a href="#"><div style="width: 100%; height: 140px; background: url('/aurora-docs/images/archetypes/horror.png') center/cover; border-radius: 4px;"></div></a></div>
+        <div><a href="#"><div style="width: 100%; height: 140px; background: url('/aurora-docs/images/archetypes/scifi.png') center/cover; border-radius: 4px;"></div></a></div>
+        <div><a href="#"><div style="width: 100%; height: 140px; background: url('/aurora-docs/images/archetypes/fantasy.png') center/cover; border-radius: 4px;"></div></a></div>
+        <div><a href="#"><div style="width: 100%; height: 140px; background: url('/aurora-docs/images/archetypes/horror.png') center/cover; border-radius: 4px;"></div></a></div>
+        <div><a href="#"><div style="width: 100%; height: 140px; background: url('/aurora-docs/images/archetypes/scifi.png') center/cover; border-radius: 4px;"></div></a></div>
         
+      </div>
+    </div>
+
+    <!-- More Reasons to Join (Aurora Cards) -->
+    <div style="margin-top: 5rem; margin-bottom: 4rem;">
+      <h2 style="font-size: 1.5rem; font-weight: 700; color: #ffffff; margin-bottom: 1.5rem;">More reasons to join</h2>
+      <div class="l-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+        
+        <article class="card" style="background: linear-gradient(135deg, #201a35 0%, #171124 100%); border: none; padding: 1.5rem 1.5rem 4rem 1.5rem; position: relative;">
+          <h3 style="color: #ffffff; font-size: 1.25rem; margin-bottom: 0.75rem;">Enjoy on your TV</h3>
+          <p style="color: rgba(255,255,255,0.7); font-size: 0.95rem; line-height: 1.4; margin: 0;">Watch on smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray players and more.</p>
+          <div style="position: absolute; bottom: 1.5rem; right: 1.5rem;">
+            <span class="material-symbols-outlined" style="color: #bc3e9f; font-size: 2.5rem;">live_tv</span>
+          </div>
+        </article>
+
+        <article class="card" style="background: linear-gradient(135deg, #201a35 0%, #171124 100%); border: none; padding: 1.5rem 1.5rem 4rem 1.5rem; position: relative;">
+          <h3 style="color: #ffffff; font-size: 1.25rem; margin-bottom: 0.75rem;">Download your series to watch offline</h3>
+          <p style="color: rgba(255,255,255,0.7); font-size: 0.95rem; line-height: 1.4; margin: 0;">Save your favourites easily and always have something to watch.</p>
+          <div style="position: absolute; bottom: 1.5rem; right: 1.5rem;">
+            <span class="material-symbols-outlined" style="color: #e50914; font-size: 2.5rem;">download_for_offline</span>
+          </div>
+        </article>
+
+        <article class="card" style="background: linear-gradient(135deg, #201a35 0%, #171124 100%); border: none; padding: 1.5rem 1.5rem 4rem 1.5rem; position: relative;">
+          <h3 style="color: #ffffff; font-size: 1.25rem; margin-bottom: 0.75rem;">Watch everywhere</h3>
+          <p style="color: rgba(255,255,255,0.7); font-size: 0.95rem; line-height: 1.4; margin: 0;">Stream unlimited films and series on your phone, tablet, laptop and TV.</p>
+          <div style="position: absolute; bottom: 1.5rem; right: 1.5rem;">
+            <span class="material-symbols-outlined" style="color: #bc3e9f; font-size: 2.5rem;">devices</span>
+          </div>
+        </article>
+
+        <article class="card" style="background: linear-gradient(135deg, #201a35 0%, #171124 100%); border: none; padding: 1.5rem 1.5rem 4rem 1.5rem; position: relative;">
+          <h3 style="color: #ffffff; font-size: 1.25rem; margin-bottom: 0.75rem;">Create profiles for children</h3>
+          <p style="color: rgba(255,255,255,0.7); font-size: 0.95rem; line-height: 1.4; margin: 0;">Send children on adventures with their favourite characters in a space made just for them.</p>
+          <div style="position: absolute; bottom: 1.5rem; right: 1.5rem;">
+            <span class="material-symbols-outlined" style="color: #e50914; font-size: 2.5rem;">family_restroom</span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+
+    <!-- FAQ Accordion -->
+    <div style="margin-top: 4rem; max-width: 1000px; margin-inline: auto;">
+      <h2 style="font-size: 1.5rem; font-weight: 700; color: #ffffff; margin-bottom: 1.5rem;">Frequently Asked Questions</h2>
+      
+      <div class="accordion accordion-flush" data-mode="single">
+        
+        <div class="accordion-item" style="background: #2d2d2d; margin-bottom: 0.5rem; border: none;">
+          <h3 style="margin: 0;">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="faq1" id="tf1" style="color: white; font-size: 1.2rem; padding: 1.5rem;">
+              What is Netflix?
+              <span class="material-symbols-outlined accordion-icon" style="font-size: 2rem;">add</span>
+            </button>
+          </h3>
+          <div class="accordion-panel" id="faq1" role="region" aria-labelledby="tf1">
+            <div class="accordion-body">
+              <div class="accordion-inner" style="padding: 1.5rem; font-size: 1.1rem; line-height: 1.5; color: white;">Netflix is a streaming service that offers a wide variety of award-winning TV programmes, films, anime, documentaries and more.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item" style="background: #2d2d2d; margin-bottom: 0.5rem; border: none;">
+          <h3 style="margin: 0;">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="faq2" id="tf2" style="color: white; font-size: 1.2rem; padding: 1.5rem;">
+              How much does Netflix cost?
+              <span class="material-symbols-outlined accordion-icon" style="font-size: 2rem;">add</span>
+            </button>
+          </h3>
+          <div class="accordion-panel" id="faq2" role="region" aria-labelledby="tf2">
+            <div class="accordion-body">
+              <div class="accordion-inner" style="padding: 1.5rem; font-size: 1.1rem; line-height: 1.5; color: white;">Watch Netflix on your smartphone, tablet, smart TV, laptop or streaming device, all for one fixed monthly fee. Plans range from £4.99 to £17.99 a month.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item" style="background: #2d2d2d; margin-bottom: 0.5rem; border: none;">
+          <h3 style="margin: 0;">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="faq3" id="tf3" style="color: white; font-size: 1.2rem; padding: 1.5rem;">
+              Where can I watch?
+              <span class="material-symbols-outlined accordion-icon" style="font-size: 2rem;">add</span>
+            </button>
+          </h3>
+          <div class="accordion-panel" id="faq3" role="region" aria-labelledby="tf3">
+            <div class="accordion-body">
+              <div class="accordion-inner" style="padding: 1.5rem; font-size: 1.1rem; line-height: 1.5; color: white;">Watch anywhere, anytime. Sign in with your Netflix account to watch instantly on the web at netflix.com from your personal computer or on any internet-connected device.</div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
 

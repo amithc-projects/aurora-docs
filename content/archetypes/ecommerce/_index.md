@@ -46,7 +46,7 @@ A heavily visual layout prioritizing promotional banners, seasonal collections, 
     <div style="position: relative; z-index: 10;">
       <div style="font-weight: 700; font-size: 0.9rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1rem; color: #4b5563;">Spring Collection</div>
       <h1 style="font-size: 4rem; font-weight: 900; letter-spacing: -2px; text-transform: uppercase; margin: 0 0 1.5rem 0; line-height: 1; color: #111827;">Engineered<br>For Flight.</h1>
-      <button class="btn btn-primary btn-lg" style="border-radius: 999px; padding: 0 2.5rem; text-transform: uppercase; font-weight: 700; letter-spacing: 1px;">Shop The Drop</button>
+      <a href="/aurora-docs/archetypes/ecommerce/shoes/" style="text-decoration: none;"><button class="btn btn-primary btn-lg" style="border-radius: 999px; padding: 0 2.5rem; text-transform: uppercase; font-weight: 700; letter-spacing: 1px; cursor: pointer;">Shop The Drop</button></a>
     </div>
   </section>
 
@@ -64,59 +64,67 @@ A heavily visual layout prioritizing promotional banners, seasonal collections, 
     <div class="l-grid" style="grid-template-columns: repeat(4, 1fr); gap: 1.5rem;">
       
       <!-- Product Card 1 -->
-      <div style="cursor: pointer;">
-        <div style="height: 300px; background: url('/aurora-docs/images/archetypes/sneaker.png') center/contain no-repeat; background-color: var(--ds-sys-color-surface-container-low); margin-bottom: 1rem; position: relative;">
-          <div style="position: absolute; top: 10px; left: 10px; background: white; color: black; font-size: 0.7rem; font-weight: 700; padding: 2px 8px; text-transform: uppercase;">Just In</div>
-        </div>
-        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-          <div>
-            <h3 style="font-size: 1rem; font-weight: 600; margin: 0 0 0.25rem 0; color: var(--ds-sys-color-on-surface);">Aero Pegasus 40</h3>
-            <div style="font-size: 0.9rem; color: var(--ds-sys-color-on-surface-variant);">Men's Road Running</div>
+      <a href="/aurora-docs/archetypes/ecommerce/shoes/aero-sprint-pro/" style="text-decoration: none; color: inherit; display: block;">
+        <div style="cursor: pointer;">
+          <div style="height: 300px; background: url('/aurora-docs/images/archetypes/sneaker.png') center/contain no-repeat; background-color: var(--ds-sys-color-surface-container-low); margin-bottom: 1rem; position: relative;">
+            <div style="position: absolute; top: 10px; left: 10px; background: white; color: black; font-size: 0.7rem; font-weight: 700; padding: 2px 8px; text-transform: uppercase;">Just In</div>
           </div>
-          <div style="font-weight: 600;">$130</div>
+          <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <div>
+              <h3 style="font-size: 1rem; font-weight: 600; margin: 0 0 0.25rem 0; color: var(--ds-sys-color-on-surface);">Aero Sprint Pro</h3>
+              <div style="font-size: 0.9rem; color: var(--ds-sys-color-on-surface-variant);">Men's Road Racing</div>
+            </div>
+            <div style="font-weight: 600;">$130</div>
+          </div>
         </div>
-      </div>
+      </a>
 
        <!-- Product Card 2 -->
-      <div style="cursor: pointer;">
-        <div style="height: 300px; background: url('/aurora-docs/images/archetypes/sneaker2.png') center/contain no-repeat; background-color: var(--ds-sys-color-surface-container-low); margin-bottom: 1rem;"></div>
-        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-          <div>
-            <h3 style="font-size: 1rem; font-weight: 600; margin: 0 0 0.25rem 0; color: var(--ds-sys-color-on-surface);">Aero Invincible 3</h3>
-            <div style="font-size: 0.9rem; color: var(--ds-sys-color-on-surface-variant);">Women's Lifestyle</div>
+      <a href="/aurora-docs/archetypes/ecommerce/shoes/aero-invincible-3/" style="text-decoration: none; color: inherit; display: block;">
+        <div style="cursor: pointer;">
+          <div style="height: 300px; background: url('/aurora-docs/images/archetypes/sneaker2.png') center/contain no-repeat; background-color: var(--ds-sys-color-surface-container-low); margin-bottom: 1rem;"></div>
+          <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <div>
+              <h3 style="font-size: 1rem; font-weight: 600; margin: 0 0 0.25rem 0; color: var(--ds-sys-color-on-surface);">Aero Invincible 3</h3>
+              <div style="font-size: 0.9rem; color: var(--ds-sys-color-on-surface-variant);">Women's Lifestyle</div>
+            </div>
+            <div style="font-weight: 600;">$180</div>
           </div>
-          <div style="font-weight: 600;">$180</div>
         </div>
-      </div>
+      </a>
 
        <!-- Product Card 3 -->
-      <div style="cursor: pointer;">
-        <div style="height: 300px; background: url('/aurora-docs/images/archetypes/sneaker3.png') center/contain no-repeat; background-color: var(--ds-sys-color-surface-container-low); margin-bottom: 1rem; position: relative;">
-          <div style="position: absolute; top: 10px; left: 10px; background: #ef4444; color: white; font-size: 0.7rem; font-weight: 700; padding: 2px 8px; text-transform: uppercase;">Sale</div>
-        </div>
-        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-          <div>
-            <h3 style="font-size: 1rem; font-weight: 600; margin: 0 0 0.25rem 0; color: var(--ds-sys-color-on-surface);">Aero React Infinity</h3>
-            <div style="font-size: 0.9rem; color: var(--ds-sys-color-on-surface-variant);">Unisex Basketball</div>
+      <a href="/aurora-docs/archetypes/ecommerce/shoes/aero-street-x/" style="text-decoration: none; color: inherit; display: block;">
+        <div style="cursor: pointer;">
+          <div style="height: 300px; background: url('/aurora-docs/images/archetypes/sneaker3.png') center/contain no-repeat; background-color: var(--ds-sys-color-surface-container-low); margin-bottom: 1rem; position: relative;">
+            <div style="position: absolute; top: 10px; left: 10px; background: #ef4444; color: white; font-size: 0.7rem; font-weight: 700; padding: 2px 8px; text-transform: uppercase;">Sale</div>
           </div>
-          <div style="font-weight: 600; display: flex; gap: 0.5rem;">
-            <span style="color: #ef4444;">$109</span>
-            <span style="text-decoration: line-through; color: var(--ds-sys-color-on-surface-variant);">$160</span>
+          <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <div>
+              <h3 style="font-size: 1rem; font-weight: 600; margin: 0 0 0.25rem 0; color: var(--ds-sys-color-on-surface);">Aero Street X</h3>
+              <div style="font-size: 0.9rem; color: var(--ds-sys-color-on-surface-variant);">Unisex Basketball</div>
+            </div>
+            <div style="font-weight: 600; display: flex; gap: 0.5rem;">
+              <span style="color: #ef4444;">$109</span>
+              <span style="text-decoration: line-through; color: var(--ds-sys-color-on-surface-variant);">$160</span>
+            </div>
           </div>
         </div>
-      </div>
+      </a>
 
        <!-- Product Card 4 -->
-      <div style="cursor: pointer;">
-        <div style="height: 300px; background: url('/aurora-docs/images/archetypes/sneaker4.png') center/contain no-repeat; background-color: var(--ds-sys-color-surface-container-low); margin-bottom: 1rem;"></div>
-        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-          <div>
-            <h3 style="font-size: 1rem; font-weight: 600; margin: 0 0 0.25rem 0; color: var(--ds-sys-color-on-surface);">Aero Air Max Pulse</h3>
-            <div style="font-size: 0.9rem; color: var(--ds-sys-color-on-surface-variant);">Men's Training</div>
+      <a href="/aurora-docs/archetypes/ecommerce/shoes/aero-air-max-pulse/" style="text-decoration: none; color: inherit; display: block;">
+        <div style="cursor: pointer;">
+          <div style="height: 300px; background: url('/aurora-docs/images/archetypes/sneaker4.png') center/contain no-repeat; background-color: var(--ds-sys-color-surface-container-low); margin-bottom: 1rem;"></div>
+          <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <div>
+              <h3 style="font-size: 1rem; font-weight: 600; margin: 0 0 0.25rem 0; color: var(--ds-sys-color-on-surface);">Aero Air Max Pulse</h3>
+              <div style="font-size: 0.9rem; color: var(--ds-sys-color-on-surface-variant);">Men's Training</div>
+            </div>
+            <div style="font-weight: 600;">$150</div>
           </div>
-          <div style="font-weight: 600;">$150</div>
         </div>
-      </div>
+      </a>
 
     </div>
   </section>

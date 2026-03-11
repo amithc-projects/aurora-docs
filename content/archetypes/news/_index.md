@@ -26,8 +26,8 @@ A complex, multi-column layout that prioritizes a "Hero" breaking news story sur
     <div style="display: flex; justify-content: space-between; align-items: center; mt-2; padding-top: 1rem; border-top: 1px solid var(--ds-sys-color-border); margin-top: 1.5rem; font-size: 0.85rem; font-weight: 600; text-transform: uppercase;">
       <div>Tuesday, October 24, 2026</div>
       <div style="display: flex; gap: 2rem;">
-        <span style="cursor: pointer;">World</span>
-        <span style="cursor: pointer;">Politics</span>
+        <span style="cursor: pointer;"><a href="/aurora-docs/archetypes/news/world/" style="color: inherit; text-decoration: none;">World</a></span>
+        <span style="cursor: pointer;"><a href="/aurora-docs/archetypes/news/politics/" style="color: inherit; text-decoration: none;">Politics</a></span>
         <span style="cursor: pointer;">Business</span>
         <span style="cursor: pointer;">Tech</span>
         <span style="cursor: pointer;">Science</span>
@@ -47,7 +47,7 @@ A complex, multi-column layout that prioritizes a "Hero" breaking news story sur
             <span class="material-symbols-outlined" style="font-size: 1rem;">photo_camera</span> 12 Photos
           </div>
         </div>
-        <h2 style="font-size: 2.5rem; font-weight: 800; letter-spacing: -1px; line-height: 1.1; margin: 0 0 1rem 0; color: var(--ds-sys-color-on-surface);">Historic Summit Concludes with Sweeping Climate Accords</h2>
+        <h2 style="font-size: 2.5rem; font-weight: 800; letter-spacing: -1px; line-height: 1.1; margin: 0 0 1rem 0; color: var(--ds-sys-color-on-surface);"><a href="/aurora-docs/archetypes/news/world/climate-accords/" style="color: inherit; text-decoration: none;">Historic Summit Concludes with Sweeping Climate Accords</a></h2>
         <p style="font-size: 1.1rem; line-height: 1.6; color: var(--ds-sys-color-on-surface-variant); margin-bottom: 1rem;">Leaders from 40 nations agreed to triple renewable energy capacity by 2030, marking the most significant commitment since the Paris Agreement. Critics, however, point to a lack of binding enforcement mechanisms.</p>
         <div style="font-size: 0.85rem; font-weight: 600; text-transform: uppercase; color: var(--ds-sys-color-primary);">By Jonathan Mercer • 2 Hours Ago</div>
       </article>
@@ -55,19 +55,23 @@ A complex, multi-column layout that prioritizes a "Hero" breaking news story sur
       <!-- Secondary Feed (Spans 4 columns) -->
       <aside style="grid-column: span 4; display: flex; flex-direction: column; gap: 2rem;">
         
-        <article style="cursor: pointer; border-bottom: 1px solid var(--ds-sys-color-border); padding-bottom: 1.5rem;">
-          <div style="width: 100%; height: 180px; background: url('/aurora-docs/images/archetypes/chip.png') center/cover; margin-bottom: 0.75rem;"></div>
-          <h3 style="font-size: 1.5rem; font-weight: 700; line-height: 1.2; margin: 0 0 0.5rem 0; color: var(--ds-sys-color-on-surface);">AI Chip Giant Unveils Next-Gen Silicon</h3>
-          <p style="font-size: 0.95rem; color: var(--ds-sys-color-on-surface-variant); margin-bottom: 0.5rem; line-height: 1.5;">The new architecture promises a 4x leap in training speeds for large language models, sending tech stocks soaring.</p>
-          <div style="font-size: 0.75rem; color: var(--ds-sys-color-on-surface-variant); text-transform: uppercase; font-weight: 600;">Technology</div>
-        </article>
+        <a href="/aurora-docs/archetypes/news/politics/election-results/" style="text-decoration: none; color: inherit; display: block;">
+          <article style="cursor: pointer; border-bottom: 1px solid var(--ds-sys-color-border); padding-bottom: 1.5rem;">
+            <div style="width: 100%; height: 180px; background: url('/aurora-docs/images/archetypes/chip.png') center/cover; margin-bottom: 0.75rem;"></div>
+            <h3 style="font-size: 1.5rem; font-weight: 700; line-height: 1.2; margin: 0 0 0.5rem 0; color: var(--ds-sys-color-on-surface);">Midterm Election Results Shake Up Parliament</h3>
+            <p style="font-size: 0.95rem; color: var(--ds-sys-color-on-surface-variant); margin-bottom: 0.5rem; line-height: 1.5;">Voter turnout shattered all previous records for an off-cycle election, propelled by younger demographics.</p>
+            <div style="font-size: 0.75rem; color: var(--ds-sys-color-on-surface-variant); text-transform: uppercase; font-weight: 600;">Politics</div>
+          </article>
+        </a>
 
-        <article style="cursor: pointer; border-bottom: 1px solid var(--ds-sys-color-border); padding-bottom: 1.5rem;">
-          <div style="width: 100%; height: 180px; background: url('/aurora-docs/images/archetypes/bank.png') center/cover; margin-bottom: 0.75rem;"></div>
-          <h3 style="font-size: 1.5rem; font-weight: 700; line-height: 1.2; margin: 0 0 0.5rem 0; color: var(--ds-sys-color-on-surface);">Central Bank Holds Rates Steady</h3>
-          <p style="font-size: 0.95rem; color: var(--ds-sys-color-on-surface-variant); margin-bottom: 0.5rem; line-height: 1.5;">Officials signaled that borrowing costs will remain elevated throughout the summer as inflation cools slower than anticipated.</p>
-          <div style="font-size: 0.75rem; color: var(--ds-sys-color-on-surface-variant); text-transform: uppercase; font-weight: 600;">Economy</div>
-        </article>
+        <a href="/aurora-docs/archetypes/news/world/central-bank/" style="text-decoration: none; color: inherit; display: block;">
+          <article style="cursor: pointer; border-bottom: 1px solid var(--ds-sys-color-border); padding-bottom: 1.5rem;">
+            <div style="width: 100%; height: 180px; background: url('/aurora-docs/images/archetypes/bank.png') center/cover; margin-bottom: 0.75rem;"></div>
+            <h3 style="font-size: 1.5rem; font-weight: 700; line-height: 1.2; margin: 0 0 0.5rem 0; color: var(--ds-sys-color-on-surface);">Central Bank Holds Rates Steady</h3>
+            <p style="font-size: 0.95rem; color: var(--ds-sys-color-on-surface-variant); margin-bottom: 0.5rem; line-height: 1.5;">Officials signaled that borrowing costs will remain elevated throughout the summer as inflation cools slower than anticipated.</p>
+            <div style="font-size: 0.75rem; color: var(--ds-sys-color-on-surface-variant); text-transform: uppercase; font-weight: 600;">Economy</div>
+          </article>
+        </a>
 
         <article style="cursor: pointer;">
           <div style="width: 100%; height: 180px; background: url('/aurora-docs/images/archetypes/fashion.png') center/cover; margin-bottom: 0.75rem;"></div>
