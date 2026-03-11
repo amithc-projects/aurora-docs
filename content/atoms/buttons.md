@@ -4,7 +4,7 @@ category: "Atoms"
 description: "Core action elements."
 menu:
   main:
-    parent: "atoms"
+    parent: "components-simple"
 ---
 
 

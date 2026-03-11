@@ -4,8 +4,7 @@ description: "Dynamically generated, theme-aware QR codes for quick data sharing
 category: "Components"
 menu:
   main:
-    parent: "components"
-    weight: 120
+    parent: "components-simple"
 ---
 
 The `QR Code` component generates scan-able codes directly on the client side without needing a server trip. It dynamically loads a lightweight script *only* when a QR code exists on the page, keeping the global Aurora JS bundle extremely fast.

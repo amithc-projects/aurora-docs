@@ -3,7 +3,7 @@ title: "Pagination"
 description: "Navigate datasets split across multiple pages. Four variants covering all common use cases."
 menu:
   main:
-    parent: "navigation"
+    parent: "nav-page"
 ---
 
 Pagination allows users to navigate through large datasets split across multiple pages. It communicates position within the dataset and provides controls to move between pages.

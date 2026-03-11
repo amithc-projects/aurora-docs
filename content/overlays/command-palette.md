@@ -2,7 +2,7 @@
 title: "Command Palette"
 menu:
   main:
-    parent: "overlays"
+    parent: "components-simple"
 ---
 
 {{< demo >}}

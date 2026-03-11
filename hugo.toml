@@ -29,3 +29,81 @@ title = 'Aurora Design System Documentation'
   section = ["HTML"]
   page = ["HTML"]
 
+[[menu.main]]
+  identifier = "overview"
+  name = "Overview"
+  weight = 10
+
+[[menu.main]]
+  identifier = "typography"
+  name = "Typography"
+  weight = 20
+
+[[menu.main]]
+  identifier = "components"
+  name = "Components"
+  weight = 30
+
+[[menu.main]]
+  identifier = "components-simple"
+  parent = "components"
+  name = "Simple Content"
+  weight = 1
+
+[[menu.main]]
+  identifier = "navigation"
+  name = "Navigation"
+  weight = 40
+
+[[menu.main]]
+  identifier = "nav-site"
+  parent = "navigation"
+  name = "Site Navigation"
+  weight = 1
+
+[[menu.main]]
+  identifier = "nav-page"
+  parent = "navigation"
+  name = "Page Navigation"
+  weight = 2
+
+[[menu.main]]
+  identifier = "forms"
+  name = "Forms & Input"
+  weight = 50
+
+[[menu.main]]
+  identifier = "forms-standard"
+  parent = "forms"
+  name = "Standard Controls"
+  weight = 1
+
+[[menu.main]]
+  identifier = "page-layouts"
+  name = "Page Layouts"
+  weight = 60
+
+[[menu.main]]
+  identifier = "layout-components"
+  name = "Layout Components"
+  weight = 70
+
+[[menu.main]]
+  identifier = "archetypes"
+  name = "Archetypes"
+  weight = 65
+  url = "/archetypes/"
+
+[[menu.main]]
+  identifier = "components-molecules"
+  parent = "layout-components"
+  name = "Molecules"
+  weight = 20
+  url = "/molecules/"
+
+[[menu.main]]
+  identifier = "components-patterns"
+  parent = "layout-components"
+  name = "Patterns"
+  weight = 30
+  url = "/patterns/"

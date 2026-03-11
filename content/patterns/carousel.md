@@ -4,7 +4,7 @@ description: "Using Anchor Scope, Scroll Markers, and Scroll State."
 category: "Patterns"
 menu:
   main:
-    parent: "patterns"
+    parent: "components-patterns"
 ---
 
 > **Requirement:** Chrome Canary (135+) or browsers with `anchor-scope` enabled.

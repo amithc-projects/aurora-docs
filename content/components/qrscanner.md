@@ -4,8 +4,7 @@ description: "Client-side webcam capability for detecting and reading QR codes n
 category: "Components"
 menu:
   main:
-    parent: "components"
-    weight: 125
+    parent: "components-simple"
 ---
 
 The `QR Scanner` component activates the user's local web camera to continuously read and decode QR data streams without needing a backend server or proprietary native app. Like the QR generator, it dynamically fetches the engine script from a CDN *only* when the component is actively present on the page.

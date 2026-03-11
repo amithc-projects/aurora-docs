@@ -4,8 +4,7 @@ description: "Edge-anchored overlay panels for settings, navigation, forms, and 
 category: "Overlays"
 menu:
   main:
-    parent: "overlays"
-    weight: 20
+    parent: "components-simple"
 ---
 
 A Drawer is a panel that slides in from the edge of the viewport, overlaying the page content. It is used for secondary tasks, settings, navigation, and detail views that do not require a full page transition.

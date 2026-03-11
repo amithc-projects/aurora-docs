@@ -4,7 +4,7 @@ category: "Atoms"
 description: "User profile images and stacks."
 menu:
   main:
-    parent: "atoms"
+    parent: "components-simple"
 ---
 
 

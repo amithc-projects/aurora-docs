@@ -4,8 +4,7 @@ description: "A full-width semantic dropdown panel that accommodates complex mul
 category: "Navigation"
 menu:
   main:
-    parent: "navigation"
-    weight: 50
+    parent: "nav-site"
 ---
 
 The `nav-mega` component is designed for expansive top-tier navigation. Instead of cascading standard lists like the Flyout Menu, it deploys a `100%` width panel driven by native CSS Grid.

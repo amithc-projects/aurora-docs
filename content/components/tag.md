@@ -3,7 +3,7 @@ title: "Tag / Chip"
 description: "A compact element that represents an attribute, category, filter, or selected value."
 menu:
   main:
-    parent: "components"
+    parent: "components-simple"
 ---
 
 A Tag (also called a Chip) is a compact element that represents an attribute, category, filter, or selected value. Tags can be static labels, interactive filters, or removable selections.

@@ -4,7 +4,7 @@ description: "A highly customizable HTML5 video wrapper providing flexible overl
 category: "Media"
 menu:
   main:
-    parent: "components"
+    parent: "components-simple"
 ---
 
 The Aurora Video Player abstracts away native browser controls, offering a unified, theme-compliant aesthetic. It utilizes the standard `<video>` tag under the hood, enabling all expected functionalities like `poster`, `loop`, `muted`, and `autoplay` configurations.

@@ -1,8 +1,10 @@
 ---
 title: "Philosophy"
 description: "Our approach to building scalable, consistent user interfaces."
-menu: "main"
 weight: 1
+menu:
+  main:
+    parent: "overview"
 ---
 
 ## Atomic Design

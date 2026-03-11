@@ -4,7 +4,7 @@ category: "Molecules"
 description: "Data grids for local and remote datasets."
 menu:
   main:
-    parent: "molecules"
+    parent: "components-molecules"
 ---
 
 ## Static Table

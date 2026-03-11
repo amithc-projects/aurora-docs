@@ -4,8 +4,7 @@ description: "Interactive overlaid markers providing contextual popups over imag
 category: "Components"
 menu:
   main:
-    parent: "components"
-    weight: 130
+    parent: "components-simple"
 ---
 
 The `Image Hotspot` component places interactive animated dots over a coordinate space on an image. When clicked, native HTML Popovers expand to provide contextual contextual overlay details. 

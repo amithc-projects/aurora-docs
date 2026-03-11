@@ -3,7 +3,7 @@ title: "Identity"
 description: "Avatars, Badges, and User representations."
 menu:
   main:
-    parent: "components"
+    parent: "components-simple"
 ---
 
 ## Badges

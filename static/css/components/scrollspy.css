@@ -10,7 +10,7 @@
 }
 
 @media (min-width: 1024px) {
-    .docs-page-layout {
+    .docs-page-layout.has-toc {
         display: grid;
         /* Create a generous content area and a fixed right sidebar for TOC */
         grid-template-columns: minmax(0, 1fr) 250px;

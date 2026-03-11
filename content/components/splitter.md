@@ -4,7 +4,7 @@ description: "A highly versatile, draggable pane divider supporting pane-resizin
 category: "Layout"
 menu:
   main:
-    parent: "components"
+    parent: "components-simple"
 ---
 
 The Aurora Splitter component splits a container into two controllable panes. It supports two radically different modes:

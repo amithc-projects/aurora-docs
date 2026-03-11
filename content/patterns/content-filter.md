@@ -4,7 +4,7 @@ description: "Filter a large grid by multiple categories (OR logic)."
 category: "Patterns"
 menu:
   main:
-    parent: "patterns"
+    parent: "components-patterns"
 ---
 
 ## Multi-Select Grid

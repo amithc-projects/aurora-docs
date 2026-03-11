@@ -4,7 +4,7 @@ category: "Forms"
 description: "Input fields, selection controls, and layout patterns."
 menu:
   main:
-    parent: "forms"
+    parent: "forms-standard"
 ---
 
 ## Fieldset Grouping

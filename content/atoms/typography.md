@@ -4,7 +4,7 @@ category: "Atoms"
 description: "Variable fonts for flexible, responsive type."
 menu:
   main:
-    parent: "atoms"
+    parent: "components-simple"
 ---
 
 ## Variable Font Demo

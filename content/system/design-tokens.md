@@ -2,7 +2,7 @@
 title: "Design Tokens"
 menu:
   main:
-    parent: "system"
+    parent: "overview"
 ---
 # Design Token Reference
 

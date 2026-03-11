@@ -4,7 +4,7 @@ category: "Atoms"
 description: "Compact elements for displaying status or metadata."
 menu:
   main:
-    parent: "atoms"
+    parent: "components-simple"
 ---
 
 ## Solid Badges

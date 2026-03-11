@@ -4,7 +4,7 @@ description: "Large, stylized text for external quotes and testimonials."
 category: "Components"
 menu:
   main:
-    parent: "components"
+    parent: "components-simple"
 ---
 
 ## Default Blockquote

@@ -4,7 +4,7 @@ description: "Mobile-optimized navigation bar with icons and an optional Floatin
 category: "Navigation"
 menu:
   main:
-    parent: "navigation"
+    parent: "nav-site"
 ---
 
 ## Default Bottom Navigation

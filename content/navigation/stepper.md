@@ -3,7 +3,7 @@ title: "Stepper"
 description: "A navigation component that shows the user's position within a multi-step flow."
 menu:
   main:
-    parent: "navigation"
+    parent: "nav-page"
 ---
 
 A Stepper is a navigation component that shows the user's position within a multi-step flow and communicates which steps are complete, current, and upcoming.

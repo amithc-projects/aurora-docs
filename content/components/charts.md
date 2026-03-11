@@ -4,7 +4,7 @@ description: "Data visualization using typed HTML attributes."
 category: "Components"
 menu:
   main:
-    parent: "components"
+    parent: "components-simple"
 ---
 
 ## 1. Column Charts (Vertical)

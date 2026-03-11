@@ -4,8 +4,7 @@ description: "A compact, icon-first vertical sidebar designed for application da
 category: "Navigation"
 menu:
   main:
-    parent: "navigation"
-    weight: 25
+    parent: "nav-site"
 ---
 
 The `nav-rail` component provides a highly compressed vertical navigation pattern. It occupies minimal horizontal real-estate (perfect for data-dense dashboards), persisting only primary icons.

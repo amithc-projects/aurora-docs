@@ -3,7 +3,7 @@ title: "Progress Bar"
 description: "Communicates the completion status of an operation with a known percentage or duration."
 menu:
   main:
-    parent: "components"
+    parent: "components-simple"
 ---
 
 A Progress Bar communicates the completion status of an operation with a known percentage or duration.

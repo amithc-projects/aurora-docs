@@ -4,7 +4,7 @@ category: "Forms"
 description: "Range input for selecting values."
 menu:
   main:
-    parent: "forms"
+    parent: "forms-standard"
 ---
 
 ## Basic Range

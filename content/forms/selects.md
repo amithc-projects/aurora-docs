@@ -4,7 +4,7 @@ category: "Forms"
 description: "Dropdown menus and pickers."
 menu:
   main:
-    parent: "forms"
+    parent: "forms-standard"
 ---
 
 ## Native Select

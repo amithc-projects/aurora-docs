@@ -4,7 +4,7 @@ category: "Molecules"
 description: "Contextual information revealed on hover or focus."
 menu:
   main:
-    parent: "molecules"
+    parent: "components-molecules"
 ---
 
 ## Rich Tooltip

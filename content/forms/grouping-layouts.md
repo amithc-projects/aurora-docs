@@ -4,7 +4,7 @@ description: "Label positioning, field groups, and contextual help."
 weight: 50
 menu:
   main:
-    parent: "forms"
+    parent: "forms-standard"
 ---
 
 ## 1. Label Positioning

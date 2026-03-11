@@ -1,9 +1,10 @@
 {{ define "main" }}
-<div class="docs-page-layout">
+{{ $hasTOC := and (gt (len .TableOfContents) 32) (not .Params.hide_toc) }}
+<div class="docs-page-layout{{ if $hasTOC }} has-toc{{ end }}">
   <div class="docs-page-content">
     {{ .Content }}
   </div>
-  {{ if and (gt (len .TableOfContents) 32) (not .Params.hide_toc) }}
+  {{ if $hasTOC }}
   <aside class="docs-page-toc">
     <div class="toc-wrapper">
       <h4 class="toc-title">On this page</h4>

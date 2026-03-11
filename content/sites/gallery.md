@@ -3,7 +3,7 @@ title: "Visual Gallery"
 layout: "single"
 menu:
   main:
-    parent: "sites"
+    parent: "page-layouts"
 ---
 <header style="text-align: center; padding: 4rem 1rem;">
 <h1 style="font-size: 3rem;">Captured Moments</h1>

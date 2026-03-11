@@ -4,7 +4,7 @@ category: "Overlays"
 description: "Dialog overlays for critical actions."
 menu:
   main:
-    parent: "overlays"
+    parent: "components-simple"
 ---
 
 ## Standard Modal

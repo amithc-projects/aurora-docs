@@ -4,7 +4,7 @@ description: "A lightweight, dependency-free WYSIWYG editor."
 category: "Forms"
 menu:
   main:
-    parent: "forms"
+    parent: "forms-standard"
 ---
 
 The `Rich Text Editor` provides an interactive prose-writing experience built entirely on native HTML5 `contenteditable` APIs. 

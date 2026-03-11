@@ -4,8 +4,7 @@ description: "The primary horizontal navigation system comprising the Global hea
 category: "Navigation"
 menu:
   main:
-    parent: "navigation"
-    weight: 30
+    parent: "nav-site"
 ---
 
 The Aurora Main Navigation system uses a two-tier horizontal approach tailored for complex Enterprise architectures:

@@ -3,7 +3,7 @@ title: "StreamBox"
 layout: "single"
 menu:
   main:
-    parent: "sites"
+    parent: "page-layouts"
 ---
 <script>document.body.setAttribute('data-mode', 'dark');</script>
 

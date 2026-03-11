@@ -2,8 +2,7 @@
 title: "Empty States"
 menu:
   main:
-    parent: "components"
-    weight: 97
+    parent: "components-patterns"
 ---
 
 {{< demo >}}

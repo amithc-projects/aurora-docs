@@ -4,7 +4,7 @@ description: "GDPR-ready consent manager with script gating and multiple layouts
 category: "Components"
 menu:
   main:
-    parent: "components"
+    parent: "components-simple"
 ---
 
 ## The Consent System

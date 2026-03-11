@@ -4,7 +4,7 @@ description: "A smoothly animated alternative to standard Radio Buttons, allowin
 category: "Forms"
 menu:
   main:
-    parent: "components"
+    parent: "components-simple"
 ---
 
 The Aurora Segmented Control uses a fluid JavaScript engine that measures active labels and dynamically rewrites CSS custom properties to drive a 60-fps hardware-accelerated background slider. Native `<input type="radio">` tags are used under the hood, guaranteeing absolute keyboard accessibility and simplified form submissions.

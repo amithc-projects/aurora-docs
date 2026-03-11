@@ -4,7 +4,7 @@ description: "A split-digit input wrapper designed to securely accept One Time P
 category: "Forms"
 menu:
   main:
-    parent: "components"
+    parent: "components-simple"
 ---
 
 The Aurora PIN Input dynamically generates multiple `<input maxlength="1">` elements and manages their complex interaction states—including auto-advancing focus as you type, hopping backwards on backspace, and instantly distributing copy/pasted codes across all boxes.

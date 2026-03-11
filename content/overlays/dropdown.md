@@ -3,7 +3,7 @@ title: "Dropdown Menu"
 description: "Action menus, context menus, and selection menus triggered from a button."
 menu:
   main:
-    parent: "overlays"
+    parent: "components-simple"
 ---
 
 A Dropdown Menu is a list of actions or options that appears when the user activates a trigger element. It is distinct from a Select input (which captures a form value) — a Dropdown Menu triggers actions or navigation.

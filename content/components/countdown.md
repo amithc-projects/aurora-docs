@@ -4,8 +4,7 @@ description: "A highly flexible SVG countdown component with configurable shapes
 category: "Components"
 menu:
   main:
-    parent: "components"
-    weight: 50
+    parent: "components-simple"
 ---
 
 ## Overview

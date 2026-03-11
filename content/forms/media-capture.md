@@ -4,7 +4,7 @@ description: "Rich media inputs using browser hardware APIs."
 weight: 40
 menu:
   main:
-    parent: "forms"
+    parent: "forms-standard"
 ---
 
 ## 1. File Upload (Drag & Drop + Preview)

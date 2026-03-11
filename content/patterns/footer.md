@@ -4,7 +4,7 @@ category: "Patterns"
 description: "Page terminators with links and legal info."
 menu:
   main:
-    parent: "patterns"
+    parent: "components-patterns"
 ---
 
 ## Simple Footer

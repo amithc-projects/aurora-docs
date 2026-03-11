@@ -3,7 +3,7 @@ title: "Aurora News"
 layout: "single"
 menu:
   main:
-    parent: "sites"
+    parent: "page-layouts"
 ---
 <header>
 

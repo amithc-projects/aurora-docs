@@ -3,7 +3,7 @@ title: "Roadmap"
 description: "Future architecture, archetypes, and missing component manifest for the Aurora Design System."
 menu:
   main:
-    weight: 90
+    parent: "overview"
 ---
 
 This document outlines the strategic roadmap to prove the flexibility of the Aurora Design System by constructing seven distinct "Microsite" archetypes. 
@@ -122,3 +122,7 @@ By defining the page trees and component requirements for each archetype, we can
 ### Typography & Informational
 - [x] Code Syntax Highlighter / Block (Docs)
 - [x] Breaking News / Sticky Alert Banner (News)
+
+### Micro-Interactions & Animations
+- [x] Magnetic Hover Buttons (Physics-based)
+- [x] Scroll Reveal Animations (Intersection Observer)

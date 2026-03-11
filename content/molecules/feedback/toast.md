@@ -4,8 +4,7 @@ description: "Ephemeral feedback that appears outside the document flow to commu
 category: "Feedback"
 menu:
   main:
-    parent: "molecules"
-    weight: 15
+    parent: "components-molecules"
 ---
 
 Toasts are brief, non-interruptive notifications that appear on the screen to provide feedback about an action the user has taken. They are designed to be ephemeral and disappear automatically without requiring user interaction.

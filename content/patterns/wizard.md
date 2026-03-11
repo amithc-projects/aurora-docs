@@ -4,7 +4,7 @@ description: "Optimized multi-step forms with rich inputs and validation."
 category: "Patterns"
 menu:
   main:
-    parent: "patterns"
+    parent: "components-patterns"
 ---
 
 ## Style 1: Circles (Registration Flow)

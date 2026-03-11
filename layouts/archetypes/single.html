@@ -1,0 +1,20 @@
+{{ define "main" }}
+<div class="docs-page-layout">
+    <div class="docs-page-content">
+
+        <!-- Child Page Header -->
+        <header style="margin-bottom: 3rem; padding-bottom: 2rem; border-bottom: 1px solid var(--ds-sys-color-border);">
+            <a href="{{ .Parent.RelPermalink }}"
+                style="display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; color: var(--ds-sys-color-primary); text-decoration: none; font-weight: 600; margin-bottom: 1rem;">&larr;
+                Back to {{ .Parent.Title }}</a>
+            <h1 style="font-size: 2.5rem; font-weight: 800; letter-spacing: -1px; margin: 0;">{{ .Title }}</h1>
+            {{ with .Description }}
+            <p style="font-size: 1.25rem; color: var(--ds-sys-color-on-surface-variant); margin: 0.5rem 0 0 0;">{{ . }}
+            </p>
+            {{ end }}
+        </header>
+
+        {{ .Content }}
+    </div>
+</div>
+{{ end }}

@@ -4,7 +4,7 @@ category: "Molecules"
 description: "Toasts, alerts, and notifications."
 menu:
   main:
-    parent: "molecules"
+    parent: "components-molecules"
 ---
 
 ## Toast Notifications

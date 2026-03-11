@@ -4,7 +4,7 @@ category: "Patterns"
 description: "Global headers, local sub-navigation, and user identity components."
 menu:
   main:
-    parent: "patterns"
+    parent: "components-patterns"
 ---
 
 ## 1. Profile Status Component

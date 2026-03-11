@@ -4,7 +4,7 @@ description: "Perfectly aligned card internals using CSS Subgrid."
 category: "Patterns"
 menu:
   main:
-    parent: "patterns"
+    parent: "components-patterns"
 ---
 
 ## The Problem

@@ -4,8 +4,7 @@ description: "Expandable sections with robust ARIA semantics and pure CSS animat
 category: "Components"
 menu:
   main:
-    parent: "components"
-    weight: 20
+    parent: "components-simple"
 ---
 
 ## Default (Multiple Open)

@@ -2,7 +2,7 @@
 title: "Theming"
 menu:
   main:
-    parent: "system"
+    parent: "overview"
 ---
 # Theming Guide
 

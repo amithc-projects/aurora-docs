@@ -4,7 +4,7 @@ category: "Forms"
 description: "Comprehensive guide to data entry fields."
 menu:
   main:
-    parent: "forms"
+    parent: "forms-standard"
 ---
 
 ## Checkboxes

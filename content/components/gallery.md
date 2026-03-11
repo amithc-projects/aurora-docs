@@ -4,7 +4,7 @@ description: "Responsive gallery with mixed media (Video/YouTube)."
 category: "Components"
 menu:
   main:
-    parent: "components"
+    parent: "components-simple"
 ---
 
 ## 1. Mixed Media Playlist (Video)

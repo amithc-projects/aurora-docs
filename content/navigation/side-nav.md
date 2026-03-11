@@ -4,8 +4,7 @@ description: "A pure-CSS hierarchical vertical menu utilizing native HTML5 `<det
 category: "Navigation"
 menu:
   main:
-    parent: "navigation"
-    weight: 20
+    parent: "nav-site"
 ---
 
 The `nav-side` component provides a foundational accordion-style vertical menu optimized for deep hierarchies. 

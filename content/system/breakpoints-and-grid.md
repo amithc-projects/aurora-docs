@@ -2,7 +2,7 @@
 title: "Breakpoints & Grid"
 menu:
   main:
-    parent: "system"
+    parent: "overview"
 ---
 # Breakpoints & Grid System
 

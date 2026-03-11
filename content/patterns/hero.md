@@ -4,7 +4,7 @@ category: "Patterns"
 description: "Prominent banner for page introductions."
 menu:
   main:
-    parent: "patterns"
+    parent: "components-patterns"
 ---
 
 ## Basic Hero

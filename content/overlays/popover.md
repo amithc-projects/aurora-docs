@@ -2,7 +2,7 @@
 title: "Popover"
 menu:
   main:
-    parent: "overlays"
+    parent: "components-simple"
 ---
 
 {{< demo >}}

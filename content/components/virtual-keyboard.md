@@ -4,7 +4,7 @@ description: "A flexible, native JavaScript virtual keyboard suitable for mobile
 category: "Forms"
 menu:
   main:
-    parent: "components"
+    parent: "components-simple"
 ---
 
 The Aurora Virtual Keyboard component provides native DOM interactions, input-field binding, layout toggles (QWERTY, Digits, Punctuation), and state management (e.g. for quiz games marking letters correct/incorrect).

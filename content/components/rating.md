@@ -4,7 +4,7 @@ description: "Interactive forms or read-only aggregate views with fractional pre
 category: "Components"
 menu:
   main:
-    parent: "components"
+    parent: "components-simple"
 ---
 
 The Star Rating component provides both **Interactive Inputs** for user forms and **Read-Only Displays** perfect for E-commerce aggregate scores.

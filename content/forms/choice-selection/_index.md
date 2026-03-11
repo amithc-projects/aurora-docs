@@ -2,9 +2,6 @@
 title: "Choice & Selection"
 description: "Rich controls for selection, tagging, and survey inputs."
 weight: 20
-menu:
-  main:
-    parent: "forms"
 ---
 
 ## 1. Dropdowns

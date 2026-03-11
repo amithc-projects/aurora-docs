@@ -4,8 +4,7 @@ description: "Navigate between related content panels without leaving the page."
 category: "Navigation"
 menu:
   main:
-    parent: "navigation"
-    weight: 20
+    parent: "nav-page"
 ---
 
 Tabs organise related content into discrete panels, allowing the user to switch between views without leaving the page. Only one panel is visible at a time.

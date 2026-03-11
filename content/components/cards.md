@@ -4,7 +4,7 @@ category: "Molecules"
 description: "Flexible containers for grouping related content."
 menu:
   main:
-    parent: "components"
+    parent: "components-simple"
 ---
 
 ## Vertical Card

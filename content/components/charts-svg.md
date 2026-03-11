@@ -4,7 +4,7 @@ description: "True Pie, Donut, and Smooth Line charts using Progressive Enhancem
 category: "Components"
 menu:
   main:
-    parent: "components"
+    parent: "components-simple"
 ---
 
 ## True Pie Chart (Auto-Themed)

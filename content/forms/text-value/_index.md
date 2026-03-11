@@ -2,9 +2,6 @@
 title: "Text & Value"
 description: "Comprehensive text, numeric, and code inputs."
 weight: 10
-menu:
-  main:
-    parent: "forms"
 ---
 
 

@@ -3,7 +3,7 @@ title: "Timeline"
 description: "A pattern for displaying chronological data, milestones, and activity feeds."
 menu:
   main:
-    parent: "components"
+    parent: "components-simple"
 ---
 
 {{< demo >}}

@@ -3,7 +3,7 @@ title: "Breadcrumbs"
 description: "Navigation aids to show location within a hierarchy."
 menu:
   main:
-    parent: "components"
+    parent: "components-simple"
 ---
 
 ## Basic Breadcrumb

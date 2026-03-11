@@ -4,7 +4,7 @@ description: "A nested, collapsible hierarchy component supporting custom icons.
 category: "Navigation"
 menu:
   main:
-    parent: "components"
+    parent: "components-simple"
 ---
 
 The Aurora Tree View transforms standard representations of nested data into an interactive, animated, and accessible file-tree style component. It perfectly utilizes CSS Grid `0fr / 1fr` hacks for buttery smooth expand/collapse animations regardless of content depth.

@@ -3,8 +3,7 @@ title: "Skeleton"
 description: "Animated placeholder elements to indicate content is loading."
 menu:
   main:
-    parent: "components"
-    weight: 96
+    parent: "components-simple"
 ---
 
 {{< demo >}}

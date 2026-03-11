@@ -4,8 +4,7 @@ description: "A 0kb JavaScript, infinite-level nested dropdown navigation system
 category: "Navigation"
 menu:
   main:
-    parent: "navigation"
-    weight: 40
+    parent: "nav-page"
 ---
 
 The `nav-flyout` component implements a deeply cascading context menu entirely via semantic HTML and CSS `:hover` states. Nested `<ul>` elements are visually hidden but dynamically positioned and revealed seamlessly when the user interacts with the parent list items.
