@@ -43,32 +43,6 @@ menu:
 
 {{< /demo >}}
 
-## Selection Controls
-Checkboxes, Radios, and Switches.
-
-{{< demo >}}
-<div class="l-stack">
-  <div class="l-cluster">
-    <label class="checkbox">
-      <input type="checkbox" checked> <span>Remember me</span>
-    </label>
-    <label class="radio">
-      <input type="radio" name="plan" checked> <span>Monthly</span>
-    </label>
-    <label class="radio">
-      <input type="radio" name="plan"> <span>Yearly</span>
-    </label>
-  </div>
-
-  <label class="switch" style="display: flex; align-items: center; gap: 1rem; cursor: pointer;">
-    <div style="position: relative; width: 48px; height: 24px; background: #ddd; border-radius: 99px;">
-      <div style="position: absolute; top: 2px; left: 2px; width: 20px; height: 20px; background: white; border-radius: 50%; box-shadow: 0 1px 3px rgba(0,0,0,0.3);"></div>
-    </div>
-    <span>Enable Notifications</span>
-  </label>
-</div>
-{{< /demo >}}
-
 ## Validation
 Error states slide in without layout shift.
 Try typing an invalid email below. Notice the error slides in without jumping the layout.

@@ -4,7 +4,7 @@ description: "A dependency-free natural language parser mapping human input dire
 category: "Components"
 menu:
   main:
-    parent: "components-simple"
+    parent: "forms-advanced"
 ---
 
 The `Smart Date Range` input provides incredible velocity for power-users by interpreting natural language strings directly into explicit machine-readable timestamp limits. 

@@ -5,7 +5,7 @@ description: "Advanced controls for time spans and numeric ranges."
 weight: 30
 menu:
   main:
-    parent: "forms"
+    parent: "forms-standard"
 ---
 
 ## 1. Dual-Handle Slider (Range)

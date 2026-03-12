@@ -84,6 +84,12 @@ title = 'Aurora Design System Documentation'
   weight = 1
 
 [[menu.main]]
+  identifier = "forms-advanced"
+  parent = "forms"
+  name = "Advanced inputs"
+  weight = 2
+
+[[menu.main]]
   identifier = "page-layouts"
   name = "Page Layouts"
   weight = 60
