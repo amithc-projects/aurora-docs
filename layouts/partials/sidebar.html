@@ -1,9 +1,6 @@
 <nav class="nav-side" aria-label="Documentation Navigation">
 
-  <div class="nav-group">
-    <a href="/aurora-docs/" class="docs-sidebar-header">AURORA DOCS</a>
-    <div class="docs-sidebar-subheader">v1.0.0 &bull; Living Guide</div>
-  </div>
+
 
   {{/* --- MENU SYSTEM (Supports Nesting via Native Accordions) --- */}}
   <ul>
@@ -34,7 +31,7 @@
                 {{ range .Children }}
                 <li>
                   <a href="{{ .URL }}"
-                    class="{{ if or ($.IsMenuCurrent `main` .) ($.HasMenuCurrent `main` .) }}is-active{{ end }}">
+                    class="{{ if $.IsMenuCurrent `main` . }}is-active{{ end }}">
                     {{ .Name }}
                   </a>
                 </li>
@@ -43,7 +40,7 @@
             </details>
             {{ else }}
             <a href="{{ .URL }}"
-              class="{{ if or ($.IsMenuCurrent `main` .) ($.HasMenuCurrent `main` .) }}is-active{{ end }}">
+              class="{{ if $.IsMenuCurrent `main` . }}is-active{{ end }}">
               {{ .Name }}
             </a>
             {{ end }}

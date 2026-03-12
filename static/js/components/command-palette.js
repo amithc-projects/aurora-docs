@@ -78,9 +78,9 @@ export function initCommandPalette() {
     const resultsEl = document.getElementById('cmdResults');
     const inputEl = document.getElementById('cmdInput');
     const clearBtn = document.getElementById('cmdClear');
-    const backdropEl = document.getElementById('cmdBackdrop');
+    const cmdPanel = document.getElementById('cmdPanel');
 
-    if (!backdropEl) return;
+    if (!cmdPanel) return;
 
     function renderResults(query) {
         allItems = [];
@@ -174,17 +174,16 @@ export function initCommandPalette() {
     }
 
     function openCmd() {
-        if (!inputEl) return;
-        backdropEl.classList.add('is-open');
-        clearBtn.classList.remove('visible');
-        renderResults(inputEl.value || '');
-        // Do not focus input here as it might steal focus unexpectedly if opened via shortcut instead of click. 
-        // Shortcut handles this. If clicked, focus is retained natively. 
+        if (!inputEl || !cmdPanel) return;
+        cmdPanel.classList.add('is-open');
+        if (inputEl.value.length === 0) {
+            renderResults('');
+        }
         document.addEventListener('keydown', cmdKeydown);
     }
 
     function closeCmd() {
-        backdropEl.classList.remove('is-open');
+        if (cmdPanel) cmdPanel.classList.remove('is-open');
         document.removeEventListener('keydown', cmdKeydown);
     }
 
@@ -213,7 +212,7 @@ export function initCommandPalette() {
     });
 
     inputEl.addEventListener('focus', () => {
-        if (inputEl.value.length > 0) openCmd();
+        openCmd();
     });
 
     clearBtn.addEventListener('click', () => {
@@ -236,15 +235,20 @@ export function initCommandPalette() {
         }
     });
 
-    backdropEl.addEventListener('click', e => {
-        if (e.target === backdropEl) closeCmd();
+    document.addEventListener('mousedown', e => {
+        if (cmdPanel && cmdPanel.classList.contains('is-open')) {
+            const wrapper = document.getElementById('cmdWrapper');
+            if (wrapper && !wrapper.contains(e.target)) {
+                closeCmd();
+            }
+        }
     });
 
     document.addEventListener('keydown', e => {
         if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
             e.preventDefault();
             inputEl.focus();
-            if (inputEl.value.length > 0) openCmd();
+            openCmd();
         }
     });
 

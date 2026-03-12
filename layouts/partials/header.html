@@ -6,16 +6,16 @@
       DOCS</a>
   </div>
 
-  <div
-    style="display: flex; align-items: center; gap: 1rem; flex: 1; max-width: 400px; margin: 0 2rem; position: relative;">
+  <div id="cmdWrapper"
+    style="display: flex; flex-direction: column; align-items: stretch; gap: 0; flex: 1; max-width: 400px; margin: 0 2rem; position: relative;">
     <div
-      style="display:flex;align-items:center;justify-content:space-between;width:100%;height:36px;padding:0 0.75rem;background:var(--ds-sys-color-surface-sunken);border:1px solid var(--ds-sys-color-border);border-radius:4px;color:var(--ds-sys-color-text-secondary);font-size:0.85rem; position: relative; z-index: 401;">
+      style="display:flex;align-items:center;justify-content:space-between;width:100%;height:36px;padding:0 0.75rem;background:var(--ds-sys-color-surface-sunken);border:1px solid var(--ds-sys-color-border);border-radius:4px;color:var(--ds-sys-color-text-secondary);font-size:0.85rem; position: relative; z-index: 402;">
       <span style="display:flex;align-items:center;gap:0.5rem; flex: 1;">
         <svg width="14" height="14" viewBox="0 0 20 20" fill="none">
           <circle cx="9" cy="9" r="6" stroke="currentColor" stroke-width="2" />
           <path d="M15 15l3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
         </svg>
-        <input id="cmdInput" type="search" placeholder="Search commands..." autocomplete="off" spellcheck="false"
+        <input id="cmdInput" type="search" placeholder="Search commands, pages, and tokens..." autocomplete="off" spellcheck="false"
           role="combobox" aria-expanded="false" aria-autocomplete="list" aria-controls="cmdResults"
           style="border: none; background: transparent; color: var(--ds-sys-color-text-primary); outline: none; flex: 1; font-family: inherit; font-size: inherit; padding: 0;" />
       </span>
@@ -29,6 +29,18 @@
       <kbd id="cmdShortcutBtn"
         style="font-family:monospace;background:var(--ds-sys-color-surface);border:1px solid var(--ds-sys-color-border);padding:0 4px;border-radius:3px;font-size:0.75rem; margin-left: 0.5rem; cursor: pointer;"
         onclick="document.getElementById('cmdInput').focus()">⌘K</kbd>
+    </div>
+
+    <!-- The Dropdown Panel -->
+    <div class="cmd-panel" id="cmdPanel">
+        <div class="cmd-results" id="cmdResults" role="listbox" aria-label="Search results"></div>
+        <div class="cmd-footer">
+            <div class="cmd-footer-hints">
+                <span class="cmd-hint"><kbd class="kbd">↑↓</kbd> navigate</span>
+                <span class="cmd-hint"><kbd class="kbd">↵</kbd> open</span>
+                <span class="cmd-hint"><kbd class="kbd">esc</kbd> close</span>
+            </div>
+        </div>
     </div>
   </div>
 

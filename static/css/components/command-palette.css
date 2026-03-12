@@ -1,49 +1,30 @@
-/* ─── Backdrop ─── */
-.cmd-backdrop {
-    position: fixed;
-    inset: 0;
-    background: transparent;
-    z-index: 400;
-    display: flex;
-    justify-content: flex-end;
-    /* Align right to match the header input position */
-    align-items: flex-start;
-    padding-top: 70px;
-    /* Offset for header height */
-    padding-right: 2rem;
-    /* Offset for header padding */
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity var(--duration-fast) var(--ease-out);
-}
+/* Backdrop was removed */
 
-.cmd-backdrop.is-open {
-    opacity: 1;
-    pointer-events: all;
-}
-
-[data-mode="dark"] .cmd-backdrop.is-open {
-    /* No dark background needed */
-}
+/* Removed empty dark mode ruleset */
 
 /* ─── Panel ─── */
 .cmd-panel {
-    width: 400px;
-    max-width: calc(100vw - 2rem);
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    right: 0;
+    width: 100%;
     background: var(--ds-sys-color-surface);
     border: 1px solid var(--color-border-subtle);
-    border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-2xl);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-xl);
     overflow: hidden;
-    transform: scale(.97) translateY(-8px);
-    transform-origin: top;
+    transform: translateY(-8px);
     opacity: 0;
-    transition: transform var(--duration-moderate) var(--ease-out), opacity var(--duration-moderate) var(--ease-out);
+    pointer-events: none;
+    z-index: 405;
+    transition: transform var(--duration-fast) var(--ease-out), opacity var(--duration-fast) var(--ease-out);
 }
 
-.cmd-backdrop.is-open .cmd-panel {
-    transform: scale(1) translateY(0);
+.cmd-panel.is-open {
+    transform: translateY(0);
     opacity: 1;
+    pointer-events: all;
 }
 
 /* ─── Input row ─── */
