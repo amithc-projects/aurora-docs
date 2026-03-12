@@ -13,7 +13,7 @@
     .docs-page-layout.has-toc {
         display: grid;
         /* Create a generous content area and a fixed right sidebar for TOC */
-        grid-template-columns: minmax(0, 1fr) 250px;
+        grid-template-columns: minmax(0, 1fr) 200px;
         gap: 3rem;
     }
 }
@@ -57,6 +57,23 @@
     text-transform: uppercase;
     letter-spacing: 0.05em;
     margin: 0;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.toc-title::-webkit-details-marker {
+    display: none;
+}
+
+.toc-title svg {
+    transition: transform 0.2s ease;
+}
+
+details[open] .toc-title svg {
+    transform: rotate(180deg);
 }
 
 /* Hugo's generated TOC structure */

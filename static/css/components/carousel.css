@@ -9,63 +9,71 @@
 .carousel {
   display: flex;
   flex-direction: row;
+  align-items: stretch;
+  /* Match inner children's max height */
   gap: 0;
   width: 100%;
-  height: var(--carousel-height);
   padding: 0;
   margin: 2rem 0;
-  
+
   overflow-x: auto;
-  overflow-y: hidden;
+  overflow-y: visible;
   overscroll-behavior-inline: contain;
   scroll-snap-type: inline mandatory;
   scroll-behavior: smooth;
-  
+
   /* Dots placement */
-  scroll-marker-group: after; 
-  
+  scroll-marker-group: after;
+
   /* Scope & State */
   anchor-name: --carousel;
   anchor-scope: --carousel;
-  container-type: size;
   position: relative;
-  list-style: none;
 }
 
 /* Hide scrollbars */
-.carousel::-webkit-scrollbar { display: none; }
-.carousel { scrollbar-width: none; }
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel {
+  scrollbar-width: none;
+}
 
 
 /* --- ITEMS (Direct Children) --- */
-.carousel > * {
+.carousel>* {
   flex: 0 0 auto;
-  height: 100%;
-  padding-inline: calc(50% - (var(--item-width) / 2)); /* Center Logic */
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  padding-inline: calc(50% - (var(--item-width) / 2));
+  /* Center Logic */
   scroll-snap-align: center;
   box-sizing: border-box;
   container-type: scroll-state;
 }
 
 /* --- CARD CONTENT --- */
-.carousel > * > * {
+.carousel>*>* {
   display: flex;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
   width: var(--item-width);
-  height: calc(100% - 3rem); /* Space for dots */
-  margin: 0 auto;
-  
+  margin: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+
   background: var(--ds-sys-color-surface-container);
   border: 1px solid var(--ds-sys-color-border);
   border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
   text-decoration: none;
   color: inherit;
   font-weight: bold;
   font-size: 1.2rem;
-  
+
   /* Unsnapped State */
   opacity: 0.5;
   transform: scale(0.9);
@@ -74,7 +82,7 @@
 
 /* Snapped State */
 @container scroll-state(snapped: inline) {
-  .carousel > * > * {
+  .carousel>*>* {
     opacity: 1;
     transform: scale(1);
   }
@@ -87,33 +95,34 @@
   align-items: center;
   justify-content: center;
   height: 3rem;
-  gap: 12px; /* More spacing for touch targets */
-  order: 999; 
+  gap: 12px;
+  /* More spacing for touch targets */
+  order: 999;
   width: 100%;
 }
 
 /* INACTIVE DOT */
-.carousel > *::scroll-marker {
+.carousel>*::scroll-marker {
   content: "";
   width: 12px;
   height: 12px;
   border-radius: 50%;
   cursor: pointer;
   transition: all 0.2s ease;
-  
+
   /* COLOR FIX: Use "On Surface" (Text Color) with opacity */
   /* This ensures visibility on both Light (Black) and Dark (White) backgrounds */
-  background-color: var(--ds-sys-color-on-surface); 
-  opacity: 0.3; 
+  background-color: var(--ds-sys-color-on-surface);
+  opacity: 0.3;
 }
 
 /* HOVER STATE */
-.carousel > *::scroll-marker:hover {
+.carousel>*::scroll-marker:hover {
   opacity: 0.6;
 }
 
 /* ACTIVE DOT */
-.carousel > *::scroll-marker:target-current {
+.carousel>*::scroll-marker:target-current {
   /* Use Brand Color and Full Opacity */
   background-color: var(--ds-sys-color-primary);
   opacity: 1;
@@ -129,13 +138,13 @@
   width: 3rem;
   height: 3rem;
   border-radius: 50%;
-  
+
   /* Arrow Colors */
   border: 1px solid var(--ds-sys-color-border);
   background: var(--ds-sys-color-surface);
   color: var(--ds-sys-color-on-surface);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -152,7 +161,7 @@
 
 .carousel::scroll-button(inline-start) {
   content: "❮";
-  position-area: left center; 
+  position-area: left center;
   margin-right: 10px;
 }
 
@@ -167,24 +176,24 @@
 .carousel.carousel--multi {
   --item-width: 220px;
   --item-gap: 16px;
-  padding-inline: 2rem; 
+  padding-inline: 2rem;
   scroll-padding-inline: 2rem;
 }
 
-.carousel.carousel--multi > * {
+.carousel.carousel--multi>* {
   padding-inline: 0;
   margin-right: var(--item-gap);
   scroll-snap-align: start;
 }
 
-.carousel.carousel--multi > * > * {
+.carousel.carousel--multi>*>* {
   width: var(--item-width);
-  transform: none; 
+  transform: none;
   opacity: 1;
 }
 
 @container scroll-state(snapped: inline) {
-  .carousel.carousel--multi > * > * {
+  .carousel.carousel--multi>*>* {
     border-color: var(--ds-sys-color-primary);
     background: var(--ds-sys-color-surface);
   }

@@ -2,37 +2,41 @@
 .cmd-backdrop {
     position: fixed;
     inset: 0;
-    background: rgb(0 0 0/0);
+    background: transparent;
     z-index: 400;
     display: flex;
+    justify-content: flex-end;
+    /* Align right to match the header input position */
     align-items: flex-start;
-    justify-content: center;
-    padding-top: clamp(3rem, 12vh, 120px);
+    padding-top: 70px;
+    /* Offset for header height */
+    padding-right: 2rem;
+    /* Offset for header padding */
     opacity: 0;
     pointer-events: none;
-    transition: background var(--duration-moderate) var(--ease-out), opacity var(--duration-fast) var(--ease-out);
+    transition: opacity var(--duration-fast) var(--ease-out);
 }
 
 .cmd-backdrop.is-open {
-    background: rgb(0 0 0/.55);
     opacity: 1;
     pointer-events: all;
 }
 
 [data-mode="dark"] .cmd-backdrop.is-open {
-    background: rgb(0 0 0/.75);
+    /* No dark background needed */
 }
 
 /* ─── Panel ─── */
 .cmd-panel {
-    width: 600px;
+    width: 400px;
     max-width: calc(100vw - 2rem);
-    background: var(--color-surface-raised);
+    background: var(--ds-sys-color-surface);
     border: 1px solid var(--color-border-subtle);
     border-radius: var(--radius-xl);
     box-shadow: var(--shadow-2xl);
     overflow: hidden;
     transform: scale(.97) translateY(-8px);
+    transform-origin: top;
     opacity: 0;
     transition: transform var(--duration-moderate) var(--ease-out), opacity var(--duration-moderate) var(--ease-out);
 }
@@ -43,54 +47,7 @@
 }
 
 /* ─── Input row ─── */
-.cmd-input-row {
-    display: flex;
-    align-items: center;
-    gap: .75rem;
-    padding: 0 1.125rem;
-    height: 56px;
-    border-bottom: 1px solid var(--color-border-subtle);
-}
-
-.cmd-search-icon {
-    color: var(--color-text-secondary);
-    flex-shrink: 0;
-}
-
-.cmd-input {
-    flex: 1;
-    border: none;
-    background: transparent;
-    outline: none;
-    font-family: var(--font-sans);
-    font-size: var(--text-base);
-    color: var(--color-text-primary);
-}
-
-.cmd-input::placeholder {
-    color: var(--color-text-tertiary);
-}
-
-.cmd-clear {
-    display: none;
-    align-items: center;
-    justify-content: center;
-    width: 24px;
-    height: 24px;
-    border-radius: var(--radius-md);
-    background: var(--color-surface-sunken);
-    border: none;
-    cursor: pointer;
-    color: var(--color-text-secondary);
-}
-
-.cmd-clear.visible {
-    display: flex;
-}
-
-.cmd-clear:hover {
-    background: var(--color-border-default);
-}
+/* Input row removed as it's now in the header */
 
 /* ─── Results ─── */
 .cmd-results {

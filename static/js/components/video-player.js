@@ -155,6 +155,15 @@ export class AuroraVideoPlayer {
             });
         }
 
+        // Dedicated Fullscreen Button (if not inside settings menu)
+        this.btnFullscreen = this.controls.querySelector('[data-action="fullscreen"]');
+        if (this.btnFullscreen) {
+            this.btnFullscreen.addEventListener('click', () => {
+                if (document.fullscreenElement) document.exitFullscreen();
+                else this.container.requestFullscreen();
+            });
+        }
+
         // --- 3. Synchronize UI with Native Video State ---
         // Binding to native events ensures the UI icon updates even if 
         // playback was triggered elsewhere or via looping configurations.

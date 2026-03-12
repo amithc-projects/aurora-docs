@@ -1,152 +1,59 @@
-<nav class="nav-vertical" style="font-family: sans-serif; font-size: 0.9rem;">
+<nav class="nav-side" aria-label="Documentation Navigation">
 
-  <div style="margin-bottom: 2rem;">
-    <a href="/aurora-docs/"
-      style="font-weight: 900; font-size: 1.2rem; text-decoration: none; color: var(--ds-sys-color-on-surface); letter-spacing: -0.5px;">AURORA
-      DOCS</a>
-    <div style="font-size: 0.75rem; opacity: 0.6; margin-top: 0.2rem;">v1.0.0 &bull; Living Guide</div>
+  <div class="nav-group">
+    <a href="/aurora-docs/" class="docs-sidebar-header">AURORA DOCS</a>
+    <div class="docs-sidebar-subheader">v1.0.0 &bull; Living Guide</div>
   </div>
 
   {{/* --- MENU SYSTEM (Supports Nesting via Native Accordions) --- */}}
-  {{ range .Site.Menus.main }}
-  <div class="nav-group" style="margin-bottom: 1rem;">
+  <ul>
+    {{ range .Site.Menus.main }}
+    <li class="nav-side-item">
 
-    {{/* Level 1: Expandable Accordion Headers (e.g., "System & Foundations") */}}
-    <details {{ if or ($.IsMenuCurrent "main" .) ($.HasMenuCurrent "main" .) }}open{{ end }} class="nav-accordion">
-      <summary
-        style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: var(--ds-sys-color-on-surface); padding: 0.5rem 0.2rem; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: space-between; user-select: none; border-radius: 4px; transition: background 0.2s;">
-        {{ .Name }}
-        <span class="material-symbols-outlined accordion-icon"
-          style="font-size: 16px; transition: transform 0.2s;">expand_more</span>
-      </summary>
+      {{/* Level 1: Expandable Accordion Headers (e.g., "System & Foundations") */}}
+      <details {{ if or ($.IsMenuCurrent "main" .) ($.HasMenuCurrent "main" .) }}open{{ end }}>
+        <summary>
+          <span class="material-symbols-outlined ds-mr-2">{{ .Pre | default "folder" }}</span>
+          {{ .Name }}
+        </summary>
 
-      <ul
-        style="list-style: none; padding: 0.5rem 0 0 0; margin: 0; display: flex; flex-direction: column; gap: 0.25rem;">
-        {{ range .Children }}
-        {{/* Level 2: Items (e.g., "Icons", "Buttons") */}}
-        <li>
-          {{ if .HasChildren }}
-          <details class="nav-accordion-sub" {{ if or ($.IsMenuCurrent `main` .) ($.HasMenuCurrent `main` .) }}open{{
-            end }}>
-            <summary
-              class="sb-nav-link-summary {{ if or ($.IsMenuCurrent `main` .) ($.HasMenuCurrent `main` .) }}is-active{{ end }}">
-              {{ if .URL }}
-              <a href="{{ .URL }}"
-                style="text-decoration: none; color: inherit; display: block; flex: 1; font-weight: 600;">{{ .Name
-                }}</a>
-              {{ else }}
-              <span style="display: block; flex: 1; font-weight: 600;">{{ .Name }}</span>
-              {{ end }}
-              <span class="material-symbols-outlined accordion-icon-sub"
-                style="font-size: 14px; transition: transform 0.2s;">expand_more</span>
-            </summary>
-            <ul
-              style="list-style: none; padding-left: 1rem; margin-top: 0.25rem; display: flex; flex-direction: column; gap: 0.25rem;">
-              {{ range .Children }}
-              <li>
-                <a href="{{ .URL }}"
-                  class="sb-sub-nav-link {{ if or ($.IsMenuCurrent `main` .) ($.HasMenuCurrent `main` .) }}is-active{{ end }}">
-                  {{ .Name }}
-                </a>
-              </li>
-              {{ end }}
-            </ul>
-          </details>
-          {{ else }}
-          <a href="{{ .URL }}"
-            class="sb-nav-link {{ if or ($.IsMenuCurrent `main` .) ($.HasMenuCurrent `main` .) }}is-active{{ end }}">
-            {{ .Name }}
-          </a>
+        <ul>
+          {{ range .Children }}
+          {{/* Level 2: Items (e.g., "Icons", "Buttons") */}}
+          <li>
+            {{ if .HasChildren }}
+            <details {{ if or ($.IsMenuCurrent `main` .) ($.HasMenuCurrent `main` .) }}open{{ end }}>
+              <summary class="{{ if or ($.IsMenuCurrent `main` .) ($.HasMenuCurrent `main` .) }}is-active{{ end }}">
+                {{ if .URL }}
+                <a href="{{ .URL }}">{{ .Name }}</a>
+                {{ else }}
+                <span>{{ .Name }}</span>
+                {{ end }}
+              </summary>
+              <ul>
+                {{ range .Children }}
+                <li>
+                  <a href="{{ .URL }}"
+                    class="{{ if or ($.IsMenuCurrent `main` .) ($.HasMenuCurrent `main` .) }}is-active{{ end }}">
+                    {{ .Name }}
+                  </a>
+                </li>
+                {{ end }}
+              </ul>
+            </details>
+            {{ else }}
+            <a href="{{ .URL }}"
+              class="{{ if or ($.IsMenuCurrent `main` .) ($.HasMenuCurrent `main` .) }}is-active{{ end }}">
+              {{ .Name }}
+            </a>
+            {{ end }}
+
+          </li>
           {{ end }}
-
-        </li>
-        {{ end }}
-      </ul>
-    </details>
-  </div>
-  {{ end }}
+        </ul>
+      </details>
+    </li>
+    {{ end }}
+  </ul>
 
 </nav>
-
-<style>
-  /* Accordion UI polish */
-  details.nav-accordion summary::-webkit-details-marker {
-    display: none;
-    /* Hide default triangle in Safari */
-  }
-
-  details.nav-accordion summary:hover {
-    background: var(--ds-sys-color-surface-variant);
-  }
-
-  details.nav-accordion[open] summary .accordion-icon {
-    transform: rotate(180deg);
-  }
-
-  details.nav-accordion {
-    border-bottom: 1px solid var(--ds-sys-color-border);
-    padding-bottom: 0.5rem;
-  }
-
-  /* Nav Links */
-  .sb-nav-link {
-    text-decoration: none;
-    display: block;
-    padding: 6px 10px;
-    border-radius: 4px;
-    color: var(--ds-sys-color-on-surface);
-  }
-
-  .sb-nav-link.is-active {
-    background: var(--ds-sys-color-surface-container-highest);
-    font-weight: 600;
-  }
-
-  /* Sub Accordion (Level 2) */
-  details.nav-accordion-sub summary::-webkit-details-marker {
-    display: none;
-  }
-
-  .sb-nav-link-summary {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 6px 10px;
-    border-radius: 4px;
-    color: var(--ds-sys-color-on-surface);
-    cursor: pointer;
-    user-select: none;
-    font-weight: 600;
-    list-style: none;
-  }
-
-  /* Suppress the native disclosure triangle across all browser engines */
-  .sb-nav-link-summary::-webkit-details-marker,
-  .sb-nav-link-summary::marker {
-    display: none;
-  }
-
-  .sb-nav-link-summary:hover {
-    background: var(--ds-sys-color-surface-container-highest);
-  }
-
-  .sb-nav-link-summary.is-active {
-    color: var(--ds-sys-color-primary);
-  }
-
-  details.nav-accordion-sub[open] summary .accordion-icon-sub {
-    transform: rotate(180deg);
-  }
-
-  .sb-sub-nav-link {
-    text-decoration: none;
-    display: block;
-    padding: 4px 10px;
-    font-size: 0.85rem;
-    color: var(--ds-sys-color-on-surface-variant);
-  }
-
-  .sb-sub-nav-link.is-active {
-    color: var(--ds-sys-color-primary);
-  }
-</style>

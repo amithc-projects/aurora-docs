@@ -33,16 +33,19 @@ title = 'Aurora Design System Documentation'
   identifier = "overview"
   name = "Overview"
   weight = 10
+  pre = "home"
 
 [[menu.main]]
   identifier = "typography"
   name = "Typography"
   weight = 20
+  pre = "text_fields"
 
 [[menu.main]]
   identifier = "components"
   name = "Components"
   weight = 30
+  pre = "widgets"
 
 [[menu.main]]
   identifier = "components-simple"
@@ -54,6 +57,7 @@ title = 'Aurora Design System Documentation'
   identifier = "navigation"
   name = "Navigation"
   weight = 40
+  pre = "explore"
 
 [[menu.main]]
   identifier = "nav-site"
@@ -71,6 +75,7 @@ title = 'Aurora Design System Documentation'
   identifier = "forms"
   name = "Forms & Input"
   weight = 50
+  pre = "dynamic_form"
 
 [[menu.main]]
   identifier = "forms-standard"
@@ -82,17 +87,20 @@ title = 'Aurora Design System Documentation'
   identifier = "page-layouts"
   name = "Page Layouts"
   weight = 60
+  pre = "web"
 
 [[menu.main]]
   identifier = "layout-components"
   name = "Layout Components"
   weight = 70
+  pre = "view_compact"
 
 [[menu.main]]
   identifier = "archetypes"
   name = "Archetypes"
   weight = 65
   url = "/archetypes/"
+  pre = "auto_awesome_mosaic"
 
 [[menu.main]]
   identifier = "components-molecules"

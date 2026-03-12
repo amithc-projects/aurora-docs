@@ -174,18 +174,17 @@ export function initCommandPalette() {
     }
 
     function openCmd() {
+        if (!inputEl) return;
         backdropEl.classList.add('is-open');
-        document.body.style.overflow = 'hidden';
-        inputEl.value = '';
         clearBtn.classList.remove('visible');
-        renderResults('');
-        requestAnimationFrame(() => inputEl.focus());
+        renderResults(inputEl.value || '');
+        // Do not focus input here as it might steal focus unexpectedly if opened via shortcut instead of click. 
+        // Shortcut handles this. If clicked, focus is retained natively. 
         document.addEventListener('keydown', cmdKeydown);
     }
 
     function closeCmd() {
         backdropEl.classList.remove('is-open');
-        document.body.style.overflow = '';
         document.removeEventListener('keydown', cmdKeydown);
     }
 
@@ -208,11 +207,19 @@ export function initCommandPalette() {
 
     inputEl.addEventListener('input', e => {
         const q = e.target.value;
-        clearBtn.classList.toggle('visible', q.length > 0);
+        clearBtn.style.display = q.length > 0 ? 'flex' : 'none';
         renderResults(q);
+        if (q.length > 0) openCmd(); // Auto-open when typing
     });
 
-    clearBtn.addEventListener('click', clearSearch);
+    inputEl.addEventListener('focus', () => {
+        if (inputEl.value.length > 0) openCmd();
+    });
+
+    clearBtn.addEventListener('click', () => {
+        clearSearch();
+        closeCmd();
+    });
 
     resultsEl.addEventListener('click', e => {
         const item = e.target.closest('.cmd-item');
@@ -234,7 +241,11 @@ export function initCommandPalette() {
     });
 
     document.addEventListener('keydown', e => {
-        if ((e.metaKey || e.ctrlKey) && e.key === 'k') { e.preventDefault(); openCmd(); }
+        if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+            e.preventDefault();
+            inputEl.focus();
+            if (inputEl.value.length > 0) openCmd();
+        }
     });
 
     window.openCmd = openCmd;

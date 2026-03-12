@@ -6,10 +6,16 @@
   </div>
   {{ if $hasTOC }}
   <aside class="docs-page-toc">
-    <div class="toc-wrapper">
-      <h4 class="toc-title">On this page</h4>
+    <details class="toc-wrapper" open>
+      <summary class="toc-title">
+        On this page
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+          <path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+            stroke-linejoin="round" />
+        </svg>
+      </summary>
       {{ .TableOfContents }}
-    </div>
+    </details>
   </aside>
   {{ end }}
 </div>
