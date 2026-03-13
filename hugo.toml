@@ -134,3 +134,15 @@ title = 'Aurora Design System Documentation'
   name = "Patterns"
   weight = 30
   url = "/patterns/"
+[[menu.main]]
+  identifier = "analytics"
+  name = "Event handling & Analytics"
+  weight = 80
+  pre = "analytics"
+
+[[menu.main]]
+  identifier = "analytics-overview"
+  parent = "analytics"
+  name = "Overview"
+  weight = 1
+  url = "/system/events/"

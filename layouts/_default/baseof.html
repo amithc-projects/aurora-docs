@@ -52,7 +52,7 @@
   {{ partial "command-palette.html" . }}
 
   <script src='{{ relURL "js/docs.js" }}'></script>
-
+  <script type="module" src='{{ relURL "js/events.js" }}'></script>
 
   <script type="module">import { initCharts } from '{{ relURL "js/charts.js" }}'; initCharts();</script>
   <script type="module">import { initFilters } from '{{ relURL "js/filters.js" }}'; initFilters();</script>

@@ -10,7 +10,7 @@
     {{ $row = merge $row (dict $header $val) }}
   {{ end }}
 
-  {{ $body := printf "## %s\n\nPublished on %s.\n\n![Image](%s)" $row.title $row.date $row.image }}
+  {{ $body := printf "<div data-aurora-id='%s' data-aurora-component='article'>\n\n## %s\n\nPublished on %s.\n\n![Image](%s)\n\n</div>" $row.slug $row.title $row.date $row.image }}
   
   {{ $.AddPage (dict 
       "kind" "page"

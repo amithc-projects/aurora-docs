@@ -1,3 +1,5 @@
+import { events } from './events.js';
+
 export function initCharts() {
   // 1. Initialize Standard SVG Charts (Existing)
   const charts = document.querySelectorAll('.chart[data-type="pie"], .chart[data-type="donut"], .chart[data-type="line"]');
@@ -134,6 +136,19 @@ function createPieChart(data, isDonut) {
     const title = document.createElementNS('http://www.w3.org/2000/svg', 'title');
     title.textContent = `${d.label}: ${d.formatted}`;
     path.appendChild(title);
+
+    // Event Tracking
+    path.style.cursor = 'pointer';
+    path.addEventListener('click', () => {
+      const detail = { label: d.label, value: d.value, formatted: d.formatted };
+      events.emitUI('chart_select', { ...detail, message: `Selected ${d.label}: ${d.formatted}` });
+      events.emitAnalytics('drilldown', {
+        component: 'chart',
+        action: 'segment_click',
+        metadata: detail
+      });
+    });
+
     svg.appendChild(path);
     startAngle += angle;
   });

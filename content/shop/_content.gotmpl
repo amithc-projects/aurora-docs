@@ -16,7 +16,7 @@
   
   {{ $wizardHTML := `
 {{< demo >}}
-<div class="wizard">
+<div class="wizard" data-aurora-id='%s' data-aurora-component='wizard'>
   <div class="wizard__header">
     <ul class="wizard__steps wizard__steps--circles">
 ` }}
@@ -34,6 +34,7 @@
   {{ end }}
 
   {{ $wizardHTML = printf "%s</div></div>{{< /demo >}}" $wizardHTML }}
+  {{ $wizardHTML = printf $wizardHTML $row.slug }}
 
   {{ $.AddPage (dict 
       "kind" "page"

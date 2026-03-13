@@ -2,6 +2,7 @@
  * Aurora Gallery Engine
  * Supports Images, Native Video (MP4), and YouTube Embeds.
  */
+import { events } from '../events.js';
 
 export function initGallery() {
   const galleries = document.querySelectorAll('.gallery');
@@ -79,6 +80,12 @@ export function initGallery() {
     renderThumbnails();
     loadItem(index);
 
+    events.emitAnalytics('gallery_open', {
+      component: 'gallery',
+      action: 'open',
+      metadata: { itemCount: items.length, startIndex: index }
+    });
+
     // Zoom specific resets
     resetZoom();
   }
@@ -111,6 +118,7 @@ export function initGallery() {
     state.isOpen = false;
     stopSlideshow();
     modal.close(); // Native API
+    events.emitAnalytics('gallery_close', { component: 'gallery', action: 'close' });
     els.container.innerHTML = '';
   }
 
@@ -190,6 +198,7 @@ export function initGallery() {
     }
     resetZoom();
     loadItem(newIndex);
+    events.emitAnalytics('gallery_navigate', { component: 'gallery', action: 'next', metadata: { index: newIndex } });
   }
 
   function prevSlide() {

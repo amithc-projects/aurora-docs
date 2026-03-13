@@ -26,7 +26,7 @@
   
   {{/* Construct Body safely using print to avoid printf confusion */}}
   {{ $gallery := print $scOpen "\n" }}
-  {{ $gallery = print $gallery "<div class=\"gallery\" data-mode=\"grid\" style=\"--gallery-item-min: 300px;\">\n" }}
+  {{ $gallery = print $gallery (printf "<div class=\"gallery\" data-mode=\"grid\" style=\"--gallery-item-min: 300px;\" data-aurora-id=\"%s-gallery\" data-aurora-component=\"gallery\">\n" .slug) }}
   {{ $gallery = print $gallery "  <ul>\n" }}
   {{ $gallery = print $gallery "    <li>\n" }}
   {{ $gallery = print $gallery (printf "      <a href=\"#\" data-caption=\"Watch Trailer\">\n") }}
@@ -80,7 +80,7 @@
 
      {{/* Start Carousel Wrapper */}}
      {{ $pageContent = print $pageContent "\n### " $currentSub "\n" $scOpen "\n" }}
-     {{ $pageContent = print $pageContent (printf "<div class='carousel carousel--multi' role='region' aria-label='%s'>\n" $currentSub) }}
+     {{ $pageContent = print $pageContent (printf "<div class='carousel carousel--multi' role='region' aria-label='%s' data-aurora-id='%s-carousel' data-aurora-component='carousel'>\n" $currentSub ($currentSub | urlize)) }}
      
      {{ range $subGenreMovies }}
         {{/* Note: Escaping percent sign for printf */}}
