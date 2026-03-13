@@ -1,0 +1,142 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Premier League 24/25 Rank History</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; background: #040811; color: white; display: flex; flex-direction: column; align-items: center; min-height: 100vh; padding: 40px 0; margin: 0; }
+        .header { text-align: center; margin-bottom: 20px; }
+        h1 { font-weight: 300; letter-spacing: 4px; color: #00ff85; margin: 0; text-transform: uppercase; }
+        
+        .main-container { width: 98%; max-width: 1400px; display: flex; background: rgba(255,255,255,0.02); border-radius: 16px; padding: 20px; border: 1px solid rgba(255,255,255,0.05); position: relative; }
+        
+        .rank-labels { width: 220px; display: flex; flex-direction: column; justify-content: space-between; padding: 60px 0 35px 0; border-right: 1px solid rgba(255,255,255,0.1); flex-shrink: 0; }
+        .rank-label-item { display: flex; align-items: center; font-size: 11px; height: 30px; color: #aaa; padding-right: 15px; }
+        .rank-num { width: 25px; font-weight: bold; color: #00ff85; text-align: left; }
+        .rank-name { flex-grow: 1; text-align: left; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-left: 5px; }
+        .rank-logo { height: 22px; width: 22px; object-fit: contain; flex-shrink: 0; }
+        
+        .chart-wrapper { flex-grow: 1; height: 750px; position: relative; }
+        
+        .controls { margin-top: 30px; display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; max-width: 1200px; padding: 0 20px; }
+        button { background: rgba(56, 0, 60, 0.5); color: #00ff85; border: 1px solid #00ff85; padding: 6px 12px; border-radius: 20px; cursor: pointer; font-size: 11px; transition: all 0.2s; }
+        button:hover { background: #00ff85; color: #38003c; }
+        button.active { background: #00ff85; color: #38003c; box-shadow: 0 0 10px rgba(0,255,133,0.3); }
+        
+        #rankChart { width: 100% !important; height: 100% !important; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Season Path 24/25</h1>
+        <p style="color: #666">Track team journeys through the standings</p>
+    </div>
+    
+    <div class="main-container">
+        <div class="rank-labels" id="rank-labels"></div>
+        <div class="chart-wrapper">
+            <canvas id="rankChart"></canvas>
+        </div>
+    </div>
+
+    <div class="controls" id="controls">
+        <div style="width: 100%; display: flex; justify-content: center; gap: 10px; margin-bottom: 20px;">
+            <button onclick="toggleAll(true)" style="font-weight: bold; background: #00ff85; color: #38003c; font-size: 13px; padding: 10px 25px;">Show All</button>
+            <button onclick="toggleAll(false)" style="font-weight: bold; font-size: 13px; padding: 10px 25px;">Hide All</button>
+        </div>
+    </div>
+
+    <script>
+        const ctx = document.getElementById('rankChart').getContext('2d');
+        const datasets = [{"label":"Arsenal","data":[1,1,3,2,4,2,2,3,3,4,3,3,2,2,3,3,3,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],"borderColor":"#EF0107","backgroundColor":"#EF0107","pointBackgroundColor":"#EF0107","pointRadius":4,"fill":false,"tension":0.1,"hidden":false},{"label":"Aston Villa","data":[2,8,6,4,2,4,4,4,4,5,7,6,9,6,5,6,5,7,8,8,6,8,8,8,9,8,7,7,6,6,7,7,5,4,5],"borderColor":"#95BFE5","backgroundColor":"#95BFE5","pointBackgroundColor":"#95BFE5","pointRadius":4,"fill":false,"tension":0.1,"hidden":false},{"label":"Bournemouth","data":[9,14,8,11,13,11,12,10,10,9,12,13,13,9,7,7,6,5,7,7,8,7,6,7,5,10,10,10,8,8,10,8,10,11,9],"borderColor":"#DA291C","backgroundColor":"#DA291C","pointBackgroundColor":"#DA291C","pointRadius":4,"fill":false,"tension":0.1,"hidden":false},{"label":"Brentford","data":[3,9,7,9,12,12,9,13,8,12,10,11,7,10,9,10,11,11,11,11,11,11,11,11,11,11,11,12,11,11,11,9,8,9,10],"borderColor":"#E30613","backgroundColor":"#E30613","pointBackgroundColor":"#E30613","pointRadius":4,"fill":false,"tension":0.1,"hidden":false},{"label":"Brighton and Hove Albion","data":[4,2,4,6,7,9,6,5,6,7,4,4,4,5,8,8,9,10,10,10,9,9,9,10,10,6,8,9,9,9,8,10,9,8,8],"borderColor":"#0057B8","backgroundColor":"#0057B8","pointBackgroundColor":"#0057B8","pointRadius":4,"fill":false,"tension":0.1,"hidden":false},{"label":"Chelsea","data":[13,10,10,8,5,5,5,6,5,6,5,5,3,3,2,2,2,3,4,4,5,4,7,4,6,4,4,4,7,7,5,4,6,5,4],"borderColor":"#034694","backgroundColor":"#034694","pointBackgroundColor":"#034694","pointRadius":4,"fill":false,"tension":0.1,"hidden":false},{"label":"Crystal Palace","data":[14,16,15,15,15,17,18,18,17,17,18,19,17,17,17,15,15,15,15,15,14,12,13,12,12,12,12,11,12,12,12,12,12,12,12],"borderColor":"#1B458F","backgroundColor":"#1B458F","pointBackgroundColor":"#1B458F","pointRadius":4,"fill":false,"tension":0.1,"hidden":false},{"label":"Everton","data":[15,17,19,19,18,15,16,15,15,16,15,15,15,15,15,16,16,16,16,16,16,16,16,14,13,14,14,15,13,13,15,14,13,13,13],"borderColor":"#003399","backgroundColor":"#003399","pointBackgroundColor":"#003399","pointRadius":4,"fill":false,"tension":0.1,"hidden":false},{"label":"Fulham","data":[16,11,11,12,9,6,8,11,11,10,8,9,10,7,10,9,10,8,9,9,10,10,10,9,8,9,9,8,10,10,9,11,11,10,11],"borderColor":"#ffffff","backgroundColor":"#ffffff","pointBackgroundColor":"#ffffff","pointRadius":4,"fill":false,"tension":0.1,"hidden":false},{"label":"Ipswich Town","data":[17,18,16,16,16,16,17,17,18,18,17,17,18,18,18,18,18,19,18,17,17,17,18,19,18,18,18,18,18,18,18,18,18,19,19],"borderColor":"#0033A0","backgroundColor":"#0033A0","pointBackgroundColor":"#0033A0","pointRadius":4,"fill":false,"tension":0.1,"hidden":false},{"label":"Leicester City","data":[10,15,17,17,17,18,15,14,16,15,16,16,16,16,16,17,17,18,19,19,19,19,17,18,19,19,19,19,19,19,19,19,19,18,18],"borderColor":"#003090","backgroundColor":"#003090","pointBackgroundColor":"#003090","pointRadius":4,"fill":false,"tension":0.1,"hidden":false},{"label":"Liverpool","data":[5,3,1,5,3,1,1,1,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],"borderColor":"#C8102E","backgroundColor":"#C8102E","pointBackgroundColor":"#C8102E","pointRadius":4,"fill":false,"tension":0.1,"hidden":false},{"label":"Manchester City","data":[6,4,2,1,1,3,3,2,1,2,2,2,5,4,4,5,7,9,6,6,7,5,4,5,4,5,5,6,5,5,4,3,4,3,3],"borderColor":"#6CABDD","backgroundColor":"#6CABDD","pointBackgroundColor":"#6CABDD","pointRadius":4,"fill":false,"tension":0.1,"hidden":false},{"label":"Manchester United","data":[7,12,13,10,10,13,13,12,13,13,13,12,11,13,13,13,13,14,14,13,12,13,12,13,15,13,13,13,14,14,14,15,16,16,15],"borderColor":"#DA291C","backgroundColor":"#DA291C","pointBackgroundColor":"#DA291C","pointRadius":4,"fill":false,"tension":0.1,"hidden":false},{"label":"Newcastle United","data":[8,5,5,3,6,7,7,9,12,11,9,10,12,11,11,11,8,6,5,5,4,6,5,6,7,7,6,5,3,4,3,5,3,6,6],"borderColor":"#241F20","backgroundColor":"#241F20","pointBackgroundColor":"#241F20","pointRadius":4,"fill":false,"tension":0.1,"hidden":false},{"label":"Nottingham Forest","data":[11,6,9,7,8,10,10,7,7,3,6,7,6,8,6,4,4,4,3,3,3,3,3,3,3,3,3,3,4,3,6,6,7,7,7],"borderColor":"#DD0000","backgroundColor":"#DD0000","pointBackgroundColor":"#DD0000","pointRadius":4,"fill":false,"tension":0.1,"hidden":false},{"label":"Southampton","data":[18,19,20,20,19,19,19,19,20,19,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20],"borderColor":"#D71920","backgroundColor":"#D71920","pointBackgroundColor":"#D71920","pointRadius":4,"fill":false,"tension":0.1,"hidden":false},{"label":"Tottenham Hotspur","data":[12,7,12,13,11,8,11,8,9,8,11,8,8,12,12,12,12,12,12,12,15,15,15,15,14,15,15,14,15,16,16,16,17,17,17],"borderColor":"#132257","backgroundColor":"#132257","pointBackgroundColor":"#132257","pointRadius":4,"fill":false,"tension":0.1,"hidden":false},{"label":"West Ham United","data":[19,13,14,14,14,14,14,16,14,14,14,14,14,14,14,14,14,13,13,14,13,14,14,16,16,16,16,16,16,17,17,17,15,15,14],"borderColor":"#7A263A","backgroundColor":"#7A263A","pointBackgroundColor":"#7A263A","pointRadius":4,"fill":false,"tension":0.1,"hidden":false},{"label":"Wolverhampton Wanderers","data":[20,20,18,18,20,20,20,20,19,20,19,18,19,19,19,19,19,17,17,18,18,18,19,17,17,17,17,17,17,15,13,13,14,14,16],"borderColor":"#FDB913","backgroundColor":"#FDB913","pointBackgroundColor":"#FDB913","pointRadius":4,"fill":false,"tension":0.1,"hidden":false}];
+        const logoIds = {"Brighton and Hove Albion":"36","Arsenal":"3","Liverpool":"14","Manchester City":"43","Aston Villa":"7","Chelsea":"8","Newcastle United":"4","Tottenham Hotspur":"6","Manchester United":"1","Brentford":"94","West Ham United":"21","Nottingham Forest":"17","Fulham":"54","Bournemouth":"91","Leicester City":"13","Crystal Palace":"31","Ipswich Town":"40","Southampton":"20","Everton":"11","Wolverhampton Wanderers":"39"};
+        const labels = ["MW 1","MW 2","MW 3","MW 4","MW 5","MW 6","MW 7","MW 8","MW 9","MW 10","MW 11","MW 12","MW 13","MW 14","MW 15","MW 16","MW 17","MW 18","MW 19","MW 20","MW 21","MW 22","MW 23","MW 24","MW 25","MW 29","MW 30","MW 31","MW 32","MW 33","MW 34","MW 35","MW 36","MW 37","MW 38"];
+
+        // Determine final standings order for left labels
+        const lastWeek = [{"team":"Liverpool","points":84},{"team":"Arsenal","points":74},{"team":"Manchester City","points":71},{"team":"Chelsea","points":69},{"team":"Aston Villa","points":66},{"team":"Newcastle United","points":66},{"team":"Nottingham Forest","points":65},{"team":"Brighton and Hove Albion","points":61},{"team":"Bournemouth","points":56},{"team":"Brentford","points":56},{"team":"Fulham","points":54},{"team":"Crystal Palace","points":53},{"team":"Everton","points":48},{"team":"West Ham United","points":43},{"team":"Manchester United","points":42},{"team":"Wolverhampton Wanderers","points":42},{"team":"Tottenham Hotspur","points":38},{"team":"Leicester City","points":25},{"team":"Ipswich Town","points":22},{"team":"Southampton","points":12}];
+        
+        const rankLabelsContainer = document.getElementById('rank-labels');
+        for (let i = 1; i <= 20; i++) {
+            const team = lastWeek[i-1];
+            const div = document.createElement('div');
+            div.className = 'rank-label-item';
+            div.innerHTML = `
+                <span class="rank-num">${i}</span>
+                <span class="rank-name">${team.team}</span>
+                <img class="rank-logo" src="https://resources.premierleague.com/premierleague/badges/50/t${logoIds[team.team]}.png">
+            `;
+            rankLabelsContainer.appendChild(div);
+        }
+
+        const chart = new Chart(ctx, {
+            type: 'line',
+            data: { labels, datasets },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                clip: false,
+                layout: {
+                    padding: { top: 30, bottom: 30, left: 0, right: 20 }
+                },
+                scales: {
+                    y: {
+                        reverse: true,
+                        min: 1,
+                        max: 20,
+                        offset: true,
+                        ticks: { display: false },
+                        grid: { color: 'rgba(255,255,255,0.05)', drawTicks: false },
+                        border: { display: false }
+                    },
+                    x: {
+                        ticks: { color: '#666', font: { size: 10 } },
+                        grid: { color: 'rgba(255,255,255,0.05)' },
+                        border: { display: false }
+                    }
+                },
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        mode: 'index',
+                        intersect: false,
+                        padding: 12,
+                        backgroundColor: 'rgba(0,0,0,0.9)',
+                        titleColor: '#00ff85',
+                        callbacks: {
+                            label: (context) => ' ' + context.dataset.label + ': Pos ' + context.parsed.y
+                        }
+                    }
+                },
+                interaction: { mode: 'nearest', axis: 'x', intersect: false }
+            }
+        });
+
+        const controls = document.getElementById('controls');
+        datasets.forEach((ds, idx) => {
+            const btn = document.createElement('button');
+            btn.innerText = ds.label;
+            btn.id = 'btn-' + idx;
+            btn.classList.add('active');
+            btn.onclick = () => {
+                const meta = chart.getDatasetMeta(idx);
+                meta.hidden = meta.hidden === null ? !chart.data.datasets[idx].hidden : null;
+                btn.classList.toggle('active', !meta.hidden);
+                chart.update();
+            };
+            controls.appendChild(btn);
+        });
+
+        function toggleAll(show) {
+            chart.data.datasets.forEach((ds, idx) => {
+                const meta = chart.getDatasetMeta(idx);
+                meta.hidden = !show;
+                const btn = document.getElementById('btn-' + idx);
+                if (btn) btn.classList.toggle('active', show);
+            });
+            chart.update();
+        }
+    </script>
+</body>
+</html>
+  
