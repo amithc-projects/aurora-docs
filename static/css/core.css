@@ -4,6 +4,7 @@
 @import url('base/reset.css');
 @import url('base/primitives.css');
 @import url('base/properties.css');
+@import url('base/motion.css');
 
 /* 2. THEME CONFIGURATION */
 @import url('themes/corporate.css');

@@ -80,6 +80,10 @@
   --ds-sys-border-width: 8px;
   --ds-sys-shadow-card: 8px 8px 0px rgba(0, 0, 0, 0.1);
   --ds-sys-density: 1.5;
+
+  /* MOTION OVERRIDE: Bouncy/Bubbly */
+  --ds-motion-easing-active: var(--ds-motion-easing-bubbly);
+
   --ds-cmp-slider-item-width: 85%;
   --ds-cmp-slider-marker-size: 24px;
 

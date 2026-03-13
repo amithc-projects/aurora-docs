@@ -12,6 +12,37 @@ By defining the page trees and component requirements for each archetype, we can
 
 ---
 
+## 0. The Platform Pillars
+To transition from a "Component Gallery" to a "Design Platform," Aurora is focused on these high-level architectural standards:
+
+### I. Animations & Motion Architecture
+Moving beyond component-specific logic to a unified system-wide **Motion Layer**.
+- **Unified Tokens:** Duration (`--ds-motion-duration-*`) and Easing (`--ds-motion-easing-*`) tokens.
+- **Focus Standard:** Solving the "Selected Tile" problem with a unified **Scale + Halo + Content Reveal** pattern.
+- **Motion Archetypes:** "Bouncy" transitions for the Kids theme vs. "Linear/Professional" for Corporate.
+
+### II. Accessibility (A11y) Standards
+- **Keyboard Navigation:** Formalizing "Focus Traps" for overlays and "Arrow Key Navigation" for carousels.
+- **Narrative Logic:** Standards for `aria-live` and screen reader announcements to ensure focus remains uninterrupted.
+
+### III. Global Search & Discovery
+- **Universal Search:** A unified pattern for searching disparate data (Products, Content, Media).
+- **Recent/Saved States:** Utilizing `localStorage` to remember user history and searches.
+
+### IV. Localization (L10n)
+- **RTL Support:** Ensuring `.l-grid` and `.l-stack` primitives support layout mirroring.
+- **Variable Font L10n:** Ensuring the Font Studio handles non-Latin character sets.
+
+### V. Error & Empty State Architecture
+- **Zero States:** Standardizing the "No Results Found" and "Empty Inbox" visual metaphors.
+- **System Interrupts:** A priority-based notification system (Info vs. Critical Failure).
+
+### VI. Documentation & Governance
+- **Usage Guidelines:** Documenting the *why* (UX principles) and the *when*.
+- **Contribution Model:** Formal process for adding new components to the "Gold" manifest.
+
+---
+
 ## 1. SaaS Product Site
 **Archetype Examples:** [Stripe](https://stripe.com), [Linear](https://linear.app), [Slack](https://slack.com)
 
@@ -126,3 +157,5 @@ By defining the page trees and component requirements for each archetype, we can
 ### Micro-Interactions & Animations
 - [x] Magnetic Hover Buttons (Physics-based)
 - [x] Scroll Reveal Animations (Intersection Observer)
+- [/] **Unified Motion Layer (Tokens & Easing)**
+- [/] **Focus Standard (Scale + Halo + Reveal)**

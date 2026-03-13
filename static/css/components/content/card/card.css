@@ -12,6 +12,41 @@
     border: var(--ds-sys-border-width, 1px) solid var(--ds-sys-color-border);
     border-radius: var(--ds-sys-radius-card);
     box-shadow: var(--ds-sys-shadow-card);
+
+    /* MOTION BASE */
+    transition: 
+      transform var(--ds-motion-duration-norm) var(--ds-motion-easing-active),
+      box-shadow var(--ds-motion-duration-norm) var(--ds-motion-easing-active),
+      outline var(--ds-motion-duration-norm) var(--ds-motion-easing-active);
+    outline: 0 solid transparent;
+    outline-offset: 2px;
+  }
+
+  /* FOCUS STANDARD: Lift + Halo */
+  .card:hover,
+  .card:focus-within {
+    transform: scale(var(--ds-motion-scale-focus, 1.05));
+    box-shadow: var(--ds-sys-shadow-card-hover, var(--shadow-xl));
+    z-index: 10;
+    outline: 2px solid var(--ds-sys-color-primary);
+    outline-offset: 4px;
+    cursor: pointer;
+  }
+
+  /* CONTENT REAL: Reveal metadata/actions */
+  .card__reveal {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: 
+      opacity var(--ds-motion-duration-norm) var(--ds-motion-easing-reveal),
+      transform var(--ds-motion-duration-norm) var(--ds-motion-easing-reveal);
+    margin-top: var(--space-sm);
+  }
+
+  .card:hover .card__reveal,
+  .card:focus-within .card__reveal {
+    opacity: 1;
+    transform: translateY(0);
   }
 
   .card__media {

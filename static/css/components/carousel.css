@@ -1,7 +1,7 @@
 /* MODERN CSS CAROUSEL (Fixed Dot Colors) */
 
 :root {
-  --carousel-height: min(50vh, 500px);
+  --carousel-height: min(60vh, 500px);
   --item-width: 280px;
 }
 
@@ -13,8 +13,8 @@
   /* Match inner children's max height */
   gap: 0;
   width: 100%;
-  padding: 0;
-  margin: 2rem 0;
+  padding: 20px 0; /* Vertical padding for halo/scale */
+  margin: 1rem 0;
 
   overflow-x: auto;
   overflow-y: visible;
@@ -62,12 +62,11 @@
   width: var(--item-width);
   margin: 0;
   box-sizing: border-box;
-  overflow: hidden;
-
   background: var(--ds-sys-color-surface-container);
   border: 1px solid var(--ds-sys-color-border);
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
 
   text-decoration: none;
   color: inherit;
@@ -76,18 +75,51 @@
 
   /* Unsnapped State */
   opacity: 0.5;
-  transform: scale(0.9);
-  transition: opacity 0.3s, transform 0.3s;
+  transform: scale(var(--ds-motion-scale-unsnapped, 0.9));
+  transition: 
+    opacity var(--ds-motion-duration-norm) var(--ds-motion-easing-active),
+    transform var(--ds-motion-duration-norm) var(--ds-motion-easing-active),
+    outline var(--ds-motion-duration-norm) var(--ds-motion-easing-active),
+    box-shadow var(--ds-motion-duration-norm) var(--ds-motion-easing-active);
+  outline: 0 solid transparent;
 }
 
-/* Snapped State */
+/* --- OVERFLOW HELPER --- */
+.carousel__item--overflow {
+  overflow: visible !important;
+}
+
+/* --- PLAIN HELPER (No Jacket) --- */
+.carousel__item--plain {
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* Snapped State (Default active) */
 @container scroll-state(snapped: inline) {
   .carousel>*>* {
     opacity: 1;
     transform: scale(1);
+    box-shadow: var(--ds-sys-shadow-card, 0 4px 10px rgba(0, 0, 0, 0.1));
+    border-color: var(--ds-sys-color-primary);
   }
 }
 
+/* FOCUS STANDARD: Interaction Lift */
+.carousel>*>*:hover,
+.carousel>*>*:focus-within {
+  transform: scale(var(--ds-motion-scale-focus, 1.05)) !important;
+  opacity: 1 !important;
+  z-index: 100;
+  outline: 2px solid var(--ds-sys-color-primary);
+  outline-offset: 4px;
+  box-shadow: var(--ds-motion-halo-glow), var(--shadow-xl);
+  cursor: pointer;
+}
 
 /* --- NAVIGATION MARKERS (The Dots) --- */
 .carousel::scroll-marker-group {
@@ -189,12 +221,15 @@
 .carousel.carousel--multi>*>* {
   width: var(--item-width);
   transform: none;
-  opacity: 1;
+  opacity: 0.8; /* Slightly dimmed when not snapped */
 }
 
 @container scroll-state(snapped: inline) {
   .carousel.carousel--multi>*>* {
+    opacity: 1;
     border-color: var(--ds-sys-color-primary);
+    border-width: 2px;
     background: var(--ds-sys-color-surface);
+    box-shadow: var(--ds-motion-halo-glow);
   }
 }

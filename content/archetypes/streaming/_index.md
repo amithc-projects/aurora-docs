@@ -13,7 +13,7 @@ A classic "hero billboard" layout layered above multiple cascading rows of horiz
 
 {{< demo >}}
 <!-- Force Dark Mode on the parent container -->
-<div data-theme="dark" style="width: 100%; height: 650px; border: 1px solid #333; border-radius: 8px; overflow-y: auto; overflow-x: hidden; background: #141414; color: #ffffff; font-family: var(--ds-sys-font-family-base);">
+<div data-theme="dark" style="width: 100%; height: 850px; border: 1px solid #333; border-radius: 8px; overflow-y: auto; overflow-x: hidden; background: #141414; color: #ffffff; font-family: var(--ds-sys-font-family-base);">
   
   <!-- Transparent Global Navigation -->
   <header style="display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 2.5rem; position: sticky; top: 0; z-index: 50; background: linear-gradient(180deg, rgba(20,20,20,0.9) 0%, rgba(20,20,20,0) 100%);">
@@ -65,54 +65,54 @@ A classic "hero billboard" layout layered above multiple cascading rows of horiz
       <h2 style="font-size: 1.25rem; font-weight: 700; color: #e5e5e5; margin-bottom: 1rem;">Trending Now</h2>
       <div class="carousel carousel--multi" role="region" aria-label="Trending Now">
         
-        <!-- Hover-expanding Cards with Top 10 Overlay Styling -->
-        <div>
-          <div style="position: relative; overflow: visible; background: transparent; border: none; box-shadow: none; align-items: stretch; justify-content: flex-start;">
-            <span style="position: absolute; left: -10px; bottom: -4px; font-size: 7.5rem; font-family: 'Arial Black', sans-serif; font-weight: 900; line-height: 0.8; -webkit-text-stroke: 2px #fff; color: #141414; z-index: 20;">1</span>
-            <a href="/aurora-docs/archetypes/streaming/titles/stranger-things/" style="display: block; width: 100%; height: 100%; overflow: visible; padding-left: 35px; box-sizing: border-box;">
-              <div style="width: 100%; height: 140px; background: url('/aurora-docs/images/archetypes/horror.png') center/cover; border-radius: 4px; transition: border-color 0.2s; border: 1px solid transparent; position: relative;" onmouseover="this.style.borderColor='white'" onmouseout="this.style.borderColor='transparent'">
-                <div style="position: absolute; top: 0; left: 0; background: #e50914; color: white; font-size: 0.7rem; font-weight: 800; padding: 2px 6px; border-bottom-right-radius: 4px; text-transform: uppercase; letter-spacing: 1px;">Top 10</div>
-              </div>
+        <!-- Trending Card 1 -->
+        <div style="padding: 20px 0;">
+          <div class="carousel__item--plain" style="position: relative; width: 220px; height: 160px; margin-left: 60px;">
+            <span style="position: absolute; left: -60px; bottom: -10px; font-size: 10rem; font-family: 'Arial Black', sans-serif; font-weight: 900; -webkit-text-stroke: 1px rgba(255,255,255,0.7); color: #000; z-index: 12; pointer-events: none; line-height: 1;">1</span>
+            <a href="/aurora-docs/archetypes/streaming/titles/stranger-things/" class="card" style="width: 100%; height: 100%; position: relative; z-index: 10;">
+               <div class="card__media" style="background: url('/aurora-docs/images/archetypes/horror.png') center/cover; height: 100%;">
+                  <div style="position: absolute; top: 0; left: 0; background: #e50914; color: white; font-size: 0.7rem; font-weight: 800; padding: 2px 6px; border-bottom-right-radius: 4px; text-transform: uppercase;">Top 10</div>
+               </div>
             </a>
           </div>
         </div>
-        <div>
-          <div style="position: relative; overflow: visible; background: transparent; border: none; box-shadow: none; align-items: stretch; justify-content: flex-start;">
-            <span style="position: absolute; left: -10px; bottom: -4px; font-size: 7.5rem; font-family: 'Arial Black', sans-serif; font-weight: 900; line-height: 0.8; -webkit-text-stroke: 2px #fff; color: #141414; z-index: 20;">2</span>
-            <a href="#" style="display: block; width: 100%; height: 100%; overflow: visible; padding-left: 35px; box-sizing: border-box;">
-              <div style="width: 100%; height: 140px; background: url('/aurora-docs/images/archetypes/scifi.png') center/cover; border-radius: 4px;"></div>
+
+        <!-- Trending Card 2 -->
+        <div style="padding: 20px 0;">
+          <div class="carousel__item--plain" style="position: relative; width: 220px; height: 160px; margin-left: 60px;">
+            <span style="position: absolute; left: -60px; bottom: -10px; font-size: 10rem; font-family: 'Arial Black', sans-serif; font-weight: 900; -webkit-text-stroke: 1px rgba(255,255,255,0.7); color: #000; z-index: 12; pointer-events: none; line-height: 1;">2</span>
+            <a href="#" class="card" style="width: 100%; height: 100%; position: relative; z-index: 10;">
+               <div class="card__media" style="background: url('/aurora-docs/images/archetypes/scifi.png') center/cover; height: 100%;"></div>
             </a>
           </div>
         </div>
-        <div>
-          <div style="position: relative; overflow: visible; background: transparent; border: none; box-shadow: none; align-items: stretch; justify-content: flex-start;">
-            <span style="position: absolute; left: -10px; bottom: -4px; font-size: 7.5rem; font-family: 'Arial Black', sans-serif; font-weight: 900; line-height: 0.8; -webkit-text-stroke: 2px #fff; color: #141414; z-index: 20;">3</span>
-            <a href="#" style="display: block; width: 100%; height: 100%; overflow: visible; padding-left: 35px; box-sizing: border-box;">
-              <div style="width: 100%; height: 140px; background: url('/aurora-docs/images/archetypes/fantasy.png') center/cover; border-radius: 4px;"></div>
+
+        <!-- Trending Card 3 -->
+        <div style="padding: 20px 0;">
+          <div class="carousel__item--plain" style="position: relative; width: 220px; height: 160px; margin-left: 60px;">
+            <span style="position: absolute; left: -60px; bottom: -10px; font-size: 10rem; font-family: 'Arial Black', sans-serif; font-weight: 900; -webkit-text-stroke: 1px rgba(255,255,255,0.7); color: #000; z-index: 12; pointer-events: none; line-height: 1;">3</span>
+            <a href="#" class="card" style="width: 100%; height: 100%; position: relative; z-index: 10;">
+               <div class="card__media" style="background: url('/aurora-docs/images/archetypes/fantasy.png') center/cover; height: 100%;"></div>
             </a>
           </div>
         </div>
-        <div>
-          <div style="position: relative; overflow: visible; background: transparent; border: none; box-shadow: none; align-items: stretch; justify-content: flex-start;">
-            <span style="position: absolute; left: -10px; bottom: -4px; font-size: 7.5rem; font-family: 'Arial Black', sans-serif; font-weight: 900; line-height: 0.8; -webkit-text-stroke: 2px #fff; color: #141414; z-index: 20;">4</span>
-            <a href="#" style="display: block; width: 100%; height: 100%; overflow: visible; padding-left: 35px; box-sizing: border-box;">
-              <div style="width: 100%; height: 140px; background: url('/aurora-docs/images/archetypes/cyberpunk.png') center/cover; border-radius: 4px;"></div>
+
+        <!-- Trending Card 4 -->
+        <div style="padding: 20px 0;">
+          <div class="carousel__item--plain" style="position: relative; width: 220px; height: 160px; margin-left: 60px;">
+            <span style="position: absolute; left: -60px; bottom: -10px; font-size: 10rem; font-family: 'Arial Black', sans-serif; font-weight: 900; -webkit-text-stroke: 1px rgba(255,255,255,0.7); color: #000; z-index: 12; pointer-events: none; line-height: 1;">4</span>
+            <a href="#" class="card" style="width: 100%; height: 100%; position: relative; z-index: 10;">
+               <div class="card__media" style="background: url('/aurora-docs/images/archetypes/cyberpunk.png') center/cover; height: 100%;"></div>
             </a>
           </div>
         </div>
-        <div>
-          <div style="position: relative; overflow: visible; background: transparent; border: none; box-shadow: none; align-items: stretch; justify-content: flex-start;">
-            <span style="position: absolute; left: -10px; bottom: -4px; font-size: 7.5rem; font-family: 'Arial Black', sans-serif; font-weight: 900; line-height: 0.8; -webkit-text-stroke: 2px #fff; color: #141414; z-index: 20;">5</span>
-            <a href="#" style="display: block; width: 100%; height: 100%; overflow: visible; padding-left: 35px; box-sizing: border-box;">
-              <div style="width: 100%; height: 140px; background: url('/aurora-docs/images/archetypes/scifi.png') center/cover; border-radius: 4px;"></div>
-            </a>
-          </div>
-        </div>
-        <div>
-          <div style="position: relative; overflow: visible; background: transparent; border: none; box-shadow: none; align-items: stretch; justify-content: flex-start;">
-            <span style="position: absolute; left: -10px; bottom: -4px; font-size: 7.5rem; font-family: 'Arial Black', sans-serif; font-weight: 900; line-height: 0.8; -webkit-text-stroke: 2px #fff; color: #141414; z-index: 20;">6</span>
-            <a href="#" style="display: block; width: 100%; height: 100%; overflow: visible; padding-left: 35px; box-sizing: border-box;">
-              <div style="width: 100%; height: 140px; background: url('/aurora-docs/images/archetypes/horror.png') center/cover; border-radius: 4px;"></div>
+
+        <!-- Trending Card 5 -->
+        <div style="padding: 20px 0;">
+          <div class="carousel__item--plain" style="position: relative; width: 220px; height: 160px; margin-left: 60px;">
+            <span style="position: absolute; left: -60px; bottom: -10px; font-size: 10rem; font-family: 'Arial Black', sans-serif; font-weight: 900; -webkit-text-stroke: 1px rgba(255,255,255,0.7); color: #000; z-index: 12; pointer-events: none; line-height: 1;">5</span>
+            <a href="#" class="card" style="width: 100%; height: 100%; position: relative; z-index: 10;">
+               <div class="card__media" style="background: url('/aurora-docs/images/archetypes/scifi.png') center/cover; height: 100%;"></div>
             </a>
           </div>
         </div>
@@ -125,14 +125,12 @@ A classic "hero billboard" layout layered above multiple cascading rows of horiz
       <h2 style="font-size: 1.25rem; font-weight: 700; color: #e5e5e5; margin-bottom: 1rem;">Sci-Fi & Fantasy</h2>
       <div class="carousel carousel--multi" role="region" aria-label="Sci-Fi & Fantasy">
         
-        <div><a href="/aurora-docs/archetypes/streaming/titles/neon-streets/"><div style="width: 100%; height: 140px; background: url('/aurora-docs/images/archetypes/cyberpunk.png') center/cover; border-radius: 4px; transition: border-color 0.2s; border: 1px solid transparent; position: relative;" onmouseover="this.style.borderColor='white'" onmouseout="this.style.borderColor='transparent'">
-          <svg style="position: absolute; top: 8px; left: 8px; width: 12px; height: 12px;" viewBox="0 0 100 100" fill="#e50914"><path d="M78,14.6L78,85.4C78,88,75.9,90,73.3,90L26.7,90C24.1,90,22,88,22,85.4L22,14.6C22,12,24.1,10,26.7,10L73.3,10C75.9,10,78,12,78,14.6z M64,36.5L36,75.2L36,25L64,64.8L64,36.5z"/></svg>
-        </div></a></div>
-        <div><a href="#"><div style="width: 100%; height: 140px; background: url('/aurora-docs/images/archetypes/horror.png') center/cover; border-radius: 4px;"></div></a></div>
-        <div><a href="#"><div style="width: 100%; height: 140px; background: url('/aurora-docs/images/archetypes/scifi.png') center/cover; border-radius: 4px;"></div></a></div>
-        <div><a href="#"><div style="width: 100%; height: 140px; background: url('/aurora-docs/images/archetypes/fantasy.png') center/cover; border-radius: 4px;"></div></a></div>
-        <div><a href="#"><div style="width: 100%; height: 140px; background: url('/aurora-docs/images/archetypes/horror.png') center/cover; border-radius: 4px;"></div></a></div>
-        <div><a href="#"><div style="width: 100%; height: 140px; background: url('/aurora-docs/images/archetypes/scifi.png') center/cover; border-radius: 4px;"></div></a></div>
+        <div style="padding: 20px 0;"><a href="/aurora-docs/archetypes/streaming/titles/neon-streets/" class="card"><div class="card__media" style="background: url('/aurora-docs/images/archetypes/cyberpunk.png') center/cover; height: 140px;"></div></a></div>
+        <div style="padding: 20px 0;"><a href="#" class="card"><div class="card__media" style="background: url('/aurora-docs/images/archetypes/horror.png') center/cover; height: 140px;"></div></a></div>
+        <div style="padding: 20px 0;"><a href="#" class="card"><div class="card__media" style="background: url('/aurora-docs/images/archetypes/scifi.png') center/cover; height: 140px;"></div></a></div>
+        <div style="padding: 20px 0;"><a href="#" class="card"><div class="card__media" style="background: url('/aurora-docs/images/archetypes/fantasy.png') center/cover; height: 140px;"></div></a></div>
+        <div style="padding: 20px 0;"><a href="#" class="card"><div class="card__media" style="background: url('/aurora-docs/images/archetypes/horror.png') center/cover; height: 140px;"></div></a></div>
+        <div style="padding: 20px 0;"><a href="#" class="card"><div class="card__media" style="background: url('/aurora-docs/images/archetypes/scifi.png') center/cover; height: 140px;"></div></a></div>
         
       </div>
     </div>
@@ -142,35 +140,43 @@ A classic "hero billboard" layout layered above multiple cascading rows of horiz
       <h2 style="font-size: 1.5rem; font-weight: 700; color: #ffffff; margin-bottom: 1.5rem;">More reasons to join</h2>
       <div class="l-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
         
-        <article class="card" style="background: linear-gradient(135deg, #201a35 0%, #171124 100%); border: none; padding: 1.5rem 1.5rem 4rem 1.5rem; position: relative;">
-          <h3 style="color: #ffffff; font-size: 1.25rem; margin-bottom: 0.75rem;">Enjoy on your TV</h3>
-          <p style="color: rgba(255,255,255,0.7); font-size: 0.95rem; line-height: 1.4; margin: 0;">Watch on smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray players and more.</p>
-          <div style="position: absolute; bottom: 1.5rem; right: 1.5rem;">
-            <span class="material-symbols-outlined" style="color: #bc3e9f; font-size: 2.5rem;">live_tv</span>
+        <article class="card" style="background: linear-gradient(135deg, #201a35 0%, #171124 100%); border: none;">
+          <div class="card__content" style="padding: 1.5rem; position: relative; min-height: 180px;">
+            <h3 style="color: #ffffff; font-size: 1.25rem; margin-bottom: 0.75rem;">Enjoy on your TV</h3>
+            <p style="color: rgba(255,255,255,0.7); font-size: 0.95rem; line-height: 1.4; margin: 0;">Watch on smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray players and more.</p>
+            <div style="position: absolute; bottom: 1.5rem; right: 1.5rem;">
+              <span class="material-symbols-outlined" style="color: #bc3e9f; font-size: 2.5rem;">live_tv</span>
+            </div>
           </div>
         </article>
 
-        <article class="card" style="background: linear-gradient(135deg, #201a35 0%, #171124 100%); border: none; padding: 1.5rem 1.5rem 4rem 1.5rem; position: relative;">
-          <h3 style="color: #ffffff; font-size: 1.25rem; margin-bottom: 0.75rem;">Download your series to watch offline</h3>
-          <p style="color: rgba(255,255,255,0.7); font-size: 0.95rem; line-height: 1.4; margin: 0;">Save your favourites easily and always have something to watch.</p>
-          <div style="position: absolute; bottom: 1.5rem; right: 1.5rem;">
-            <span class="material-symbols-outlined" style="color: #e50914; font-size: 2.5rem;">download_for_offline</span>
+        <article class="card" style="background: linear-gradient(135deg, #201a35 0%, #171124 100%); border: none;">
+          <div class="card__content" style="padding: 1.5rem; position: relative; min-height: 180px;">
+            <h3 style="color: #ffffff; font-size: 1.25rem; margin-bottom: 0.75rem;">Download your series to watch offline</h3>
+            <p style="color: rgba(255,255,255,0.7); font-size: 0.95rem; line-height: 1.4; margin: 0;">Save your favourites easily and always have something to watch.</p>
+            <div style="position: absolute; bottom: 1.5rem; right: 1.5rem;">
+              <span class="material-symbols-outlined" style="color: #e50914; font-size: 2.5rem;">download_for_offline</span>
+            </div>
           </div>
         </article>
 
-        <article class="card" style="background: linear-gradient(135deg, #201a35 0%, #171124 100%); border: none; padding: 1.5rem 1.5rem 4rem 1.5rem; position: relative;">
-          <h3 style="color: #ffffff; font-size: 1.25rem; margin-bottom: 0.75rem;">Watch everywhere</h3>
-          <p style="color: rgba(255,255,255,0.7); font-size: 0.95rem; line-height: 1.4; margin: 0;">Stream unlimited films and series on your phone, tablet, laptop and TV.</p>
-          <div style="position: absolute; bottom: 1.5rem; right: 1.5rem;">
-            <span class="material-symbols-outlined" style="color: #bc3e9f; font-size: 2.5rem;">devices</span>
+        <article class="card" style="background: linear-gradient(135deg, #201a35 0%, #171124 100%); border: none;">
+          <div class="card__content" style="padding: 1.5rem; position: relative; min-height: 180px;">
+            <h3 style="color: #ffffff; font-size: 1.25rem; margin-bottom: 0.75rem;">Watch everywhere</h3>
+            <p style="color: rgba(255,255,255,0.7); font-size: 0.95rem; line-height: 1.4; margin: 0;">Stream unlimited films and series on your phone, tablet, laptop and TV.</p>
+            <div style="position: absolute; bottom: 1.5rem; right: 1.5rem;">
+              <span class="material-symbols-outlined" style="color: #bc3e9f; font-size: 2.5rem;">devices</span>
+            </div>
           </div>
         </article>
 
-        <article class="card" style="background: linear-gradient(135deg, #201a35 0%, #171124 100%); border: none; padding: 1.5rem 1.5rem 4rem 1.5rem; position: relative;">
-          <h3 style="color: #ffffff; font-size: 1.25rem; margin-bottom: 0.75rem;">Create profiles for children</h3>
-          <p style="color: rgba(255,255,255,0.7); font-size: 0.95rem; line-height: 1.4; margin: 0;">Send children on adventures with their favourite characters in a space made just for them.</p>
-          <div style="position: absolute; bottom: 1.5rem; right: 1.5rem;">
-            <span class="material-symbols-outlined" style="color: #e50914; font-size: 2.5rem;">family_restroom</span>
+        <article class="card" style="background: linear-gradient(135deg, #201a35 0%, #171124 100%); border: none;">
+          <div class="card__content" style="padding: 1.5rem; position: relative; min-height: 180px;">
+            <h3 style="color: #ffffff; font-size: 1.25rem; margin-bottom: 0.75rem;">Create profiles for children</h3>
+            <p style="color: rgba(255,255,255,0.7); font-size: 0.95rem; line-height: 1.4; margin: 0;">Send children on adventures with their favourite characters in a space made just for them.</p>
+            <div style="position: absolute; bottom: 1.5rem; right: 1.5rem;">
+              <span class="material-symbols-outlined" style="color: #e50914; font-size: 2.5rem;">family_restroom</span>
+            </div>
           </div>
         </article>
 

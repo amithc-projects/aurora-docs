@@ -478,23 +478,28 @@ Z-index values are named to avoid conflicts between layered components.
 
 | Token | Value | Usage |
 |---|---|---|
-| `--duration-instant` | `0ms` | Disabled states, reduced-motion fallback |
-| `--duration-fast` | `100ms` | Micro-interactions (checkbox tick, toggle) |
-| `--duration-normal` | `200ms` | **Default** — buttons, hovers, focus rings |
-| `--duration-moderate` | `300ms` | Dropdowns, tooltips |
-| `--duration-slow` | `500ms` | Modals, drawers |
-| `--duration-deliberate` | `700ms` | Page transitions, hero animations |
+| `--ds-motion-duration-instant` | `0ms` | Disabled states, reduced-motion fallback |
+| `--ds-motion-duration-fast` | `100ms` | Micro-interactions (checkbox tick, toggle) |
+| `--ds-motion-duration-norm` | `300ms` | **Default** — buttons, hovers, focus rings |
+| `--ds-motion-duration-moderate` | `500ms` | Dropdowns, tooltips, content reveals |
+| `--ds-motion-duration-slow` | `700ms` | Modals, drawers, layout transitions |
 
 ### Easing
 
 | Token | Value | Usage |
 |---|---|---|
-| `--ease-linear` | `linear` | Progress bars, loaders |
-| `--ease-in` | `cubic-bezier(0.4, 0, 1, 1)` | Elements exiting (fade out, slide out) |
-| `--ease-out` | `cubic-bezier(0, 0, 0.2, 1)` | **Default** — elements entering (fade in, slide in) |
-| `--ease-in-out` | `cubic-bezier(0.4, 0, 0.2, 1)` | Continuous animations, toggles |
-| `--ease-spring` | `cubic-bezier(0.34, 1.56, 0.64, 1)` | Playful/casual-theme interactions with overshoot |
-| `--ease-decelerate` | `cubic-bezier(0, 0, 0.2, 1)` | Elements coming to rest |
+| `--ds-motion-easing-linear` | `linear` | Progress bars, loaders |
+| `--ds-motion-easing-standard` | `cubic-bezier(0.4, 0, 0.2, 1)` | **Default** — components entering/moving |
+| `--ds-motion-easing-bubbly` | `cubic-bezier(0.34, 1.56, 0.64, 1)` | Playful/Kids theme (bouncy) interactions |
+| `--ds-motion-easing-professional` | `cubic-bezier(0.2, 0, 0, 1)` | High-speed, high-precision (Corporate) |
+| `--ds-motion-easing-reveal` | `cubic-bezier(0.1, 0.9, 0.2, 1)` | Selection reveals and hero transitions |
+
+### Selection Attributes (Motion Primitives)
+
+| Token | Value | Usage |
+|---|---|---|
+| `--ds-motion-scale-focus` | `1.05` | Scaling factor for selected tiles |
+| `--ds-motion-halo-glow` | `0 0 15px var(--ds-sys-color-primary)` | Interaction "Halo" effect |
 
 ### Reduced motion
 

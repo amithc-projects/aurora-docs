@@ -85,6 +85,10 @@
   --ds-sys-border-width: 1px;
   --ds-sys-shadow-card: 0 1px 3px 0 rgb(0 0 0 / 0.1);
   --ds-sys-density: 0.8;
+  
+  /* MOTION OVERRIDE: Professional/Sharp */
+  --ds-motion-easing-active: var(--ds-motion-easing-professional);
+
   --ds-cmp-slider-item-width: 40%;
   --ds-cmp-slider-marker-size: 12px;
 
