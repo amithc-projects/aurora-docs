@@ -1,0 +1,124 @@
+{{ define "main" }}
+<div class="aurora-doc-page">
+  <div class="header" style="margin-bottom: 3rem;">
+    <h1>Iconography</h1>
+    <p class="lead" style="font-size: 1.25rem; color: var(--ds-sys-color-on-surface-variant, #555);">
+      Aurora uses a CSS Mask standardization for all icons. This allows the theme engine
+      to swap out the entire icon set (e.g. Material Symbols vs. Lucide) without touching the HTML markup.
+    </p>
+
+    <div
+      style=" border-left: 4px solid var(--ds-sys-color-primary); padding: 1.5rem; margin-top: 1.5rem; border-radius: 4px;">
+      <h3 style="margin-top: 0; margin-bottom: 0.5rem; font-size: 1.1rem;">How to use</h3>
+      <p style="margin-bottom: 0.5rem; margin-top: 0; color: var(--ds-sys-color-on-surface, #333);">Use the abstract
+        <code>.icon</code> class followed by the specific icon name modifier class:
+      </p>
+      <code>&lt;span class="icon icon-filter"&gt;&lt;/span&gt;</code>
+    </div>
+  </div>
+
+  <div id="icon-grid-container">
+    <div style="padding: 2rem; text-align: center; color: var(--ds-sys-color-on-surface-variant);">
+      <span class="icon icon-sync" style="font-size: 2rem; animation: spin 1s linear infinite;"></span>
+      <p>Loading active theme icons...</p>
+    </div>
+  </div>
+
+  <script>
+    (async function () {
+      const container = document.getElementById('icon-grid-container');
+      const currentTheme = document.documentElement.getAttribute('data-theme') || 'corporate';
+
+      const cssUrl = `/aurora-docs/css/icons/sets/${currentTheme}.css`;
+
+      try {
+        const response = await fetch(cssUrl);
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+        const cssContent = await response.text();
+
+        // Regex to find all class names starting with .icon-
+        const regex = /^\s*\.icon-[a-zA-Z0-9_-]+/gm;
+        const matches = [...cssContent.matchAll(regex)].map(m => m[0].trim());
+
+        if (matches.length === 0) {
+          container.innerHTML = `<div style="color: red; padding: 2rem; background: #fee;">
+            <strong>Error:</strong> No valid .icon classes found in <code>${cssUrl}</code>.
+          </div>`;
+          return;
+        }
+
+        // Build the HTML grid
+        let html = `<h2>Available Icons</h2>
+                    <p style="margin-bottom: 2rem;">The following icons are mapped in the current <strong>${currentTheme}</strong> theme.</p>
+                    <div class="docs-icon-grid">`;
+
+        matches.forEach(className => {
+          const cleanName = className.substring(1); // Remove dot
+          html += `
+            <div class="docs-icon-card">
+              <div class="preview">
+                <span class="icon ${cleanName}" style="background-color: currentColor;"></span>
+              </div>
+              <div class="meta" style="font-size: 0.85rem;">
+                <code>${className}</code>
+              </div>
+            </div>`;
+        });
+
+        html += `</div>`;
+        container.innerHTML = html;
+
+      } catch (err) {
+        container.innerHTML = `<div style="color: red; padding: 2rem; background: #fee;">
+          <strong>Error:</strong> Could not load <code>${cssUrl}</code>. Make sure the typography theme defines it.
+        </div>`;
+      }
+    })();
+  </script>
+</div>
+
+<style>
+  /* Standardizing the preview grid */
+  .docs-icon-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .docs-icon-card {
+    border: 1px solid var(--ds-sys-color-border);
+    background: var(--ds-sys-color-surface);
+    padding: 1.5rem 1rem;
+    text-align: center;
+    border-radius: 8px;
+    transition: all 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .docs-icon-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border-color: var(--ds-sys-color-primary);
+  }
+
+  .docs-icon-card .preview {
+    font-size: 2.5rem;
+    /* Forces the icon to preview at 40px */
+    color: var(--ds-sys-color-on-surface);
+  }
+
+  .docs-icon-card .meta code {
+    background: var(--ds-sys-color-surface-container-high);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    color: var(--ds-sys-color-on-surface);
+    word-break: break-all;
+  }
+</style>
+{{ end }}

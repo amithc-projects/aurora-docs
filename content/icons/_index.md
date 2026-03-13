@@ -1,5 +1,4 @@
 ---
-title: "Icons"
-type: "icons"
+title: "Iconography Overview"
+layout: "list"
 ---
-

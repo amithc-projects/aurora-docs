@@ -50,7 +50,14 @@
 
   /* Surface: Light = White, Dark = Indigo */
   --ds-sys-color-surface: light-dark(oklch(100% 0 0), oklch(35% 0.18 290));
-  --ds-sys-color-on-surface: light-dark(oklch(20% 0 0), oklch(90% 0 0));
+  --ds-sys-color-on-surface: light-dark(oklch(20% 0 0), oklch(98% 0 0));
+  --ds-sys-color-on-surface-variant: light-dark(oklch(40% 0 0), oklch(90% 0 0));
+
+  /* Surface Container Scales */
+  --ds-sys-color-surface-container-low: light-dark(oklch(98% 0 0), oklch(30% 0.18 290));
+  --ds-sys-color-surface-container: light-dark(oklch(96% 0 0), oklch(38% 0.18 290));
+  --ds-sys-color-surface-container-high: light-dark(oklch(94% 0 0), oklch(43% 0.18 290));
+  --ds-sys-color-surface-container-highest: light-dark(oklch(90% 0 0), oklch(48% 0.18 290));
 
   /* Inverse surface for high-contrast floating components like Toasts */
   --ds-sys-color-surface-inverse: light-dark(oklch(25% 0.18 290), oklch(100% 0 0));

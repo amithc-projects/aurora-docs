@@ -10,7 +10,7 @@
       {{/* Level 1: Expandable Accordion Headers (e.g., "System & Foundations") */}}
       <details {{ if or ($.IsMenuCurrent "main" .) ($.HasMenuCurrent "main" .) }}open{{ end }}>
         <summary>
-          <span class="material-symbols-outlined ds-mr-2">{{ .Pre | default "folder" }}</span>
+          <span class="icon icon-{{ .Pre | default "folder" }} ds-mr-2"></span>
           {{ .Name }}
         </summary>
 

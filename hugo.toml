@@ -54,6 +54,19 @@ title = 'Aurora Design System Documentation'
   weight = 1
 
 [[menu.main]]
+  identifier = "iconography"
+  name = "Iconography"
+  weight = 25
+  pre = "view_compact"
+
+[[menu.main]]
+  identifier = "icon-overview"
+  parent = "iconography"
+  name = "Overview"
+  weight = 1
+  url = "/icons/"
+
+[[menu.main]]
   identifier = "navigation"
   name = "Navigation"
   weight = 40
