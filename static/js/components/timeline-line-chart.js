@@ -111,9 +111,9 @@ function setupTimeline(container, data) {
       return {
         label: item,
         data: itemData,
-        borderColor: themeColors[item] || 'var(--ds-sys-color-primary)',
-        backgroundColor: themeColors[item] || 'var(--ds-sys-color-primary)',
-        pointBackgroundColor: themeColors[item] || 'var(--ds-sys-color-primary)',
+        borderColor: resolveCSSVariable(themeColors[item] || 'var(--ds-sys-color-primary)'),
+        backgroundColor: resolveCSSVariable(themeColors[item] || 'var(--ds-sys-color-primary)'),
+        pointBackgroundColor: resolveCSSVariable(themeColors[item] || 'var(--ds-sys-color-primary)'),
         pointRadius: 4,
         fill: false,
         tension: 0.1,
@@ -201,14 +201,14 @@ function setupTimeline(container, data) {
                   offset: isRankChart,
                   ticks: { 
                       display: !isRankChart, // Hide if it's rank, show if generic score
-                      color: 'var(--ds-sys-color-on-surface-variant)'
+                      color: resolveCSSVariable('var(--ds-sys-color-on-surface-variant)')
                   },
-                  grid: { color: 'var(--ds-sys-color-outline-variant)', drawTicks: false },
+                  grid: { color: resolveCSSVariable('var(--ds-sys-color-outline-variant)'), drawTicks: false },
                   border: { display: false }
               },
               x: {
-                  ticks: { color: 'var(--ds-sys-color-on-surface-variant)', font: { size: 10 } },
-                  grid: { color: 'var(--ds-sys-color-outline-variant)' },
+                  ticks: { color: resolveCSSVariable('var(--ds-sys-color-on-surface-variant)'), font: { size: 10 } },
+                  grid: { color: resolveCSSVariable('var(--ds-sys-color-outline-variant)') },
                   border: { display: false }
               }
           },
@@ -218,9 +218,9 @@ function setupTimeline(container, data) {
                   mode: 'index',
                   intersect: false,
                   padding: 12,
-                  backgroundColor: 'var(--ds-sys-color-surface-container-highest)',
-                  titleColor: 'var(--ds-sys-color-primary)',
-                  bodyColor: 'var(--ds-sys-color-on-surface)',
+                  backgroundColor: resolveCSSVariable('var(--ds-sys-color-surface-container-highest)'),
+                  titleColor: resolveCSSVariable('var(--ds-sys-color-primary)'),
+                  bodyColor: resolveCSSVariable('var(--ds-sys-color-on-surface)'),
                   callbacks: {
                       label: (context) => {
                         const prefix = isRankChart ? 'Pos ' : '';
@@ -261,4 +261,26 @@ function setupTimeline(container, data) {
       });
       chart.update();
   }
+  
+  // Repaint when theme/mode changes
+  const observer = new MutationObserver(() => {
+    // Re-fetch variables and re-apply options. Redrawing entire chart is safest for canvas
+    if (container._chartObserverBound) return;
+    container._chartObserverBound = true;
+    setTimeout(() => {
+       setupTimeline(container, data);
+       container._chartObserverBound = false;
+    }, 50);
+  });
+  observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme', 'data-mode'] });
+}
+
+function resolveCSSVariable(cssString) {
+  const dummy = document.createElement('div');
+  dummy.style.color = cssString;
+  dummy.style.display = 'none';
+  document.body.appendChild(dummy);
+  const computedColor = window.getComputedStyle(dummy).color;
+  dummy.remove();
+  return computedColor || cssString;
 }
