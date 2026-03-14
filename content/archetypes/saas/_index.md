@@ -3,6 +3,7 @@ title: "SaaS Product Site"
 description: "A dual-view archetype demonstrating a Marketing Homepage and a secure Application Dashboard."
 menu:
   main:
+    identifier: "saas"
     parent: "archetypes"
 ---
 

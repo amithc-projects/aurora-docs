@@ -4,6 +4,7 @@ description: "Variable fonts, scale, and spacing for flexible, responsive type."
 menu:
   main:
     parent: "typography"
+    identifier: "typography-overview"
     weight: 1
 ---
 

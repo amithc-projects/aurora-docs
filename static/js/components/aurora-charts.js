@@ -25,7 +25,10 @@ import {
   HeatmapChart, 
   TreeChart, 
   GraphChart, 
-  SankeyChart
+  SankeyChart,
+  EffectScatterChart,
+  LinesChart,
+  MapChart
 } from 'https://esm.sh/echarts/charts';
 
 // Import Specific Features (Tooltips, Grid, Legends, etc.)
@@ -41,7 +44,8 @@ import {
   ParallelComponent, 
   VisualMapComponent, 
   CalendarComponent, 
-  SingleAxisComponent
+  SingleAxisComponent,
+  GeoComponent
 } from 'https://esm.sh/echarts/components';
 
 // Import Renderer
@@ -51,8 +55,9 @@ import { CanvasRenderer } from 'https://esm.sh/echarts/renderers';
 echarts.use([
   BarChart, LineChart, PieChart, ScatterChart, RadarChart, TreemapChart, SunburstChart, FunnelChart, CustomChart,
   BoxplotChart, ParallelChart, CandlestickChart, ThemeRiverChart, PictorialBarChart, HeatmapChart, TreeChart, GraphChart, SankeyChart,
+  EffectScatterChart, LinesChart, MapChart,
   TitleComponent, TooltipComponent, GridComponent, DatasetComponent, TransformComponent, LegendComponent, PolarComponent, DataZoomComponent,
-  ParallelComponent, VisualMapComponent, CalendarComponent, SingleAxisComponent,
+  ParallelComponent, VisualMapComponent, CalendarComponent, SingleAxisComponent, GeoComponent,
   CanvasRenderer
 ]);
 
@@ -185,7 +190,7 @@ function initAuroraCharts() {
   const containers = document.querySelectorAll('[data-component="aurora-chart"]');
   if (containers.length === 0) return;
 
-  containers.forEach(container => {
+  const processChart = (container) => {
     // 1. Check for inline JSON config
     const inlineScript = container.querySelector('script[type="application/json"][data-ref="config"]');
     if (inlineScript) {
@@ -203,6 +208,25 @@ function initAuroraCharts() {
         .then(response => response.json())
         .then(data => setupChart(container, data))
         .catch(err => console.error("AuroraCharts: Failed to fetch external chart data.", err));
+    }
+  };
+
+  containers.forEach(container => {
+    // Check if chart requires a Map to be registered first
+    if (container.dataset.map === 'world') {
+      const mapUrl = new URL('../world.json', import.meta.url).href;
+      fetch(mapUrl)
+        .then(res => {
+          if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+          return res.json();
+        })
+        .then(geoJson => {
+          echarts.registerMap('world', geoJson);
+          processChart(container);
+        })
+        .catch(err => console.error("AuroraCharts: Error loading world map JSON", err));
+    } else {
+      processChart(container);
     }
   });
 
