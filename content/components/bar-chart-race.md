@@ -54,15 +54,19 @@ The Bar Chart Race expects JSON data in an array, progressing sequentially by ti
 ## Example (Premier League Simulation)
 
 {{< demo >}}
-<div 
-  data-component="bar-chart-race" 
-  data-src="/aurora-docs/data/pl_chart_race.json" 
-  data-title="Premier League 24/25 Race"
-  data-max-score="100"
-  data-interval="1200"
-  data-label-prefix="Matchweek ">
-  <div class="skeleton-placeholder" style="height: 600px; width: 100%;">
-    Loading chart...
+<div class="l-page-grid" style="width: 100%;">
+  <div class="col-wide" style="width: 100%;">
+    <div 
+      data-component="bar-chart-race" 
+      data-src="/aurora-docs/data/pl_chart_race.json" 
+      data-title="Premier League 24/25 Race"
+      data-max-score="100"
+      data-interval="1200"
+      data-label-prefix="Matchweek ">
+      <div class="skeleton-placeholder" style="height: 600px; width: 100%;">
+        Loading chart...
+      </div>
+    </div>
   </div>
 </div>
 {{< /demo >}}

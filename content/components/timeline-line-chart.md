@@ -25,14 +25,18 @@ The Line Chart parses the exact identical data format as the **Bar Chart Race**,
 The following example reads the Premier League race JSON file but uses the `data-is-rank` option to dynamically sort them and calculate ranking week-over-week.
 
 {{< demo >}}
-<div 
-  data-component="timeline-line-chart" 
-  data-src="/aurora-docs/data/pl_chart_race.json" 
-  data-title="Season Path 24/25"
-  data-desc="Track team journeys through the standings"
-  data-is-rank>
-    <div class="skeleton-placeholder" style="height: 600px; width: 100%;">
-      Loading chart...
+<div class="l-page-grid" style="width: 100%;">
+  <div class="col-wide" style="width: 100%;">
+    <div 
+      data-component="timeline-line-chart" 
+      data-src="/aurora-docs/data/pl_chart_race.json" 
+      data-title="Season Path 24/25"
+      data-desc="Track team journeys through the standings"
+      data-is-rank>
+        <div class="skeleton-placeholder" style="height: 600px; width: 100%;">
+          Loading chart...
+        </div>
     </div>
+  </div>
 </div>
 {{< /demo >}}

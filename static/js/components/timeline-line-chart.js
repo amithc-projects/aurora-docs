@@ -1,16 +1,15 @@
+import * as echarts from 'https://esm.sh/echarts/core';
+import { LineChart } from 'https://esm.sh/echarts/charts';
+import { TooltipComponent, GridComponent, DatasetComponent, TransformComponent, LegendComponent } from 'https://esm.sh/echarts/components';
+import { CanvasRenderer } from 'https://esm.sh/echarts/renderers';
+
+echarts.use([LineChart, TooltipComponent, GridComponent, DatasetComponent, TransformComponent, LegendComponent, CanvasRenderer]);
+
 export function initTimelineLineChart() {
   const containers = document.querySelectorAll('[data-component="timeline-line-chart"]');
 
   if (containers.length > 0) {
-    if (typeof window.Chart === 'undefined') {
-      // Load chart.js dynamically
-      const script = document.createElement('script');
-      script.src = 'https://cdn.jsdelivr.net/npm/chart.js';
-      script.onload = () => initInstances(containers);
-      document.head.appendChild(script);
-    } else {
-      initInstances(containers);
-    }
+    initInstances(containers);
   }
 }
 
@@ -141,7 +140,7 @@ function setupTimeline(container, data) {
         <div class="timeline-line-chart-body">
             <div class="timeline-line-chart-labels" data-ref="labels" style="--item-count: ${finalStandings.length || 20}"></div>
             <div class="timeline-line-chart-wrapper">
-                <canvas data-ref="canvas" class="timeline-line-chart-canvas"></canvas>
+                <div data-ref="canvas" style="width: 100%; height: 100%; min-height: 400px;"></div>
             </div>
         </div>
 
@@ -176,61 +175,75 @@ function setupTimeline(container, data) {
     labelsContainer.style.display = 'none';
   }
 
-  // Init Chart.js
+  // Init ECharts
   const canvas = container.querySelector('[data-ref="canvas"]');
-  const ctx = canvas.getContext('2d');
+  // Clean up old instance if repainting
+  if (container._echartsInstance) {
+    container._echartsInstance.dispose();
+  }
+  
+  const chart = echarts.init(canvas, null, { renderer: 'canvas' });
+  container._echartsInstance = chart;
   
   const isRankChart = container.hasAttribute('data-is-rank');
-  const maxAxis = isRankChart ? finalStandings.length : undefined;
 
-  const chart = new window.Chart(ctx, {
-      type: 'line',
-      data: { labels: chartLabels, datasets: chartDatasets },
-      options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          clip: false,
-          layout: {
-              padding: { top: 30, bottom: 30, left: 10, right: 20 }
-          },
-          scales: {
-              y: {
-                  reverse: isRankChart, // Usually rank charts 1 is at top
-                  min: isRankChart ? 1 : undefined,
-                  max: maxAxis,
-                  offset: isRankChart,
-                  ticks: { 
-                      display: !isRankChart, // Hide if it's rank, show if generic score
-                      color: resolveCSSVariable('var(--ds-sys-color-on-surface-variant)')
-                  },
-                  grid: { color: resolveCSSVariable('var(--ds-sys-color-outline-variant)'), drawTicks: false },
-                  border: { display: false }
-              },
-              x: {
-                  ticks: { color: resolveCSSVariable('var(--ds-sys-color-on-surface-variant)'), font: { size: 10 } },
-                  grid: { color: resolveCSSVariable('var(--ds-sys-color-outline-variant)') },
-                  border: { display: false }
-              }
-          },
-          plugins: {
-              legend: { display: false }, // Use custom toggles below
-              tooltip: {
-                  mode: 'index',
-                  intersect: false,
-                  padding: 12,
-                  backgroundColor: resolveCSSVariable('var(--ds-sys-color-surface-container-highest)'),
-                  titleColor: resolveCSSVariable('var(--ds-sys-color-primary)'),
-                  bodyColor: resolveCSSVariable('var(--ds-sys-color-on-surface)'),
-                  callbacks: {
-                      label: (context) => {
-                        const prefix = isRankChart ? 'Pos ' : '';
-                        return ` ${context.dataset.label}: ${prefix}${context.parsed.y}`;
-                      }
-                  }
-              }
-          },
-          interaction: { mode: 'nearest', axis: 'x', intersect: false }
+  // Convert Chart.js dataset formats into ECharts series mapping
+  const echartsSeries = chartDatasets.map(ds => ({
+    name: ds.label,
+    type: 'line',
+    data: ds.data,
+    smooth: true,
+    symbol: 'circle',
+    symbolSize: 6,
+    showSymbol: false,
+    itemStyle: { color: ds.borderColor },
+    lineStyle: { width: 2 }
+  }));
+
+  const chartOption = {
+    tooltip: {
+      trigger: 'axis',
+      backgroundColor: resolveCSSVariable('var(--ds-sys-color-surface-container-highest)'),
+      borderColor: resolveCSSVariable('var(--ds-sys-color-border)'),
+      textStyle: { color: resolveCSSVariable('var(--ds-sys-color-on-surface)') },
+      formatter: function (params) {
+        let rs = `${params[0].axisValue}<br/>`;
+        params.forEach(p => {
+          rs += `${p.marker} ${p.seriesName}: ${isRankChart ? 'Pos ' : ''}${p.value}<br/>`;
+        });
+        return rs;
       }
+    },
+    legend: { show: false }, // Required for dispatchAction('legendSelect') to work
+    grid: {
+      top: 30, bottom: 30, left: isRankChart ? 10 : 40, right: 20, containLabel: false
+    },
+    xAxis: {
+      type: 'category',
+      data: chartLabels,
+      boundaryGap: false,
+      axisLabel: { color: resolveCSSVariable('var(--ds-sys-color-on-surface-variant)') },
+      splitLine: { show: true, lineStyle: { color: resolveCSSVariable('var(--ds-sys-color-outline-variant)') } }
+    },
+    yAxis: {
+      type: 'value',
+      inverse: isRankChart, // Usually rank charts 1 is at top
+      min: isRankChart ? 1 : 'dataMin',
+      max: isRankChart ? finalStandings.length : 'dataMax',
+      axisLabel: { 
+        show: !isRankChart,
+        color: resolveCSSVariable('var(--ds-sys-color-on-surface-variant)')
+      },
+      splitLine: { show: true, lineStyle: { color: resolveCSSVariable('var(--ds-sys-color-outline-variant)') } }
+    },
+    series: echartsSeries
+  };
+
+  chart.setOption(chartOption);
+  
+  // Make it responsive manually
+  window.addEventListener('resize', () => {
+    chart.resize();
   });
 
   // Toggles
@@ -239,11 +252,19 @@ function setupTimeline(container, data) {
       const btn = document.createElement('button');
       btn.innerText = ds.label;
       btn.className = 'timeline-line-chart-btn active';
+      // Store state
+      btn.setAttribute('data-visible', 'true');
+      
       btn.onclick = () => {
-          const meta = chart.getDatasetMeta(idx);
-          meta.hidden = meta.hidden === null ? !chart.data.datasets[idx].hidden : null;
-          btn.classList.toggle('active', !meta.hidden);
-          chart.update();
+          const isVisible = btn.getAttribute('data-visible') === 'true';
+          const newVisible = !isVisible;
+          btn.setAttribute('data-visible', newVisible);
+          btn.classList.toggle('active', newVisible);
+          
+          chart.dispatchAction({
+            type: newVisible ? 'legendSelect' : 'legendUnSelect',
+            name: ds.label
+          });
       };
       togglesContainer.appendChild(btn);
   });
@@ -253,13 +274,22 @@ function setupTimeline(container, data) {
   container.querySelector('[data-action="hide-all"]').addEventListener('click', () => toggleAll(false));
 
   function toggleAll(show) {
-      chart.data.datasets.forEach((ds, idx) => {
-          const meta = chart.getDatasetMeta(idx);
-          meta.hidden = !show;
+      const actionType = show ? 'legendSelect' : 'legendUnSelect';
+      const namesToToggle = [];
+      
+      chartDatasets.forEach((ds, idx) => {
+          namesToToggle.push(ds.label);
           const btn = togglesContainer.children[idx];
-          if (btn) btn.classList.toggle('active', show);
+          if (btn) {
+             btn.setAttribute('data-visible', show);
+             btn.classList.toggle('active', show);
+          }
       });
-      chart.update();
+      
+      // Batch dispatch
+      namesToToggle.forEach(name => {
+         chart.dispatchAction({ type: actionType, name: name });
+      });
   }
   
   // Repaint when theme/mode changes

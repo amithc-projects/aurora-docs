@@ -61,6 +61,8 @@
 
 /* 4. Choose the icon set */
 @import "icons/sets/corporate.css";
-@import "icons/sets/casual.css";@import "components/bar-chart-race.css";
+@import "icons/sets/casual.css";
+@import "components/bar-chart-race.css";
+@import "components/aurora-charts.css";
 @import "components/timeline-line-chart.css";
 @import "components/advanced-charts.css";
