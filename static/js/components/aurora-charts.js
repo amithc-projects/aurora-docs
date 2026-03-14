@@ -16,7 +16,16 @@ import {
   TreemapChart,
   SunburstChart,
   FunnelChart,
-  CustomChart // Often needed for timeline or complex race charts
+  CustomChart,
+  BoxplotChart, 
+  ParallelChart, 
+  CandlestickChart, 
+  ThemeRiverChart, 
+  PictorialBarChart, 
+  HeatmapChart, 
+  TreeChart, 
+  GraphChart, 
+  SankeyChart
 } from 'https://esm.sh/echarts/charts';
 
 // Import Specific Features (Tooltips, Grid, Legends, etc.)
@@ -28,7 +37,11 @@ import {
   TransformComponent,
   LegendComponent,
   PolarComponent,
-  DataZoomComponent
+  DataZoomComponent,
+  ParallelComponent, 
+  VisualMapComponent, 
+  CalendarComponent, 
+  SingleAxisComponent
 } from 'https://esm.sh/echarts/components';
 
 // Import Renderer
@@ -37,7 +50,9 @@ import { CanvasRenderer } from 'https://esm.sh/echarts/renderers';
 // Register precisely what we need with ECharts core
 echarts.use([
   BarChart, LineChart, PieChart, ScatterChart, RadarChart, TreemapChart, SunburstChart, FunnelChart, CustomChart,
+  BoxplotChart, ParallelChart, CandlestickChart, ThemeRiverChart, PictorialBarChart, HeatmapChart, TreeChart, GraphChart, SankeyChart,
   TitleComponent, TooltipComponent, GridComponent, DatasetComponent, TransformComponent, LegendComponent, PolarComponent, DataZoomComponent,
+  ParallelComponent, VisualMapComponent, CalendarComponent, SingleAxisComponent,
   CanvasRenderer
 ]);
 
