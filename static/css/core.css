@@ -162,7 +162,9 @@ h6 {
 
 /* DARK MODE OVERRIDES */
 [data-mode="dark"] {
+  color-scheme: dark;
   /* Brighter/lighter variants for dark backgrounds */
+  --ds-chart-1: #60a5fa;
   --ds-chart-2: #34d399;
   --ds-chart-3: #fbbf24;
   --ds-chart-4: #f87171;
@@ -221,6 +223,7 @@ h6 {
 /* DARK MODE OVERRIDES */
 [data-mode="dark"] {
   /* Brighter/lighter variants for dark backgrounds */
+  --ds-chart-1: #60a5fa;
   --ds-chart-2: #34d399;
   --ds-chart-3: #fbbf24;
   --ds-chart-4: #f87171;

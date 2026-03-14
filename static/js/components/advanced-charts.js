@@ -29,6 +29,10 @@ function applyGlobalDefaults() {
     // Canvas doesn't automatically repaint when CSS Custom Properties change.
     // Listen for theme/mode toggles on the HTML element to forcefully update all charts live.
     const observer = new MutationObserver(() => {
+      // Re-evaluate global defaults for newly created/repainted charts
+      window.Chart.defaults.color = resolveCSSVariable('var(--ds-sys-color-on-surface-variant)');
+      window.Chart.defaults.borderColor = resolveCSSVariable('var(--ds-sys-color-outline-variant)');
+
       document.querySelectorAll('[data-component="advanced-chart"]').forEach(container => {
         if (container._originalConfig) {
           setupChart(container, container._originalConfig);
@@ -68,11 +72,17 @@ function resolveThemeVariables(obj) {
  */
 function resolveCSSVariable(cssString) {
   const dummy = document.createElement('div');
-  dummy.style.color = cssString;
+  // Use backgroundColor instead of color to prevent inheriting document.body text color
+  dummy.style.backgroundColor = cssString;
   dummy.style.display = 'none';
   document.body.appendChild(dummy);
-  const computedColor = window.getComputedStyle(dummy).color;
+  const computedColor = window.getComputedStyle(dummy).backgroundColor;
   dummy.remove();
+  
+  if (computedColor === 'rgba(0, 0, 0, 0)' && !cssString.includes('transparent')) {
+    // If browser couldn't compute complex mix, fallback safely
+    return cssString;
+  }
   return computedColor || cssString;
 }
 

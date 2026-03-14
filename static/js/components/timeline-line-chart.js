@@ -277,10 +277,11 @@ function setupTimeline(container, data) {
 
 function resolveCSSVariable(cssString) {
   const dummy = document.createElement('div');
-  dummy.style.color = cssString;
+  dummy.style.backgroundColor = cssString;
   dummy.style.display = 'none';
   document.body.appendChild(dummy);
-  const computedColor = window.getComputedStyle(dummy).color;
+  const computedColor = window.getComputedStyle(dummy).backgroundColor;
   dummy.remove();
+  if (computedColor === 'rgba(0, 0, 0, 0)' && !cssString.includes('transparent')) return cssString;
   return computedColor || cssString;
 }
