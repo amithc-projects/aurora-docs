@@ -60,46 +60,41 @@ A heavily visual layout prioritizing promotional banners, seasonal collections, 
       </div>
     </div>
     
-    <!-- CSS Grid Carousel Mock -->
-    <div class="l-grid" style="grid-template-columns: repeat(4, 1fr); gap: 1.5rem;">
+    <!-- Super List Carousel Override -->
+    <ul class="super-list super-list--carousel" style="margin-left: -2rem; margin-right: -2rem; padding: 0 2rem;">
       
       <!-- Product Card 1 -->
-      <a href="/aurora-docs/archetypes/ecommerce/shoes/aero-sprint-pro/" style="text-decoration: none; color: inherit; display: block;">
-        <div style="cursor: pointer;">
-          <div style="height: 300px; background: url('/aurora-docs/images/archetypes/sneaker.png') center/contain no-repeat; background-color: var(--ds-sys-color-surface-container-low); margin-bottom: 1rem; position: relative;">
+      <li class="sl-item" style="flex: 0 0 280px; height: 400px; border-radius: 0; border: none; flex-direction: column; cursor: pointer;" onclick="window.location.href='/aurora-docs/archetypes/ecommerce/shoes/aero-sprint-pro/'">
+         <div class="sl-item__bg" style="position: relative; height: 300px; background: url('/aurora-docs/images/archetypes/sneaker.png') center/contain no-repeat; background-color: var(--ds-sys-color-surface-container-low); margin-bottom: 1rem;">
             <div style="position: absolute; top: 10px; left: 10px; background: white; color: black; font-size: 0.7rem; font-weight: 700; padding: 2px 8px; text-transform: uppercase;">Just In</div>
-          </div>
-          <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+         </div>
+         <div class="sl-item__content" style="display: flex; justify-content: space-between; align-items: flex-start; padding: 0; color: inherit;">
             <div>
               <h3 style="font-size: 1rem; font-weight: 600; margin: 0 0 0.25rem 0; color: var(--ds-sys-color-on-surface);">Aero Sprint Pro</h3>
               <div style="font-size: 0.9rem; color: var(--ds-sys-color-on-surface-variant);">Men's Road Racing</div>
             </div>
             <div style="font-weight: 600;">$130</div>
-          </div>
-        </div>
-      </a>
+         </div>
+      </li>
 
-       <!-- Product Card 2 -->
-      <a href="/aurora-docs/archetypes/ecommerce/shoes/aero-invincible-3/" style="text-decoration: none; color: inherit; display: block;">
-        <div style="cursor: pointer;">
-          <div style="height: 300px; background: url('/aurora-docs/images/archetypes/sneaker2.png') center/contain no-repeat; background-color: var(--ds-sys-color-surface-container-low); margin-bottom: 1rem;"></div>
-          <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+      <!-- Product Card 2 -->
+      <li class="sl-item" style="flex: 0 0 280px; height: 400px; border-radius: 0; border: none; flex-direction: column; cursor: pointer;" onclick="window.location.href='/aurora-docs/archetypes/ecommerce/shoes/aero-invincible-3/'">
+         <div class="sl-item__bg" style="position: relative; height: 300px; background: url('/aurora-docs/images/archetypes/sneaker2.png') center/contain no-repeat; background-color: var(--ds-sys-color-surface-container-low); margin-bottom: 1rem;"></div>
+         <div class="sl-item__content" style="display: flex; justify-content: space-between; align-items: flex-start; padding: 0; color: inherit;">
             <div>
               <h3 style="font-size: 1rem; font-weight: 600; margin: 0 0 0.25rem 0; color: var(--ds-sys-color-on-surface);">Aero Invincible 3</h3>
               <div style="font-size: 0.9rem; color: var(--ds-sys-color-on-surface-variant);">Women's Lifestyle</div>
             </div>
             <div style="font-weight: 600;">$180</div>
-          </div>
-        </div>
-      </a>
+         </div>
+      </li>
 
-       <!-- Product Card 3 -->
-      <a href="/aurora-docs/archetypes/ecommerce/shoes/aero-street-x/" style="text-decoration: none; color: inherit; display: block;">
-        <div style="cursor: pointer;">
-          <div style="height: 300px; background: url('/aurora-docs/images/archetypes/sneaker3.png') center/contain no-repeat; background-color: var(--ds-sys-color-surface-container-low); margin-bottom: 1rem; position: relative;">
+      <!-- Product Card 3 -->
+      <li class="sl-item" style="flex: 0 0 280px; height: 400px; border-radius: 0; border: none; flex-direction: column; cursor: pointer;" onclick="window.location.href='/aurora-docs/archetypes/ecommerce/shoes/aero-street-x/'">
+         <div class="sl-item__bg" style="position: relative; height: 300px; background: url('/aurora-docs/images/archetypes/sneaker3.png') center/contain no-repeat; background-color: var(--ds-sys-color-surface-container-low); margin-bottom: 1rem;">
             <div style="position: absolute; top: 10px; left: 10px; background: #ef4444; color: white; font-size: 0.7rem; font-weight: 700; padding: 2px 8px; text-transform: uppercase;">Sale</div>
-          </div>
-          <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+         </div>
+         <div class="sl-item__content" style="display: flex; justify-content: space-between; align-items: flex-start; padding: 0; color: inherit;">
             <div>
               <h3 style="font-size: 1rem; font-weight: 600; margin: 0 0 0.25rem 0; color: var(--ds-sys-color-on-surface);">Aero Street X</h3>
               <div style="font-size: 0.9rem; color: var(--ds-sys-color-on-surface-variant);">Unisex Basketball</div>
@@ -108,28 +103,50 @@ A heavily visual layout prioritizing promotional banners, seasonal collections, 
               <span style="color: #ef4444;">$109</span>
               <span style="text-decoration: line-through; color: var(--ds-sys-color-on-surface-variant);">$160</span>
             </div>
-          </div>
-        </div>
-      </a>
+         </div>
+      </li>
 
-       <!-- Product Card 4 -->
-      <a href="/aurora-docs/archetypes/ecommerce/shoes/aero-air-max-pulse/" style="text-decoration: none; color: inherit; display: block;">
-        <div style="cursor: pointer;">
-          <div style="height: 300px; background: url('/aurora-docs/images/archetypes/sneaker4.png') center/contain no-repeat; background-color: var(--ds-sys-color-surface-container-low); margin-bottom: 1rem;"></div>
-          <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+      <!-- Product Card 4 -->
+      <li class="sl-item" style="flex: 0 0 280px; height: 400px; border-radius: 0; border: none; flex-direction: column; cursor: pointer;" onclick="window.location.href='/aurora-docs/archetypes/ecommerce/shoes/aero-air-max-pulse/'">
+         <div class="sl-item__bg" style="position: relative; height: 300px; background: url('/aurora-docs/images/archetypes/sneaker4.png') center/contain no-repeat; background-color: var(--ds-sys-color-surface-container-low); margin-bottom: 1rem;"></div>
+         <div class="sl-item__content" style="display: flex; justify-content: space-between; align-items: flex-start; padding: 0; color: inherit;">
             <div>
               <h3 style="font-size: 1rem; font-weight: 600; margin: 0 0 0.25rem 0; color: var(--ds-sys-color-on-surface);">Aero Air Max Pulse</h3>
               <div style="font-size: 0.9rem; color: var(--ds-sys-color-on-surface-variant);">Men's Training</div>
             </div>
             <div style="font-weight: 600;">$150</div>
-          </div>
-        </div>
-      </a>
+         </div>
+      </li>
 
-    </div>
+    </ul>
   </section>
 </div>
 {{< /demo >}}
+
+<style>
+/* Base + Carousel Super List Styles */
+.super-list { margin: 0; padding: 0; list-style: none; width: 100%; border-radius: var(--ds-sys-radius-card); transition: all 0.5s ease; }
+.sl-item { position: relative; overflow: hidden; display: flex; }
+.sl-item__bg { position: absolute; inset: 0; z-index: 1; }
+.sl-item__bg img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+.sl-item__overlay { position: absolute; inset: 0; z-index: 2; }
+.sl-item__content { position: relative; z-index: 3; }
+
+.super-list--carousel {
+  display: flex;
+  overflow-x: auto;
+  gap: 1.5rem;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  border: none;
+  background: transparent;
+}
+.super-list--carousel::-webkit-scrollbar { display: none; }
+.super-list--carousel { -ms-overflow-style: none; scrollbar-width: none; }
+.super-list--carousel .sl-item {
+  scroll-snap-align: start;
+}
+</style>
 
 ---
 
@@ -240,4 +257,15 @@ The critical conversion point of any E-commerce platform. This layout integrates
     </div>
   </div>
 </div>
+</div>
 {{< /demo >}}
+
+---
+
+## Explore this Archetype
+
+The E-Commerce archetype contains additional demonstration pages showcasing how to map data structures to powerful presentation layouts:
+
+- **[Spring Campaign Landing Page](/aurora-docs/archetypes/ecommerce/spring-campaign/)**: Demonstrates using the Super List `viewport` and `bento` layouts for immersive marketing.
+- **[Collection Showcase Page](/aurora-docs/archetypes/ecommerce/collection-showcase/)**: Demonstrates using the Super List `timeline` and `accordion` layouts for interactive product storytelling.
+- **[Category Listing (PLP)](/aurora-docs/archetypes/ecommerce/shoes/)**: A standard filterable grid layout with sidebar navigation.
