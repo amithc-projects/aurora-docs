@@ -136,8 +136,8 @@ Standard text inputs.
         <div class="field" style="margin-top: 1rem;">
           <label class="field__label">Profile Picture</label>
           
-          <label class="file-input-wrapper">
-            <input type="file" onchange="updateFileName(this)">
+          <label class="file-input-wrapper" id="upload-zone">
+            <input type="file" id="file-input" onchange="updateFileName(this)">
             <span class="file-input-button">
               <span class="material-symbols-outlined">cloud_upload</span>
               Choose Image...
@@ -152,13 +152,50 @@ Standard text inputs.
       document.body.setAttribute('data-theme', storedTheme);
     })();
 
-    // Simple JS for the file upload text update
+    // Simple JS for the file upload text update AND Drag & Drop
+    const uploadZone = document.getElementById('upload-zone');
+    const fileInput = document.getElementById('file-input');
+    const fileNameDisplay = document.getElementById('file-name');
+
+    // Handle Drag & Drop events
+    ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+      uploadZone.addEventListener(eventName, preventDefaults, false);
+    });
+
+    function preventDefaults(e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+
+    ['dragenter', 'dragover'].forEach(eventName => {
+      uploadZone.addEventListener(eventName, () => uploadZone.classList.add('drag-over'), false);
+    });
+
+    ['dragleave', 'drop'].forEach(eventName => {
+      uploadZone.addEventListener(eventName, () => uploadZone.classList.remove('drag-over'), false);
+    });
+
+    uploadZone.addEventListener('drop', (e) => {
+      let dt = e.dataTransfer;
+      let files = dt.files;
+      
+      // Assign dropped files to the input element
+      if (files && files.length) {
+        // We use DataTransfer to programmatically set input.files
+        const dataTransfer = new DataTransfer();
+        dataTransfer.items.add(files[0]);
+        fileInput.files = dataTransfer.files;
+        
+        // Trigger the update manually
+        updateFileName(fileInput);
+      }
+    }, false);
+
     function updateFileName(input) {
-      const display = document.getElementById('file-name');
       if (input.files && input.files.length > 0) {
-        display.textContent = input.files[0].name;
+        fileNameDisplay.textContent = input.files[0].name;
       } else {
-        display.textContent = "No file chosen";
+        fileNameDisplay.textContent = "No file chosen";
       }
     }
   </script>

@@ -147,8 +147,8 @@ Moving beyond component-specific logic to a unified system-wide **Motion Layer**
 ### Advanced Form Inputs
 - [x] Range Multi-Slider (E-commerce Filters)
 - [x] Advanced Date Picker / Calendar (Government)
-- [ ] Quantity Stepper (E-commerce)
-- [ ] File Upload with Drag & Drop Zone (Government)
+- [x] Quantity Stepper (E-commerce)
+- [x] File Upload with Drag & Drop Zone (Government)
 
 ### Typography & Informational
 - [x] Code Syntax Highlighter / Block (Docs)

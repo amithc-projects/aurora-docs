@@ -46,9 +46,15 @@
     border-color: var(--ds-sys-color-primary);
   }
 
-  .file-input-wrapper:hover .file-input-button {
+  .file-input-wrapper:hover .file-input-button,
+  .file-input-wrapper.drag-over .file-input-button {
     background: var(--ds-sys-color-bg-app);
     border-color: var(--ds-sys-color-primary);
+  }
+  
+  .file-input-wrapper.drag-over .file-input-button {
+      outline: 2px dashed var(--ds-sys-color-primary);
+      outline-offset: 2px;
   }
 
   /* --- 2. DATE & TIME INPUTS --- */
