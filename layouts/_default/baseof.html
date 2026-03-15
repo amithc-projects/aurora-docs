@@ -37,6 +37,9 @@
 
 <body>
 
+  <!-- Global Accessibility Announcer -->
+  <div id="aurora-a11y-announcer" class="sr-only" aria-live="polite" style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;"></div>
+
   {{ partial "header.html" . }}
 
   <div class="docs-layout">
@@ -139,6 +142,9 @@
 
     import { initScrollspy } from '/aurora-docs/js/components/scrollspy.js';
     initScrollspy();
+
+    import { initCarousels } from '/aurora-docs/js/components/carousel.js';
+    initCarousels();
   </script>
   <script type="module">import { initWizards } from '{{ relURL "js/patterns/wizard.js" }}'; initWizards();</script>
   <script type="module">import { initGallery } from '{{ relURL "js/components/gallery.js" }}'; initGallery();</script>

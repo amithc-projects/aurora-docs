@@ -24,21 +24,9 @@ class AuroraEvents {
     window.addEventListener('online', () => this.syncQueue());
     if (navigator.onLine) this.syncQueue();
 
-    // 3. Accessibility: Create aria-live region if not exists
-    if (!document.getElementById('aurora-live-region')) {
-      const liveRegion = document.createElement('div');
-      liveRegion.id = 'aurora-live-region';
-      liveRegion.setAttribute('aria-live', 'polite');
-      liveRegion.style.position = 'absolute';
-      liveRegion.style.width = '1px';
-      liveRegion.style.height = '1px';
-      liveRegion.style.padding = '0';
-      liveRegion.style.margin = '-1px';
-      liveRegion.style.overflow = 'hidden';
-      liveRegion.style.clip = 'rect(0, 0, 0, 0)';
-      liveRegion.style.whiteSpace = 'nowrap';
-      liveRegion.style.border = '0';
-      document.body.appendChild(liveRegion);
+    // 3. Accessibility: Wait for global announcer
+    if (!document.getElementById('aurora-a11y-announcer')) {
+      console.warn('AuroraEvents: Global A11y Announcer not found in DOM.');
     }
   }
 
@@ -80,7 +68,7 @@ class AuroraEvents {
 
     // Update aria-live region if needed
     if (detail.message) {
-      const region = document.getElementById('aurora-live-region');
+      const region = document.getElementById('aurora-a11y-announcer');
       if (region) region.textContent = detail.message;
     }
   }

@@ -11,10 +11,10 @@
     --drawer-shadow: var(--ds-sys-elevation-3, 0 20px 25px -5px rgb(0 0 0 / .12), 0 8px 10px -6px rgb(0 0 0 / .08));
     --drawer-radius: var(--ds-sys-radius-card, 0.75rem);
     --drawer-z-index: 400;
-    --drawer-duration-open: 500ms;
-    --drawer-duration-close: 300ms;
-    --ease-drawer-out: cubic-bezier(0, 0, 0.2, 1);
-    --ease-drawer-in: cubic-bezier(0.4, 0, 1, 1);
+    --drawer-duration-open: var(--ds-sys-motion-duration, 500ms);
+    --drawer-duration-close: var(--ds-sys-motion-duration, 300ms);
+    --ease-drawer-out: var(--ds-sys-motion-ease, cubic-bezier(0, 0, 0.2, 1));
+    --ease-drawer-in: var(--ds-sys-motion-ease, cubic-bezier(0.4, 0, 1, 1));
 }
 
 /* ─── Backdrop ─── */

@@ -89,7 +89,8 @@
   --ds-sys-density: 0.8;
   
   /* MOTION OVERRIDE: Professional/Sharp */
-  --ds-motion-easing-active: var(--ds-motion-easing-professional);
+  --ds-sys-motion-duration: var(--ds-ref-motion-duration-fast);
+  --ds-sys-motion-ease: var(--ds-ref-motion-ease-out);
 
   --ds-cmp-slider-item-width: 40%;
   --ds-cmp-slider-marker-size: 12px;

@@ -77,10 +77,10 @@
   opacity: 0.5;
   transform: scale(var(--ds-motion-scale-unsnapped, 0.9));
   transition: 
-    opacity var(--ds-motion-duration-norm) var(--ds-motion-easing-active),
-    transform var(--ds-motion-duration-norm) var(--ds-motion-easing-active),
-    outline var(--ds-motion-duration-norm) var(--ds-motion-easing-active),
-    box-shadow var(--ds-motion-duration-norm) var(--ds-motion-easing-active);
+    opacity var(--ds-sys-motion-duration) var(--ds-sys-motion-ease),
+    transform var(--ds-sys-motion-duration) var(--ds-sys-motion-ease),
+    outline var(--ds-sys-motion-duration) var(--ds-sys-motion-ease),
+    box-shadow var(--ds-sys-motion-duration) var(--ds-sys-motion-ease);
   outline: 0 solid transparent;
 }
 

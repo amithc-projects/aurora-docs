@@ -1,5 +1,16 @@
 /* css/base/properties.css */
 @layer base {
+
+  /* --- MOTION REFERENCE LAYER (Global Primitives) --- */
+  /* Durations */
+  --ds-ref-motion-duration-fast: 150ms;
+  --ds-ref-motion-duration-norm: 300ms;
+  --ds-ref-motion-duration-slow: 500ms;
+
+  /* Easings (Physics) */
+  --ds-ref-motion-ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ds-ref-motion-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ds-ref-motion-ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
   
   /* 1. Dimensions: Allows columns to slide when width changes */
   @property --table-fixed-col-width {

@@ -33,6 +33,23 @@
     cursor: pointer;
   }
 
+  /* --- NEW INTERACTION STANDARD (The "Netflix" Fix) --- */
+  .card--interactive {
+    transition: 
+      transform var(--ds-sys-motion-duration) var(--ds-sys-motion-ease),
+      box-shadow var(--ds-sys-motion-duration) var(--ds-sys-motion-ease),
+      outline var(--ds-sys-motion-duration) var(--ds-sys-motion-ease);
+  }
+
+  .card--interactive:focus-visible,
+  .card--interactive.is-selected {
+    outline: 4px solid var(--ds-sys-color-primary);
+    outline-offset: 4px;
+    transform: scale(var(--ds-motion-scale-focus, 1.05));
+    box-shadow: var(--ds-sys-shadow-card-hover, var(--shadow-xl));
+    z-index: 10;
+  }
+
   /* CONTENT REAL: Reveal metadata/actions */
   .card__reveal {
     opacity: 0;

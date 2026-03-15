@@ -18,7 +18,7 @@
     opacity: 0;
     pointer-events: none;
     z-index: 405;
-    transition: transform var(--duration-fast) var(--ease-out), opacity var(--duration-fast) var(--ease-out);
+    transition: transform var(--ds-sys-motion-duration, var(--duration-fast)) var(--ds-sys-motion-ease, var(--ease-out)), opacity var(--ds-sys-motion-duration, var(--duration-fast)) var(--ds-sys-motion-ease, var(--ease-out));
 }
 
 .cmd-panel.is-open {

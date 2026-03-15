@@ -75,6 +75,14 @@
   --ds-sys-color-error: light-dark(#ef4444, #fca5a5);
   --ds-sys-color-warning: light-dark(#f59e0b, #fcd34d);
 
+  /* -------------------------------------------------------------------------- */
+  /* 2. BASE THEME OVERRIDES                                                    */
+  /* -------------------------------------------------------------------------- */
+  
+  /* MOTION OVERRIDE: Expressive/Bouncy */
+  --ds-sys-motion-duration: var(--ds-ref-motion-duration-norm);
+  --ds-sys-motion-ease: var(--ds-ref-motion-ease-bounce);
+
   --ds-sys-radius-btn: 999px;
   --ds-sys-radius-card: 2rem;
   --ds-sys-border-width: 8px;
