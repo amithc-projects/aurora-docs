@@ -4,7 +4,7 @@ category: "Patterns"
 description: "A combination of form inputs, chat messages, and a typing indicator."
 menu:
   main:
-    parent: "patterns"
+    parent: "components-patterns"
 ---
 
 This pattern demonstrates how to combine our form inputs with vertical message bubbles and an animated pure-CSS typing indicator to create a conversation interface.
@@ -159,9 +159,13 @@ This pattern demonstrates how to combine our form inputs with vertical message b
 }
 </style>
 
-<div class="chat-container">
-  <div class="chat-header">
-    Aurora Support
+<div class="chat-container" style="position: relative;">
+  <div class="chat-header" style="display: flex; justify-content: space-between; align-items: center;">
+    <span style="visibility: hidden; width: 32px;"></span>
+    <span>Aurora Support</span>
+    <button class="chat-action-btn" title="End and share via email" onclick="openEmailDialog()" style="width: 32px; height: 32px; color: inherit;">
+      <span class="material-symbols-outlined" style="font-size: 1.2rem;">mail</span>
+    </button>
   </div>
   
   <div class="chat-messages" id="chatFeed">
@@ -186,7 +190,7 @@ This pattern demonstrates how to combine our form inputs with vertical message b
   </div>
   
   <div class="chat-input-area">
-    <button class="chat-action-btn" title="Attach file">
+    <button class="chat-action-btn" title="Attach file" onclick="document.getElementById('upload-overlay').style.display = 'flex'">
       <span class="material-symbols-outlined">attach_file</span>
     </button>
     
@@ -203,9 +207,147 @@ This pattern demonstrates how to combine our form inputs with vertical message b
       <span class="material-symbols-outlined" style="margin-left: 2px;">send</span>
     </button>
   </div>
+
+  <!-- Upload Overlay inside chat-container -->
+  <div id="upload-overlay" style="display: none; position: absolute; inset: 0; background: rgba(0,0,0,0.4); z-index: 10; align-items: center; justify-content: center; padding: 1rem; backdrop-filter: blur(2px);">
+    <div class="card" style="padding: 2rem; box-shadow: var(--ds-sys-shadow-card); width: 100%; max-width: 400px; background: var(--ds-sys-color-surface); z-index: 11; border-radius: var(--ds-sys-radius-card);">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+        <h3 style="margin: 0;">Upload File</h3>
+        <button class="chat-action-btn" onclick="document.getElementById('upload-overlay').style.display = 'none'" style="width: 32px; height: 32px; flex-shrink: 0;">
+          <span class="material-symbols-outlined" style="font-size: 1.2rem;">close</span>
+        </button>
+      </div>
+      
+      <label class="file-input-wrapper" id="chat-upload-zone" style="display: block; width: 100%; border: 2px dashed var(--ds-sys-color-border); border-radius: var(--ds-sys-radius-card); padding: 2rem; text-align: center; cursor: pointer; transition: all 0.2s;">
+        <input type="file" id="chat-file-input" onchange="handleDialogFileUpload(this)">
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; color: var(--ds-sys-color-on-surface-subtle);">
+          <span class="material-symbols-outlined" style="font-size: 2.5rem;">cloud_upload</span>
+          <span>Drag & drop a file here or <strong>Click to browse</strong></span>
+        </div>
+      </label>
+    </div>
+  </div>
+
+  <!-- Email Overlay inside chat-container -->
+  <div id="email-overlay" style="display: none; position: absolute; inset: 0; background: rgba(0,0,0,0.4); z-index: 10; align-items: center; justify-content: center; padding: 1rem; backdrop-filter: blur(2px);">
+    <div class="card" style="padding: 2rem; box-shadow: var(--ds-sys-shadow-card); width: 100%; max-width: 400px; background: var(--ds-sys-color-surface); z-index: 11; border-radius: var(--ds-sys-radius-card);">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+        <h3 style="margin: 0;">Share via Email</h3>
+        <button class="chat-action-btn" onclick="document.getElementById('email-overlay').style.display = 'none'" style="width: 32px; height: 32px; flex-shrink: 0;">
+          <span class="material-symbols-outlined" style="font-size: 1.2rem;">close</span>
+        </button>
+      </div>
+      
+      <div class="field" style="margin-bottom: 1.5rem;">
+        <label class="field__label" style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Email Address</label>
+        <input type="email" id="share-email-input" placeholder="name@company.com" style="width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--ds-sys-color-border); border-radius: var(--ds-sys-radius-btn); background: var(--ds-sys-color-surface); color: var(--ds-sys-color-on-surface); font-family: inherit; font-size: 1rem;">
+      </div>
+      
+      <div id="email-feedback" style="display: none; padding: 0.75rem; border-radius: 4px; background: rgba(var(--ds-sys-color-success-rgb, 16, 185, 129), 0.1); color: var(--ds-sys-color-success); margin-bottom: 1rem; font-size: 0.9rem; font-weight: 500; text-align: center;">
+        Transcript sent successfully!
+      </div>
+      
+      <button class="chat-action-btn primary" style="width: 100%; border: none; padding: 0.75rem; border-radius: var(--ds-sys-radius-btn); background: var(--ds-sys-color-primary); color: white; cursor: pointer; font-weight: 600; text-align: center; justify-content: center;" onclick="submitEmailShare()">
+        Send Transcript
+      </button>
+    </div>
+  </div>
 </div>
 
 <script>
+  function openEmailDialog() {
+    document.getElementById('email-overlay').style.display = 'flex';
+    document.getElementById('email-feedback').style.display = 'none';
+    document.getElementById('share-email-input').value = '';
+  }
+
+  function submitEmailShare() {
+    const email = document.getElementById('share-email-input').value;
+    if (!email || !email.includes('@')) return; // Basic validation
+    
+    const feedback = document.getElementById('email-feedback');
+    feedback.style.display = 'block';
+    feedback.textContent = `Transcript sent to ${email}`;
+    
+    setTimeout(() => {
+      document.getElementById('email-overlay').style.display = 'none';
+    }, 2500);
+  }
+
+  function endAndShareChat() {
+    const feed = document.getElementById('chatFeed');
+    const messages = feed.querySelectorAll('.message');
+    let transcript = 'Aurora Support Chat Transcript:\n\n';
+    
+    messages.forEach(msg => {
+      // Skip the typing indicator
+      if (msg.classList.contains('typing-indicator')) return;
+      
+      const sender = msg.classList.contains('message-user') ? 'User' : 'Support';
+      transcript += `${sender}: ${msg.textContent.trim()}\n`;
+    });
+    
+    const subject = encodeURIComponent('Chat Transcript with Aurora Support');
+    const body = encodeURIComponent(transcript);
+    
+    window.location.href = `mailto:?subject=${subject}&body=${body}`;
+  }
+
+  // Handle Drag & Drop for the chat upload dialog
+  const chatUploadZone = document.getElementById('chat-upload-zone');
+  const chatFileInput = document.getElementById('chat-file-input');
+
+  if (chatUploadZone) {
+    ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+      chatUploadZone.addEventListener(eventName, preventDefaults, false);
+    });
+
+    function preventDefaults(e) { e.preventDefault(); e.stopPropagation(); }
+
+    ['dragenter', 'dragover'].forEach(eventName => {
+      chatUploadZone.addEventListener(eventName, () => chatUploadZone.classList.add('drag-over'), false);
+    });
+
+    ['dragleave', 'drop'].forEach(eventName => {
+      chatUploadZone.addEventListener(eventName, () => chatUploadZone.classList.remove('drag-over'), false);
+    });
+
+    chatUploadZone.addEventListener('drop', (e) => {
+      let dt = e.dataTransfer;
+      let files = dt.files;
+      
+      if (files && files.length) {
+        const dataTransfer = new DataTransfer();
+        dataTransfer.items.add(files[0]);
+        chatFileInput.files = dataTransfer.files;
+        handleDialogFileUpload(chatFileInput);
+      }
+    }, false);
+  }
+
+  function handleDialogFileUpload(input) {
+    if (input.files && input.files.length > 0) {
+      const fileName = input.files[0].name;
+      
+      // Close overlay
+      document.getElementById('upload-overlay').style.display = 'none';
+      
+      // Add attachment message to chat
+      const feed = document.getElementById('chatFeed');
+      const typingIndicator = document.getElementById('demoTypingIndicator');
+      
+      const msg = document.createElement('div');
+      msg.className = 'message message-user';
+      msg.innerHTML = `<div style="display: flex; align-items: center; gap: 0.5rem;"><span class="material-symbols-outlined" style="font-size: 1.2rem;">attachment</span> ${fileName}</div>`;
+      
+      feed.insertBefore(msg, typingIndicator);
+      feed.scrollTop = feed.scrollHeight;
+      
+      // Reset input
+      input.value = '';
+    }
+  }
+
   function sendDemoMessage() {
     const input = document.getElementById('demoChatInput');
     const feed = document.getElementById('chatFeed');
