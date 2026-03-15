@@ -1,0 +1,142 @@
+[
+  {
+    "name": "AFC Bournemouth",
+    "stadium": "Vitality Stadium",
+    "lat": 50.735199,
+    "long": -1.83839,
+    "logo": "https://resources.premierleague.com/premierleague/badges/50/t91.png"
+  },
+  {
+    "name": "Arsenal",
+    "stadium": "Emirates Stadium",
+    "lat": 51.554901,
+    "long": -0.108436,
+    "logo": "https://resources.premierleague.com/premierleague/badges/50/t3.png"
+  },
+  {
+    "name": "Aston Villa",
+    "stadium": "Villa Park",
+    "lat": 52.508999,
+    "long": -1.96418,
+    "logo": "https://resources.premierleague.com/premierleague/badges/50/t7.png"
+  },
+  {
+    "name": "Brentford",
+    "stadium": "Gtech Community Stadium",
+    "lat": 51.490833,
+    "long": -0.288611,
+    "logo": "https://resources.premierleague.com/premierleague/badges/50/t94.png"
+  },
+  {
+    "name": "Brighton & Hove Albion",
+    "stadium": "Amex Stadium",
+    "lat": 50.860901,
+    "long": -0.08014,
+    "logo": "https://resources.premierleague.com/premierleague/badges/50/t36.png"
+  },
+  {
+    "name": "Leeds United",
+    "stadium": "Elland Road",
+    "lat": 53.777782,
+    "long": -1.573049,
+    "logo": "https://resources.premierleague.com/premierleague/badges/50/t2.png"
+  },
+  {
+    "name": "Burnley",
+    "stadium": "Turf Moor",
+    "lat": 53.78917,
+    "long": -2.23028,
+    "logo": "https://resources.premierleague.com/premierleague/badges/50/t90.png"
+  },
+  {
+    "name": "Chelsea",
+    "stadium": "Stamford Bridge",
+    "lat": 51.481602,
+    "long": -0.191034,
+    "logo": "https://resources.premierleague.com/premierleague/badges/50/t8.png"
+  },
+  {
+    "name": "Crystal Palace",
+    "stadium": "Selhurst Park",
+    "lat": 51.3983,
+    "long": -0.085455,
+    "logo": "https://resources.premierleague.com/premierleague/badges/50/t31.png"
+  },
+  {
+    "name": "Everton",
+    "stadium": "Hill Dickinson Stadium",
+    "lat": 53.4251,
+    "long": -3.0028,
+    "logo": "https://resources.premierleague.com/premierleague/badges/50/t11.png"
+  },
+  {
+    "name": "Fulham",
+    "stadium": "Craven Cottage",
+    "lat": 51.4749,
+    "long": -0.2219,
+    "logo": "https://resources.premierleague.com/premierleague/badges/50/t54.png"
+  },
+  {
+    "name": "Liverpool",
+    "stadium": "Anfield",
+    "lat": 53.430801,
+    "long": -2.96096,
+    "logo": "https://resources.premierleague.com/premierleague/badges/50/t14.png"
+  },
+  {
+    "name": "Sunderland",
+    "stadium": "Stadium of Light",
+    "lat": 54.9144,
+    "long": -1.3882,
+    "logo": "https://resources.premierleague.com/premierleague/badges/50/t56.png"
+  },
+  {
+    "name": "Manchester City",
+    "stadium": "Etihad Stadium",
+    "lat": 53.483135,
+    "long": -2.200941,
+    "logo": "https://resources.premierleague.com/premierleague/badges/50/t43.png"
+  },
+  {
+    "name": "Manchester United",
+    "stadium": "Old Trafford",
+    "lat": 53.463493,
+    "long": -2.292279,
+    "logo": "https://resources.premierleague.com/premierleague/badges/50/t1.png"
+  },
+  {
+    "name": "Newcastle United",
+    "stadium": "St James' Park",
+    "lat": 54.975601,
+    "long": -1.62179,
+    "logo": "https://resources.premierleague.com/premierleague/badges/50/t4.png"
+  },
+  {
+    "name": "Nottingham Forest",
+    "stadium": "City Ground",
+    "lat": 52.9884,
+    "long": -1.14217,
+    "logo": "https://resources.premierleague.com/premierleague/badges/50/t17.png"
+  },
+  {
+    "name": "Tottenham Hotspur",
+    "stadium": "Tottenham Hotspur Stadium",
+    "lat": 51.60417,
+    "long": -0.06639,
+    "logo": "https://resources.premierleague.com/premierleague/badges/50/t6.png"
+  },
+  {
+    "name": "West Ham United",
+    "stadium": "London Stadium",
+    "lat": 51.538811,
+    "long": -0.017136,
+    "logo": "https://resources.premierleague.com/premierleague/badges/50/t21.png"
+  },
+  {
+    "name": "Wolverhampton Wanderers",
+    "stadium": "Molineux Stadium",
+    "lat": 52.590382,
+    "long": -2.130924,
+    "logo": "https://resources.premierleague.com/premierleague/badges/50/t39.png"
+  }
+]
