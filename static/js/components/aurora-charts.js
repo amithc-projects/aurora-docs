@@ -17,14 +17,14 @@ import {
   SunburstChart,
   FunnelChart,
   CustomChart,
-  BoxplotChart, 
-  ParallelChart, 
-  CandlestickChart, 
-  ThemeRiverChart, 
-  PictorialBarChart, 
-  HeatmapChart, 
-  TreeChart, 
-  GraphChart, 
+  BoxplotChart,
+  ParallelChart,
+  CandlestickChart,
+  ThemeRiverChart,
+  PictorialBarChart,
+  HeatmapChart,
+  TreeChart,
+  GraphChart,
   SankeyChart,
   EffectScatterChart,
   LinesChart,
@@ -41,9 +41,9 @@ import {
   LegendComponent,
   PolarComponent,
   DataZoomComponent,
-  ParallelComponent, 
-  VisualMapComponent, 
-  CalendarComponent, 
+  ParallelComponent,
+  VisualMapComponent,
+  CalendarComponent,
   SingleAxisComponent,
   GeoComponent
 } from 'https://esm.sh/echarts/components';
@@ -72,7 +72,7 @@ function resolveCSSVariable(cssString) {
   document.body.appendChild(dummy);
   const computedColor = window.getComputedStyle(dummy).backgroundColor;
   dummy.remove();
-  
+
   if (computedColor === 'rgba(0, 0, 0, 0)' && !cssString.includes('transparent')) {
     return cssString; // Fallback
   }
@@ -87,11 +87,11 @@ function resolveThemeVariables(obj) {
   if (typeof obj === 'string' && obj.includes('var(')) {
     return resolveCSSVariable(obj);
   }
-  
+
   if (Array.isArray(obj)) {
     return obj.map(resolveThemeVariables);
   }
-  
+
   if (obj !== null && typeof obj === 'object') {
     const newObj = {};
     for (const key in obj) {
@@ -99,7 +99,7 @@ function resolveThemeVariables(obj) {
     }
     return newObj;
   }
-  
+
   return obj;
 }
 
@@ -124,11 +124,11 @@ function resolveFunctionStrings(obj) {
     }
     return obj;
   }
-  
+
   if (Array.isArray(obj)) {
     return obj.map(resolveFunctionStrings);
   }
-  
+
   if (obj !== null && typeof obj === 'object') {
     const newObj = {};
     for (const key in obj) {
@@ -136,7 +136,7 @@ function resolveFunctionStrings(obj) {
     }
     return newObj;
   }
-  
+
   return obj;
 }
 
@@ -149,14 +149,14 @@ function setupChart(container, configObj) {
 
   // Resolve stringified functions first
   let resolvedConfig = resolveFunctionStrings(configObj);
-  
+
   // Resolve CSS variables against current active theme
   resolvedConfig = resolveThemeVariables(resolvedConfig);
 
   // Default Aurora Styles injections
   const textColor = resolveCSSVariable('var(--ds-sys-color-on-surface-variant)');
   const axisColor = resolveCSSVariable('var(--ds-sys-color-outline-variant)');
-  
+
   // Inject global base text styles if not overridden by the user config
   if (!resolvedConfig.textStyle) resolvedConfig.textStyle = {};
   resolvedConfig.textStyle.color = resolvedConfig.textStyle.color || textColor;
@@ -167,7 +167,7 @@ function setupChart(container, configObj) {
   resolvedConfig.tooltip.backgroundColor = resolvedConfig.tooltip.backgroundColor || resolveCSSVariable('var(--ds-sys-color-surface)');
   resolvedConfig.tooltip.borderColor = resolvedConfig.tooltip.borderColor || resolveCSSVariable('var(--ds-sys-color-border)');
   resolvedConfig.tooltip.textStyle = resolvedConfig.tooltip.textStyle || { color: resolveCSSVariable('var(--ds-sys-color-on-surface)') };
-  
+
   // Destroy existing instance if repainting
   if (container._chartInstance) {
     container._chartInstance.dispose();
@@ -201,7 +201,7 @@ function initAuroraCharts() {
       } catch (e) {
         console.error("AuroraCharts: Error parsing inline JSON configuration.", e);
       }
-    } 
+    }
     // 2. Or load from external data source
     else if (container.dataset.src) {
       fetch(container.dataset.src)

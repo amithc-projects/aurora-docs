@@ -1,5 +1,5 @@
 ---
-title: "Complex Gantt Component"
+title: "Complex Gantt Component 2"
 description: "An advanced, enterprise-grade Gantt implementation combining HTML data tables with an ECharts timeline for progress, milestones, and dependencies."
 image: "/images/charts/echarts-complex-gantt.png"
 tags: ["Gantt", "Project", "Timeline", "Complex"]
@@ -21,150 +21,7 @@ The **Complex Gantt** demonstrates an enterprise pattern: a split layout where t
 
 <link rel="stylesheet" href="/aurora-docs/css/components/complex-gantt.css">
 
-{{< demo >}}
-<!-- Overall Container -->
-<div class="aurora-complex-gantt" style="width: 100%;">
-  
-  <!-- Left Panel: HTML Data Table -->
-  <div class="gantt-table-panel">
-    <div class="gantt-table-header">
-      <div>Task Name</div>
-      <div style="text-align: right;">Assignee</div>
-    </div>
-    <div class="gantt-table-body">
-      <!-- Row 1: Group -->
-      <div class="gantt-row gantt-row-group">
-        <div class="gantt-task-name">
-          <svg class="ds-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-          Phase 1: Initiation
-        </div>
-        <div class="gantt-task-assignee"></div>
-      </div>
-      <!-- Row 2: Standard Task -->
-      <div class="gantt-row">
-        <div class="gantt-task-name" style="padding-left: 24px;">Feasibility Study</div>
-        <div class="gantt-task-assignee">
-          <div class="gantt-assignee-avatar">PB</div>
-        </div>
-      </div>
-      <!-- Row 3: Standard Task -->
-      <div class="gantt-row">
-        <div class="gantt-task-name" style="padding-left: 24px;">Scope identification</div>
-        <div class="gantt-task-assignee">
-          <div class="gantt-assignee-avatar">JD</div>
-        </div>
-      </div>
-      <!-- Row 4: Standard Task -->
-      <div class="gantt-row">
-        <div class="gantt-task-name" style="padding-left: 24px;">Statement of Work</div>
-        <div class="gantt-task-assignee">
-          <div class="gantt-assignee-avatar">Un</div>
-        </div>
-      </div>
-      
-      <!-- Row 5: Group -->
-      <div class="gantt-row gantt-row-group">
-        <div class="gantt-task-name">
-          <svg class="ds-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-          Phase 2: Planning
-        </div>
-        <div class="gantt-task-assignee"></div>
-      </div>
-      <!-- Row 6: Standard Task -->
-      <div class="gantt-row">
-        <div class="gantt-task-name" style="padding-left: 24px;">Initial meeting</div>
-        <div class="gantt-task-assignee">
-          <div class="gantt-assignee-avatar">JA</div>
-        </div>
-      </div>
-      <!-- Row 7: Standard Task -->
-      <div class="gantt-row">
-        <div class="gantt-task-name" style="padding-left: 24px;">Collection of ideas</div>
-        <div class="gantt-task-assignee"></div>
-      </div>
-      <!-- Row 8: Standard Task -->
-      <div class="gantt-row">
-        <div class="gantt-task-name" style="padding-left: 24px;">Roadmap creation</div>
-        <div class="gantt-task-assignee"></div>
-      </div>
-    </div>
-  </div>
 
-  <!-- Right Panel: ECharts Timeline -->
-  <div class="gantt-timeline-panel">
-    <div class="aurora-chart-container" style="width: 100%;">
-      <div data-component="aurora-chart" style="height: 100%; width: 100%;">
-        <script type="application/json" data-ref="config">
-        {
-          "tooltip": {
-            "formatter": "$(function() { return function (params) { return params.marker + params.name + '<br/>Progress: ' + (params.value[4] * 100).toFixed(0) + '%'; }; })()$"
-          },
-          "grid": {
-            "top": 48,
-            "bottom": 0,
-            "left": 0,
-            "right": 20,
-            "containLabel": false
-          },
-          "xAxis": {
-            "type": "time",
-            "position": "top",
-            "axisLabel": {
-              "color": "var(--ds-sys-color-on-surface-variant)",
-              "formatter": "{MMM} {dd}"
-            },
-            "splitLine": { 
-              "show": true,
-              "lineStyle": { "color": "var(--ds-sys-color-border)", "type": "dashed" } 
-            },
-            "axisLine": { "show": false },
-            "axisTick": { "show": false }
-          },
-          "yAxis": {
-            "type": "category",
-            "data": [
-              "8", "7", "6", "5", "4", "3", "2", "1"
-            ],
-            "inverse": true,
-            "axisLabel": { "show": false },
-            "axisLine": { "show": false },
-            "axisTick": { "show": false },
-            "splitLine": { "show": false }
-          },
-          "series": [
-            {
-              "type": "custom",
-              "renderItem": "$(function() { return function (params, api) { var categoryIndex = api.value(0); var start = api.coord([api.value(1), categoryIndex]); var end = api.coord([api.value(2), categoryIndex]); var progress = api.value(4); var isGroup = api.value(5); var height = isGroup ? 20 : 28; var totalWidth = end[0] - start[0]; var progressWidth = totalWidth * progress; var rx = isGroup ? 0 : 4; var yPos = start[1] - height / 2; var bgRect = { type: 'rect', shape: echarts.graphic.clipRectByRect({ x: start[0], y: yPos, width: Math.max(totalWidth, 2), height: height, r: rx}, { x: params.coordSys.x, y: params.coordSys.y, width: params.coordSys.width, height: params.coordSys.height }), style: api.style({ fill: isGroup ? 'var(--ds-chart-1)' : 'var(--ds-chart-2)', opacity: isGroup ? 0.3 : 0.2 }) }; var fgRect = null; if (progressWidth > 0 && !isGroup) { fgRect = { type: 'rect', shape: echarts.graphic.clipRectByRect({ x: start[0], y: yPos, width: Math.max(progressWidth, 2), height: height, r: rx}, { x: params.coordSys.x, y: params.coordSys.y, width: params.coordSys.width, height: params.coordSys.height }), style: api.style({ fill: 'var(--ds-chart-2)', opacity: 1 }) }; } var textEl = null; if (!isGroup) { textEl = { type: 'text', style: { text: params.name, x: start[0] + 8, y: yPos + height / 2, textVerticalAlign: 'middle', fill: 'var(--ds-sys-color-on-surface-variant)', fontSize: 12, overflow: 'truncate', width: Math.max(totalWidth - 16, 0) } }; } var groupTextEl = null; if (isGroup) { groupTextEl = { type: 'text', style: { text: params.name, x: start[0] + 8, y: yPos + height / 2, textVerticalAlign: 'middle', fill: 'var(--ds-sys-color-on-surface)', fontSize: 13, fontWeight: 'bold' } }; } var elements = [bgRect]; if (fgRect) elements.push(fgRect); if (textEl) elements.push(textEl); if (groupTextEl) elements.push(groupTextEl); return { type: 'group', children: elements }; }; })()$",
-              "itemStyle": {
-                "opacity": 1
-              },
-              "emphasis": {
-                "disabled": true
-              },
-              "encode": {
-                "x": [1, 2],
-                "y": 0,
-                "tooltip": [1, 2, 4]
-              },
-              "data": [
-                { "name": "Initiation", "value": [0, "2026-07-01", "2026-07-21", 0, 0.4, true] },
-                { "name": "Feasibility study", "value": [1, "2026-07-01", "2026-07-10", 0, 0.8, false] },
-                { "name": "Scope identification", "value": [2, "2026-07-08", "2026-07-15", 0, 1.0, false] },
-                { "name": "Statement of work", "value": [3, "2026-07-13", "2026-07-21", 0, 0.2, false] },
-                { "name": "Planning", "value": [4, "2026-07-15", "2026-08-05", 0, 0.1, true], "itemStyle": {"color": "var(--ds-sys-color-success)"} },
-                { "name": "Initial meeting", "value": [5, "2026-07-15", "2026-07-20", 0, 1.0, false], "itemStyle": {"color": "var(--ds-sys-color-success)"} },
-                { "name": "Collection of ideas", "value": [6, "2026-07-19", "2026-07-26", 0, 0.0, false], "itemStyle": {"color": "var(--ds-chart-4)"} },
-                { "name": "Roadmap creation", "value": [7, "2026-07-24", "2026-08-05", 0, 0.0, false], "itemStyle": {"color": "var(--ds-chart-4)"} }
-              ]
-            }
-          ]
-        }
-        </script>
-      </div>
-    </div>
-  </div>
-</div>
-{{< /demo >}}
 
 ### 6-Group Test Example
 To observe the bug where collapsing groups causes the top task item to disappear, here is a larger 6-group schedule context.
@@ -258,11 +115,18 @@ To observe the bug where collapsing groups causes the top task item to disappear
   </div>
 
   <div class="gantt-timeline-panel">
-    <div class="aurora-chart-container" style="width: 100%;">
-      <div data-component="aurora-chart" style="height: 100%; width: 100%;">
+    <div class="aurora-chart-container" style="width: 800px; max-width: 800px;">
+      <div data-component="aurora-chart" style="height: 100%; width: 800px;">
         <script type="application/json" data-ref="config">
         {
           "tooltip": {
+            "show": true,
+            "confine": true,
+            "appendToBody": true,
+            "enterable": false,
+            "extraCssText": "pointer-events: none;",
+            "trigger": "item",
+            "position": "top",
             "formatter": "$(function() { return function (params) { return params.marker + params.name + '<br/>Progress: ' + (params.value[4] * 100).toFixed(0) + '%'; }; })()$"
           },
           "grid": { "top": 48, "bottom": 0, "left": 0, "right": 20, "containLabel": false },
@@ -281,7 +145,8 @@ To observe the bug where collapsing groups causes the top task item to disappear
           "series": [
             {
               "type": "custom",
-              "renderItem": "$(function() { return function (params, api) { var categoryIndex = api.value(0); var start = api.coord([api.value(1), categoryIndex]); var end = api.coord([api.value(2), categoryIndex]); var progress = api.value(4); var isGroup = api.value(5); var height = isGroup ? 20 : 28; var totalWidth = end[0] - start[0]; var progressWidth = totalWidth * progress; var rx = isGroup ? 0 : 4; var yPos = start[1] - height / 2; var clipBox = { x: params.coordSys.x, y: params.coordSys.y - 20, width: params.coordSys.width, height: params.coordSys.height + 40 }; var bgRect = { type: 'rect', shape: echarts.graphic.clipRectByRect({ x: start[0], y: yPos, width: Math.max(totalWidth, 2), height: height, r: rx}, clipBox), style: api.style({ fill: isGroup ? 'var(--ds-chart-1)' : 'var(--ds-chart-2)', opacity: isGroup ? 0.3 : 0.2 }) }; var fgRect = null; if (progressWidth > 0 && !isGroup) { fgRect = { type: 'rect', shape: echarts.graphic.clipRectByRect({ x: start[0], y: yPos, width: Math.max(progressWidth, 2), height: height, r: rx}, clipBox), style: api.style({ fill: 'var(--ds-chart-2)', opacity: 1 }) }; } var textEl = null; if (!isGroup) { textEl = { type: 'text', style: { text: params.name, x: start[0] + 8, y: yPos + height / 2, textVerticalAlign: 'middle', fill: 'var(--ds-sys-color-on-surface-variant)', fontSize: 12, overflow: 'truncate', width: Math.max(totalWidth - 16, 0) } }; } var groupTextEl = null; if (isGroup) { groupTextEl = { type: 'text', style: { text: params.name, x: start[0] + 8, y: yPos + height / 2, textVerticalAlign: 'middle', fill: 'var(--ds-sys-color-on-surface)', fontSize: 13, fontWeight: 'bold' } }; } var elements = [bgRect]; if (fgRect) elements.push(fgRect); if (textEl) elements.push(textEl); if (groupTextEl) elements.push(groupTextEl); return { type: 'group', children: elements }; }; })()$",
+              "emphasis": { "disabled": true },
+              "renderItem": "$(function() { return function (params, api) { var categoryIndex = api.value(0); var start = api.coord([api.value(1), categoryIndex]); var end = api.coord([api.value(2), categoryIndex]); var progress = api.value(4); var isGroup = api.value(5); var height = isGroup ? 20 : 28; var totalWidth = Math.max(2, end[0] - start[0]); var progressWidth = totalWidth * progress; var rx = isGroup ? 0 : 4; var yPos = start[1] - height / 2; var bgRect = { type: 'rect', shape: { x: Math.floor(start[0]), y: Math.floor(yPos), width: Math.max(Math.floor(totalWidth), 2), height: height, r: rx}, style: api.style({ fill: isGroup ? 'var(--ds-chart-1)' : 'var(--ds-chart-2)', opacity: isGroup ? 0.3 : 0.2 }) }; var fgRect = null; if (progressWidth > 0 && !isGroup) { fgRect = { type: 'rect', shape: { x: Math.floor(start[0]), y: Math.floor(yPos), width: Math.max(Math.floor(progressWidth), 2), height: height, r: rx}, style: api.style({ fill: 'var(--ds-chart-2)', opacity: 1 }) }; } var textEl = null; if (!isGroup) { textEl = { type: 'text', style: { text: params.name, x: Math.floor(start[0]) + 8, y: Math.floor(yPos) + height / 2, textVerticalAlign: 'middle', fill: 'var(--ds-sys-color-on-surface-variant)', fontSize: 12, overflow: 'truncate', width: Math.max(Math.floor(totalWidth) - 16, 0) } }; } var groupTextEl = null; if (isGroup) { groupTextEl = { type: 'text', style: { text: params.name, x: Math.floor(start[0]) + 8, y: Math.floor(yPos) + height / 2, textVerticalAlign: 'middle', fill: 'var(--ds-sys-color-on-surface)', fontSize: 13, fontWeight: 'bold' } }; } var elements = [bgRect]; if (fgRect) elements.push(fgRect); if (textEl) elements.push(textEl); if (groupTextEl) elements.push(groupTextEl); return { type: 'group', children: elements }; }; })()$",
               "itemStyle": { "opacity": 1 },
               "encode": { "x": [1, 2], "y": 0, "tooltip": [1, 2, 4] },
               "data": [
