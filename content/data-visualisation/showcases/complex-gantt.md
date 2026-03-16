@@ -1,5 +1,5 @@
 ---
-title: "Complex Gantt Component 2"
+title: "Complex Gantt Component cc3"
 description: "An advanced, enterprise-grade Gantt implementation combining HTML data tables with an ECharts timeline for progress, milestones, and dependencies."
 image: "/images/charts/echarts-complex-gantt.png"
 tags: ["Gantt", "Project", "Timeline", "Complex"]
@@ -11,272 +11,409 @@ menu:
 
 # Complex Gantt Component
 
-The **Complex Gantt** demonstrates an enterprise pattern: a split layout where the left panel is a native HTML data table (perfect for displaying avatars, avatars, hierarchy, and tight text) perfectly synchronized with an [ECharts timeline](/data-visualisation/charts/echarts-gantt/) on the right.
+The **Complex Gantt** demonstrates an enterprise pattern: a split layout where the left panel is a native HTML data table (perfect for displaying avatars, hierarchy, and tight text) perfectly synchronized with an ECharts timeline on the right.
 
 ### Capabilities in this pattern:
-1. **Split-View Alignment:** HTML rows are explicitely sized (`48px`) to match the Y-Axis category mapping in the ECharts canvas.
-2. **Progress Indicators:** The ECharts custom series overlays a darker 'progress' bar inside the main duration bar.
-3. **Milestones & Decorators:** Custom clipping or SVGs can be drawn inside the `renderItem` function.
+1. **Split-View Alignment:** HTML rows are explicitly sized (`48px`) to match the Y-Axis category mapping in the ECharts canvas.
+2. **Progress Indicators:** The ECharts custom series overlays a progress bar inside the main duration bar.
+3. **Collapse / Expand:** Phase group rows can be toggled to hide child tasks.
 4. **Theming:** Full integration with Aurora design tokens.
 
 <link rel="stylesheet" href="/aurora-docs/css/components/complex-gantt.css">
 
-
-
-### 6-Group Test Example
-To observe the bug where collapsing groups causes the top task item to disappear, here is a larger 6-group schedule context.
-
 {{< demo >}}
-<div class="aurora-complex-gantt" style="width: 100%;">
+<div class="aurora-complex-gantt" id="gantt-a">
   <div class="gantt-table-panel">
     <div class="gantt-table-header">
       <div>Task Name</div>
-      <div style="text-align: right;">Assignee</div>
+      <div style="text-align:right;">Assignee</div>
     </div>
     <div class="gantt-table-body">
-      <!-- Group 1 -->
-      <div class="gantt-row gantt-row-group">
+      <div class="gantt-row gantt-row-group" data-group="g1">
         <div class="gantt-task-name">
-          <svg class="ds-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          <svg class="ds-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
           Phase 1: Initiation
         </div>
         <div class="gantt-task-assignee"></div>
       </div>
-      <div class="gantt-row">
-        <div class="gantt-task-name" style="padding-left: 24px;">Kickoff</div>
+      <div class="gantt-row" data-parent="g1">
+        <div class="gantt-task-name" style="padding-left:24px">Feasibility Study</div>
         <div class="gantt-task-assignee"><div class="gantt-assignee-avatar">PB</div></div>
       </div>
-      
-      <!-- Group 2 -->
-      <div class="gantt-row gantt-row-group">
+      <div class="gantt-row" data-parent="g1">
+        <div class="gantt-task-name" style="padding-left:24px">Scope Identification</div>
+        <div class="gantt-task-assignee"><div class="gantt-assignee-avatar">JD</div></div>
+      </div>
+      <div class="gantt-row" data-parent="g1">
+        <div class="gantt-task-name" style="padding-left:24px">Statement of Work</div>
+        <div class="gantt-task-assignee"><div class="gantt-assignee-avatar">Un</div></div>
+      </div>
+      <div class="gantt-row gantt-row-group" data-group="g2">
         <div class="gantt-task-name">
-          <svg class="ds-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          <svg class="ds-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
           Phase 2: Planning
         </div>
         <div class="gantt-task-assignee"></div>
       </div>
-      <div class="gantt-row">
-        <div class="gantt-task-name" style="padding-left: 24px;">Requirements</div>
+      <div class="gantt-row" data-parent="g2">
+        <div class="gantt-task-name" style="padding-left:24px">Initial Meeting</div>
+        <div class="gantt-task-assignee"><div class="gantt-assignee-avatar">JA</div></div>
+      </div>
+      <div class="gantt-row" data-parent="g2">
+        <div class="gantt-task-name" style="padding-left:24px">Collection of Ideas</div>
         <div class="gantt-task-assignee"></div>
       </div>
-
-      <!-- Group 3 -->
-      <div class="gantt-row gantt-row-group">
-        <div class="gantt-task-name">
-          <svg class="ds-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-          Phase 3: Execution
-        </div>
-        <div class="gantt-task-assignee"></div>
-      </div>
-      <div class="gantt-row">
-        <div class="gantt-task-name" style="padding-left: 24px;">Development</div>
-        <div class="gantt-task-assignee"></div>
-      </div>
-
-      <!-- Group 4 -->
-      <div class="gantt-row gantt-row-group">
-        <div class="gantt-task-name">
-          <svg class="ds-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-          Phase 4: Monitoring
-        </div>
-        <div class="gantt-task-assignee"></div>
-      </div>
-      <div class="gantt-row">
-        <div class="gantt-task-name" style="padding-left: 24px;">QA Testing</div>
-        <div class="gantt-task-assignee"></div>
-      </div>
-
-      <!-- Group 5 -->
-      <div class="gantt-row gantt-row-group">
-        <div class="gantt-task-name">
-          <svg class="ds-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-          Phase 5: Closing
-        </div>
-        <div class="gantt-task-assignee"></div>
-      </div>
-      <div class="gantt-row">
-        <div class="gantt-task-name" style="padding-left: 24px;">Deployment</div>
-        <div class="gantt-task-assignee"></div>
-      </div>
-
-      <!-- Group 6 -->
-      <div class="gantt-row gantt-row-group">
-        <div class="gantt-task-name">
-          <svg class="ds-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-          Phase 6: Review
-        </div>
-        <div class="gantt-task-assignee"></div>
-      </div>
-      <div class="gantt-row">
-        <div class="gantt-task-name" style="padding-left: 24px;">Retrospective</div>
+      <div class="gantt-row" data-parent="g2">
+        <div class="gantt-task-name" style="padding-left:24px">Roadmap Creation</div>
         <div class="gantt-task-assignee"></div>
       </div>
     </div>
   </div>
-
   <div class="gantt-timeline-panel">
-    <div class="aurora-chart-container" style="width: 800px; max-width: 800px;">
-      <div data-component="aurora-chart" style="height: 100%; width: 800px;">
-        <script type="application/json" data-ref="config">
-        {
-          "tooltip": {
-            "show": true,
-            "confine": true,
-            "appendToBody": true,
-            "enterable": false,
-            "extraCssText": "pointer-events: none;",
-            "trigger": "item",
-            "position": "top",
-            "formatter": "$(function() { return function (params) { return params.marker + params.name + '<br/>Progress: ' + (params.value[4] * 100).toFixed(0) + '%'; }; })()$"
-          },
-          "grid": { "top": 48, "bottom": 0, "left": 0, "right": 20, "containLabel": false },
-          "xAxis": {
-            "type": "time", "position": "top",
-            "axisLabel": { "color": "var(--ds-sys-color-on-surface-variant)", "formatter": "{MMM} {dd}" },
-            "splitLine": { "show": true, "lineStyle": { "color": "var(--ds-sys-color-border)", "type": "dashed" } },
-            "axisLine": { "show": false }, "axisTick": { "show": false }
-          },
-          "yAxis": {
-            "type": "category",
-            "data": [ "12", "11", "10", "9", "8", "7", "6", "5", "4", "3", "2", "1" ],
-            "inverse": true,
-            "axisLabel": { "show": false }, "axisLine": { "show": false }, "axisTick": { "show": false }, "splitLine": { "show": false }
-          },
-          "series": [
-            {
-              "type": "custom",
-              "emphasis": { "disabled": true },
-              "renderItem": "$(function() { return function (params, api) { var categoryIndex = api.value(0); var start = api.coord([api.value(1), categoryIndex]); var end = api.coord([api.value(2), categoryIndex]); var progress = api.value(4); var isGroup = api.value(5); var height = isGroup ? 20 : 28; var totalWidth = Math.max(2, end[0] - start[0]); var progressWidth = totalWidth * progress; var rx = isGroup ? 0 : 4; var yPos = start[1] - height / 2; var bgRect = { type: 'rect', shape: { x: Math.floor(start[0]), y: Math.floor(yPos), width: Math.max(Math.floor(totalWidth), 2), height: height, r: rx}, style: api.style({ fill: isGroup ? 'var(--ds-chart-1)' : 'var(--ds-chart-2)', opacity: isGroup ? 0.3 : 0.2 }) }; var fgRect = null; if (progressWidth > 0 && !isGroup) { fgRect = { type: 'rect', shape: { x: Math.floor(start[0]), y: Math.floor(yPos), width: Math.max(Math.floor(progressWidth), 2), height: height, r: rx}, style: api.style({ fill: 'var(--ds-chart-2)', opacity: 1 }) }; } var textEl = null; if (!isGroup) { textEl = { type: 'text', style: { text: params.name, x: Math.floor(start[0]) + 8, y: Math.floor(yPos) + height / 2, textVerticalAlign: 'middle', fill: 'var(--ds-sys-color-on-surface-variant)', fontSize: 12, overflow: 'truncate', width: Math.max(Math.floor(totalWidth) - 16, 0) } }; } var groupTextEl = null; if (isGroup) { groupTextEl = { type: 'text', style: { text: params.name, x: Math.floor(start[0]) + 8, y: Math.floor(yPos) + height / 2, textVerticalAlign: 'middle', fill: 'var(--ds-sys-color-on-surface)', fontSize: 13, fontWeight: 'bold' } }; } var elements = [bgRect]; if (fgRect) elements.push(fgRect); if (textEl) elements.push(textEl); if (groupTextEl) elements.push(groupTextEl); return { type: 'group', children: elements }; }; })()$",
-              "itemStyle": { "opacity": 1 },
-              "encode": { "x": [1, 2], "y": 0, "tooltip": [1, 2, 4] },
-              "data": [
-                { "name": "Phase 1: Initiation", "value": [0, "2026-07-01", "2026-07-10", 0, 0.4, true] },
-                { "name": "Kickoff", "value": [1, "2026-07-01", "2026-07-05", 0, 1.0, false] },
-                { "name": "Phase 2: Planning", "value": [2, "2026-07-11", "2026-07-20", 0, 0.2, true] },
-                { "name": "Requirements", "value": [3, "2026-07-11", "2026-07-20", 0, 0.5, false] },
-                { "name": "Phase 3: Execution", "value": [4, "2026-07-21", "2026-08-10", 0, 0.0, true] },
-                { "name": "Development", "value": [5, "2026-07-21", "2026-08-10", 0, 0.0, false] },
-                { "name": "Phase 4: Monitoring", "value": [6, "2026-08-11", "2026-08-20", 0, 0.0, true] },
-                { "name": "QA Testing", "value": [7, "2026-08-11", "2026-08-20", 0, 0.0, false] },
-                { "name": "Phase 5: Closing", "value": [8, "2026-08-21", "2026-08-25", 0, 0.0, true] },
-                { "name": "Deployment", "value": [9, "2026-08-21", "2026-08-25", 0, 0.0, false] },
-                { "name": "Phase 6: Review", "value": [10, "2026-08-26", "2026-08-30", 0, 0.0, true] },
-                { "name": "Retrospective", "value": [11, "2026-08-26", "2026-08-30", 0, 0.0, false] }
-              ]
-            }
-          ]
-        }
-        </script>
-      </div>
-    </div>
+    <div class="gantt-chart-mount" style="width:100%;height:100%;min-height:432px;"></div>
   </div>
 </div>
 {{< /demo >}}
 
-<script>
-function setupComplexGantt() {
-  const containers = document.querySelectorAll('.aurora-complex-gantt');
-  if (containers.length === 0) return;
+### 6-Group Test Example
 
-  containers.forEach(container => {
-    const chartDom = container.querySelector('[data-component="aurora-chart"]');
-    if (!chartDom) return;
+{{< demo >}}
+<div class="aurora-complex-gantt" id="gantt-b">
+  <div class="gantt-table-panel">
+    <div class="gantt-table-header">
+      <div>Task Name</div>
+      <div style="text-align:right;">Assignee</div>
+    </div>
+    <div class="gantt-table-body">
+      <div class="gantt-row gantt-row-group" data-group="b1">
+        <div class="gantt-task-name"><svg class="ds-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>Phase 1: Initiation</div>
+        <div class="gantt-task-assignee"></div>
+      </div>
+      <div class="gantt-row" data-parent="b1">
+        <div class="gantt-task-name" style="padding-left:24px">Kickoff</div>
+        <div class="gantt-task-assignee"><div class="gantt-assignee-avatar">PB</div></div>
+      </div>
+      <div class="gantt-row gantt-row-group" data-group="b2">
+        <div class="gantt-task-name"><svg class="ds-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>Phase 2: Planning</div>
+        <div class="gantt-task-assignee"></div>
+      </div>
+      <div class="gantt-row" data-parent="b2">
+        <div class="gantt-task-name" style="padding-left:24px">Requirements</div>
+        <div class="gantt-task-assignee"></div>
+      </div>
+      <div class="gantt-row gantt-row-group" data-group="b3">
+        <div class="gantt-task-name"><svg class="ds-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>Phase 3: Execution</div>
+        <div class="gantt-task-assignee"></div>
+      </div>
+      <div class="gantt-row" data-parent="b3">
+        <div class="gantt-task-name" style="padding-left:24px">Development</div>
+        <div class="gantt-task-assignee"></div>
+      </div>
+      <div class="gantt-row gantt-row-group" data-group="b4">
+        <div class="gantt-task-name"><svg class="ds-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>Phase 4: Monitoring</div>
+        <div class="gantt-task-assignee"></div>
+      </div>
+      <div class="gantt-row" data-parent="b4">
+        <div class="gantt-task-name" style="padding-left:24px">QA Testing</div>
+        <div class="gantt-task-assignee"></div>
+      </div>
+      <div class="gantt-row gantt-row-group" data-group="b5">
+        <div class="gantt-task-name"><svg class="ds-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>Phase 5: Closing</div>
+        <div class="gantt-task-assignee"></div>
+      </div>
+      <div class="gantt-row" data-parent="b5">
+        <div class="gantt-task-name" style="padding-left:24px">Deployment</div>
+        <div class="gantt-task-assignee"></div>
+      </div>
+      <div class="gantt-row gantt-row-group" data-group="b6">
+        <div class="gantt-task-name"><svg class="ds-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>Phase 6: Review</div>
+        <div class="gantt-task-assignee"></div>
+      </div>
+      <div class="gantt-row" data-parent="b6">
+        <div class="gantt-task-name" style="padding-left:24px">Retrospective</div>
+        <div class="gantt-task-assignee"></div>
+      </div>
+    </div>
+  </div>
+  <div class="gantt-timeline-panel">
+    <div class="gantt-chart-mount" style="width:100%;height:100%;min-height:672px;"></div>
+  </div>
+</div>
+{{< /demo >}}
 
-    let intervalCount = 0;
-    const checkInterval = setInterval(() => {
-      const chart = chartDom._chartInstance;
-      intervalCount++;
-      if (chart || intervalCount > 30) {
-        clearInterval(checkInterval);
-        if (!chart) return;
-        
-        let originalYAxis = [];
-        let originalData = [];
+<script type="module">
+import * as echarts from 'https://esm.sh/echarts/core';
+import { CustomChart }    from 'https://esm.sh/echarts/charts';
+import { TooltipComponent, GridComponent, DatasetComponent } from 'https://esm.sh/echarts/components';
+import { CanvasRenderer } from 'https://esm.sh/echarts/renderers';
 
-        const configScript = container.querySelector('script[data-ref="config"]');
-        if (configScript) {
-            try {
-                const configObj = JSON.parse(configScript.textContent || configScript.innerText);
-                originalYAxis = configObj.yAxis.data;
-                originalData = configObj.series[0].data;
-            } catch (e) {
-                console.error("Gantt: Failed to parse config", e);
-            }
-        } else {
-            // Fallback to getOption if somehow the script wasn't there
-            const option = chart.getOption();
-            if (option && option.yAxis) {
-                originalYAxis = option.yAxis[0].data;
-                originalData = option.series[0].data;
-            }
-        }
-        
-        const groups = container.querySelectorAll('.gantt-row-group');
-        
-        groups.forEach((group) => {
-          group.addEventListener('click', () => {
-            // 1. Toggle HTML Rows
-            const isCollapsed = group.classList.toggle('is-collapsed');
-            let nextSibling = group.nextElementSibling;
-            
-            while(nextSibling && !nextSibling.classList.contains('gantt-row-group')) {
-              nextSibling.style.display = isCollapsed ? 'none' : '';
-              nextSibling.classList.toggle('is-hidden', isCollapsed);
-              nextSibling = nextSibling.nextElementSibling;
-            }
-            
-            // 2. Re-calculate ECharts Dataset mapping exactly mapping to visible rows
-            const allRows = Array.from(container.querySelectorAll('.gantt-row'));
-            const filteredData = [];
-            let newIndex = 0;
-            
-            allRows.forEach((row, absoluteIndex) => {
-              if (originalData[absoluteIndex] && !row.classList.contains('is-hidden')) {
-                  const item = JSON.parse(JSON.stringify(originalData[absoluteIndex]));
-                  item.value[0] = newIndex; 
-                  filteredData.push(item);
-                  newIndex++;
-              }
-            });
-            
-            // Build a perfectly inverse Y-Axis array dynamically matching the exact number of visible items
-            // e.g. if 4 visible items, build: ["4", "3", "2", "1"] top to bottom matching Echarts `{inverse:true}`
-            const filteredYAxis = Array.from({ length: newIndex }, (_, i) => String(newIndex - i));
-            
-            // Explicitly resize the ECharts wrapper container to guarantee 48px row heights 
-            // 48px header + (48px per visible row)
-            const newHeight = (newIndex * 48) + 48;
-            chartDom.style.height = `${newHeight}px`;
+echarts.use([CustomChart, TooltipComponent, GridComponent, DatasetComponent, CanvasRenderer]);
 
-            // 3. To completely avoid coordinate caching bugs during a manual shrink,
-            // we will pull the global option, clear the instance, and reapply everything.
-            let fullOption = chart.getOption();
-            fullOption.yAxis[0].data = filteredYAxis;
-            fullOption.series[0].data = filteredData;
-            
-            // Clear ECharts cached coordinate bounds
-            chart.clear();
-            
-            // Reapply full configuration and resize explicitly overriding internal canvas height!
-            chart.setOption(fullOption, true);
-            chart.resize({ height: newHeight, width: 'auto' });
-          });
-        });
+// ---------------------------------------------------------------------------
+// Resolve a CSS custom property to a concrete colour ECharts canvas can use.
+// Chart palette tokens are fill/background colours — reading them via
+// el.style.color returns rgba(0,0,0,0) in some themes (e.g. Corporate Light).
+// We probe background-color first, then fall back to color, then a safe grey.
+// ---------------------------------------------------------------------------
+function cssVar(name) {
+  const el = document.createElement('div');
+  el.style.cssText = 'position:absolute;width:1px;height:1px;opacity:0;pointer-events:none;background-color:var(' + name + ')';
+  document.body.appendChild(el);
+  const bg = getComputedStyle(el).backgroundColor;
+  el.remove();
+  if (bg && bg !== 'rgba(0, 0, 0, 0)') return bg;
+
+  // Fall back to probing as a text colour
+  const el2 = document.createElement('div');
+  el2.style.cssText = 'position:absolute;width:1px;height:1px;opacity:0;pointer-events:none;color:var(' + name + ')';
+  document.body.appendChild(el2);
+  const fg = getComputedStyle(el2).color;
+  el2.remove();
+  if (fg && fg !== 'rgba(0, 0, 0, 0)') return fg;
+
+  return '#888888';
+}
+
+function buildPalette() {
+  return {
+    chart1:       cssVar('--ds-chart-1'),
+    chart2:       cssVar('--ds-chart-2'),
+    chart4:       cssVar('--ds-chart-4'),
+    onSurface:    cssVar('--ds-sys-color-on-surface'),
+    onSurfaceVar: cssVar('--ds-sys-color-on-surface-variant'),
+    border:       cssVar('--ds-sys-color-border'),
+    tooltipBg:    cssVar('--ds-sys-color-surface'),
+    tooltipBorder:cssVar('--ds-sys-color-border'),
+    tooltipText:  cssVar('--ds-sys-color-on-surface'),
+  };
+}
+
+// ---------------------------------------------------------------------------
+// renderItem — ALL elements silent, no canvas hover repaints ever.
+// Tooltip fires via trigger:'axis' coordinate lookup, not shape hit-testing.
+// ---------------------------------------------------------------------------
+function makeRenderItem(palette) {
+  return function renderItem(params, api) {
+    var categoryIndex = api.value(0);
+    var start     = api.coord([api.value(1), categoryIndex]);
+    var end       = api.coord([api.value(2), categoryIndex]);
+    var progress  = api.value(4);
+    var isGroup   = api.value(5);
+    var color     = api.value(6);
+    var barH      = isGroup ? 20 : 28;
+    var totalW    = Math.max(2, end[0] - start[0]);
+    var progressW = totalW * progress;
+    var rx        = isGroup ? 0 : 4;
+    var yPos      = Math.floor(start[1] - barH / 2);
+    var x0        = Math.floor(start[0]);
+    var cs        = params.coordSys;
+
+    var cx  = Math.max(x0, cs.x);
+    var cx2 = Math.min(x0 + Math.floor(totalW), cs.x + cs.width);
+    if (cx2 <= cx) return { type: 'group', silent: true, children: [] };
+    var cw = cx2 - cx;
+
+    var bgColor = color || (isGroup ? palette.chart1 : palette.chart2);
+
+    var els = [
+      { type: 'rect', silent: true, transition: [],
+        shape: { x: cx, y: yPos, width: cw, height: barH, r: rx },
+        style: { fill: bgColor, opacity: isGroup ? 0.4 : 0.2, stroke: 'none' } }
+    ];
+
+    if (progressW > 0 && !isGroup) {
+      var px  = Math.max(x0, cs.x);
+      var px2 = Math.min(x0 + Math.floor(progressW), cs.x + cs.width);
+      if (px2 > px) {
+        els.push({ type: 'rect', silent: true, transition: [],
+          shape: { x: px, y: yPos, width: px2 - px, height: barH, r: rx },
+          style: { fill: color || palette.chart2, opacity: 1, stroke: 'none' } });
       }
-    }, 100);
+    }
+
+    els.push({ type: 'text', silent: true, transition: [],
+      style: {
+        text: params.name, x: cx + 8, y: yPos + barH / 2,
+        textVerticalAlign: 'middle',
+        fill: isGroup ? palette.onSurface : palette.onSurfaceVar,
+        fontSize: isGroup ? 13 : 12,
+        fontWeight: isGroup ? 'bold' : 'normal',
+        overflow: 'truncate', width: Math.max(cw - 16, 0)
+      }
+    });
+
+    return { type: 'group', silent: true, children: els };
+  };
+}
+
+function buildOption(visibleRows, palette) {
+  var count = visibleRows.length;
+  var yAxisData = Array.from({ length: count }, function(_, i) { return String(count - i); });
+
+  var seriesData = visibleRows.map(function(row, i) {
+    return {
+      name:      row.name,
+      value:     [i, row.start, row.end, 0, row.progress, row.isGroup, row.color],
+      itemStyle: { color: row.color || (row.isGroup ? palette.chart1 : palette.chart2) }
+    };
   });
+
+  return {
+    animation: false,
+    tooltip: {
+      show: true,
+      // trigger:'axis' fires from coordinate lookup — no canvas shape events needed.
+      // This is why silent:true on all renderItem elements doesn't break the tooltip.
+      trigger: 'axis',
+      axisPointer: { type: 'shadow', shadowStyle: { opacity: 0 } },
+      confine: true,
+      appendToBody: true,
+      enterable: false,
+      extraCssText: 'pointer-events:none;',
+      backgroundColor: palette.tooltipBg,
+      borderColor:     palette.tooltipBorder,
+      textStyle:       { color: palette.tooltipText },
+      formatter: function(params) {
+        if (!params || !params.length) return '';
+        var p = params[0];
+        var progress = (p.value[4] * 100).toFixed(0);
+        return p.marker + p.name + '<br/>Progress: ' + progress + '%';
+      }
+    },
+    grid: { top: 48, bottom: 0, left: 0, right: 20, containLabel: false },
+    xAxis: {
+      type: 'time', position: 'top',
+      axisLabel: { color: palette.onSurfaceVar, formatter: '{MMM} {dd}' },
+      splitLine: { show: true, lineStyle: { color: palette.border, type: 'dashed' } },
+      axisLine: { show: false }, axisTick: { show: false }
+    },
+    yAxis: {
+      type: 'category', data: yAxisData, inverse: true,
+      axisLabel: { show: false }, axisLine: { show: false },
+      axisTick: { show: false }, splitLine: { show: false }
+    },
+    series: [{
+      type: 'custom', animation: false,
+      emphasis: { disabled: true }, selectedMode: false,
+      renderItem: makeRenderItem(palette),
+      encode: { x: [1, 2], y: 0, tooltip: [1, 2, 4] },
+      data: seriesData
+    }]
+  };
+}
+
+class GanttChart {
+  constructor(mountEl, allRows) {
+    this.mountEl   = mountEl;
+    this.allRows   = allRows;
+    this.collapsed = new Set();
+    this.chart     = null;
+    this.palette   = buildPalette();
+    this._init();
+  }
+
+  _visibleRows() {
+    return this.allRows.filter(row =>
+      !row.parentGroup || !this.collapsed.has(row.parentGroup)
+    );
+  }
+
+  _height(n) { return n * 48 + 48; }
+
+  _init() {
+    var visible = this._visibleRows();
+    var h = this._height(visible.length);
+    this.mountEl.style.height = h + 'px';
+    this.chart = echarts.init(this.mountEl, null, { renderer: 'canvas' });
+    this.chart.setOption(buildOption(visible, this.palette));
+    window.addEventListener('resize', () => this.chart && this.chart.resize());
+  }
+
+  toggle(groupId) {
+    this.collapsed.has(groupId) ? this.collapsed.delete(groupId) : this.collapsed.add(groupId);
+    this._redraw();
+  }
+
+  _redraw() {
+    var visible = this._visibleRows();
+    var h = this._height(visible.length);
+    this.mountEl.style.height = h + 'px';
+    this.chart.setOption(buildOption(visible, this.palette), true);
+    this.chart.resize({ height: h });
+  }
+
+  onThemeChange() {
+    this.palette = buildPalette();
+    this._redraw();
+  }
+}
+
+var GANTT_DATA = {
+  'gantt-a': [
+    { name: 'Phase 1: Initiation', start: '2026-07-01', end: '2026-07-21', progress: 0.4,  isGroup: true,  groupId: 'g1', parentGroup: null, color: null },
+    { name: 'Feasibility Study',   start: '2026-07-01', end: '2026-07-10', progress: 0.8,  isGroup: false, groupId: null, parentGroup: 'g1', color: null },
+    { name: 'Scope Identification',start: '2026-07-08', end: '2026-07-15', progress: 1.0,  isGroup: false, groupId: null, parentGroup: 'g1', color: null },
+    { name: 'Statement of Work',   start: '2026-07-13', end: '2026-07-21', progress: 0.2,  isGroup: false, groupId: null, parentGroup: 'g1', color: null },
+    { name: 'Phase 2: Planning',   start: '2026-07-15', end: '2026-08-05', progress: 0.1,  isGroup: true,  groupId: 'g2', parentGroup: null, color: null },
+    { name: 'Initial Meeting',     start: '2026-07-15', end: '2026-07-20', progress: 1.0,  isGroup: false, groupId: null, parentGroup: 'g2', color: null },
+    { name: 'Collection of Ideas', start: '2026-07-19', end: '2026-07-26', progress: 0.0,  isGroup: false, groupId: null, parentGroup: 'g2', color: null },
+    { name: 'Roadmap Creation',    start: '2026-07-24', end: '2026-08-05', progress: 0.0,  isGroup: false, groupId: null, parentGroup: 'g2', color: null },
+  ],
+  'gantt-b': [
+    { name: 'Phase 1: Initiation', start: '2026-07-01', end: '2026-07-10', progress: 0.4, isGroup: true,  groupId: 'b1', parentGroup: null, color: null },
+    { name: 'Kickoff',             start: '2026-07-01', end: '2026-07-05', progress: 1.0, isGroup: false, groupId: null, parentGroup: 'b1', color: null },
+    { name: 'Phase 2: Planning',   start: '2026-07-11', end: '2026-07-20', progress: 0.2, isGroup: true,  groupId: 'b2', parentGroup: null, color: null },
+    { name: 'Requirements',        start: '2026-07-11', end: '2026-07-20', progress: 0.5, isGroup: false, groupId: null, parentGroup: 'b2', color: null },
+    { name: 'Phase 3: Execution',  start: '2026-07-21', end: '2026-08-10', progress: 0.0, isGroup: true,  groupId: 'b3', parentGroup: null, color: null },
+    { name: 'Development',         start: '2026-07-21', end: '2026-08-10', progress: 0.0, isGroup: false, groupId: null, parentGroup: 'b3', color: null },
+    { name: 'Phase 4: Monitoring', start: '2026-08-11', end: '2026-08-20', progress: 0.0, isGroup: true,  groupId: 'b4', parentGroup: null, color: null },
+    { name: 'QA Testing',          start: '2026-08-11', end: '2026-08-20', progress: 0.0, isGroup: false, groupId: null, parentGroup: 'b4', color: null },
+    { name: 'Phase 5: Closing',    start: '2026-08-21', end: '2026-08-25', progress: 0.0, isGroup: true,  groupId: 'b5', parentGroup: null, color: null },
+    { name: 'Deployment',          start: '2026-08-21', end: '2026-08-25', progress: 0.0, isGroup: false, groupId: null, parentGroup: 'b5', color: null },
+    { name: 'Phase 6: Review',     start: '2026-08-26', end: '2026-08-30', progress: 0.0, isGroup: true,  groupId: 'b6', parentGroup: null, color: null },
+    { name: 'Retrospective',       start: '2026-08-26', end: '2026-08-30', progress: 0.0, isGroup: false, groupId: null, parentGroup: 'b6', color: null },
+  ]
+};
+
+function boot() {
+  var instances = {};
+
+  Object.keys(GANTT_DATA).forEach(function(id) {
+    var container = document.getElementById(id);
+    if (!container) return;
+    var mountEl = container.querySelector('.gantt-chart-mount');
+    if (!mountEl) return;
+
+    var gc = new GanttChart(mountEl, GANTT_DATA[id]);
+    instances[id] = gc;
+
+    container.querySelectorAll('.gantt-row-group').forEach(function(groupRow) {
+      var groupId = groupRow.dataset.group;
+      groupRow.addEventListener('click', function() {
+        groupRow.classList.toggle('is-collapsed');
+        container.querySelectorAll('.gantt-row[data-parent="' + groupId + '"]')
+          .forEach(function(child) {
+            child.style.display = groupRow.classList.contains('is-collapsed') ? 'none' : '';
+          });
+        gc.toggle(groupId);
+      });
+    });
+  });
+
+  new MutationObserver(function() {
+    Object.values(instances).forEach(function(gc) { gc.onThemeChange(); });
+  }).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme', 'data-mode'] });
 }
 
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', setupComplexGantt);
+  document.addEventListener('DOMContentLoaded', boot);
 } else {
-  setupComplexGantt();
+  boot();
 }
 </script>
 
 ### Technical Breakdown
-- **Fixed Dimensions:** The HTML rows are styled with `height: 48px;`. The ECharts grid is shifted down exactly `48px` to account for the header, and the Y-axis maps directly to 8 discrete intervals matching the 8 HTML rows.
-- **Custom Render Groups:** Inside the `renderItem` callback, we return a `type: 'group'` object mapping multiple graphic elements.
-- **Background vs Foreground Bars:** The custom series draws the background rectangle for total duration with a lowered opacity, then overlays the elapsed progress width on top as a saturated rectangle.
-
---- 
+- **Standalone ECharts init:** The Gantt imports ECharts directly via ESM and calls `echarts.init()` on a dedicated `.gantt-chart-mount` div — completely bypassing the Aurora `data-component="aurora-chart"` wrapper and its ResizeObserver/MutationObserver re-init cycle.
+- **CSS variable resolution:** `cssVar()` probes each token via `background-color` first, then `color`, then falls back to `#888888`. This handles chart palette tokens (fill colours) correctly across all themes — reading via `color` alone returns `rgba(0,0,0,0)` for fill tokens in Corporate Light mode.
+- **Flicker-free hover:** All `renderItem` elements are `silent:true`. Tooltip uses `trigger:'axis'` which fires from ECharts' coordinate lookup, not canvas shape hit-testing — so no canvas repaints occur on hover.
+- **Collapse/expand:** The `GanttChart` class maintains a `collapsed` Set. On toggle, `setOption(option, true)` with a freshly built option replaces the full yAxis cleanly.

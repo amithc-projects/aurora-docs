@@ -18,7 +18,8 @@
 }
 
 .gantt-table-header {
-  height: 48px; /* Fixed height to match ECharts grid top */
+  height: 48px;
+  /* Fixed height to match ECharts grid top */
   display: grid;
   grid-template-columns: 1fr 80px;
   align-items: center;
@@ -45,11 +46,11 @@
   font-family: var(--font-primary);
   font-size: var(--ds-sys-typography-body-medium-size);
   color: var(--ds-sys-color-on-surface);
-  transition: background-color var(--ds-sys-motion-duration-short) ease;
+  /* transition: background-color var(--ds-sys-motion-duration-short) ease; */
 }
 
 .gantt-row:hover {
-  background-color: rgba(var(--ds-sys-color-primary-rgb), 0.04);
+  /* background-color: rgba(var(--ds-sys-color-primary-rgb), 0.04);*/
 }
 
 .gantt-row:last-child {
@@ -58,6 +59,7 @@
 
 .gantt-row-group {
   background-color: var(--ds-sys-color-surface-variant);
+
   font-weight: 600;
   border-bottom: 1px solid var(--ds-sys-color-border-strong, var(--ds-sys-color-border));
   cursor: pointer;
@@ -123,8 +125,9 @@
 
 /* Ensure ECharts container exactly fills or overflows the panel */
 .gantt-timeline-panel .aurora-chart-container {
-  height: 100% !important; 
-  min-width: 800px; /* Forces horizontal scrolling */
+  height: 100% !important;
+  min-width: 800px;
+  /* Forces horizontal scrolling */
   position: absolute;
   top: 0;
   left: 0;
@@ -136,13 +139,17 @@
   .aurora-complex-gantt {
     grid-template-columns: 1fr;
   }
+
   .gantt-table-panel {
     border-right: none;
     border-bottom: 2px solid var(--ds-sys-color-border-strong, var(--ds-sys-color-border));
   }
+
   .gantt-timeline-panel {
-    height: 400px; /* Force height on mobile since parent grid is changing */
+    height: 400px;
+    /* Force height on mobile since parent grid is changing */
   }
+
   .gantt-timeline-panel .aurora-chart-container {
     position: relative;
   }
