@@ -5,7 +5,7 @@ image: "/images/charts/echarts-complex-gantt.png"
 tags: ["Gantt", "Project", "Timeline", "Complex"]
 menu:
   main:
-    parent: "data-visualisation-showcases"
+    parent: "data-visualisation"
     weight: 25
 ---
 

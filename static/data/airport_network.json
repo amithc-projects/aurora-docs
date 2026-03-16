@@ -1,0 +1,9743 @@
+{
+  "nodes": [
+    {
+      "id": "IST",
+      "name": "Istanbul",
+      "value": 317,
+      "category": "AS",
+      "symbolSize": 26.706740722147288
+    },
+    {
+      "id": "FRA",
+      "name": "Frankfurt",
+      "value": 289,
+      "category": "EU",
+      "symbolSize": 25.5
+    },
+    {
+      "id": "ORD",
+      "name": "Chicago",
+      "value": 280,
+      "category": "NA",
+      "symbolSize": 25.099800796022265
+    },
+    {
+      "id": "CDG",
+      "name": "Paris",
+      "value": 276,
+      "category": "EU",
+      "symbolSize": 24.919871588754226
+    },
+    {
+      "id": "AMS",
+      "name": "Amsterdam",
+      "value": 273,
+      "category": "EU",
+      "symbolSize": 24.784067462787455
+    },
+    {
+      "id": "DFW",
+      "name": "Dallas",
+      "value": 273,
+      "category": "NA",
+      "symbolSize": 24.784067462787455
+    },
+    {
+      "id": "DXB",
+      "name": "Dubai",
+      "value": 270,
+      "category": "AS",
+      "symbolSize": 24.647515087732472
+    },
+    {
+      "id": "ATL",
+      "name": "Atlanta",
+      "value": 247,
+      "category": "NA",
+      "symbolSize": 23.574350468252568
+    },
+    {
+      "id": "FCO",
+      "name": "Rome",
+      "value": 244,
+      "category": "EU",
+      "symbolSize": 23.430749027719962
+    },
+    {
+      "id": "PVG",
+      "name": "Shanghai",
+      "value": 238,
+      "category": "AS",
+      "symbolSize": 23.140872930812268
+    },
+    {
+      "id": "MAD",
+      "name": "Madrid",
+      "value": 235,
+      "category": "EU",
+      "symbolSize": 22.994564575133836
+    },
+    {
+      "id": "DEN",
+      "name": "Denver",
+      "value": 233,
+      "category": "NA",
+      "symbolSize": 22.89650628371062
+    },
+    {
+      "id": "MUC",
+      "name": "Munich",
+      "value": 230,
+      "category": "EU",
+      "symbolSize": 22.74862633215465
+    },
+    {
+      "id": "BCN",
+      "name": "Barcelona",
+      "value": 228,
+      "category": "EU",
+      "symbolSize": 22.64950330581225
+    },
+    {
+      "id": "LHR",
+      "name": "London",
+      "value": 223,
+      "category": "EU",
+      "symbolSize": 22.399776784602118
+    },
+    {
+      "id": "MXP",
+      "name": "Milan",
+      "value": 216,
+      "category": "EU",
+      "symbolSize": 22.045407685048602
+    },
+    {
+      "id": "PEK",
+      "name": "Beijing",
+      "value": 214,
+      "category": "AS",
+      "symbolSize": 21.94310825749169
+    },
+    {
+      "id": "ZRH",
+      "name": "Zurich",
+      "value": 214,
+      "category": "EU",
+      "symbolSize": 21.94310825749169
+    },
+    {
+      "id": "LGW",
+      "name": "London",
+      "value": 213,
+      "category": "EU",
+      "symbolSize": 21.891779278989635
+    },
+    {
+      "id": "JFK",
+      "name": "New York",
+      "value": 206,
+      "category": "NA",
+      "symbolSize": 21.529050141610984
+    },
+    {
+      "id": "VIE",
+      "name": "Vienna",
+      "value": 206,
+      "category": "EU",
+      "symbolSize": 21.529050141610984
+    },
+    {
+      "id": "DUB",
+      "name": "Dublin",
+      "value": 204,
+      "category": "EU",
+      "symbolSize": 21.42428528562855
+    },
+    {
+      "id": "MIA",
+      "name": "Miami",
+      "value": 199,
+      "category": "NA",
+      "symbolSize": 21.160103969498827
+    },
+    {
+      "id": "CAN",
+      "name": "Guangzhou",
+      "value": 198,
+      "category": "AS",
+      "symbolSize": 21.106870919205434
+    },
+    {
+      "id": "MAN",
+      "name": "Manchester",
+      "value": 198,
+      "category": "EU",
+      "symbolSize": 21.106870919205434
+    },
+    {
+      "id": "TFU",
+      "name": "Chengdu",
+      "value": 198,
+      "category": "AS",
+      "symbolSize": 21.106870919205434
+    },
+    {
+      "id": "CPH",
+      "name": "Copenhagen",
+      "value": 197,
+      "category": "EU",
+      "symbolSize": 21.0535032714273
+    },
+    {
+      "id": "STN",
+      "name": "London",
+      "value": 197,
+      "category": "EU",
+      "symbolSize": 21.0535032714273
+    },
+    {
+      "id": "CLT",
+      "name": "Charlotte",
+      "value": 196,
+      "category": "NA",
+      "symbolSize": 21
+    },
+    {
+      "id": "IAH",
+      "name": "Houston",
+      "value": 194,
+      "category": "NA",
+      "symbolSize": 20.89258241577618
+    },
+    {
+      "id": "YYZ",
+      "name": "Toronto",
+      "value": 194,
+      "category": "NA",
+      "symbolSize": 20.89258241577618
+    },
+    {
+      "id": "EWR",
+      "name": "New York",
+      "value": 190,
+      "category": "NA",
+      "symbolSize": 20.676073128135332
+    },
+    {
+      "id": "DOH",
+      "name": "Doha",
+      "value": 185,
+      "category": "AS",
+      "symbolSize": 20.402205763103165
+    },
+    {
+      "id": "LAX",
+      "name": "Los Angeles",
+      "value": 182,
+      "category": "NA",
+      "symbolSize": 20.23610634484806
+    },
+    {
+      "id": "ORY",
+      "name": "Paris",
+      "value": 181,
+      "category": "EU",
+      "symbolSize": 20.180436070610565
+    },
+    {
+      "id": "JED",
+      "name": "Jeddah",
+      "value": 180,
+      "category": "AS",
+      "symbolSize": 20.12461179749811
+    },
+    {
+      "id": "BRU",
+      "name": "Brussels",
+      "value": 176,
+      "category": "EU",
+      "symbolSize": 19.8997487421324
+    },
+    {
+      "id": "DUS",
+      "name": "Dusseldorf",
+      "value": 176,
+      "category": "EU",
+      "symbolSize": 19.8997487421324
+    },
+    {
+      "id": "PKX",
+      "name": "Beijing",
+      "value": 175,
+      "category": "AS",
+      "symbolSize": 19.84313483298443
+    },
+    {
+      "id": "ATH",
+      "name": "Athens",
+      "value": 174,
+      "category": "EU",
+      "symbolSize": 19.78635893740938
+    },
+    {
+      "id": "MCO",
+      "name": "Orlando",
+      "value": 174,
+      "category": "NA",
+      "symbolSize": 19.78635893740938
+    },
+    {
+      "id": "PMI",
+      "name": "Palma de Mallorca",
+      "value": 170,
+      "category": "EU",
+      "symbolSize": 19.55760721560795
+    },
+    {
+      "id": "ARN",
+      "name": "Stockholm",
+      "value": 168,
+      "category": "EU",
+      "symbolSize": 19.44222209522358
+    },
+    {
+      "id": "XIY",
+      "name": "Xian",
+      "value": 168,
+      "category": "AS",
+      "symbolSize": 19.44222209522358
+    },
+    {
+      "id": "LAS",
+      "name": "Las Vegas",
+      "value": 167,
+      "category": "NA",
+      "symbolSize": 19.38427197498013
+    },
+    {
+      "id": "MSP",
+      "name": "Minneapolis",
+      "value": 165,
+      "category": "NA",
+      "symbolSize": 19.267848867997692
+    },
+    {
+      "id": "AGP",
+      "name": "Malaga",
+      "value": 164,
+      "category": "EU",
+      "symbolSize": 19.209372712298546
+    },
+    {
+      "id": "YUL",
+      "name": "Montreal",
+      "value": 164,
+      "category": "NA",
+      "symbolSize": 19.209372712298546
+    },
+    {
+      "id": "BER",
+      "name": "Berlin",
+      "value": 163,
+      "category": "EU",
+      "symbolSize": 19.150718002205558
+    },
+    {
+      "id": "EDI",
+      "name": "Edinburgh",
+      "value": 163,
+      "category": "EU",
+      "symbolSize": 19.150718002205558
+    },
+    {
+      "id": "IAD",
+      "name": "Dulles",
+      "value": 163,
+      "category": "NA",
+      "symbolSize": 19.150718002205558
+    },
+    {
+      "id": "SIN",
+      "name": "Singapore",
+      "value": 161,
+      "category": "AS",
+      "symbolSize": 19.03286631067428
+    },
+    {
+      "id": "ICN",
+      "name": "Seoul",
+      "value": 160,
+      "category": "AS",
+      "symbolSize": 18.973665961010276
+    },
+    {
+      "id": "SZX",
+      "name": "Shenzhen",
+      "value": 160,
+      "category": "AS",
+      "symbolSize": 18.973665961010276
+    },
+    {
+      "id": "CKG",
+      "name": "Chongqing",
+      "value": 157,
+      "category": "AS",
+      "symbolSize": 18.7949461292125
+    },
+    {
+      "id": "DEL",
+      "name": "Delhi",
+      "value": 157,
+      "category": "AS",
+      "symbolSize": 18.7949461292125
+    },
+    {
+      "id": "PHX",
+      "name": "Phoenix",
+      "value": 156,
+      "category": "NA",
+      "symbolSize": 18.734993995195197
+    },
+    {
+      "id": "BKK",
+      "name": "Bangkok",
+      "value": 154,
+      "category": "AS",
+      "symbolSize": 18.614510468986285
+    },
+    {
+      "id": "PRG",
+      "name": "Prague",
+      "value": 154,
+      "category": "EU",
+      "symbolSize": 18.614510468986285
+    },
+    {
+      "id": "SAW",
+      "name": "Istanbul",
+      "value": 154,
+      "category": "AS",
+      "symbolSize": 18.614510468986285
+    },
+    {
+      "id": "BOS",
+      "name": "Boston",
+      "value": 152,
+      "category": "NA",
+      "symbolSize": 18.49324200890693
+    },
+    {
+      "id": "FLL",
+      "name": "Fort Lauderdale",
+      "value": 151,
+      "category": "NA",
+      "symbolSize": 18.432308591166763
+    },
+    {
+      "id": "WAW",
+      "name": "Warsaw",
+      "value": 151,
+      "category": "EU",
+      "symbolSize": 18.432308591166763
+    },
+    {
+      "id": "BUD",
+      "name": "Budapest",
+      "value": 150,
+      "category": "EU",
+      "symbolSize": 18.371173070873837
+    },
+    {
+      "id": "GVA",
+      "name": "Geneva",
+      "value": 150,
+      "category": "EU",
+      "symbolSize": 18.371173070873837
+    },
+    {
+      "id": "LIS",
+      "name": "Lisbon",
+      "value": 150,
+      "category": "EU",
+      "symbolSize": 18.371173070873837
+    },
+    {
+      "id": "OSL",
+      "name": "Oslo",
+      "value": 150,
+      "category": "EU",
+      "symbolSize": 18.371173070873837
+    },
+    {
+      "id": "BGY",
+      "name": "Milan",
+      "value": 148,
+      "category": "EU",
+      "symbolSize": 18.24828759089466
+    },
+    {
+      "id": "HKG",
+      "name": "Hong Kong",
+      "value": 148,
+      "category": "AS",
+      "symbolSize": 18.24828759089466
+    },
+    {
+      "id": "ALC",
+      "name": "Alicante",
+      "value": 147,
+      "category": "EU",
+      "symbolSize": 18.186533479473212
+    },
+    {
+      "id": "KUL",
+      "name": "Kuala Lumpur",
+      "value": 147,
+      "category": "AS",
+      "symbolSize": 18.186533479473212
+    },
+    {
+      "id": "AYT",
+      "name": "Antalya",
+      "value": 146,
+      "category": "AS",
+      "symbolSize": 18.12456896039186
+    },
+    {
+      "id": "SFO",
+      "name": "San Francisco",
+      "value": 146,
+      "category": "NA",
+      "symbolSize": 18.12456896039186
+    },
+    {
+      "id": "AUH",
+      "name": "Abu Dhabi",
+      "value": 142,
+      "category": "AS",
+      "symbolSize": 17.874562931719478
+    },
+    {
+      "id": "KMG",
+      "name": "Kunming",
+      "value": 141,
+      "category": "AS",
+      "symbolSize": 17.811513130556875
+    },
+    {
+      "id": "NAP",
+      "name": "Naples",
+      "value": 141,
+      "category": "EU",
+      "symbolSize": 17.811513130556875
+    },
+    {
+      "id": "SEA",
+      "name": "Seattle",
+      "value": 139,
+      "category": "NA",
+      "symbolSize": 17.684739183827393
+    },
+    {
+      "id": "BHX",
+      "name": "Birmingham",
+      "value": 135,
+      "category": "EU",
+      "symbolSize": 17.428425057933374
+    },
+    {
+      "id": "DTW",
+      "name": "Detroit",
+      "value": 134,
+      "category": "NA",
+      "symbolSize": 17.363755354185336
+    },
+    {
+      "id": "HAK",
+      "name": "Haikou",
+      "value": 134,
+      "category": "AS",
+      "symbolSize": 17.363755354185336
+    },
+    {
+      "id": "LTN",
+      "name": "London",
+      "value": 134,
+      "category": "EU",
+      "symbolSize": 17.363755354185336
+    },
+    {
+      "id": "SVO",
+      "name": "Moscow",
+      "value": 134,
+      "category": "EU",
+      "symbolSize": 17.363755354185336
+    },
+    {
+      "id": "KRK",
+      "name": "Krakow",
+      "value": 132,
+      "category": "EU",
+      "symbolSize": 17.233687939614086
+    },
+    {
+      "id": "NCE",
+      "name": "Nice",
+      "value": 132,
+      "category": "EU",
+      "symbolSize": 17.233687939614086
+    },
+    {
+      "id": "CRL",
+      "name": "Brussels",
+      "value": 131,
+      "category": "EU",
+      "symbolSize": 17.168284713389397
+    },
+    {
+      "id": "HEL",
+      "name": "Helsinki",
+      "value": 131,
+      "category": "EU",
+      "symbolSize": 17.168284713389397
+    },
+    {
+      "id": "OPO",
+      "name": "Porto",
+      "value": 131,
+      "category": "EU",
+      "symbolSize": 17.168284713389397
+    },
+    {
+      "id": "OTP",
+      "name": "Bucharest",
+      "value": 131,
+      "category": "EU",
+      "symbolSize": 17.168284713389397
+    },
+    {
+      "id": "PHL",
+      "name": "Philadelphia",
+      "value": 131,
+      "category": "NA",
+      "symbolSize": 17.168284713389397
+    },
+    {
+      "id": "LPA",
+      "name": "Las Palmas",
+      "value": 130,
+      "category": "EU",
+      "symbolSize": 17.102631376487068
+    },
+    {
+      "id": "LYS",
+      "name": "Lyon",
+      "value": 130,
+      "category": "EU",
+      "symbolSize": 17.102631376487068
+    },
+    {
+      "id": "HGH",
+      "name": "Hangzhou",
+      "value": 129,
+      "category": "AS",
+      "symbolSize": 17.03672503740082
+    },
+    {
+      "id": "BOM",
+      "name": "Mumbai",
+      "value": 126,
+      "category": "AS",
+      "symbolSize": 16.837458240482736
+    },
+    {
+      "id": "HAM",
+      "name": "Hamburg",
+      "value": 125,
+      "category": "EU",
+      "symbolSize": 16.770509831248425
+    },
+    {
+      "id": "MRS",
+      "name": "Marseille",
+      "value": 124,
+      "category": "EU",
+      "symbolSize": 16.703293088490064
+    },
+    {
+      "id": "ADD",
+      "name": "Addis Ababa",
+      "value": 123,
+      "category": "AF",
+      "symbolSize": 16.635804759614125
+    },
+    {
+      "id": "CUN",
+      "name": "Cancun",
+      "value": 123,
+      "category": "NA",
+      "symbolSize": 16.635804759614125
+    },
+    {
+      "id": "BNA",
+      "name": "Nashville",
+      "value": 121,
+      "category": "NA",
+      "symbolSize": 16.5
+    },
+    {
+      "id": "BRS",
+      "name": "Bristol",
+      "value": 120,
+      "category": "EU",
+      "symbolSize": 16.431676725154983
+    },
+    {
+      "id": "CAI",
+      "name": "Cairo",
+      "value": 120,
+      "category": "AF",
+      "symbolSize": 16.431676725154983
+    },
+    {
+      "id": "STR",
+      "name": "Stuttgart",
+      "value": 119,
+      "category": "EU",
+      "symbolSize": 16.36306817195357
+    },
+    {
+      "id": "WUH",
+      "name": "Wuhan",
+      "value": 119,
+      "category": "AS",
+      "symbolSize": 16.36306817195357
+    },
+    {
+      "id": "YVR",
+      "name": "Vancouver",
+      "value": 119,
+      "category": "NA",
+      "symbolSize": 16.36306817195357
+    },
+    {
+      "id": "RUH",
+      "name": "Riyadh",
+      "value": 118,
+      "category": "AS",
+      "symbolSize": 16.294170736800325
+    },
+    {
+      "id": "TFS",
+      "name": "Tenerife",
+      "value": 118,
+      "category": "EU",
+      "symbolSize": 16.294170736800325
+    },
+    {
+      "id": "CMN",
+      "name": "Casablanca",
+      "value": 116,
+      "category": "AF",
+      "symbolSize": 16.15549442140351
+    },
+    {
+      "id": "BSL",
+      "name": "Basel, Switzerland/Mulhouse",
+      "value": 115,
+      "category": "EU",
+      "symbolSize": 16.08570794214541
+    },
+    {
+      "id": "LUX",
+      "name": "Luxembourg",
+      "value": 115,
+      "category": "EU",
+      "symbolSize": 16.08570794214541
+    },
+    {
+      "id": "BRI",
+      "name": "Bari",
+      "value": 114,
+      "category": "EU",
+      "symbolSize": 16.01561737804697
+    },
+    {
+      "id": "HER",
+      "name": "Heraklion",
+      "value": 113,
+      "category": "EU",
+      "symbolSize": 15.945218719101975
+    },
+    {
+      "id": "LED",
+      "name": "Saint Petersburg",
+      "value": 113,
+      "category": "EU",
+      "symbolSize": 15.945218719101975
+    },
+    {
+      "id": "CGN",
+      "name": "Cologne",
+      "value": 112,
+      "category": "EU",
+      "symbolSize": 15.874507866387544
+    },
+    {
+      "id": "RAK",
+      "name": "Marrakech",
+      "value": 112,
+      "category": "AF",
+      "symbolSize": 15.874507866387544
+    },
+    {
+      "id": "NRT",
+      "name": "Tokyo",
+      "value": 111,
+      "category": "AS",
+      "symbolSize": 15.803480629279107
+    },
+    {
+      "id": "BEG",
+      "name": "Belgrade",
+      "value": 110,
+      "category": "EU",
+      "symbolSize": 15.732132722552272
+    },
+    {
+      "id": "BLR",
+      "name": "Bengaluru",
+      "value": 109,
+      "category": "AS",
+      "symbolSize": 15.660459763365825
+    },
+    {
+      "id": "GRU",
+      "name": "Sao Paulo",
+      "value": 109,
+      "category": "SA",
+      "symbolSize": 15.660459763365825
+    },
+    {
+      "id": "MLA",
+      "name": "Malta",
+      "value": 109,
+      "category": "EU",
+      "symbolSize": 15.660459763365825
+    },
+    {
+      "id": "YYC",
+      "name": "Calgary",
+      "value": 108,
+      "category": "NA",
+      "symbolSize": 15.588457268119896
+    },
+    {
+      "id": "DCA",
+      "name": "Washington",
+      "value": 107,
+      "category": "NA",
+      "symbolSize": 15.516120649182902
+    },
+    {
+      "id": "SLC",
+      "name": "Salt Lake City",
+      "value": 107,
+      "category": "NA",
+      "symbolSize": 15.516120649182902
+    },
+    {
+      "id": "TLV",
+      "name": "Tel Aviv-Yafo",
+      "value": 107,
+      "category": "AS",
+      "symbolSize": 15.516120649182902
+    },
+    {
+      "id": "VLC",
+      "name": "Valencia",
+      "value": 107,
+      "category": "EU",
+      "symbolSize": 15.516120649182902
+    },
+    {
+      "id": "CGO",
+      "name": "Zhengzhou",
+      "value": 105,
+      "category": "AS",
+      "symbolSize": 15.370426148939398
+    },
+    {
+      "id": "XMN",
+      "name": "Xiamen",
+      "value": 105,
+      "category": "AS",
+      "symbolSize": 15.370426148939398
+    },
+    {
+      "id": "MEX",
+      "name": "Mexico City",
+      "value": 104,
+      "category": "NA",
+      "symbolSize": 15.297058540778353
+    },
+    {
+      "id": "TIA",
+      "name": "Tirana",
+      "value": 104,
+      "category": "EU",
+      "symbolSize": 15.297058540778353
+    },
+    {
+      "id": "BLQ",
+      "name": "Bologna",
+      "value": 103,
+      "category": "EU",
+      "symbolSize": 15.223337347638328
+    },
+    {
+      "id": "KWI",
+      "name": "Kuwait",
+      "value": 103,
+      "category": "AS",
+      "symbolSize": 15.223337347638328
+    },
+    {
+      "id": "SHJ",
+      "name": "Sharjah",
+      "value": 103,
+      "category": "AS",
+      "symbolSize": 15.223337347638328
+    },
+    {
+      "id": "HND",
+      "name": "Tokyo",
+      "value": 102,
+      "category": "AS",
+      "symbolSize": 15.149257407543116
+    },
+    {
+      "id": "TPA",
+      "name": "Tampa",
+      "value": 101,
+      "category": "NA",
+      "symbolSize": 15.074813431681335
+    },
+    {
+      "id": "BOG",
+      "name": "Bogota",
+      "value": 100,
+      "category": "SA",
+      "symbolSize": 15
+    },
+    {
+      "id": "PMO",
+      "name": "Palermo",
+      "value": 100,
+      "category": "EU",
+      "symbolSize": 15
+    },
+    {
+      "id": "TAS",
+      "name": "Tashkent",
+      "value": 100,
+      "category": "AS",
+      "symbolSize": 15
+    },
+    {
+      "id": "TPE",
+      "name": "Taipei",
+      "value": 100,
+      "category": "AS",
+      "symbolSize": 15
+    },
+    {
+      "id": "URC",
+      "name": "Urumqi",
+      "value": 100,
+      "category": "AS",
+      "symbolSize": 15
+    },
+    {
+      "id": "CFU",
+      "name": "Kerkyra",
+      "value": 99,
+      "category": "EU",
+      "symbolSize": 14.924811556599298
+    },
+    {
+      "id": "MDW",
+      "name": "Chicago",
+      "value": 99,
+      "category": "NA",
+      "symbolSize": 14.924811556599298
+    },
+    {
+      "id": "AUS",
+      "name": "Austin",
+      "value": 98,
+      "category": "NA",
+      "symbolSize": 14.849242404917497
+    },
+    {
+      "id": "CSX",
+      "name": "Changsha",
+      "value": 98,
+      "category": "AS",
+      "symbolSize": 14.849242404917497
+    },
+    {
+      "id": "HYD",
+      "name": "Hyderabad",
+      "value": 98,
+      "category": "AS",
+      "symbolSize": 14.849242404917497
+    },
+    {
+      "id": "RIX",
+      "name": "Riga",
+      "value": 98,
+      "category": "EU",
+      "symbolSize": 14.849242404917497
+    },
+    {
+      "id": "SYD",
+      "name": "Sydney",
+      "value": 98,
+      "category": "OC",
+      "symbolSize": 14.849242404917497
+    },
+    {
+      "id": "VKO",
+      "name": "Moscow",
+      "value": 97,
+      "category": "EU",
+      "symbolSize": 14.773286702694156
+    },
+    {
+      "id": "HRB",
+      "name": "Harbin",
+      "value": 96,
+      "category": "AS",
+      "symbolSize": 14.696938456699067
+    },
+    {
+      "id": "ADB",
+      "name": "Izmir",
+      "value": 95,
+      "category": "AS",
+      "symbolSize": 14.620191517213446
+    },
+    {
+      "id": "AMM",
+      "name": "Amman",
+      "value": 95,
+      "category": "AS",
+      "symbolSize": 14.620191517213446
+    },
+    {
+      "id": "DMK",
+      "name": "Bangkok",
+      "value": 95,
+      "category": "AS",
+      "symbolSize": 14.620191517213446
+    },
+    {
+      "id": "NKG",
+      "name": "Nanjing",
+      "value": 95,
+      "category": "AS",
+      "symbolSize": 14.620191517213446
+    },
+    {
+      "id": "SKG",
+      "name": "Thessaloniki",
+      "value": 95,
+      "category": "EU",
+      "symbolSize": 14.620191517213446
+    },
+    {
+      "id": "SVQ",
+      "name": "Sevilla",
+      "value": 95,
+      "category": "EU",
+      "symbolSize": 14.620191517213446
+    },
+    {
+      "id": "NTE",
+      "name": "Nantes",
+      "value": 94,
+      "category": "EU",
+      "symbolSize": 14.543039572248988
+    },
+    {
+      "id": "RHO",
+      "name": "Rhodes",
+      "value": 94,
+      "category": "EU",
+      "symbolSize": 14.543039572248988
+    },
+    {
+      "id": "CTA",
+      "name": "Catania",
+      "value": 93,
+      "category": "EU",
+      "symbolSize": 14.465476141489432
+    },
+    {
+      "id": "PTY",
+      "name": "Panama City",
+      "value": 93,
+      "category": "NA",
+      "symbolSize": 14.465476141489432
+    },
+    {
+      "id": "SYX",
+      "name": "Sanya",
+      "value": 93,
+      "category": "AS",
+      "symbolSize": 14.465476141489432
+    },
+    {
+      "id": "OVB",
+      "name": "Novosibirsk",
+      "value": 92,
+      "category": "EU",
+      "symbolSize": 14.387494569938157
+    },
+    {
+      "id": "VCE",
+      "name": "Venice",
+      "value": 92,
+      "category": "EU",
+      "symbolSize": 14.387494569938157
+    },
+    {
+      "id": "KWE",
+      "name": "Guiyang",
+      "value": 91,
+      "category": "AS",
+      "symbolSize": 14.309088021254183
+    },
+    {
+      "id": "LGA",
+      "name": "New York",
+      "value": 91,
+      "category": "NA",
+      "symbolSize": 14.309088021254183
+    },
+    {
+      "id": "SOF",
+      "name": "Sofia",
+      "value": 91,
+      "category": "EU",
+      "symbolSize": 14.309088021254183
+    },
+    {
+      "id": "TAO",
+      "name": "Qingdao",
+      "value": 91,
+      "category": "AS",
+      "symbolSize": 14.309088021254183
+    },
+    {
+      "id": "BWI",
+      "name": "Baltimore",
+      "value": 90,
+      "category": "NA",
+      "symbolSize": 14.230249470757707
+    },
+    {
+      "id": "CGK",
+      "name": "Jakarta",
+      "value": 90,
+      "category": "AS",
+      "symbolSize": 14.230249470757707
+    },
+    {
+      "id": "KEF",
+      "name": "Reykjavik",
+      "value": 90,
+      "category": "EU",
+      "symbolSize": 14.230249470757707
+    },
+    {
+      "id": "BOD",
+      "name": "Bordeaux",
+      "value": 89,
+      "category": "EU",
+      "symbolSize": 14.150971698084906
+    },
+    {
+      "id": "FAO",
+      "name": "Faro",
+      "value": 89,
+      "category": "EU",
+      "symbolSize": 14.150971698084906
+    },
+    {
+      "id": "GLA",
+      "name": "Glasgow",
+      "value": 89,
+      "category": "EU",
+      "symbolSize": 14.150971698084906
+    },
+    {
+      "id": "HAN",
+      "name": "Hanoi",
+      "value": 89,
+      "category": "AS",
+      "symbolSize": 14.150971698084906
+    },
+    {
+      "id": "MNL",
+      "name": "Manila",
+      "value": 89,
+      "category": "AS",
+      "symbolSize": 14.150971698084906
+    },
+    {
+      "id": "SGN",
+      "name": "Ho Chi Minh City",
+      "value": 89,
+      "category": "AS",
+      "symbolSize": 14.150971698084906
+    },
+    {
+      "id": "TLS",
+      "name": "Toulouse",
+      "value": 89,
+      "category": "EU",
+      "symbolSize": 14.150971698084906
+    },
+    {
+      "id": "ESB",
+      "name": "Ankara",
+      "value": 88,
+      "category": "AS",
+      "symbolSize": 14.071247279470288
+    },
+    {
+      "id": "GDN",
+      "name": "Gdansk",
+      "value": 88,
+      "category": "EU",
+      "symbolSize": 14.071247279470288
+    },
+    {
+      "id": "HRG",
+      "name": "Hurghada",
+      "value": 88,
+      "category": "AF",
+      "symbolSize": 14.071247279470288
+    },
+    {
+      "id": "ALG",
+      "name": "Algiers",
+      "value": 87,
+      "category": "AF",
+      "symbolSize": 13.991068579633223
+    },
+    {
+      "id": "PDX",
+      "name": "Portland",
+      "value": 87,
+      "category": "NA",
+      "symbolSize": 13.991068579633223
+    },
+    {
+      "id": "SAN",
+      "name": "San Diego",
+      "value": 87,
+      "category": "NA",
+      "symbolSize": 13.991068579633223
+    },
+    {
+      "id": "LCA",
+      "name": "Larnaca",
+      "value": 86,
+      "category": "AS",
+      "symbolSize": 13.910427743243556
+    },
+    {
+      "id": "PSA",
+      "name": "Pisa",
+      "value": 86,
+      "category": "EU",
+      "symbolSize": 13.910427743243556
+    },
+    {
+      "id": "SHE",
+      "name": "Shenyang",
+      "value": 86,
+      "category": "AS",
+      "symbolSize": 13.910427743243556
+    },
+    {
+      "id": "TSN",
+      "name": "Tianjin",
+      "value": 86,
+      "category": "AS",
+      "symbolSize": 13.910427743243556
+    },
+    {
+      "id": "FOC",
+      "name": "Fuzhou",
+      "value": 85,
+      "category": "AS",
+      "symbolSize": 13.82931668593933
+    },
+    {
+      "id": "IBZ",
+      "name": "Ibiza",
+      "value": 85,
+      "category": "EU",
+      "symbolSize": 13.82931668593933
+    },
+    {
+      "id": "RDU",
+      "name": "Raleigh/Durham",
+      "value": 85,
+      "category": "NA",
+      "symbolSize": 13.82931668593933
+    },
+    {
+      "id": "DLC",
+      "name": "Dalian",
+      "value": 84,
+      "category": "AS",
+      "symbolSize": 13.74772708486752
+    },
+    {
+      "id": "LHW",
+      "name": "Lanzhou",
+      "value": 84,
+      "category": "AS",
+      "symbolSize": 13.74772708486752
+    },
+    {
+      "id": "OLB",
+      "name": "Olbia",
+      "value": 83,
+      "category": "EU",
+      "symbolSize": 13.665650368716449
+    },
+    {
+      "id": "VRN",
+      "name": "Verona",
+      "value": 83,
+      "category": "EU",
+      "symbolSize": 13.665650368716449
+    },
+    {
+      "id": "BVA",
+      "name": "Paris",
+      "value": 82,
+      "category": "EU",
+      "symbolSize": 13.583077707206126
+    },
+    {
+      "id": "SVX",
+      "name": "Yekaterinburg",
+      "value": 82,
+      "category": "EU",
+      "symbolSize": 13.583077707206126
+    },
+    {
+      "id": "ALA",
+      "name": "Almaty",
+      "value": 81,
+      "category": "AS",
+      "symbolSize": 13.5
+    },
+    {
+      "id": "DAL",
+      "name": "Dallas",
+      "value": 80,
+      "category": "NA",
+      "symbolSize": 13.416407864998739
+    },
+    {
+      "id": "BNE",
+      "name": "Brisbane",
+      "value": 79,
+      "category": "OC",
+      "symbolSize": 13.332291625973383
+    },
+    {
+      "id": "MCT",
+      "name": "Muscat",
+      "value": 79,
+      "category": "AS",
+      "symbolSize": 13.332291625973383
+    },
+    {
+      "id": "TNA",
+      "name": "Jinan",
+      "value": 79,
+      "category": "AS",
+      "symbolSize": 13.332291625973383
+    },
+    {
+      "id": "ACE",
+      "name": "Lanzarote",
+      "value": 78,
+      "category": "EU",
+      "symbolSize": 13.247641299491772
+    },
+    {
+      "id": "JNB",
+      "name": "Johannesburg",
+      "value": 78,
+      "category": "AF",
+      "symbolSize": 13.247641299491772
+    },
+    {
+      "id": "RMO",
+      "name": "Chisinau",
+      "value": 78,
+      "category": "Unknown",
+      "symbolSize": 13.247641299491772
+    },
+    {
+      "id": "DME",
+      "name": "Moscow",
+      "value": 77,
+      "category": "EU",
+      "symbolSize": 13.162446581088183
+    },
+    {
+      "id": "LPL",
+      "name": "Liverpool",
+      "value": 77,
+      "category": "EU",
+      "symbolSize": 13.162446581088183
+    },
+    {
+      "id": "WRO",
+      "name": "Wroclaw",
+      "value": 77,
+      "category": "EU",
+      "symbolSize": 13.162446581088183
+    },
+    {
+      "id": "CTU",
+      "name": "Chengdu",
+      "value": 76,
+      "category": "AS",
+      "symbolSize": 13.076696830622023
+    },
+    {
+      "id": "EIN",
+      "name": "Eindhoven",
+      "value": 76,
+      "category": "EU",
+      "symbolSize": 13.076696830622023
+    },
+    {
+      "id": "MED",
+      "name": "Madinah",
+      "value": 76,
+      "category": "AS",
+      "symbolSize": 13.076696830622023
+    },
+    {
+      "id": "LBA",
+      "name": "Leeds",
+      "value": 75,
+      "category": "EU",
+      "symbolSize": 12.99038105676658
+    },
+    {
+      "id": "NCL",
+      "name": "Newcastle",
+      "value": 75,
+      "category": "EU",
+      "symbolSize": 12.99038105676658
+    },
+    {
+      "id": "NGB",
+      "name": "Ningbo",
+      "value": 75,
+      "category": "AS",
+      "symbolSize": 12.99038105676658
+    },
+    {
+      "id": "NNG",
+      "name": "Nanning",
+      "value": 75,
+      "category": "AS",
+      "symbolSize": 12.99038105676658
+    },
+    {
+      "id": "PUJ",
+      "name": "Punta Cana",
+      "value": 75,
+      "category": "NA",
+      "symbolSize": 12.99038105676658
+    },
+    {
+      "id": "SSH",
+      "name": "Sharm el Sheikh",
+      "value": 75,
+      "category": "AF",
+      "symbolSize": 12.99038105676658
+    },
+    {
+      "id": "AER",
+      "name": "Adler/Sochi",
+      "value": 74,
+      "category": "EU",
+      "symbolSize": 12.90348790056394
+    },
+    {
+      "id": "KIX",
+      "name": "Osaka",
+      "value": 74,
+      "category": "AS",
+      "symbolSize": 12.90348790056394
+    },
+    {
+      "id": "RSW",
+      "name": "Fort Myers",
+      "value": 74,
+      "category": "NA",
+      "symbolSize": 12.90348790056394
+    },
+    {
+      "id": "EVN",
+      "name": "Yerevan",
+      "value": 73,
+      "category": "AS",
+      "symbolSize": 12.816005617976295
+    },
+    {
+      "id": "GYD",
+      "name": "Baku",
+      "value": 73,
+      "category": "AS",
+      "symbolSize": 12.816005617976295
+    },
+    {
+      "id": "HOU",
+      "name": "Houston",
+      "value": 73,
+      "category": "NA",
+      "symbolSize": 12.816005617976295
+    },
+    {
+      "id": "LIM",
+      "name": "Lima",
+      "value": 73,
+      "category": "SA",
+      "symbolSize": 12.816005617976295
+    },
+    {
+      "id": "MEL",
+      "name": "Melbourne",
+      "value": 73,
+      "category": "OC",
+      "symbolSize": 12.816005617976295
+    },
+    {
+      "id": "EZE",
+      "name": "Buenos Aires",
+      "value": 72,
+      "category": "SA",
+      "symbolSize": 12.727922061357855
+    },
+    {
+      "id": "HKT",
+      "name": "Phuket",
+      "value": 72,
+      "category": "AS",
+      "symbolSize": 12.727922061357855
+    },
+    {
+      "id": "AGA",
+      "name": "Agadir",
+      "value": 71,
+      "category": "AF",
+      "symbolSize": 12.639224659764539
+    },
+    {
+      "id": "CHQ",
+      "name": "Chania",
+      "value": 71,
+      "category": "EU",
+      "symbolSize": 12.639224659764539
+    },
+    {
+      "id": "DBV",
+      "name": "Dubrovnik",
+      "value": 71,
+      "category": "EU",
+      "symbolSize": 12.639224659764539
+    },
+    {
+      "id": "SPU",
+      "name": "Split",
+      "value": 71,
+      "category": "EU",
+      "symbolSize": 12.639224659764539
+    },
+    {
+      "id": "STL",
+      "name": "Saint Louis",
+      "value": 71,
+      "category": "NA",
+      "symbolSize": 12.639224659764539
+    },
+    {
+      "id": "BGO",
+      "name": "Bergen",
+      "value": 70,
+      "category": "EU",
+      "symbolSize": 12.549900398011133
+    },
+    {
+      "id": "BIO",
+      "name": "Bilbao",
+      "value": 70,
+      "category": "EU",
+      "symbolSize": 12.549900398011133
+    },
+    {
+      "id": "CGQ",
+      "name": "Changchun",
+      "value": 70,
+      "category": "AS",
+      "symbolSize": 12.549900398011133
+    },
+    {
+      "id": "FNC",
+      "name": "Funchal",
+      "value": 70,
+      "category": "EU",
+      "symbolSize": 12.549900398011133
+    },
+    {
+      "id": "FUE",
+      "name": "Puerto del Rosario",
+      "value": 70,
+      "category": "EU",
+      "symbolSize": 12.549900398011133
+    },
+    {
+      "id": "WNZ",
+      "name": "Wenzhou",
+      "value": 70,
+      "category": "AS",
+      "symbolSize": 12.549900398011133
+    },
+    {
+      "id": "HAJ",
+      "name": "Hanover",
+      "value": 69,
+      "category": "EU",
+      "symbolSize": 12.459935794377113
+    },
+    {
+      "id": "ZAG",
+      "name": "Zagreb",
+      "value": 69,
+      "category": "EU",
+      "symbolSize": 12.459935794377113
+    },
+    {
+      "id": "KJA",
+      "name": "Krasnojarsk",
+      "value": 68,
+      "category": "EU",
+      "symbolSize": 12.36931687685298
+    },
+    {
+      "id": "SFB",
+      "name": "Orlando",
+      "value": 68,
+      "category": "NA",
+      "symbolSize": 12.36931687685298
+    },
+    {
+      "id": "SRQ",
+      "name": "Sarasota",
+      "value": 68,
+      "category": "NA",
+      "symbolSize": 12.36931687685298
+    },
+    {
+      "id": "EMA",
+      "name": "Leicestershire",
+      "value": 67,
+      "category": "EU",
+      "symbolSize": 12.278029157808675
+    },
+    {
+      "id": "MAA",
+      "name": "Chennai",
+      "value": 67,
+      "category": "AS",
+      "symbolSize": 12.278029157808675
+    },
+    {
+      "id": "TYN",
+      "name": "Taiyuan",
+      "value": 67,
+      "category": "AS",
+      "symbolSize": 12.278029157808675
+    },
+    {
+      "id": "KHN",
+      "name": "Nanchang",
+      "value": 66,
+      "category": "AS",
+      "symbolSize": 12.186057606953941
+    },
+    {
+      "id": "MAH",
+      "name": "Menorca",
+      "value": 66,
+      "category": "EU",
+      "symbolSize": 12.186057606953941
+    },
+    {
+      "id": "MTY",
+      "name": "Monterrey",
+      "value": 66,
+      "category": "NA",
+      "symbolSize": 12.186057606953941
+    },
+    {
+      "id": "VCP",
+      "name": "Campinas",
+      "value": 66,
+      "category": "SA",
+      "symbolSize": 12.186057606953941
+    },
+    {
+      "id": "BFS",
+      "name": "Belfast",
+      "value": 65,
+      "category": "EU",
+      "symbolSize": 12.093386622447824
+    },
+    {
+      "id": "CNF",
+      "name": "Belo Horizonte",
+      "value": 65,
+      "category": "SA",
+      "symbolSize": 12.093386622447824
+    },
+    {
+      "id": "KZN",
+      "name": "Kazan",
+      "value": 65,
+      "category": "EU",
+      "symbolSize": 12.093386622447824
+    },
+    {
+      "id": "NBO",
+      "name": "Nairobi",
+      "value": 65,
+      "category": "AF",
+      "symbolSize": 12.093386622447824
+    },
+    {
+      "id": "ZAD",
+      "name": "Zadar",
+      "value": 65,
+      "category": "EU",
+      "symbolSize": 12.093386622447824
+    }
+  ],
+  "edges": [
+    {
+      "source": "IST",
+      "target": "ESB"
+    },
+    {
+      "source": "IST",
+      "target": "ADB"
+    },
+    {
+      "source": "IST",
+      "target": "AYT"
+    },
+    {
+      "source": "IST",
+      "target": "JED"
+    },
+    {
+      "source": "IST",
+      "target": "VKO"
+    },
+    {
+      "source": "IST",
+      "target": "ATH"
+    },
+    {
+      "source": "IST",
+      "target": "LHR"
+    },
+    {
+      "source": "IST",
+      "target": "DXB"
+    },
+    {
+      "source": "FRA",
+      "target": "LHR"
+    },
+    {
+      "source": "FRA",
+      "target": "BER"
+    },
+    {
+      "source": "FRA",
+      "target": "VIE"
+    },
+    {
+      "source": "FRA",
+      "target": "MUC"
+    },
+    {
+      "source": "FRA",
+      "target": "HAM"
+    },
+    {
+      "source": "FRA",
+      "target": "ZRH"
+    },
+    {
+      "source": "FRA",
+      "target": "CDG"
+    },
+    {
+      "source": "FRA",
+      "target": "AMS"
+    },
+    {
+      "source": "ORD",
+      "target": "LGA"
+    },
+    {
+      "source": "ORD",
+      "target": "DCA"
+    },
+    {
+      "source": "ORD",
+      "target": "MCO"
+    },
+    {
+      "source": "ORD",
+      "target": "BOS"
+    },
+    {
+      "source": "ORD",
+      "target": "DFW"
+    },
+    {
+      "source": "ORD",
+      "target": "EWR"
+    },
+    {
+      "source": "ORD",
+      "target": "YYZ"
+    },
+    {
+      "source": "ORD",
+      "target": "IAH"
+    },
+    {
+      "source": "CDG",
+      "target": "LHR"
+    },
+    {
+      "source": "CDG",
+      "target": "AMS"
+    },
+    {
+      "source": "CDG",
+      "target": "BCN"
+    },
+    {
+      "source": "CDG",
+      "target": "TLS"
+    },
+    {
+      "source": "CDG",
+      "target": "MXP"
+    },
+    {
+      "source": "CDG",
+      "target": "NCE"
+    },
+    {
+      "source": "CDG",
+      "target": "MRS"
+    },
+    {
+      "source": "CDG",
+      "target": "FCO"
+    },
+    {
+      "source": "AMS",
+      "target": "LHR"
+    },
+    {
+      "source": "AMS",
+      "target": "DUB"
+    },
+    {
+      "source": "AMS",
+      "target": "ZRH"
+    },
+    {
+      "source": "AMS",
+      "target": "CPH"
+    },
+    {
+      "source": "AMS",
+      "target": "MAD"
+    },
+    {
+      "source": "AMS",
+      "target": "MUC"
+    },
+    {
+      "source": "AMS",
+      "target": "BCN"
+    },
+    {
+      "source": "AMS",
+      "target": "MAN"
+    },
+    {
+      "source": "DFW",
+      "target": "ATL"
+    },
+    {
+      "source": "DFW",
+      "target": "LGA"
+    },
+    {
+      "source": "DFW",
+      "target": "DEN"
+    },
+    {
+      "source": "DFW",
+      "target": "LAX"
+    },
+    {
+      "source": "DFW",
+      "target": "PHX"
+    },
+    {
+      "source": "DFW",
+      "target": "MCO"
+    },
+    {
+      "source": "DFW",
+      "target": "LAS"
+    },
+    {
+      "source": "DFW",
+      "target": "IAH"
+    },
+    {
+      "source": "DXB",
+      "target": "RUH"
+    },
+    {
+      "source": "DXB",
+      "target": "JED"
+    },
+    {
+      "source": "DXB",
+      "target": "KWI"
+    },
+    {
+      "source": "DXB",
+      "target": "BOM"
+    },
+    {
+      "source": "DXB",
+      "target": "TLV"
+    },
+    {
+      "source": "DXB",
+      "target": "DEL"
+    },
+    {
+      "source": "DXB",
+      "target": "LHR"
+    },
+    {
+      "source": "DXB",
+      "target": "DOH"
+    },
+    {
+      "source": "ATL",
+      "target": "LGA"
+    },
+    {
+      "source": "ATL",
+      "target": "MCO"
+    },
+    {
+      "source": "ATL",
+      "target": "FLL"
+    },
+    {
+      "source": "ATL",
+      "target": "DCA"
+    },
+    {
+      "source": "ATL",
+      "target": "MIA"
+    },
+    {
+      "source": "ATL",
+      "target": "TPA"
+    },
+    {
+      "source": "ATL",
+      "target": "EWR"
+    },
+    {
+      "source": "ATL",
+      "target": "PHL"
+    },
+    {
+      "source": "FCO",
+      "target": "MAD"
+    },
+    {
+      "source": "FCO",
+      "target": "BCN"
+    },
+    {
+      "source": "FCO",
+      "target": "CTA"
+    },
+    {
+      "source": "FCO",
+      "target": "PMO"
+    },
+    {
+      "source": "FCO",
+      "target": "ORY"
+    },
+    {
+      "source": "FCO",
+      "target": "BRU"
+    },
+    {
+      "source": "FCO",
+      "target": "AMS"
+    },
+    {
+      "source": "FCO",
+      "target": "ATH"
+    },
+    {
+      "source": "PVG",
+      "target": "HRB"
+    },
+    {
+      "source": "PVG",
+      "target": "SHE"
+    },
+    {
+      "source": "PVG",
+      "target": "HKG"
+    },
+    {
+      "source": "PVG",
+      "target": "CAN"
+    },
+    {
+      "source": "PVG",
+      "target": "CGQ"
+    },
+    {
+      "source": "PVG",
+      "target": "DLC"
+    },
+    {
+      "source": "PVG",
+      "target": "SZX"
+    },
+    {
+      "source": "PVG",
+      "target": "CKG"
+    },
+    {
+      "source": "MAD",
+      "target": "PMI"
+    },
+    {
+      "source": "MAD",
+      "target": "LIS"
+    },
+    {
+      "source": "MAD",
+      "target": "BCN"
+    },
+    {
+      "source": "MAD",
+      "target": "LHR"
+    },
+    {
+      "source": "MAD",
+      "target": "LPA"
+    },
+    {
+      "source": "MAD",
+      "target": "ORY"
+    },
+    {
+      "source": "MAD",
+      "target": "OPO"
+    },
+    {
+      "source": "MAD",
+      "target": "BRU"
+    },
+    {
+      "source": "DEN",
+      "target": "PHX"
+    },
+    {
+      "source": "DEN",
+      "target": "SLC"
+    },
+    {
+      "source": "DEN",
+      "target": "LAX"
+    },
+    {
+      "source": "DEN",
+      "target": "LAS"
+    },
+    {
+      "source": "DEN",
+      "target": "SAN"
+    },
+    {
+      "source": "DEN",
+      "target": "AUS"
+    },
+    {
+      "source": "DEN",
+      "target": "SFO"
+    },
+    {
+      "source": "DEN",
+      "target": "ATL"
+    },
+    {
+      "source": "MUC",
+      "target": "LHR"
+    },
+    {
+      "source": "MUC",
+      "target": "HAM"
+    },
+    {
+      "source": "MUC",
+      "target": "DUS"
+    },
+    {
+      "source": "MUC",
+      "target": "BER"
+    },
+    {
+      "source": "MUC",
+      "target": "CDG"
+    },
+    {
+      "source": "MUC",
+      "target": "MAD"
+    },
+    {
+      "source": "MUC",
+      "target": "BRU"
+    },
+    {
+      "source": "MUC",
+      "target": "BCN"
+    },
+    {
+      "source": "BCN",
+      "target": "PMI"
+    },
+    {
+      "source": "BCN",
+      "target": "LIS"
+    },
+    {
+      "source": "BCN",
+      "target": "MXP"
+    },
+    {
+      "source": "BCN",
+      "target": "LGW"
+    },
+    {
+      "source": "BCN",
+      "target": "ORY"
+    },
+    {
+      "source": "BCN",
+      "target": "LHR"
+    },
+    {
+      "source": "BCN",
+      "target": "IBZ"
+    },
+    {
+      "source": "BCN",
+      "target": "SVQ"
+    },
+    {
+      "source": "LHR",
+      "target": "JFK"
+    },
+    {
+      "source": "LHR",
+      "target": "DUB"
+    },
+    {
+      "source": "LHR",
+      "target": "GVA"
+    },
+    {
+      "source": "LHR",
+      "target": "ZRH"
+    },
+    {
+      "source": "LHR",
+      "target": "DOH"
+    },
+    {
+      "source": "LHR",
+      "target": "CPH"
+    },
+    {
+      "source": "LHR",
+      "target": "GLA"
+    },
+    {
+      "source": "LHR",
+      "target": "LIS"
+    },
+    {
+      "source": "MXP",
+      "target": "MAD"
+    },
+    {
+      "source": "MXP",
+      "target": "FRA"
+    },
+    {
+      "source": "MXP",
+      "target": "CTA"
+    },
+    {
+      "source": "MXP",
+      "target": "ZRH"
+    },
+    {
+      "source": "MXP",
+      "target": "LIS"
+    },
+    {
+      "source": "MXP",
+      "target": "IST"
+    },
+    {
+      "source": "MXP",
+      "target": "MUC"
+    },
+    {
+      "source": "MXP",
+      "target": "DUS"
+    },
+    {
+      "source": "PEK",
+      "target": "SZX"
+    },
+    {
+      "source": "PEK",
+      "target": "CTU"
+    },
+    {
+      "source": "PEK",
+      "target": "CAN"
+    },
+    {
+      "source": "PEK",
+      "target": "HGH"
+    },
+    {
+      "source": "PEK",
+      "target": "CKG"
+    },
+    {
+      "source": "PEK",
+      "target": "HKG"
+    },
+    {
+      "source": "PEK",
+      "target": "SYX"
+    },
+    {
+      "source": "PEK",
+      "target": "XMN"
+    },
+    {
+      "source": "ZRH",
+      "target": "BER"
+    },
+    {
+      "source": "ZRH",
+      "target": "VIE"
+    },
+    {
+      "source": "ZRH",
+      "target": "CDG"
+    },
+    {
+      "source": "ZRH",
+      "target": "GVA"
+    },
+    {
+      "source": "ZRH",
+      "target": "HAM"
+    },
+    {
+      "source": "ZRH",
+      "target": "MAD"
+    },
+    {
+      "source": "ZRH",
+      "target": "DUS"
+    },
+    {
+      "source": "ZRH",
+      "target": "CPH"
+    },
+    {
+      "source": "LGW",
+      "target": "GVA"
+    },
+    {
+      "source": "LGW",
+      "target": "DUB"
+    },
+    {
+      "source": "LGW",
+      "target": "AGP"
+    },
+    {
+      "source": "LGW",
+      "target": "ALC"
+    },
+    {
+      "source": "LGW",
+      "target": "MAD"
+    },
+    {
+      "source": "LGW",
+      "target": "MXP"
+    },
+    {
+      "source": "LGW",
+      "target": "AMS"
+    },
+    {
+      "source": "LGW",
+      "target": "RAK"
+    },
+    {
+      "source": "JFK",
+      "target": "LAX"
+    },
+    {
+      "source": "JFK",
+      "target": "BOS"
+    },
+    {
+      "source": "JFK",
+      "target": "SFO"
+    },
+    {
+      "source": "JFK",
+      "target": "MIA"
+    },
+    {
+      "source": "JFK",
+      "target": "MCO"
+    },
+    {
+      "source": "JFK",
+      "target": "ATL"
+    },
+    {
+      "source": "JFK",
+      "target": "RDU"
+    },
+    {
+      "source": "JFK",
+      "target": "FLL"
+    },
+    {
+      "source": "VIE",
+      "target": "LHR"
+    },
+    {
+      "source": "VIE",
+      "target": "WAW"
+    },
+    {
+      "source": "VIE",
+      "target": "AMS"
+    },
+    {
+      "source": "VIE",
+      "target": "BER"
+    },
+    {
+      "source": "VIE",
+      "target": "DUS"
+    },
+    {
+      "source": "VIE",
+      "target": "CDG"
+    },
+    {
+      "source": "VIE",
+      "target": "CPH"
+    },
+    {
+      "source": "VIE",
+      "target": "IST"
+    },
+    {
+      "source": "DUB",
+      "target": "MAN"
+    },
+    {
+      "source": "DUB",
+      "target": "BHX"
+    },
+    {
+      "source": "DUB",
+      "target": "EDI"
+    },
+    {
+      "source": "DUB",
+      "target": "STN"
+    },
+    {
+      "source": "DUB",
+      "target": "CDG"
+    },
+    {
+      "source": "DUB",
+      "target": "GLA"
+    },
+    {
+      "source": "DUB",
+      "target": "LPL"
+    },
+    {
+      "source": "DUB",
+      "target": "FRA"
+    },
+    {
+      "source": "MIA",
+      "target": "LGA"
+    },
+    {
+      "source": "MIA",
+      "target": "DFW"
+    },
+    {
+      "source": "MIA",
+      "target": "ORD"
+    },
+    {
+      "source": "MIA",
+      "target": "EWR"
+    },
+    {
+      "source": "MIA",
+      "target": "IAH"
+    },
+    {
+      "source": "MIA",
+      "target": "MCO"
+    },
+    {
+      "source": "MIA",
+      "target": "BOS"
+    },
+    {
+      "source": "MIA",
+      "target": "DCA"
+    },
+    {
+      "source": "CAN",
+      "target": "HGH"
+    },
+    {
+      "source": "CAN",
+      "target": "PKX"
+    },
+    {
+      "source": "CAN",
+      "target": "NKG"
+    },
+    {
+      "source": "CAN",
+      "target": "CKG"
+    },
+    {
+      "source": "CAN",
+      "target": "XIY"
+    },
+    {
+      "source": "CAN",
+      "target": "HAK"
+    },
+    {
+      "source": "CAN",
+      "target": "CTU"
+    },
+    {
+      "source": "CAN",
+      "target": "CGO"
+    },
+    {
+      "source": "MAN",
+      "target": "LHR"
+    },
+    {
+      "source": "MAN",
+      "target": "CDG"
+    },
+    {
+      "source": "MAN",
+      "target": "TFS"
+    },
+    {
+      "source": "MAN",
+      "target": "GVA"
+    },
+    {
+      "source": "MAN",
+      "target": "BFS"
+    },
+    {
+      "source": "MAN",
+      "target": "IST"
+    },
+    {
+      "source": "MAN",
+      "target": "FRA"
+    },
+    {
+      "source": "MAN",
+      "target": "BCN"
+    },
+    {
+      "source": "TFU",
+      "target": "KMG"
+    },
+    {
+      "source": "TFU",
+      "target": "CAN"
+    },
+    {
+      "source": "TFU",
+      "target": "WUH"
+    },
+    {
+      "source": "TFU",
+      "target": "URC"
+    },
+    {
+      "source": "TFU",
+      "target": "TSN"
+    },
+    {
+      "source": "TFU",
+      "target": "CGO"
+    },
+    {
+      "source": "TFU",
+      "target": "CSX"
+    },
+    {
+      "source": "TFU",
+      "target": "SZX"
+    },
+    {
+      "source": "CPH",
+      "target": "OSL"
+    },
+    {
+      "source": "CPH",
+      "target": "ARN"
+    },
+    {
+      "source": "CPH",
+      "target": "HEL"
+    },
+    {
+      "source": "CPH",
+      "target": "CDG"
+    },
+    {
+      "source": "CPH",
+      "target": "FRA"
+    },
+    {
+      "source": "CPH",
+      "target": "BRU"
+    },
+    {
+      "source": "CPH",
+      "target": "MUC"
+    },
+    {
+      "source": "CPH",
+      "target": "WAW"
+    },
+    {
+      "source": "STN",
+      "target": "SAW"
+    },
+    {
+      "source": "STN",
+      "target": "EDI"
+    },
+    {
+      "source": "STN",
+      "target": "MAD"
+    },
+    {
+      "source": "STN",
+      "target": "BGY"
+    },
+    {
+      "source": "STN",
+      "target": "OTP"
+    },
+    {
+      "source": "STN",
+      "target": "BFS"
+    },
+    {
+      "source": "STN",
+      "target": "TFS"
+    },
+    {
+      "source": "STN",
+      "target": "LIS"
+    },
+    {
+      "source": "CLT",
+      "target": "MCO"
+    },
+    {
+      "source": "CLT",
+      "target": "LGA"
+    },
+    {
+      "source": "CLT",
+      "target": "ATL"
+    },
+    {
+      "source": "CLT",
+      "target": "EWR"
+    },
+    {
+      "source": "CLT",
+      "target": "ORD"
+    },
+    {
+      "source": "CLT",
+      "target": "MIA"
+    },
+    {
+      "source": "CLT",
+      "target": "DTW"
+    },
+    {
+      "source": "CLT",
+      "target": "DFW"
+    },
+    {
+      "source": "IAH",
+      "target": "ATL"
+    },
+    {
+      "source": "IAH",
+      "target": "LAX"
+    },
+    {
+      "source": "IAH",
+      "target": "DEN"
+    },
+    {
+      "source": "IAH",
+      "target": "MEX"
+    },
+    {
+      "source": "IAH",
+      "target": "MCO"
+    },
+    {
+      "source": "IAH",
+      "target": "LGA"
+    },
+    {
+      "source": "IAH",
+      "target": "LAS"
+    },
+    {
+      "source": "IAH",
+      "target": "EWR"
+    },
+    {
+      "source": "YYZ",
+      "target": "YUL"
+    },
+    {
+      "source": "YYZ",
+      "target": "LGA"
+    },
+    {
+      "source": "YYZ",
+      "target": "YYC"
+    },
+    {
+      "source": "YYZ",
+      "target": "YVR"
+    },
+    {
+      "source": "YYZ",
+      "target": "CUN"
+    },
+    {
+      "source": "YYZ",
+      "target": "EWR"
+    },
+    {
+      "source": "YYZ",
+      "target": "FLL"
+    },
+    {
+      "source": "YYZ",
+      "target": "MCO"
+    },
+    {
+      "source": "EWR",
+      "target": "MCO"
+    },
+    {
+      "source": "EWR",
+      "target": "FLL"
+    },
+    {
+      "source": "EWR",
+      "target": "LAX"
+    },
+    {
+      "source": "EWR",
+      "target": "BOS"
+    },
+    {
+      "source": "EWR",
+      "target": "SFO"
+    },
+    {
+      "source": "EWR",
+      "target": "DTW"
+    },
+    {
+      "source": "EWR",
+      "target": "DFW"
+    },
+    {
+      "source": "EWR",
+      "target": "DCA"
+    },
+    {
+      "source": "DOH",
+      "target": "SHJ"
+    },
+    {
+      "source": "DOH",
+      "target": "RUH"
+    },
+    {
+      "source": "DOH",
+      "target": "AUH"
+    },
+    {
+      "source": "DOH",
+      "target": "JED"
+    },
+    {
+      "source": "DOH",
+      "target": "MCT"
+    },
+    {
+      "source": "DOH",
+      "target": "KWI"
+    },
+    {
+      "source": "DOH",
+      "target": "BKK"
+    },
+    {
+      "source": "DOH",
+      "target": "CAI"
+    },
+    {
+      "source": "LAX",
+      "target": "SFO"
+    },
+    {
+      "source": "LAX",
+      "target": "LAS"
+    },
+    {
+      "source": "LAX",
+      "target": "PHX"
+    },
+    {
+      "source": "LAX",
+      "target": "SEA"
+    },
+    {
+      "source": "LAX",
+      "target": "ORD"
+    },
+    {
+      "source": "LAX",
+      "target": "SLC"
+    },
+    {
+      "source": "LAX",
+      "target": "BOS"
+    },
+    {
+      "source": "LAX",
+      "target": "ATL"
+    },
+    {
+      "source": "ORY",
+      "target": "NCE"
+    },
+    {
+      "source": "ORY",
+      "target": "TLS"
+    },
+    {
+      "source": "ORY",
+      "target": "LIS"
+    },
+    {
+      "source": "ORY",
+      "target": "OPO"
+    },
+    {
+      "source": "ORY",
+      "target": "RAK"
+    },
+    {
+      "source": "ORY",
+      "target": "ALG"
+    },
+    {
+      "source": "ORY",
+      "target": "CMN"
+    },
+    {
+      "source": "ORY",
+      "target": "AGA"
+    },
+    {
+      "source": "JED",
+      "target": "RUH"
+    },
+    {
+      "source": "JED",
+      "target": "CAI"
+    },
+    {
+      "source": "JED",
+      "target": "KWI"
+    },
+    {
+      "source": "JED",
+      "target": "AUH"
+    },
+    {
+      "source": "JED",
+      "target": "AMM"
+    },
+    {
+      "source": "JED",
+      "target": "MCT"
+    },
+    {
+      "source": "JED",
+      "target": "SAW"
+    },
+    {
+      "source": "JED",
+      "target": "BOM"
+    },
+    {
+      "source": "BRU",
+      "target": "BCN"
+    },
+    {
+      "source": "BRU",
+      "target": "LHR"
+    },
+    {
+      "source": "BRU",
+      "target": "FRA"
+    },
+    {
+      "source": "BRU",
+      "target": "GVA"
+    },
+    {
+      "source": "BRU",
+      "target": "VIE"
+    },
+    {
+      "source": "BRU",
+      "target": "ALC"
+    },
+    {
+      "source": "BRU",
+      "target": "WAW"
+    },
+    {
+      "source": "BRU",
+      "target": "AGP"
+    },
+    {
+      "source": "DUS",
+      "target": "LHR"
+    },
+    {
+      "source": "DUS",
+      "target": "SAW"
+    },
+    {
+      "source": "DUS",
+      "target": "CDG"
+    },
+    {
+      "source": "DUS",
+      "target": "AMS"
+    },
+    {
+      "source": "DUS",
+      "target": "IST"
+    },
+    {
+      "source": "DUS",
+      "target": "CPH"
+    },
+    {
+      "source": "DUS",
+      "target": "FRA"
+    },
+    {
+      "source": "DUS",
+      "target": "BER"
+    },
+    {
+      "source": "PKX",
+      "target": "SZX"
+    },
+    {
+      "source": "PKX",
+      "target": "KMG"
+    },
+    {
+      "source": "PKX",
+      "target": "CKG"
+    },
+    {
+      "source": "PKX",
+      "target": "XIY"
+    },
+    {
+      "source": "PKX",
+      "target": "CTU"
+    },
+    {
+      "source": "PKX",
+      "target": "HGH"
+    },
+    {
+      "source": "PKX",
+      "target": "CSX"
+    },
+    {
+      "source": "PKX",
+      "target": "HRB"
+    },
+    {
+      "source": "ATH",
+      "target": "HER"
+    },
+    {
+      "source": "ATH",
+      "target": "SKG"
+    },
+    {
+      "source": "ATH",
+      "target": "LCA"
+    },
+    {
+      "source": "ATH",
+      "target": "CHQ"
+    },
+    {
+      "source": "ATH",
+      "target": "TLV"
+    },
+    {
+      "source": "ATH",
+      "target": "LHR"
+    },
+    {
+      "source": "ATH",
+      "target": "RHO"
+    },
+    {
+      "source": "ATH",
+      "target": "FRA"
+    },
+    {
+      "source": "MCO",
+      "target": "BOS"
+    },
+    {
+      "source": "MCO",
+      "target": "LGA"
+    },
+    {
+      "source": "MCO",
+      "target": "PHL"
+    },
+    {
+      "source": "MCO",
+      "target": "BWI"
+    },
+    {
+      "source": "MCO",
+      "target": "DEN"
+    },
+    {
+      "source": "MCO",
+      "target": "DTW"
+    },
+    {
+      "source": "MCO",
+      "target": "DCA"
+    },
+    {
+      "source": "MCO",
+      "target": "BNA"
+    },
+    {
+      "source": "PMI",
+      "target": "IBZ"
+    },
+    {
+      "source": "PMI",
+      "target": "MAH"
+    },
+    {
+      "source": "PMI",
+      "target": "VLC"
+    },
+    {
+      "source": "PMI",
+      "target": "ALC"
+    },
+    {
+      "source": "PMI",
+      "target": "SVQ"
+    },
+    {
+      "source": "PMI",
+      "target": "NTE"
+    },
+    {
+      "source": "PMI",
+      "target": "BER"
+    },
+    {
+      "source": "PMI",
+      "target": "BIO"
+    },
+    {
+      "source": "ARN",
+      "target": "HEL"
+    },
+    {
+      "source": "ARN",
+      "target": "OSL"
+    },
+    {
+      "source": "ARN",
+      "target": "AMS"
+    },
+    {
+      "source": "ARN",
+      "target": "LHR"
+    },
+    {
+      "source": "ARN",
+      "target": "CDG"
+    },
+    {
+      "source": "ARN",
+      "target": "FRA"
+    },
+    {
+      "source": "ARN",
+      "target": "ZRH"
+    },
+    {
+      "source": "ARN",
+      "target": "MUC"
+    },
+    {
+      "source": "XIY",
+      "target": "SZX"
+    },
+    {
+      "source": "XIY",
+      "target": "URC"
+    },
+    {
+      "source": "XIY",
+      "target": "KMG"
+    },
+    {
+      "source": "XIY",
+      "target": "HGH"
+    },
+    {
+      "source": "XIY",
+      "target": "PVG"
+    },
+    {
+      "source": "XIY",
+      "target": "PEK"
+    },
+    {
+      "source": "XIY",
+      "target": "CSX"
+    },
+    {
+      "source": "XIY",
+      "target": "SHE"
+    },
+    {
+      "source": "LAS",
+      "target": "PHX"
+    },
+    {
+      "source": "LAS",
+      "target": "SAN"
+    },
+    {
+      "source": "LAS",
+      "target": "SFO"
+    },
+    {
+      "source": "LAS",
+      "target": "ORD"
+    },
+    {
+      "source": "LAS",
+      "target": "SEA"
+    },
+    {
+      "source": "LAS",
+      "target": "ATL"
+    },
+    {
+      "source": "LAS",
+      "target": "SLC"
+    },
+    {
+      "source": "LAS",
+      "target": "JFK"
+    },
+    {
+      "source": "MSP",
+      "target": "ORD"
+    },
+    {
+      "source": "MSP",
+      "target": "DEN"
+    },
+    {
+      "source": "MSP",
+      "target": "PHX"
+    },
+    {
+      "source": "MSP",
+      "target": "ATL"
+    },
+    {
+      "source": "MSP",
+      "target": "DFW"
+    },
+    {
+      "source": "MSP",
+      "target": "MCO"
+    },
+    {
+      "source": "MSP",
+      "target": "LAS"
+    },
+    {
+      "source": "MSP",
+      "target": "DCA"
+    },
+    {
+      "source": "AGP",
+      "target": "MAD"
+    },
+    {
+      "source": "AGP",
+      "target": "BCN"
+    },
+    {
+      "source": "AGP",
+      "target": "AMS"
+    },
+    {
+      "source": "AGP",
+      "target": "DUB"
+    },
+    {
+      "source": "AGP",
+      "target": "CPH"
+    },
+    {
+      "source": "AGP",
+      "target": "ARN"
+    },
+    {
+      "source": "AGP",
+      "target": "ORY"
+    },
+    {
+      "source": "AGP",
+      "target": "MAN"
+    },
+    {
+      "source": "YUL",
+      "target": "LGA"
+    },
+    {
+      "source": "YUL",
+      "target": "FLL"
+    },
+    {
+      "source": "YUL",
+      "target": "ORD"
+    },
+    {
+      "source": "YUL",
+      "target": "YYC"
+    },
+    {
+      "source": "YUL",
+      "target": "PUJ"
+    },
+    {
+      "source": "YUL",
+      "target": "CUN"
+    },
+    {
+      "source": "YUL",
+      "target": "EWR"
+    },
+    {
+      "source": "YUL",
+      "target": "YVR"
+    },
+    {
+      "source": "BER",
+      "target": "LHR"
+    },
+    {
+      "source": "BER",
+      "target": "AMS"
+    },
+    {
+      "source": "BER",
+      "target": "CDG"
+    },
+    {
+      "source": "BER",
+      "target": "IST"
+    },
+    {
+      "source": "BER",
+      "target": "SAW"
+    },
+    {
+      "source": "BER",
+      "target": "CGN"
+    },
+    {
+      "source": "BER",
+      "target": "CPH"
+    },
+    {
+      "source": "BER",
+      "target": "STR"
+    },
+    {
+      "source": "EDI",
+      "target": "LHR"
+    },
+    {
+      "source": "EDI",
+      "target": "AMS"
+    },
+    {
+      "source": "EDI",
+      "target": "CDG"
+    },
+    {
+      "source": "EDI",
+      "target": "BFS"
+    },
+    {
+      "source": "EDI",
+      "target": "BRS"
+    },
+    {
+      "source": "EDI",
+      "target": "LGW"
+    },
+    {
+      "source": "EDI",
+      "target": "TFS"
+    },
+    {
+      "source": "EDI",
+      "target": "BHX"
+    },
+    {
+      "source": "IAD",
+      "target": "ATL"
+    },
+    {
+      "source": "IAD",
+      "target": "DEN"
+    },
+    {
+      "source": "IAD",
+      "target": "SFO"
+    },
+    {
+      "source": "IAD",
+      "target": "MCO"
+    },
+    {
+      "source": "IAD",
+      "target": "CLT"
+    },
+    {
+      "source": "IAD",
+      "target": "LAX"
+    },
+    {
+      "source": "IAD",
+      "target": "DFW"
+    },
+    {
+      "source": "IAD",
+      "target": "YYZ"
+    },
+    {
+      "source": "SIN",
+      "target": "KUL"
+    },
+    {
+      "source": "SIN",
+      "target": "CGK"
+    },
+    {
+      "source": "SIN",
+      "target": "BKK"
+    },
+    {
+      "source": "SIN",
+      "target": "MNL"
+    },
+    {
+      "source": "SIN",
+      "target": "HKG"
+    },
+    {
+      "source": "SIN",
+      "target": "PVG"
+    },
+    {
+      "source": "SIN",
+      "target": "SGN"
+    },
+    {
+      "source": "SIN",
+      "target": "TPE"
+    },
+    {
+      "source": "ICN",
+      "target": "KIX"
+    },
+    {
+      "source": "ICN",
+      "target": "NRT"
+    },
+    {
+      "source": "ICN",
+      "target": "HKG"
+    },
+    {
+      "source": "ICN",
+      "target": "BKK"
+    },
+    {
+      "source": "ICN",
+      "target": "PVG"
+    },
+    {
+      "source": "ICN",
+      "target": "TAO"
+    },
+    {
+      "source": "ICN",
+      "target": "TPE"
+    },
+    {
+      "source": "ICN",
+      "target": "MNL"
+    },
+    {
+      "source": "SZX",
+      "target": "HGH"
+    },
+    {
+      "source": "SZX",
+      "target": "CKG"
+    },
+    {
+      "source": "SZX",
+      "target": "CTU"
+    },
+    {
+      "source": "SZX",
+      "target": "NKG"
+    },
+    {
+      "source": "SZX",
+      "target": "CGO"
+    },
+    {
+      "source": "SZX",
+      "target": "KMG"
+    },
+    {
+      "source": "SZX",
+      "target": "HAK"
+    },
+    {
+      "source": "SZX",
+      "target": "WUH"
+    },
+    {
+      "source": "CKG",
+      "target": "HGH"
+    },
+    {
+      "source": "CKG",
+      "target": "HAK"
+    },
+    {
+      "source": "CKG",
+      "target": "NKG"
+    },
+    {
+      "source": "CKG",
+      "target": "XMN"
+    },
+    {
+      "source": "CKG",
+      "target": "FOC"
+    },
+    {
+      "source": "CKG",
+      "target": "WUH"
+    },
+    {
+      "source": "CKG",
+      "target": "CGO"
+    },
+    {
+      "source": "CKG",
+      "target": "TNA"
+    },
+    {
+      "source": "DEL",
+      "target": "BOM"
+    },
+    {
+      "source": "DEL",
+      "target": "BLR"
+    },
+    {
+      "source": "DEL",
+      "target": "HYD"
+    },
+    {
+      "source": "DEL",
+      "target": "MAA"
+    },
+    {
+      "source": "DEL",
+      "target": "BKK"
+    },
+    {
+      "source": "DEL",
+      "target": "LHR"
+    },
+    {
+      "source": "DEL",
+      "target": "SIN"
+    },
+    {
+      "source": "DEL",
+      "target": "AUH"
+    },
+    {
+      "source": "PHX",
+      "target": "SEA"
+    },
+    {
+      "source": "PHX",
+      "target": "SLC"
+    },
+    {
+      "source": "PHX",
+      "target": "SAN"
+    },
+    {
+      "source": "PHX",
+      "target": "ORD"
+    },
+    {
+      "source": "PHX",
+      "target": "SFO"
+    },
+    {
+      "source": "PHX",
+      "target": "PDX"
+    },
+    {
+      "source": "PHX",
+      "target": "AUS"
+    },
+    {
+      "source": "PHX",
+      "target": "IAH"
+    },
+    {
+      "source": "BKK",
+      "target": "HKT"
+    },
+    {
+      "source": "BKK",
+      "target": "HKG"
+    },
+    {
+      "source": "BKK",
+      "target": "PVG"
+    },
+    {
+      "source": "BKK",
+      "target": "TPE"
+    },
+    {
+      "source": "BKK",
+      "target": "CAN"
+    },
+    {
+      "source": "BKK",
+      "target": "SGN"
+    },
+    {
+      "source": "BKK",
+      "target": "TFU"
+    },
+    {
+      "source": "BKK",
+      "target": "KUL"
+    },
+    {
+      "source": "PRG",
+      "target": "FRA"
+    },
+    {
+      "source": "PRG",
+      "target": "AMS"
+    },
+    {
+      "source": "PRG",
+      "target": "CDG"
+    },
+    {
+      "source": "PRG",
+      "target": "WAW"
+    },
+    {
+      "source": "PRG",
+      "target": "TLV"
+    },
+    {
+      "source": "PRG",
+      "target": "LHR"
+    },
+    {
+      "source": "PRG",
+      "target": "BRU"
+    },
+    {
+      "source": "PRG",
+      "target": "DXB"
+    },
+    {
+      "source": "SAW",
+      "target": "AYT"
+    },
+    {
+      "source": "SAW",
+      "target": "ESB"
+    },
+    {
+      "source": "SAW",
+      "target": "ADB"
+    },
+    {
+      "source": "SAW",
+      "target": "AMS"
+    },
+    {
+      "source": "SAW",
+      "target": "CGN"
+    },
+    {
+      "source": "SAW",
+      "target": "VKO"
+    },
+    {
+      "source": "SAW",
+      "target": "DXB"
+    },
+    {
+      "source": "SAW",
+      "target": "FRA"
+    },
+    {
+      "source": "BOS",
+      "target": "DCA"
+    },
+    {
+      "source": "BOS",
+      "target": "LGA"
+    },
+    {
+      "source": "BOS",
+      "target": "FLL"
+    },
+    {
+      "source": "BOS",
+      "target": "PHL"
+    },
+    {
+      "source": "BOS",
+      "target": "ATL"
+    },
+    {
+      "source": "BOS",
+      "target": "SFO"
+    },
+    {
+      "source": "BOS",
+      "target": "CLT"
+    },
+    {
+      "source": "BOS",
+      "target": "DEN"
+    },
+    {
+      "source": "FLL",
+      "target": "LGA"
+    },
+    {
+      "source": "FLL",
+      "target": "ORD"
+    },
+    {
+      "source": "FLL",
+      "target": "PHL"
+    },
+    {
+      "source": "FLL",
+      "target": "BWI"
+    },
+    {
+      "source": "FLL",
+      "target": "DTW"
+    },
+    {
+      "source": "FLL",
+      "target": "CLT"
+    },
+    {
+      "source": "FLL",
+      "target": "DFW"
+    },
+    {
+      "source": "FLL",
+      "target": "IAH"
+    },
+    {
+      "source": "WAW",
+      "target": "AMS"
+    },
+    {
+      "source": "WAW",
+      "target": "FRA"
+    },
+    {
+      "source": "WAW",
+      "target": "MUC"
+    },
+    {
+      "source": "WAW",
+      "target": "WRO"
+    },
+    {
+      "source": "WAW",
+      "target": "CDG"
+    },
+    {
+      "source": "WAW",
+      "target": "KRK"
+    },
+    {
+      "source": "WAW",
+      "target": "LHR"
+    },
+    {
+      "source": "WAW",
+      "target": "IST"
+    },
+    {
+      "source": "BUD",
+      "target": "WAW"
+    },
+    {
+      "source": "BUD",
+      "target": "TLV"
+    },
+    {
+      "source": "BUD",
+      "target": "IST"
+    },
+    {
+      "source": "BUD",
+      "target": "FRA"
+    },
+    {
+      "source": "BUD",
+      "target": "MAD"
+    },
+    {
+      "source": "BUD",
+      "target": "BCN"
+    },
+    {
+      "source": "BUD",
+      "target": "ZRH"
+    },
+    {
+      "source": "BUD",
+      "target": "AMS"
+    },
+    {
+      "source": "GVA",
+      "target": "CDG"
+    },
+    {
+      "source": "GVA",
+      "target": "AMS"
+    },
+    {
+      "source": "GVA",
+      "target": "LIS"
+    },
+    {
+      "source": "GVA",
+      "target": "LTN"
+    },
+    {
+      "source": "GVA",
+      "target": "MAD"
+    },
+    {
+      "source": "GVA",
+      "target": "OPO"
+    },
+    {
+      "source": "GVA",
+      "target": "FRA"
+    },
+    {
+      "source": "GVA",
+      "target": "BRS"
+    },
+    {
+      "source": "LIS",
+      "target": "FNC"
+    },
+    {
+      "source": "LIS",
+      "target": "OPO"
+    },
+    {
+      "source": "LIS",
+      "target": "AMS"
+    },
+    {
+      "source": "LIS",
+      "target": "FCO"
+    },
+    {
+      "source": "LIS",
+      "target": "ZRH"
+    },
+    {
+      "source": "LIS",
+      "target": "DUB"
+    },
+    {
+      "source": "LIS",
+      "target": "FRA"
+    },
+    {
+      "source": "LIS",
+      "target": "GRU"
+    },
+    {
+      "source": "OSL",
+      "target": "BGO"
+    },
+    {
+      "source": "OSL",
+      "target": "LHR"
+    },
+    {
+      "source": "OSL",
+      "target": "AMS"
+    },
+    {
+      "source": "OSL",
+      "target": "HEL"
+    },
+    {
+      "source": "OSL",
+      "target": "CDG"
+    },
+    {
+      "source": "OSL",
+      "target": "FRA"
+    },
+    {
+      "source": "OSL",
+      "target": "MUC"
+    },
+    {
+      "source": "OSL",
+      "target": "LGW"
+    },
+    {
+      "source": "BGY",
+      "target": "TIA"
+    },
+    {
+      "source": "BGY",
+      "target": "NAP"
+    },
+    {
+      "source": "BGY",
+      "target": "SAW"
+    },
+    {
+      "source": "BGY",
+      "target": "SOF"
+    },
+    {
+      "source": "BGY",
+      "target": "CTA"
+    },
+    {
+      "source": "BGY",
+      "target": "PMO"
+    },
+    {
+      "source": "BGY",
+      "target": "BCN"
+    },
+    {
+      "source": "BGY",
+      "target": "BRI"
+    },
+    {
+      "source": "HKG",
+      "target": "TPE"
+    },
+    {
+      "source": "HKG",
+      "target": "MNL"
+    },
+    {
+      "source": "HKG",
+      "target": "KIX"
+    },
+    {
+      "source": "HKG",
+      "target": "NRT"
+    },
+    {
+      "source": "HKG",
+      "target": "HGH"
+    },
+    {
+      "source": "HKG",
+      "target": "HND"
+    },
+    {
+      "source": "HKG",
+      "target": "KUL"
+    },
+    {
+      "source": "HKG",
+      "target": "LHR"
+    },
+    {
+      "source": "ALC",
+      "target": "MAN"
+    },
+    {
+      "source": "ALC",
+      "target": "BCN"
+    },
+    {
+      "source": "ALC",
+      "target": "MAD"
+    },
+    {
+      "source": "ALC",
+      "target": "AMS"
+    },
+    {
+      "source": "ALC",
+      "target": "BRS"
+    },
+    {
+      "source": "ALC",
+      "target": "ORY"
+    },
+    {
+      "source": "ALC",
+      "target": "EIN"
+    },
+    {
+      "source": "ALC",
+      "target": "LPL"
+    },
+    {
+      "source": "KUL",
+      "target": "CGK"
+    },
+    {
+      "source": "KUL",
+      "target": "CAN"
+    },
+    {
+      "source": "KUL",
+      "target": "DMK"
+    },
+    {
+      "source": "KUL",
+      "target": "PVG"
+    },
+    {
+      "source": "KUL",
+      "target": "HKT"
+    },
+    {
+      "source": "KUL",
+      "target": "SGN"
+    },
+    {
+      "source": "KUL",
+      "target": "MNL"
+    },
+    {
+      "source": "KUL",
+      "target": "SZX"
+    },
+    {
+      "source": "AYT",
+      "target": "ESB"
+    },
+    {
+      "source": "AYT",
+      "target": "DUS"
+    },
+    {
+      "source": "AYT",
+      "target": "ADB"
+    },
+    {
+      "source": "AYT",
+      "target": "MAN"
+    },
+    {
+      "source": "AYT",
+      "target": "LGW"
+    },
+    {
+      "source": "AYT",
+      "target": "BER"
+    },
+    {
+      "source": "AYT",
+      "target": "VKO"
+    },
+    {
+      "source": "AYT",
+      "target": "BHX"
+    },
+    {
+      "source": "SFO",
+      "target": "SEA"
+    },
+    {
+      "source": "SFO",
+      "target": "SAN"
+    },
+    {
+      "source": "SFO",
+      "target": "ORD"
+    },
+    {
+      "source": "SFO",
+      "target": "SLC"
+    },
+    {
+      "source": "SFO",
+      "target": "DFW"
+    },
+    {
+      "source": "SFO",
+      "target": "IAH"
+    },
+    {
+      "source": "SFO",
+      "target": "PDX"
+    },
+    {
+      "source": "SFO",
+      "target": "YVR"
+    },
+    {
+      "source": "AUH",
+      "target": "BOM"
+    },
+    {
+      "source": "AUH",
+      "target": "MAA"
+    },
+    {
+      "source": "AUH",
+      "target": "TLV"
+    },
+    {
+      "source": "AUH",
+      "target": "BLR"
+    },
+    {
+      "source": "AUH",
+      "target": "CAI"
+    },
+    {
+      "source": "AUH",
+      "target": "KWI"
+    },
+    {
+      "source": "AUH",
+      "target": "BKK"
+    },
+    {
+      "source": "AUH",
+      "target": "LHR"
+    },
+    {
+      "source": "KMG",
+      "target": "CAN"
+    },
+    {
+      "source": "KMG",
+      "target": "CGO"
+    },
+    {
+      "source": "KMG",
+      "target": "WUH"
+    },
+    {
+      "source": "KMG",
+      "target": "HGH"
+    },
+    {
+      "source": "KMG",
+      "target": "NKG"
+    },
+    {
+      "source": "KMG",
+      "target": "PVG"
+    },
+    {
+      "source": "KMG",
+      "target": "CTU"
+    },
+    {
+      "source": "KMG",
+      "target": "PEK"
+    },
+    {
+      "source": "NAP",
+      "target": "FCO"
+    },
+    {
+      "source": "NAP",
+      "target": "MXP"
+    },
+    {
+      "source": "NAP",
+      "target": "BCN"
+    },
+    {
+      "source": "NAP",
+      "target": "MAD"
+    },
+    {
+      "source": "NAP",
+      "target": "ORY"
+    },
+    {
+      "source": "NAP",
+      "target": "BUD"
+    },
+    {
+      "source": "NAP",
+      "target": "CDG"
+    },
+    {
+      "source": "NAP",
+      "target": "IST"
+    },
+    {
+      "source": "SEA",
+      "target": "DEN"
+    },
+    {
+      "source": "SEA",
+      "target": "PDX"
+    },
+    {
+      "source": "SEA",
+      "target": "YVR"
+    },
+    {
+      "source": "SEA",
+      "target": "DFW"
+    },
+    {
+      "source": "SEA",
+      "target": "SAN"
+    },
+    {
+      "source": "SEA",
+      "target": "SLC"
+    },
+    {
+      "source": "SEA",
+      "target": "ORD"
+    },
+    {
+      "source": "SEA",
+      "target": "ATL"
+    },
+    {
+      "source": "BHX",
+      "target": "AMS"
+    },
+    {
+      "source": "BHX",
+      "target": "CDG"
+    },
+    {
+      "source": "BHX",
+      "target": "BFS"
+    },
+    {
+      "source": "BHX",
+      "target": "GVA"
+    },
+    {
+      "source": "BHX",
+      "target": "TFS"
+    },
+    {
+      "source": "BHX",
+      "target": "DXB"
+    },
+    {
+      "source": "BHX",
+      "target": "IST"
+    },
+    {
+      "source": "BHX",
+      "target": "ALC"
+    },
+    {
+      "source": "DTW",
+      "target": "ORD"
+    },
+    {
+      "source": "DTW",
+      "target": "ATL"
+    },
+    {
+      "source": "DTW",
+      "target": "LGA"
+    },
+    {
+      "source": "DTW",
+      "target": "DFW"
+    },
+    {
+      "source": "DTW",
+      "target": "LAS"
+    },
+    {
+      "source": "DTW",
+      "target": "DCA"
+    },
+    {
+      "source": "DTW",
+      "target": "PHL"
+    },
+    {
+      "source": "DTW",
+      "target": "TPA"
+    },
+    {
+      "source": "HAK",
+      "target": "CGO"
+    },
+    {
+      "source": "HAK",
+      "target": "PKX"
+    },
+    {
+      "source": "HAK",
+      "target": "WUH"
+    },
+    {
+      "source": "HAK",
+      "target": "CSX"
+    },
+    {
+      "source": "HAK",
+      "target": "PVG"
+    },
+    {
+      "source": "HAK",
+      "target": "PEK"
+    },
+    {
+      "source": "HAK",
+      "target": "KWE"
+    },
+    {
+      "source": "HAK",
+      "target": "TFU"
+    },
+    {
+      "source": "LTN",
+      "target": "AMS"
+    },
+    {
+      "source": "LTN",
+      "target": "OTP"
+    },
+    {
+      "source": "LTN",
+      "target": "DUB"
+    },
+    {
+      "source": "LTN",
+      "target": "BFS"
+    },
+    {
+      "source": "LTN",
+      "target": "TIA"
+    },
+    {
+      "source": "LTN",
+      "target": "EDI"
+    },
+    {
+      "source": "LTN",
+      "target": "WAW"
+    },
+    {
+      "source": "LTN",
+      "target": "BUD"
+    },
+    {
+      "source": "SVO",
+      "target": "AER"
+    },
+    {
+      "source": "SVO",
+      "target": "SVX"
+    },
+    {
+      "source": "SVO",
+      "target": "KZN"
+    },
+    {
+      "source": "SVO",
+      "target": "IST"
+    },
+    {
+      "source": "SVO",
+      "target": "EVN"
+    },
+    {
+      "source": "SVO",
+      "target": "OVB"
+    },
+    {
+      "source": "SVO",
+      "target": "AYT"
+    },
+    {
+      "source": "SVO",
+      "target": "KJA"
+    },
+    {
+      "source": "KRK",
+      "target": "AMS"
+    },
+    {
+      "source": "KRK",
+      "target": "FRA"
+    },
+    {
+      "source": "KRK",
+      "target": "STN"
+    },
+    {
+      "source": "KRK",
+      "target": "BCN"
+    },
+    {
+      "source": "KRK",
+      "target": "CPH"
+    },
+    {
+      "source": "KRK",
+      "target": "MUC"
+    },
+    {
+      "source": "KRK",
+      "target": "MAN"
+    },
+    {
+      "source": "KRK",
+      "target": "LTN"
+    },
+    {
+      "source": "NCE",
+      "target": "LHR"
+    },
+    {
+      "source": "NCE",
+      "target": "GVA"
+    },
+    {
+      "source": "NCE",
+      "target": "AMS"
+    },
+    {
+      "source": "NCE",
+      "target": "FCO"
+    },
+    {
+      "source": "NCE",
+      "target": "MAD"
+    },
+    {
+      "source": "NCE",
+      "target": "BRU"
+    },
+    {
+      "source": "NCE",
+      "target": "ZRH"
+    },
+    {
+      "source": "NCE",
+      "target": "FRA"
+    },
+    {
+      "source": "CRL",
+      "target": "SAW"
+    },
+    {
+      "source": "CRL",
+      "target": "BGY"
+    },
+    {
+      "source": "CRL",
+      "target": "LIS"
+    },
+    {
+      "source": "CRL",
+      "target": "RAK"
+    },
+    {
+      "source": "CRL",
+      "target": "ALC"
+    },
+    {
+      "source": "CRL",
+      "target": "BUD"
+    },
+    {
+      "source": "CRL",
+      "target": "MAN"
+    },
+    {
+      "source": "CRL",
+      "target": "TIA"
+    },
+    {
+      "source": "HEL",
+      "target": "RIX"
+    },
+    {
+      "source": "HEL",
+      "target": "CDG"
+    },
+    {
+      "source": "HEL",
+      "target": "AMS"
+    },
+    {
+      "source": "HEL",
+      "target": "LHR"
+    },
+    {
+      "source": "HEL",
+      "target": "FRA"
+    },
+    {
+      "source": "HEL",
+      "target": "MUC"
+    },
+    {
+      "source": "HEL",
+      "target": "BER"
+    },
+    {
+      "source": "HEL",
+      "target": "WAW"
+    },
+    {
+      "source": "OPO",
+      "target": "AMS"
+    },
+    {
+      "source": "OPO",
+      "target": "BCN"
+    },
+    {
+      "source": "OPO",
+      "target": "FNC"
+    },
+    {
+      "source": "OPO",
+      "target": "LUX"
+    },
+    {
+      "source": "OPO",
+      "target": "STN"
+    },
+    {
+      "source": "OPO",
+      "target": "BVA"
+    },
+    {
+      "source": "OPO",
+      "target": "LGW"
+    },
+    {
+      "source": "OPO",
+      "target": "FRA"
+    },
+    {
+      "source": "OTP",
+      "target": "TLV"
+    },
+    {
+      "source": "OTP",
+      "target": "IST"
+    },
+    {
+      "source": "OTP",
+      "target": "CDG"
+    },
+    {
+      "source": "OTP",
+      "target": "RMO"
+    },
+    {
+      "source": "OTP",
+      "target": "AMS"
+    },
+    {
+      "source": "OTP",
+      "target": "DXB"
+    },
+    {
+      "source": "OTP",
+      "target": "WAW"
+    },
+    {
+      "source": "OTP",
+      "target": "VIE"
+    },
+    {
+      "source": "PHL",
+      "target": "ORD"
+    },
+    {
+      "source": "PHL",
+      "target": "CLT"
+    },
+    {
+      "source": "PHL",
+      "target": "MIA"
+    },
+    {
+      "source": "PHL",
+      "target": "DFW"
+    },
+    {
+      "source": "PHL",
+      "target": "BNA"
+    },
+    {
+      "source": "PHL",
+      "target": "TPA"
+    },
+    {
+      "source": "PHL",
+      "target": "DEN"
+    },
+    {
+      "source": "PHL",
+      "target": "RDU"
+    },
+    {
+      "source": "LPA",
+      "target": "ACE"
+    },
+    {
+      "source": "LPA",
+      "target": "FUE"
+    },
+    {
+      "source": "LPA",
+      "target": "TFS"
+    },
+    {
+      "source": "LPA",
+      "target": "BCN"
+    },
+    {
+      "source": "LPA",
+      "target": "SVQ"
+    },
+    {
+      "source": "LPA",
+      "target": "DUS"
+    },
+    {
+      "source": "LPA",
+      "target": "AMS"
+    },
+    {
+      "source": "LPA",
+      "target": "FRA"
+    },
+    {
+      "source": "LYS",
+      "target": "NTE"
+    },
+    {
+      "source": "LYS",
+      "target": "BOD"
+    },
+    {
+      "source": "LYS",
+      "target": "CDG"
+    },
+    {
+      "source": "LYS",
+      "target": "TLS"
+    },
+    {
+      "source": "LYS",
+      "target": "LGW"
+    },
+    {
+      "source": "LYS",
+      "target": "MAD"
+    },
+    {
+      "source": "LYS",
+      "target": "AMS"
+    },
+    {
+      "source": "LYS",
+      "target": "FRA"
+    },
+    {
+      "source": "HGH",
+      "target": "CTU"
+    },
+    {
+      "source": "HGH",
+      "target": "HRB"
+    },
+    {
+      "source": "HGH",
+      "target": "SHE"
+    },
+    {
+      "source": "HGH",
+      "target": "CGQ"
+    },
+    {
+      "source": "HGH",
+      "target": "KWE"
+    },
+    {
+      "source": "HGH",
+      "target": "SYX"
+    },
+    {
+      "source": "HGH",
+      "target": "TAO"
+    },
+    {
+      "source": "HGH",
+      "target": "HAK"
+    },
+    {
+      "source": "BOM",
+      "target": "BLR"
+    },
+    {
+      "source": "BOM",
+      "target": "MAA"
+    },
+    {
+      "source": "BOM",
+      "target": "HYD"
+    },
+    {
+      "source": "BOM",
+      "target": "LHR"
+    },
+    {
+      "source": "BOM",
+      "target": "BKK"
+    },
+    {
+      "source": "BOM",
+      "target": "SIN"
+    },
+    {
+      "source": "BOM",
+      "target": "DOH"
+    },
+    {
+      "source": "BOM",
+      "target": "MCT"
+    },
+    {
+      "source": "HAM",
+      "target": "LHR"
+    },
+    {
+      "source": "HAM",
+      "target": "VIE"
+    },
+    {
+      "source": "HAM",
+      "target": "AMS"
+    },
+    {
+      "source": "HAM",
+      "target": "CDG"
+    },
+    {
+      "source": "HAM",
+      "target": "CPH"
+    },
+    {
+      "source": "HAM",
+      "target": "PMI"
+    },
+    {
+      "source": "HAM",
+      "target": "IST"
+    },
+    {
+      "source": "HAM",
+      "target": "STR"
+    },
+    {
+      "source": "MRS",
+      "target": "NTE"
+    },
+    {
+      "source": "MRS",
+      "target": "ALG"
+    },
+    {
+      "source": "MRS",
+      "target": "BOD"
+    },
+    {
+      "source": "MRS",
+      "target": "MAD"
+    },
+    {
+      "source": "MRS",
+      "target": "AMS"
+    },
+    {
+      "source": "MRS",
+      "target": "ORY"
+    },
+    {
+      "source": "MRS",
+      "target": "LIS"
+    },
+    {
+      "source": "MRS",
+      "target": "FRA"
+    },
+    {
+      "source": "ADD",
+      "target": "DXB"
+    },
+    {
+      "source": "ADD",
+      "target": "FCO"
+    },
+    {
+      "source": "ADD",
+      "target": "JED"
+    },
+    {
+      "source": "ADD",
+      "target": "JNB"
+    },
+    {
+      "source": "ADD",
+      "target": "NBO"
+    },
+    {
+      "source": "ADD",
+      "target": "TLV"
+    },
+    {
+      "source": "ADD",
+      "target": "RUH"
+    },
+    {
+      "source": "ADD",
+      "target": "AMM"
+    },
+    {
+      "source": "CUN",
+      "target": "MEX"
+    },
+    {
+      "source": "CUN",
+      "target": "MTY"
+    },
+    {
+      "source": "CUN",
+      "target": "DFW"
+    },
+    {
+      "source": "CUN",
+      "target": "MSP"
+    },
+    {
+      "source": "CUN",
+      "target": "ATL"
+    },
+    {
+      "source": "CUN",
+      "target": "ORD"
+    },
+    {
+      "source": "CUN",
+      "target": "PTY"
+    },
+    {
+      "source": "CUN",
+      "target": "MIA"
+    },
+    {
+      "source": "BNA",
+      "target": "DCA"
+    },
+    {
+      "source": "BNA",
+      "target": "LGA"
+    },
+    {
+      "source": "BNA",
+      "target": "DFW"
+    },
+    {
+      "source": "BNA",
+      "target": "ATL"
+    },
+    {
+      "source": "BNA",
+      "target": "ORD"
+    },
+    {
+      "source": "BNA",
+      "target": "DEN"
+    },
+    {
+      "source": "BNA",
+      "target": "AUS"
+    },
+    {
+      "source": "BNA",
+      "target": "CLT"
+    },
+    {
+      "source": "BRS",
+      "target": "DUB"
+    },
+    {
+      "source": "BRS",
+      "target": "AMS"
+    },
+    {
+      "source": "BRS",
+      "target": "CDG"
+    },
+    {
+      "source": "BRS",
+      "target": "GLA"
+    },
+    {
+      "source": "BRS",
+      "target": "TFS"
+    },
+    {
+      "source": "BRS",
+      "target": "ACE"
+    },
+    {
+      "source": "BRS",
+      "target": "BFS"
+    },
+    {
+      "source": "BRS",
+      "target": "KRK"
+    },
+    {
+      "source": "CAI",
+      "target": "RUH"
+    },
+    {
+      "source": "CAI",
+      "target": "KWI"
+    },
+    {
+      "source": "CAI",
+      "target": "MED"
+    },
+    {
+      "source": "CAI",
+      "target": "SSH"
+    },
+    {
+      "source": "CAI",
+      "target": "DXB"
+    },
+    {
+      "source": "CAI",
+      "target": "HRG"
+    },
+    {
+      "source": "CAI",
+      "target": "AMM"
+    },
+    {
+      "source": "CAI",
+      "target": "IST"
+    },
+    {
+      "source": "STR",
+      "target": "FRA"
+    },
+    {
+      "source": "STR",
+      "target": "AMS"
+    },
+    {
+      "source": "STR",
+      "target": "LHR"
+    },
+    {
+      "source": "STR",
+      "target": "VIE"
+    },
+    {
+      "source": "STR",
+      "target": "SAW"
+    },
+    {
+      "source": "STR",
+      "target": "MUC"
+    },
+    {
+      "source": "STR",
+      "target": "IST"
+    },
+    {
+      "source": "STR",
+      "target": "CPH"
+    },
+    {
+      "source": "WUH",
+      "target": "PKX"
+    },
+    {
+      "source": "WUH",
+      "target": "SHE"
+    },
+    {
+      "source": "WUH",
+      "target": "CAN"
+    },
+    {
+      "source": "WUH",
+      "target": "HRB"
+    },
+    {
+      "source": "WUH",
+      "target": "PEK"
+    },
+    {
+      "source": "WUH",
+      "target": "TAO"
+    },
+    {
+      "source": "WUH",
+      "target": "SYX"
+    },
+    {
+      "source": "WUH",
+      "target": "PVG"
+    },
+    {
+      "source": "YVR",
+      "target": "YYC"
+    },
+    {
+      "source": "YVR",
+      "target": "LAX"
+    },
+    {
+      "source": "YVR",
+      "target": "CUN"
+    },
+    {
+      "source": "YVR",
+      "target": "DEN"
+    },
+    {
+      "source": "YVR",
+      "target": "HKG"
+    },
+    {
+      "source": "YVR",
+      "target": "LAS"
+    },
+    {
+      "source": "YVR",
+      "target": "MEX"
+    },
+    {
+      "source": "YVR",
+      "target": "ICN"
+    },
+    {
+      "source": "RUH",
+      "target": "MED"
+    },
+    {
+      "source": "RUH",
+      "target": "AMM"
+    },
+    {
+      "source": "RUH",
+      "target": "KWI"
+    },
+    {
+      "source": "RUH",
+      "target": "AUH"
+    },
+    {
+      "source": "RUH",
+      "target": "LHR"
+    },
+    {
+      "source": "RUH",
+      "target": "IST"
+    },
+    {
+      "source": "RUH",
+      "target": "BOM"
+    },
+    {
+      "source": "RUH",
+      "target": "DEL"
+    },
+    {
+      "source": "TFS",
+      "target": "LGW"
+    },
+    {
+      "source": "TFS",
+      "target": "BRU"
+    },
+    {
+      "source": "TFS",
+      "target": "BER"
+    },
+    {
+      "source": "TFS",
+      "target": "DUB"
+    },
+    {
+      "source": "TFS",
+      "target": "LPL"
+    },
+    {
+      "source": "TFS",
+      "target": "DUS"
+    },
+    {
+      "source": "TFS",
+      "target": "FRA"
+    },
+    {
+      "source": "TFS",
+      "target": "EMA"
+    },
+    {
+      "source": "CMN",
+      "target": "CDG"
+    },
+    {
+      "source": "CMN",
+      "target": "AGA"
+    },
+    {
+      "source": "CMN",
+      "target": "RAK"
+    },
+    {
+      "source": "CMN",
+      "target": "MAD"
+    },
+    {
+      "source": "CMN",
+      "target": "LIS"
+    },
+    {
+      "source": "CMN",
+      "target": "JED"
+    },
+    {
+      "source": "CMN",
+      "target": "CAI"
+    },
+    {
+      "source": "CMN",
+      "target": "BCN"
+    },
+    {
+      "source": "BSL",
+      "target": "FRA"
+    },
+    {
+      "source": "BSL",
+      "target": "LHR"
+    },
+    {
+      "source": "BSL",
+      "target": "AMS"
+    },
+    {
+      "source": "BSL",
+      "target": "SAW"
+    },
+    {
+      "source": "BSL",
+      "target": "MUC"
+    },
+    {
+      "source": "BSL",
+      "target": "BCN"
+    },
+    {
+      "source": "BSL",
+      "target": "BUD"
+    },
+    {
+      "source": "BSL",
+      "target": "OPO"
+    },
+    {
+      "source": "LUX",
+      "target": "VIE"
+    },
+    {
+      "source": "LUX",
+      "target": "AMS"
+    },
+    {
+      "source": "LUX",
+      "target": "LIS"
+    },
+    {
+      "source": "LUX",
+      "target": "MUC"
+    },
+    {
+      "source": "LUX",
+      "target": "CDG"
+    },
+    {
+      "source": "LUX",
+      "target": "FRA"
+    },
+    {
+      "source": "LUX",
+      "target": "LHR"
+    },
+    {
+      "source": "LUX",
+      "target": "MXP"
+    },
+    {
+      "source": "BRI",
+      "target": "FCO"
+    },
+    {
+      "source": "BRI",
+      "target": "MXP"
+    },
+    {
+      "source": "BRI",
+      "target": "TIA"
+    },
+    {
+      "source": "BRI",
+      "target": "BUD"
+    },
+    {
+      "source": "BRI",
+      "target": "VRN"
+    },
+    {
+      "source": "BRI",
+      "target": "PSA"
+    },
+    {
+      "source": "BRI",
+      "target": "VCE"
+    },
+    {
+      "source": "BRI",
+      "target": "KRK"
+    },
+    {
+      "source": "HER",
+      "target": "RHO"
+    },
+    {
+      "source": "HER",
+      "target": "SKG"
+    },
+    {
+      "source": "HER",
+      "target": "TLV"
+    },
+    {
+      "source": "HER",
+      "target": "BEG"
+    },
+    {
+      "source": "HER",
+      "target": "BRU"
+    },
+    {
+      "source": "HER",
+      "target": "EIN"
+    },
+    {
+      "source": "HER",
+      "target": "MRS"
+    },
+    {
+      "source": "HER",
+      "target": "MAN"
+    },
+    {
+      "source": "LED",
+      "target": "VKO"
+    },
+    {
+      "source": "LED",
+      "target": "AER"
+    },
+    {
+      "source": "LED",
+      "target": "KZN"
+    },
+    {
+      "source": "LED",
+      "target": "SVX"
+    },
+    {
+      "source": "LED",
+      "target": "SAW"
+    },
+    {
+      "source": "LED",
+      "target": "IST"
+    },
+    {
+      "source": "LED",
+      "target": "OVB"
+    },
+    {
+      "source": "LED",
+      "target": "DXB"
+    },
+    {
+      "source": "CGN",
+      "target": "MUC"
+    },
+    {
+      "source": "CGN",
+      "target": "VIE"
+    },
+    {
+      "source": "CGN",
+      "target": "LHR"
+    },
+    {
+      "source": "CGN",
+      "target": "IST"
+    },
+    {
+      "source": "CGN",
+      "target": "PMI"
+    },
+    {
+      "source": "CGN",
+      "target": "STN"
+    },
+    {
+      "source": "CGN",
+      "target": "ZRH"
+    },
+    {
+      "source": "CGN",
+      "target": "AYT"
+    },
+    {
+      "source": "RAK",
+      "target": "CDG"
+    },
+    {
+      "source": "RAK",
+      "target": "NTE"
+    },
+    {
+      "source": "RAK",
+      "target": "MAD"
+    },
+    {
+      "source": "RAK",
+      "target": "MXP"
+    },
+    {
+      "source": "RAK",
+      "target": "LIS"
+    },
+    {
+      "source": "RAK",
+      "target": "LYS"
+    },
+    {
+      "source": "RAK",
+      "target": "BOD"
+    },
+    {
+      "source": "RAK",
+      "target": "GVA"
+    },
+    {
+      "source": "NRT",
+      "target": "TPE"
+    },
+    {
+      "source": "NRT",
+      "target": "PVG"
+    },
+    {
+      "source": "NRT",
+      "target": "MNL"
+    },
+    {
+      "source": "NRT",
+      "target": "BKK"
+    },
+    {
+      "source": "NRT",
+      "target": "SIN"
+    },
+    {
+      "source": "NRT",
+      "target": "KIX"
+    },
+    {
+      "source": "NRT",
+      "target": "LAX"
+    },
+    {
+      "source": "NRT",
+      "target": "KUL"
+    },
+    {
+      "source": "BEG",
+      "target": "IST"
+    },
+    {
+      "source": "BEG",
+      "target": "ZRH"
+    },
+    {
+      "source": "BEG",
+      "target": "VIE"
+    },
+    {
+      "source": "BEG",
+      "target": "AMS"
+    },
+    {
+      "source": "BEG",
+      "target": "FRA"
+    },
+    {
+      "source": "BEG",
+      "target": "DXB"
+    },
+    {
+      "source": "BEG",
+      "target": "SVO"
+    },
+    {
+      "source": "BEG",
+      "target": "ATH"
+    },
+    {
+      "source": "BLR",
+      "target": "HYD"
+    },
+    {
+      "source": "BLR",
+      "target": "MAA"
+    },
+    {
+      "source": "BLR",
+      "target": "DXB"
+    },
+    {
+      "source": "BLR",
+      "target": "SIN"
+    },
+    {
+      "source": "BLR",
+      "target": "LHR"
+    },
+    {
+      "source": "BLR",
+      "target": "KUL"
+    },
+    {
+      "source": "BLR",
+      "target": "BKK"
+    },
+    {
+      "source": "BLR",
+      "target": "JED"
+    },
+    {
+      "source": "GRU",
+      "target": "CNF"
+    },
+    {
+      "source": "GRU",
+      "target": "BOG"
+    },
+    {
+      "source": "GRU",
+      "target": "PTY"
+    },
+    {
+      "source": "GRU",
+      "target": "LIM"
+    },
+    {
+      "source": "GRU",
+      "target": "MIA"
+    },
+    {
+      "source": "GRU",
+      "target": "MAD"
+    },
+    {
+      "source": "GRU",
+      "target": "EZE"
+    },
+    {
+      "source": "GRU",
+      "target": "CDG"
+    },
+    {
+      "source": "MLA",
+      "target": "FCO"
+    },
+    {
+      "source": "MLA",
+      "target": "IST"
+    },
+    {
+      "source": "MLA",
+      "target": "LGW"
+    },
+    {
+      "source": "MLA",
+      "target": "MUC"
+    },
+    {
+      "source": "MLA",
+      "target": "LHR"
+    },
+    {
+      "source": "MLA",
+      "target": "KRK"
+    },
+    {
+      "source": "MLA",
+      "target": "DUB"
+    },
+    {
+      "source": "MLA",
+      "target": "MAD"
+    },
+    {
+      "source": "YYC",
+      "target": "PHX"
+    },
+    {
+      "source": "YYC",
+      "target": "LAS"
+    },
+    {
+      "source": "YYC",
+      "target": "IAH"
+    },
+    {
+      "source": "YYC",
+      "target": "LAX"
+    },
+    {
+      "source": "YYC",
+      "target": "ORD"
+    },
+    {
+      "source": "YYC",
+      "target": "DEN"
+    },
+    {
+      "source": "YYC",
+      "target": "LHR"
+    },
+    {
+      "source": "YYC",
+      "target": "SEA"
+    },
+    {
+      "source": "DCA",
+      "target": "LGA"
+    },
+    {
+      "source": "DCA",
+      "target": "DFW"
+    },
+    {
+      "source": "DCA",
+      "target": "RDU"
+    },
+    {
+      "source": "DCA",
+      "target": "IAH"
+    },
+    {
+      "source": "DCA",
+      "target": "FLL"
+    },
+    {
+      "source": "DCA",
+      "target": "TPA"
+    },
+    {
+      "source": "DCA",
+      "target": "CLT"
+    },
+    {
+      "source": "DCA",
+      "target": "JFK"
+    },
+    {
+      "source": "SLC",
+      "target": "DFW"
+    },
+    {
+      "source": "SLC",
+      "target": "SAN"
+    },
+    {
+      "source": "SLC",
+      "target": "ATL"
+    },
+    {
+      "source": "SLC",
+      "target": "ORD"
+    },
+    {
+      "source": "SLC",
+      "target": "IAH"
+    },
+    {
+      "source": "SLC",
+      "target": "PDX"
+    },
+    {
+      "source": "SLC",
+      "target": "JFK"
+    },
+    {
+      "source": "SLC",
+      "target": "AUS"
+    },
+    {
+      "source": "TLV",
+      "target": "FCO"
+    },
+    {
+      "source": "TLV",
+      "target": "CDG"
+    },
+    {
+      "source": "TLV",
+      "target": "LCA"
+    },
+    {
+      "source": "TLV",
+      "target": "VIE"
+    },
+    {
+      "source": "TLV",
+      "target": "EWR"
+    },
+    {
+      "source": "TLV",
+      "target": "FRA"
+    },
+    {
+      "source": "TLV",
+      "target": "SOF"
+    },
+    {
+      "source": "TLV",
+      "target": "JFK"
+    },
+    {
+      "source": "VLC",
+      "target": "MAD"
+    },
+    {
+      "source": "VLC",
+      "target": "AMS"
+    },
+    {
+      "source": "VLC",
+      "target": "FCO"
+    },
+    {
+      "source": "VLC",
+      "target": "ORY"
+    },
+    {
+      "source": "VLC",
+      "target": "SVQ"
+    },
+    {
+      "source": "VLC",
+      "target": "IBZ"
+    },
+    {
+      "source": "VLC",
+      "target": "LGW"
+    },
+    {
+      "source": "VLC",
+      "target": "MXP"
+    },
+    {
+      "source": "CGO",
+      "target": "URC"
+    },
+    {
+      "source": "CGO",
+      "target": "XMN"
+    },
+    {
+      "source": "CGO",
+      "target": "DLC"
+    },
+    {
+      "source": "CGO",
+      "target": "SHE"
+    },
+    {
+      "source": "CGO",
+      "target": "PVG"
+    },
+    {
+      "source": "CGO",
+      "target": "FOC"
+    },
+    {
+      "source": "CGO",
+      "target": "SYX"
+    },
+    {
+      "source": "CGO",
+      "target": "KWE"
+    },
+    {
+      "source": "XMN",
+      "target": "KMG"
+    },
+    {
+      "source": "XMN",
+      "target": "PKX"
+    },
+    {
+      "source": "XMN",
+      "target": "NKG"
+    },
+    {
+      "source": "XMN",
+      "target": "CSX"
+    },
+    {
+      "source": "XMN",
+      "target": "TFU"
+    },
+    {
+      "source": "XMN",
+      "target": "WUH"
+    },
+    {
+      "source": "XMN",
+      "target": "HGH"
+    },
+    {
+      "source": "XMN",
+      "target": "TNA"
+    },
+    {
+      "source": "MEX",
+      "target": "MTY"
+    },
+    {
+      "source": "MEX",
+      "target": "LAX"
+    },
+    {
+      "source": "MEX",
+      "target": "MIA"
+    },
+    {
+      "source": "MEX",
+      "target": "MAD"
+    },
+    {
+      "source": "MEX",
+      "target": "BOG"
+    },
+    {
+      "source": "MEX",
+      "target": "JFK"
+    },
+    {
+      "source": "MEX",
+      "target": "ORD"
+    },
+    {
+      "source": "MEX",
+      "target": "PTY"
+    },
+    {
+      "source": "TIA",
+      "target": "ATH"
+    },
+    {
+      "source": "TIA",
+      "target": "MXP"
+    },
+    {
+      "source": "TIA",
+      "target": "IST"
+    },
+    {
+      "source": "TIA",
+      "target": "PSA"
+    },
+    {
+      "source": "TIA",
+      "target": "VIE"
+    },
+    {
+      "source": "TIA",
+      "target": "BLQ"
+    },
+    {
+      "source": "TIA",
+      "target": "SAW"
+    },
+    {
+      "source": "TIA",
+      "target": "FRA"
+    },
+    {
+      "source": "BLQ",
+      "target": "CDG"
+    },
+    {
+      "source": "BLQ",
+      "target": "CTA"
+    },
+    {
+      "source": "BLQ",
+      "target": "MAD"
+    },
+    {
+      "source": "BLQ",
+      "target": "IST"
+    },
+    {
+      "source": "BLQ",
+      "target": "AMS"
+    },
+    {
+      "source": "BLQ",
+      "target": "FCO"
+    },
+    {
+      "source": "BLQ",
+      "target": "LHR"
+    },
+    {
+      "source": "BLQ",
+      "target": "BCN"
+    },
+    {
+      "source": "KWI",
+      "target": "MED"
+    },
+    {
+      "source": "KWI",
+      "target": "BOM"
+    },
+    {
+      "source": "KWI",
+      "target": "DEL"
+    },
+    {
+      "source": "KWI",
+      "target": "AMM"
+    },
+    {
+      "source": "KWI",
+      "target": "SHJ"
+    },
+    {
+      "source": "KWI",
+      "target": "HYD"
+    },
+    {
+      "source": "KWI",
+      "target": "MCT"
+    },
+    {
+      "source": "KWI",
+      "target": "IST"
+    },
+    {
+      "source": "SHJ",
+      "target": "CAI"
+    },
+    {
+      "source": "SHJ",
+      "target": "DME"
+    },
+    {
+      "source": "SHJ",
+      "target": "MCT"
+    },
+    {
+      "source": "SHJ",
+      "target": "JED"
+    },
+    {
+      "source": "SHJ",
+      "target": "BKK"
+    },
+    {
+      "source": "SHJ",
+      "target": "BOM"
+    },
+    {
+      "source": "SHJ",
+      "target": "DEL"
+    },
+    {
+      "source": "SHJ",
+      "target": "HKT"
+    },
+    {
+      "source": "HND",
+      "target": "KIX"
+    },
+    {
+      "source": "HND",
+      "target": "PEK"
+    },
+    {
+      "source": "HND",
+      "target": "PVG"
+    },
+    {
+      "source": "HND",
+      "target": "BKK"
+    },
+    {
+      "source": "HND",
+      "target": "LAX"
+    },
+    {
+      "source": "HND",
+      "target": "SIN"
+    },
+    {
+      "source": "HND",
+      "target": "JFK"
+    },
+    {
+      "source": "HND",
+      "target": "SYD"
+    },
+    {
+      "source": "TPA",
+      "target": "ORD"
+    },
+    {
+      "source": "TPA",
+      "target": "CLT"
+    },
+    {
+      "source": "TPA",
+      "target": "MIA"
+    },
+    {
+      "source": "TPA",
+      "target": "LGA"
+    },
+    {
+      "source": "TPA",
+      "target": "DEN"
+    },
+    {
+      "source": "TPA",
+      "target": "BOS"
+    },
+    {
+      "source": "TPA",
+      "target": "DFW"
+    },
+    {
+      "source": "TPA",
+      "target": "BWI"
+    },
+    {
+      "source": "BOG",
+      "target": "PTY"
+    },
+    {
+      "source": "BOG",
+      "target": "LIM"
+    },
+    {
+      "source": "BOG",
+      "target": "MIA"
+    },
+    {
+      "source": "BOG",
+      "target": "MAD"
+    },
+    {
+      "source": "BOG",
+      "target": "MCO"
+    },
+    {
+      "source": "BOG",
+      "target": "PUJ"
+    },
+    {
+      "source": "BOG",
+      "target": "CUN"
+    },
+    {
+      "source": "BOG",
+      "target": "EZE"
+    },
+    {
+      "source": "PMO",
+      "target": "MXP"
+    },
+    {
+      "source": "PMO",
+      "target": "BLQ"
+    },
+    {
+      "source": "PMO",
+      "target": "VRN"
+    },
+    {
+      "source": "PMO",
+      "target": "NAP"
+    },
+    {
+      "source": "PMO",
+      "target": "PSA"
+    },
+    {
+      "source": "PMO",
+      "target": "VCE"
+    },
+    {
+      "source": "PMO",
+      "target": "VIE"
+    },
+    {
+      "source": "PMO",
+      "target": "KRK"
+    },
+    {
+      "source": "TAS",
+      "target": "IST"
+    },
+    {
+      "source": "TAS",
+      "target": "DXB"
+    },
+    {
+      "source": "TAS",
+      "target": "ALA"
+    },
+    {
+      "source": "TAS",
+      "target": "DME"
+    },
+    {
+      "source": "TAS",
+      "target": "SVO"
+    },
+    {
+      "source": "TAS",
+      "target": "VKO"
+    },
+    {
+      "source": "TAS",
+      "target": "JED"
+    },
+    {
+      "source": "TAS",
+      "target": "LED"
+    },
+    {
+      "source": "TPE",
+      "target": "KIX"
+    },
+    {
+      "source": "TPE",
+      "target": "MNL"
+    },
+    {
+      "source": "TPE",
+      "target": "PVG"
+    },
+    {
+      "source": "TPE",
+      "target": "SGN"
+    },
+    {
+      "source": "TPE",
+      "target": "HAN"
+    },
+    {
+      "source": "TPE",
+      "target": "SFO"
+    },
+    {
+      "source": "TPE",
+      "target": "KUL"
+    },
+    {
+      "source": "TPE",
+      "target": "LAX"
+    },
+    {
+      "source": "URC",
+      "target": "PEK"
+    },
+    {
+      "source": "URC",
+      "target": "CAN"
+    },
+    {
+      "source": "URC",
+      "target": "PKX"
+    },
+    {
+      "source": "URC",
+      "target": "CKG"
+    },
+    {
+      "source": "URC",
+      "target": "TNA"
+    },
+    {
+      "source": "URC",
+      "target": "LHW"
+    },
+    {
+      "source": "URC",
+      "target": "CSX"
+    },
+    {
+      "source": "URC",
+      "target": "CTU"
+    },
+    {
+      "source": "CFU",
+      "target": "ATH"
+    },
+    {
+      "source": "CFU",
+      "target": "FRA"
+    },
+    {
+      "source": "CFU",
+      "target": "BGY"
+    },
+    {
+      "source": "CFU",
+      "target": "HAM"
+    },
+    {
+      "source": "CFU",
+      "target": "BRS"
+    },
+    {
+      "source": "CFU",
+      "target": "AMS"
+    },
+    {
+      "source": "CFU",
+      "target": "PRG"
+    },
+    {
+      "source": "CFU",
+      "target": "LHR"
+    },
+    {
+      "source": "MDW",
+      "target": "MCO"
+    },
+    {
+      "source": "MDW",
+      "target": "ATL"
+    },
+    {
+      "source": "MDW",
+      "target": "PHX"
+    },
+    {
+      "source": "MDW",
+      "target": "LGA"
+    },
+    {
+      "source": "MDW",
+      "target": "MSP"
+    },
+    {
+      "source": "MDW",
+      "target": "DCA"
+    },
+    {
+      "source": "MDW",
+      "target": "LAS"
+    },
+    {
+      "source": "MDW",
+      "target": "DTW"
+    },
+    {
+      "source": "AUS",
+      "target": "DFW"
+    },
+    {
+      "source": "AUS",
+      "target": "ATL"
+    },
+    {
+      "source": "AUS",
+      "target": "LAX"
+    },
+    {
+      "source": "AUS",
+      "target": "MCO"
+    },
+    {
+      "source": "AUS",
+      "target": "ORD"
+    },
+    {
+      "source": "AUS",
+      "target": "IAH"
+    },
+    {
+      "source": "AUS",
+      "target": "LAS"
+    },
+    {
+      "source": "AUS",
+      "target": "SAN"
+    },
+    {
+      "source": "CSX",
+      "target": "PEK"
+    },
+    {
+      "source": "CSX",
+      "target": "KMG"
+    },
+    {
+      "source": "CSX",
+      "target": "HRB"
+    },
+    {
+      "source": "CSX",
+      "target": "TAO"
+    },
+    {
+      "source": "CSX",
+      "target": "TNA"
+    },
+    {
+      "source": "CSX",
+      "target": "PVG"
+    },
+    {
+      "source": "CSX",
+      "target": "NGB"
+    },
+    {
+      "source": "CSX",
+      "target": "CTU"
+    },
+    {
+      "source": "HYD",
+      "target": "MAA"
+    },
+    {
+      "source": "HYD",
+      "target": "DXB"
+    },
+    {
+      "source": "HYD",
+      "target": "AUH"
+    },
+    {
+      "source": "HYD",
+      "target": "MCT"
+    },
+    {
+      "source": "HYD",
+      "target": "SIN"
+    },
+    {
+      "source": "HYD",
+      "target": "DOH"
+    },
+    {
+      "source": "HYD",
+      "target": "JED"
+    },
+    {
+      "source": "HYD",
+      "target": "KUL"
+    },
+    {
+      "source": "RIX",
+      "target": "ARN"
+    },
+    {
+      "source": "RIX",
+      "target": "AMS"
+    },
+    {
+      "source": "RIX",
+      "target": "CPH"
+    },
+    {
+      "source": "RIX",
+      "target": "WAW"
+    },
+    {
+      "source": "RIX",
+      "target": "OSL"
+    },
+    {
+      "source": "RIX",
+      "target": "IST"
+    },
+    {
+      "source": "RIX",
+      "target": "FRA"
+    },
+    {
+      "source": "RIX",
+      "target": "MUC"
+    },
+    {
+      "source": "SYD",
+      "target": "MEL"
+    },
+    {
+      "source": "SYD",
+      "target": "BNE"
+    },
+    {
+      "source": "SYD",
+      "target": "SIN"
+    },
+    {
+      "source": "SYD",
+      "target": "KUL"
+    },
+    {
+      "source": "SYD",
+      "target": "HKG"
+    },
+    {
+      "source": "SYD",
+      "target": "CAN"
+    },
+    {
+      "source": "SYD",
+      "target": "ICN"
+    },
+    {
+      "source": "SYD",
+      "target": "LAX"
+    },
+    {
+      "source": "VKO",
+      "target": "AER"
+    },
+    {
+      "source": "VKO",
+      "target": "DXB"
+    },
+    {
+      "source": "VKO",
+      "target": "EVN"
+    },
+    {
+      "source": "VKO",
+      "target": "GYD"
+    },
+    {
+      "source": "VKO",
+      "target": "OVB"
+    },
+    {
+      "source": "VKO",
+      "target": "HRG"
+    },
+    {
+      "source": "VKO",
+      "target": "KJA"
+    },
+    {
+      "source": "VKO",
+      "target": "ALA"
+    },
+    {
+      "source": "HRB",
+      "target": "NKG"
+    },
+    {
+      "source": "HRB",
+      "target": "CAN"
+    },
+    {
+      "source": "HRB",
+      "target": "SZX"
+    },
+    {
+      "source": "HRB",
+      "target": "PEK"
+    },
+    {
+      "source": "HRB",
+      "target": "TAO"
+    },
+    {
+      "source": "HRB",
+      "target": "TFU"
+    },
+    {
+      "source": "HRB",
+      "target": "NGB"
+    },
+    {
+      "source": "HRB",
+      "target": "CGO"
+    },
+    {
+      "source": "ADB",
+      "target": "ESB"
+    },
+    {
+      "source": "ADB",
+      "target": "STN"
+    },
+    {
+      "source": "ADB",
+      "target": "DUS"
+    },
+    {
+      "source": "ADB",
+      "target": "FRA"
+    },
+    {
+      "source": "ADB",
+      "target": "BER"
+    },
+    {
+      "source": "ADB",
+      "target": "BCN"
+    },
+    {
+      "source": "ADB",
+      "target": "STR"
+    },
+    {
+      "source": "ADB",
+      "target": "MAD"
+    },
+    {
+      "source": "AMM",
+      "target": "DXB"
+    },
+    {
+      "source": "AMM",
+      "target": "IST"
+    },
+    {
+      "source": "AMM",
+      "target": "DOH"
+    },
+    {
+      "source": "AMM",
+      "target": "AUH"
+    },
+    {
+      "source": "AMM",
+      "target": "MED"
+    },
+    {
+      "source": "AMM",
+      "target": "SHJ"
+    },
+    {
+      "source": "AMM",
+      "target": "LHR"
+    },
+    {
+      "source": "AMM",
+      "target": "FRA"
+    },
+    {
+      "source": "DMK",
+      "target": "HKT"
+    },
+    {
+      "source": "DMK",
+      "target": "CGK"
+    },
+    {
+      "source": "DMK",
+      "target": "SIN"
+    },
+    {
+      "source": "DMK",
+      "target": "HAN"
+    },
+    {
+      "source": "DMK",
+      "target": "SGN"
+    },
+    {
+      "source": "DMK",
+      "target": "NRT"
+    },
+    {
+      "source": "DMK",
+      "target": "TPE"
+    },
+    {
+      "source": "DMK",
+      "target": "KIX"
+    },
+    {
+      "source": "NKG",
+      "target": "SHE"
+    },
+    {
+      "source": "NKG",
+      "target": "CGQ"
+    },
+    {
+      "source": "NKG",
+      "target": "XIY"
+    },
+    {
+      "source": "NKG",
+      "target": "TFU"
+    },
+    {
+      "source": "NKG",
+      "target": "KWE"
+    },
+    {
+      "source": "NKG",
+      "target": "NNG"
+    },
+    {
+      "source": "NKG",
+      "target": "DLC"
+    },
+    {
+      "source": "NKG",
+      "target": "CTU"
+    },
+    {
+      "source": "SKG",
+      "target": "LCA"
+    },
+    {
+      "source": "SKG",
+      "target": "IST"
+    },
+    {
+      "source": "SKG",
+      "target": "MUC"
+    },
+    {
+      "source": "SKG",
+      "target": "FRA"
+    },
+    {
+      "source": "SKG",
+      "target": "DUS"
+    },
+    {
+      "source": "SKG",
+      "target": "FCO"
+    },
+    {
+      "source": "SKG",
+      "target": "STR"
+    },
+    {
+      "source": "SKG",
+      "target": "STN"
+    },
+    {
+      "source": "SVQ",
+      "target": "LGW"
+    },
+    {
+      "source": "SVQ",
+      "target": "ORY"
+    },
+    {
+      "source": "SVQ",
+      "target": "MAD"
+    },
+    {
+      "source": "SVQ",
+      "target": "FCO"
+    },
+    {
+      "source": "SVQ",
+      "target": "MXP"
+    },
+    {
+      "source": "SVQ",
+      "target": "BIO"
+    },
+    {
+      "source": "SVQ",
+      "target": "AMS"
+    },
+    {
+      "source": "SVQ",
+      "target": "LIS"
+    },
+    {
+      "source": "NTE",
+      "target": "CDG"
+    },
+    {
+      "source": "NTE",
+      "target": "BCN"
+    },
+    {
+      "source": "NTE",
+      "target": "AMS"
+    },
+    {
+      "source": "NTE",
+      "target": "MAD"
+    },
+    {
+      "source": "NTE",
+      "target": "NCE"
+    },
+    {
+      "source": "NTE",
+      "target": "TLS"
+    },
+    {
+      "source": "NTE",
+      "target": "GVA"
+    },
+    {
+      "source": "NTE",
+      "target": "OPO"
+    },
+    {
+      "source": "RHO",
+      "target": "AMS"
+    },
+    {
+      "source": "RHO",
+      "target": "EIN"
+    },
+    {
+      "source": "RHO",
+      "target": "SKG"
+    },
+    {
+      "source": "RHO",
+      "target": "BHX"
+    },
+    {
+      "source": "RHO",
+      "target": "MUC"
+    },
+    {
+      "source": "RHO",
+      "target": "GVA"
+    },
+    {
+      "source": "RHO",
+      "target": "GLA"
+    },
+    {
+      "source": "RHO",
+      "target": "BGY"
+    },
+    {
+      "source": "CTA",
+      "target": "VRN"
+    },
+    {
+      "source": "CTA",
+      "target": "VCE"
+    },
+    {
+      "source": "CTA",
+      "target": "NAP"
+    },
+    {
+      "source": "CTA",
+      "target": "PSA"
+    },
+    {
+      "source": "CTA",
+      "target": "OTP"
+    },
+    {
+      "source": "CTA",
+      "target": "BUD"
+    },
+    {
+      "source": "CTA",
+      "target": "MLA"
+    },
+    {
+      "source": "CTA",
+      "target": "IST"
+    },
+    {
+      "source": "PTY",
+      "target": "MIA"
+    },
+    {
+      "source": "PTY",
+      "target": "PUJ"
+    },
+    {
+      "source": "PTY",
+      "target": "LIM"
+    },
+    {
+      "source": "PTY",
+      "target": "MCO"
+    },
+    {
+      "source": "PTY",
+      "target": "EZE"
+    },
+    {
+      "source": "PTY",
+      "target": "JFK"
+    },
+    {
+      "source": "PTY",
+      "target": "LAX"
+    },
+    {
+      "source": "PTY",
+      "target": "IAD"
+    },
+    {
+      "source": "SYX",
+      "target": "PKX"
+    },
+    {
+      "source": "SYX",
+      "target": "CAN"
+    },
+    {
+      "source": "SYX",
+      "target": "XIY"
+    },
+    {
+      "source": "SYX",
+      "target": "CTU"
+    },
+    {
+      "source": "SYX",
+      "target": "TFU"
+    },
+    {
+      "source": "SYX",
+      "target": "TNA"
+    },
+    {
+      "source": "SYX",
+      "target": "PVG"
+    },
+    {
+      "source": "SYX",
+      "target": "CKG"
+    },
+    {
+      "source": "OVB",
+      "target": "DME"
+    },
+    {
+      "source": "OVB",
+      "target": "KJA"
+    },
+    {
+      "source": "OVB",
+      "target": "AER"
+    },
+    {
+      "source": "OVB",
+      "target": "SVX"
+    },
+    {
+      "source": "OVB",
+      "target": "DXB"
+    },
+    {
+      "source": "OVB",
+      "target": "KZN"
+    },
+    {
+      "source": "OVB",
+      "target": "TAS"
+    },
+    {
+      "source": "OVB",
+      "target": "ALA"
+    },
+    {
+      "source": "VCE",
+      "target": "MAD"
+    },
+    {
+      "source": "VCE",
+      "target": "CDG"
+    },
+    {
+      "source": "VCE",
+      "target": "BCN"
+    },
+    {
+      "source": "VCE",
+      "target": "LHR"
+    },
+    {
+      "source": "VCE",
+      "target": "FCO"
+    },
+    {
+      "source": "VCE",
+      "target": "FRA"
+    },
+    {
+      "source": "VCE",
+      "target": "AMS"
+    },
+    {
+      "source": "VCE",
+      "target": "IST"
+    },
+    {
+      "source": "KWE",
+      "target": "WNZ"
+    },
+    {
+      "source": "KWE",
+      "target": "PKX"
+    },
+    {
+      "source": "KWE",
+      "target": "PVG"
+    },
+    {
+      "source": "KWE",
+      "target": "PEK"
+    },
+    {
+      "source": "KWE",
+      "target": "NGB"
+    },
+    {
+      "source": "KWE",
+      "target": "TNA"
+    },
+    {
+      "source": "KWE",
+      "target": "XMN"
+    },
+    {
+      "source": "KWE",
+      "target": "SZX"
+    },
+    {
+      "source": "LGA",
+      "target": "RDU"
+    },
+    {
+      "source": "LGA",
+      "target": "DEN"
+    },
+    {
+      "source": "LGA",
+      "target": "STL"
+    },
+    {
+      "source": "LGA",
+      "target": "MSP"
+    },
+    {
+      "source": "LGA",
+      "target": "HOU"
+    },
+    {
+      "source": "LGA",
+      "target": "DAL"
+    },
+    {
+      "source": "LGA",
+      "target": "IAD"
+    },
+    {
+      "source": "LGA",
+      "target": "RSW"
+    },
+    {
+      "source": "SOF",
+      "target": "VIE"
+    },
+    {
+      "source": "SOF",
+      "target": "IST"
+    },
+    {
+      "source": "SOF",
+      "target": "MUC"
+    },
+    {
+      "source": "SOF",
+      "target": "STN"
+    },
+    {
+      "source": "SOF",
+      "target": "FRA"
+    },
+    {
+      "source": "SOF",
+      "target": "WAW"
+    },
+    {
+      "source": "SOF",
+      "target": "ATH"
+    },
+    {
+      "source": "SOF",
+      "target": "BCN"
+    },
+    {
+      "source": "TAO",
+      "target": "PVG"
+    },
+    {
+      "source": "TAO",
+      "target": "CGQ"
+    },
+    {
+      "source": "TAO",
+      "target": "CAN"
+    },
+    {
+      "source": "TAO",
+      "target": "SZX"
+    },
+    {
+      "source": "TAO",
+      "target": "TFU"
+    },
+    {
+      "source": "TAO",
+      "target": "CKG"
+    },
+    {
+      "source": "TAO",
+      "target": "SHE"
+    },
+    {
+      "source": "TAO",
+      "target": "DLC"
+    },
+    {
+      "source": "BWI",
+      "target": "ATL"
+    },
+    {
+      "source": "BWI",
+      "target": "BOS"
+    },
+    {
+      "source": "BWI",
+      "target": "MIA"
+    },
+    {
+      "source": "BWI",
+      "target": "DEN"
+    },
+    {
+      "source": "BWI",
+      "target": "CLT"
+    },
+    {
+      "source": "BWI",
+      "target": "DTW"
+    },
+    {
+      "source": "BWI",
+      "target": "BNA"
+    },
+    {
+      "source": "BWI",
+      "target": "RDU"
+    },
+    {
+      "source": "CGK",
+      "target": "JED"
+    },
+    {
+      "source": "CGK",
+      "target": "HKG"
+    },
+    {
+      "source": "CGK",
+      "target": "DOH"
+    },
+    {
+      "source": "CGK",
+      "target": "CAN"
+    },
+    {
+      "source": "CGK",
+      "target": "BKK"
+    },
+    {
+      "source": "CGK",
+      "target": "TPE"
+    },
+    {
+      "source": "CGK",
+      "target": "HND"
+    },
+    {
+      "source": "CGK",
+      "target": "XMN"
+    },
+    {
+      "source": "KEF",
+      "target": "LHR"
+    },
+    {
+      "source": "KEF",
+      "target": "CPH"
+    },
+    {
+      "source": "KEF",
+      "target": "AMS"
+    },
+    {
+      "source": "KEF",
+      "target": "MAN"
+    },
+    {
+      "source": "KEF",
+      "target": "HEL"
+    },
+    {
+      "source": "KEF",
+      "target": "LGW"
+    },
+    {
+      "source": "KEF",
+      "target": "CDG"
+    },
+    {
+      "source": "KEF",
+      "target": "OSL"
+    },
+    {
+      "source": "BOD",
+      "target": "CDG"
+    },
+    {
+      "source": "BOD",
+      "target": "AMS"
+    },
+    {
+      "source": "BOD",
+      "target": "MAD"
+    },
+    {
+      "source": "BOD",
+      "target": "BCN"
+    },
+    {
+      "source": "BOD",
+      "target": "FCO"
+    },
+    {
+      "source": "BOD",
+      "target": "PMI"
+    },
+    {
+      "source": "BOD",
+      "target": "GVA"
+    },
+    {
+      "source": "BOD",
+      "target": "IST"
+    },
+    {
+      "source": "FAO",
+      "target": "LGW"
+    },
+    {
+      "source": "FAO",
+      "target": "LIS"
+    },
+    {
+      "source": "FAO",
+      "target": "DUB"
+    },
+    {
+      "source": "FAO",
+      "target": "STN"
+    },
+    {
+      "source": "FAO",
+      "target": "MAN"
+    },
+    {
+      "source": "FAO",
+      "target": "LTN"
+    },
+    {
+      "source": "FAO",
+      "target": "BRS"
+    },
+    {
+      "source": "FAO",
+      "target": "AMS"
+    },
+    {
+      "source": "GLA",
+      "target": "LGW"
+    },
+    {
+      "source": "GLA",
+      "target": "AMS"
+    },
+    {
+      "source": "GLA",
+      "target": "LTN"
+    },
+    {
+      "source": "GLA",
+      "target": "BFS"
+    },
+    {
+      "source": "GLA",
+      "target": "TFS"
+    },
+    {
+      "source": "GLA",
+      "target": "BHX"
+    },
+    {
+      "source": "GLA",
+      "target": "STN"
+    },
+    {
+      "source": "GLA",
+      "target": "CDG"
+    },
+    {
+      "source": "HAN",
+      "target": "SGN"
+    },
+    {
+      "source": "HAN",
+      "target": "ICN"
+    },
+    {
+      "source": "HAN",
+      "target": "PVG"
+    },
+    {
+      "source": "HAN",
+      "target": "BKK"
+    },
+    {
+      "source": "HAN",
+      "target": "CAN"
+    },
+    {
+      "source": "HAN",
+      "target": "SZX"
+    },
+    {
+      "source": "HAN",
+      "target": "KUL"
+    },
+    {
+      "source": "HAN",
+      "target": "HKG"
+    },
+    {
+      "source": "MNL",
+      "target": "BKK"
+    },
+    {
+      "source": "MNL",
+      "target": "DXB"
+    },
+    {
+      "source": "MNL",
+      "target": "HAN"
+    },
+    {
+      "source": "MNL",
+      "target": "KIX"
+    },
+    {
+      "source": "MNL",
+      "target": "SGN"
+    },
+    {
+      "source": "MNL",
+      "target": "HND"
+    },
+    {
+      "source": "MNL",
+      "target": "DOH"
+    },
+    {
+      "source": "MNL",
+      "target": "CAN"
+    },
+    {
+      "source": "SGN",
+      "target": "ICN"
+    },
+    {
+      "source": "SGN",
+      "target": "PVG"
+    },
+    {
+      "source": "SGN",
+      "target": "CAN"
+    },
+    {
+      "source": "SGN",
+      "target": "HKG"
+    },
+    {
+      "source": "SGN",
+      "target": "NRT"
+    },
+    {
+      "source": "SGN",
+      "target": "HND"
+    },
+    {
+      "source": "SGN",
+      "target": "SZX"
+    },
+    {
+      "source": "SGN",
+      "target": "MEL"
+    },
+    {
+      "source": "TLS",
+      "target": "MAD"
+    },
+    {
+      "source": "TLS",
+      "target": "AMS"
+    },
+    {
+      "source": "TLS",
+      "target": "MUC"
+    },
+    {
+      "source": "TLS",
+      "target": "LIS"
+    },
+    {
+      "source": "TLS",
+      "target": "LHR"
+    },
+    {
+      "source": "TLS",
+      "target": "RAK"
+    },
+    {
+      "source": "TLS",
+      "target": "BRU"
+    },
+    {
+      "source": "TLS",
+      "target": "FRA"
+    },
+    {
+      "source": "ESB",
+      "target": "GYD"
+    },
+    {
+      "source": "ESB",
+      "target": "JED"
+    },
+    {
+      "source": "ESB",
+      "target": "DXB"
+    },
+    {
+      "source": "ESB",
+      "target": "VIE"
+    },
+    {
+      "source": "ESB",
+      "target": "VKO"
+    },
+    {
+      "source": "ESB",
+      "target": "MED"
+    },
+    {
+      "source": "ESB",
+      "target": "STN"
+    },
+    {
+      "source": "ESB",
+      "target": "DUS"
+    },
+    {
+      "source": "GDN",
+      "target": "WAW"
+    },
+    {
+      "source": "GDN",
+      "target": "CPH"
+    },
+    {
+      "source": "GDN",
+      "target": "AMS"
+    },
+    {
+      "source": "GDN",
+      "target": "OSL"
+    },
+    {
+      "source": "GDN",
+      "target": "FRA"
+    },
+    {
+      "source": "GDN",
+      "target": "MUC"
+    },
+    {
+      "source": "GDN",
+      "target": "LTN"
+    },
+    {
+      "source": "GDN",
+      "target": "ARN"
+    },
+    {
+      "source": "HRG",
+      "target": "SVO"
+    },
+    {
+      "source": "HRG",
+      "target": "DUS"
+    },
+    {
+      "source": "HRG",
+      "target": "SAW"
+    },
+    {
+      "source": "HRG",
+      "target": "BER"
+    },
+    {
+      "source": "HRG",
+      "target": "FRA"
+    },
+    {
+      "source": "HRG",
+      "target": "LGW"
+    },
+    {
+      "source": "HRG",
+      "target": "MUC"
+    },
+    {
+      "source": "HRG",
+      "target": "ZRH"
+    },
+    {
+      "source": "ALG",
+      "target": "CDG"
+    },
+    {
+      "source": "ALG",
+      "target": "IST"
+    },
+    {
+      "source": "ALG",
+      "target": "BCN"
+    },
+    {
+      "source": "ALG",
+      "target": "LYS"
+    },
+    {
+      "source": "ALG",
+      "target": "CAI"
+    },
+    {
+      "source": "ALG",
+      "target": "JED"
+    },
+    {
+      "source": "ALG",
+      "target": "ALC"
+    },
+    {
+      "source": "ALG",
+      "target": "MED"
+    },
+    {
+      "source": "PDX",
+      "target": "LAX"
+    },
+    {
+      "source": "PDX",
+      "target": "DEN"
+    },
+    {
+      "source": "PDX",
+      "target": "LAS"
+    },
+    {
+      "source": "PDX",
+      "target": "DFW"
+    },
+    {
+      "source": "PDX",
+      "target": "ORD"
+    },
+    {
+      "source": "PDX",
+      "target": "SAN"
+    },
+    {
+      "source": "PDX",
+      "target": "MSP"
+    },
+    {
+      "source": "PDX",
+      "target": "YVR"
+    },
+    {
+      "source": "SAN",
+      "target": "ORD"
+    },
+    {
+      "source": "SAN",
+      "target": "DFW"
+    },
+    {
+      "source": "SAN",
+      "target": "LAX"
+    },
+    {
+      "source": "SAN",
+      "target": "ATL"
+    },
+    {
+      "source": "SAN",
+      "target": "JFK"
+    },
+    {
+      "source": "SAN",
+      "target": "BOS"
+    },
+    {
+      "source": "SAN",
+      "target": "IAH"
+    },
+    {
+      "source": "SAN",
+      "target": "DAL"
+    },
+    {
+      "source": "LCA",
+      "target": "LHR"
+    },
+    {
+      "source": "LCA",
+      "target": "EVN"
+    },
+    {
+      "source": "LCA",
+      "target": "DXB"
+    },
+    {
+      "source": "LCA",
+      "target": "WAW"
+    },
+    {
+      "source": "LCA",
+      "target": "BEG"
+    },
+    {
+      "source": "LCA",
+      "target": "LGW"
+    },
+    {
+      "source": "LCA",
+      "target": "MUC"
+    },
+    {
+      "source": "LCA",
+      "target": "DOH"
+    },
+    {
+      "source": "PSA",
+      "target": "STN"
+    },
+    {
+      "source": "PSA",
+      "target": "LGW"
+    },
+    {
+      "source": "PSA",
+      "target": "CRL"
+    },
+    {
+      "source": "PSA",
+      "target": "MAD"
+    },
+    {
+      "source": "PSA",
+      "target": "VLC"
+    },
+    {
+      "source": "PSA",
+      "target": "BUD"
+    },
+    {
+      "source": "PSA",
+      "target": "SVQ"
+    },
+    {
+      "source": "PSA",
+      "target": "ORY"
+    },
+    {
+      "source": "SHE",
+      "target": "SZX"
+    },
+    {
+      "source": "SHE",
+      "target": "CAN"
+    },
+    {
+      "source": "SHE",
+      "target": "TFU"
+    },
+    {
+      "source": "SHE",
+      "target": "CKG"
+    },
+    {
+      "source": "SHE",
+      "target": "KMG"
+    },
+    {
+      "source": "SHE",
+      "target": "CSX"
+    },
+    {
+      "source": "SHE",
+      "target": "ICN"
+    },
+    {
+      "source": "SHE",
+      "target": "SYX"
+    },
+    {
+      "source": "TSN",
+      "target": "CAN"
+    },
+    {
+      "source": "TSN",
+      "target": "XIY"
+    },
+    {
+      "source": "TSN",
+      "target": "HGH"
+    },
+    {
+      "source": "TSN",
+      "target": "SZX"
+    },
+    {
+      "source": "TSN",
+      "target": "CTU"
+    },
+    {
+      "source": "TSN",
+      "target": "CKG"
+    },
+    {
+      "source": "TSN",
+      "target": "DLC"
+    },
+    {
+      "source": "TSN",
+      "target": "KMG"
+    },
+    {
+      "source": "FOC",
+      "target": "PEK"
+    },
+    {
+      "source": "FOC",
+      "target": "KMG"
+    },
+    {
+      "source": "FOC",
+      "target": "PKX"
+    },
+    {
+      "source": "FOC",
+      "target": "PVG"
+    },
+    {
+      "source": "FOC",
+      "target": "TFU"
+    },
+    {
+      "source": "FOC",
+      "target": "CAN"
+    },
+    {
+      "source": "FOC",
+      "target": "XIY"
+    },
+    {
+      "source": "FOC",
+      "target": "KWE"
+    },
+    {
+      "source": "IBZ",
+      "target": "MAD"
+    },
+    {
+      "source": "IBZ",
+      "target": "NCE"
+    },
+    {
+      "source": "IBZ",
+      "target": "MAN"
+    },
+    {
+      "source": "IBZ",
+      "target": "ALC"
+    },
+    {
+      "source": "IBZ",
+      "target": "BRS"
+    },
+    {
+      "source": "IBZ",
+      "target": "HAM"
+    },
+    {
+      "source": "IBZ",
+      "target": "STN"
+    },
+    {
+      "source": "IBZ",
+      "target": "BLQ"
+    },
+    {
+      "source": "RDU",
+      "target": "ATL"
+    },
+    {
+      "source": "RDU",
+      "target": "MCO"
+    },
+    {
+      "source": "RDU",
+      "target": "ORD"
+    },
+    {
+      "source": "RDU",
+      "target": "CLT"
+    },
+    {
+      "source": "RDU",
+      "target": "EWR"
+    },
+    {
+      "source": "RDU",
+      "target": "BNA"
+    },
+    {
+      "source": "RDU",
+      "target": "BOS"
+    },
+    {
+      "source": "RDU",
+      "target": "MIA"
+    },
+    {
+      "source": "DLC",
+      "target": "PEK"
+    },
+    {
+      "source": "DLC",
+      "target": "PKX"
+    },
+    {
+      "source": "DLC",
+      "target": "TNA"
+    },
+    {
+      "source": "DLC",
+      "target": "HGH"
+    },
+    {
+      "source": "DLC",
+      "target": "XIY"
+    },
+    {
+      "source": "DLC",
+      "target": "CAN"
+    },
+    {
+      "source": "DLC",
+      "target": "WUH"
+    },
+    {
+      "source": "DLC",
+      "target": "ICN"
+    },
+    {
+      "source": "LHW",
+      "target": "KMG"
+    },
+    {
+      "source": "LHW",
+      "target": "CAN"
+    },
+    {
+      "source": "LHW",
+      "target": "PEK"
+    },
+    {
+      "source": "LHW",
+      "target": "TFU"
+    },
+    {
+      "source": "LHW",
+      "target": "PKX"
+    },
+    {
+      "source": "LHW",
+      "target": "HGH"
+    },
+    {
+      "source": "LHW",
+      "target": "PVG"
+    },
+    {
+      "source": "LHW",
+      "target": "SZX"
+    },
+    {
+      "source": "OLB",
+      "target": "FCO"
+    },
+    {
+      "source": "OLB",
+      "target": "CGN"
+    },
+    {
+      "source": "OLB",
+      "target": "STR"
+    },
+    {
+      "source": "OLB",
+      "target": "BRI"
+    },
+    {
+      "source": "OLB",
+      "target": "MUC"
+    },
+    {
+      "source": "OLB",
+      "target": "NAP"
+    },
+    {
+      "source": "OLB",
+      "target": "FRA"
+    },
+    {
+      "source": "OLB",
+      "target": "HAJ"
+    },
+    {
+      "source": "VRN",
+      "target": "FRA"
+    },
+    {
+      "source": "VRN",
+      "target": "MUC"
+    },
+    {
+      "source": "VRN",
+      "target": "LGW"
+    },
+    {
+      "source": "VRN",
+      "target": "TIA"
+    },
+    {
+      "source": "VRN",
+      "target": "ORY"
+    },
+    {
+      "source": "VRN",
+      "target": "CRL"
+    },
+    {
+      "source": "VRN",
+      "target": "RMO"
+    },
+    {
+      "source": "VRN",
+      "target": "FCO"
+    },
+    {
+      "source": "BVA",
+      "target": "DUB"
+    },
+    {
+      "source": "BVA",
+      "target": "RMO"
+    },
+    {
+      "source": "BVA",
+      "target": "FCO"
+    },
+    {
+      "source": "BVA",
+      "target": "TIA"
+    },
+    {
+      "source": "BVA",
+      "target": "KRK"
+    },
+    {
+      "source": "BVA",
+      "target": "RAK"
+    },
+    {
+      "source": "BVA",
+      "target": "BGY"
+    },
+    {
+      "source": "BVA",
+      "target": "BLQ"
+    },
+    {
+      "source": "SVX",
+      "target": "DME"
+    },
+    {
+      "source": "SVX",
+      "target": "AER"
+    },
+    {
+      "source": "SVX",
+      "target": "AYT"
+    },
+    {
+      "source": "SVX",
+      "target": "DXB"
+    },
+    {
+      "source": "SVX",
+      "target": "VKO"
+    },
+    {
+      "source": "SVX",
+      "target": "SHJ"
+    },
+    {
+      "source": "SVX",
+      "target": "TAS"
+    },
+    {
+      "source": "SVX",
+      "target": "IST"
+    },
+    {
+      "source": "ALA",
+      "target": "DXB"
+    },
+    {
+      "source": "ALA",
+      "target": "SVO"
+    },
+    {
+      "source": "ALA",
+      "target": "IST"
+    },
+    {
+      "source": "ALA",
+      "target": "URC"
+    },
+    {
+      "source": "ALA",
+      "target": "SHJ"
+    },
+    {
+      "source": "ALA",
+      "target": "PEK"
+    },
+    {
+      "source": "ALA",
+      "target": "DEL"
+    },
+    {
+      "source": "ALA",
+      "target": "BOM"
+    },
+    {
+      "source": "DAL",
+      "target": "HOU"
+    },
+    {
+      "source": "DAL",
+      "target": "ATL"
+    },
+    {
+      "source": "DAL",
+      "target": "DEN"
+    },
+    {
+      "source": "DAL",
+      "target": "PHX"
+    },
+    {
+      "source": "DAL",
+      "target": "MCO"
+    },
+    {
+      "source": "DAL",
+      "target": "LAS"
+    },
+    {
+      "source": "DAL",
+      "target": "AUS"
+    },
+    {
+      "source": "DAL",
+      "target": "BNA"
+    },
+    {
+      "source": "BNE",
+      "target": "MEL"
+    },
+    {
+      "source": "BNE",
+      "target": "SIN"
+    },
+    {
+      "source": "BNE",
+      "target": "DXB"
+    },
+    {
+      "source": "BNE",
+      "target": "HKG"
+    },
+    {
+      "source": "BNE",
+      "target": "NRT"
+    },
+    {
+      "source": "BNE",
+      "target": "DOH"
+    },
+    {
+      "source": "BNE",
+      "target": "MNL"
+    },
+    {
+      "source": "BNE",
+      "target": "LAX"
+    },
+    {
+      "source": "MCT",
+      "target": "DXB"
+    },
+    {
+      "source": "MCT",
+      "target": "RUH"
+    },
+    {
+      "source": "MCT",
+      "target": "AUH"
+    },
+    {
+      "source": "MCT",
+      "target": "DEL"
+    },
+    {
+      "source": "MCT",
+      "target": "CAI"
+    },
+    {
+      "source": "MCT",
+      "target": "BKK"
+    },
+    {
+      "source": "MCT",
+      "target": "IST"
+    },
+    {
+      "source": "MCT",
+      "target": "MED"
+    },
+    {
+      "source": "TNA",
+      "target": "CAN"
+    },
+    {
+      "source": "TNA",
+      "target": "SZX"
+    },
+    {
+      "source": "TNA",
+      "target": "TFU"
+    },
+    {
+      "source": "TNA",
+      "target": "CGQ"
+    },
+    {
+      "source": "TNA",
+      "target": "KMG"
+    },
+    {
+      "source": "TNA",
+      "target": "HRB"
+    },
+    {
+      "source": "TNA",
+      "target": "SHE"
+    },
+    {
+      "source": "TNA",
+      "target": "FOC"
+    },
+    {
+      "source": "ACE",
+      "target": "MAD"
+    },
+    {
+      "source": "ACE",
+      "target": "DUB"
+    },
+    {
+      "source": "ACE",
+      "target": "MAN"
+    },
+    {
+      "source": "ACE",
+      "target": "LGW"
+    },
+    {
+      "source": "ACE",
+      "target": "TFS"
+    },
+    {
+      "source": "ACE",
+      "target": "STN"
+    },
+    {
+      "source": "ACE",
+      "target": "EDI"
+    },
+    {
+      "source": "ACE",
+      "target": "BHX"
+    },
+    {
+      "source": "JNB",
+      "target": "NBO"
+    },
+    {
+      "source": "JNB",
+      "target": "DXB"
+    },
+    {
+      "source": "JNB",
+      "target": "DOH"
+    },
+    {
+      "source": "JNB",
+      "target": "LHR"
+    },
+    {
+      "source": "JNB",
+      "target": "SIN"
+    },
+    {
+      "source": "JNB",
+      "target": "FRA"
+    },
+    {
+      "source": "JNB",
+      "target": "GRU"
+    },
+    {
+      "source": "JNB",
+      "target": "ZRH"
+    },
+    {
+      "source": "RMO",
+      "target": "IST"
+    },
+    {
+      "source": "RMO",
+      "target": "TLV"
+    },
+    {
+      "source": "RMO",
+      "target": "LTN"
+    },
+    {
+      "source": "RMO",
+      "target": "WAW"
+    },
+    {
+      "source": "RMO",
+      "target": "SAW"
+    },
+    {
+      "source": "RMO",
+      "target": "BLQ"
+    },
+    {
+      "source": "RMO",
+      "target": "VIE"
+    },
+    {
+      "source": "RMO",
+      "target": "DUB"
+    },
+    {
+      "source": "DME",
+      "target": "AER"
+    },
+    {
+      "source": "DME",
+      "target": "DXB"
+    },
+    {
+      "source": "DME",
+      "target": "GYD"
+    },
+    {
+      "source": "DME",
+      "target": "TLV"
+    },
+    {
+      "source": "DME",
+      "target": "LED"
+    },
+    {
+      "source": "DME",
+      "target": "KWI"
+    },
+    {
+      "source": "DME",
+      "target": "KZN"
+    },
+    {
+      "source": "DME",
+      "target": "EVN"
+    },
+    {
+      "source": "LPL",
+      "target": "BFS"
+    },
+    {
+      "source": "LPL",
+      "target": "GVA"
+    },
+    {
+      "source": "LPL",
+      "target": "ACE"
+    },
+    {
+      "source": "LPL",
+      "target": "KRK"
+    },
+    {
+      "source": "LPL",
+      "target": "AMS"
+    },
+    {
+      "source": "LPL",
+      "target": "AGP"
+    },
+    {
+      "source": "LPL",
+      "target": "MLA"
+    },
+    {
+      "source": "LPL",
+      "target": "LPA"
+    },
+    {
+      "source": "WRO",
+      "target": "FRA"
+    },
+    {
+      "source": "WRO",
+      "target": "STN"
+    },
+    {
+      "source": "WRO",
+      "target": "MUC"
+    },
+    {
+      "source": "WRO",
+      "target": "AMS"
+    },
+    {
+      "source": "WRO",
+      "target": "LTN"
+    },
+    {
+      "source": "WRO",
+      "target": "DUB"
+    },
+    {
+      "source": "WRO",
+      "target": "AGP"
+    },
+    {
+      "source": "WRO",
+      "target": "MLA"
+    },
+    {
+      "source": "CTU",
+      "target": "PVG"
+    },
+    {
+      "source": "CTU",
+      "target": "WUH"
+    },
+    {
+      "source": "CTU",
+      "target": "XMN"
+    },
+    {
+      "source": "CTU",
+      "target": "TNA"
+    },
+    {
+      "source": "CTU",
+      "target": "HAK"
+    },
+    {
+      "source": "CTU",
+      "target": "HRB"
+    },
+    {
+      "source": "CTU",
+      "target": "NGB"
+    },
+    {
+      "source": "CTU",
+      "target": "TAO"
+    },
+    {
+      "source": "EIN",
+      "target": "AGP"
+    },
+    {
+      "source": "EIN",
+      "target": "STN"
+    },
+    {
+      "source": "EIN",
+      "target": "BUD"
+    },
+    {
+      "source": "EIN",
+      "target": "VLC"
+    },
+    {
+      "source": "EIN",
+      "target": "FAO"
+    },
+    {
+      "source": "EIN",
+      "target": "SOF"
+    },
+    {
+      "source": "EIN",
+      "target": "KRK"
+    },
+    {
+      "source": "EIN",
+      "target": "RAK"
+    },
+    {
+      "source": "MED",
+      "target": "JED"
+    },
+    {
+      "source": "MED",
+      "target": "IST"
+    },
+    {
+      "source": "MED",
+      "target": "DXB"
+    },
+    {
+      "source": "MED",
+      "target": "SAW"
+    },
+    {
+      "source": "MED",
+      "target": "SHJ"
+    },
+    {
+      "source": "MED",
+      "target": "DOH"
+    },
+    {
+      "source": "MED",
+      "target": "KUL"
+    },
+    {
+      "source": "MED",
+      "target": "CGK"
+    },
+    {
+      "source": "LBA",
+      "target": "DUB"
+    },
+    {
+      "source": "LBA",
+      "target": "AMS"
+    },
+    {
+      "source": "LBA",
+      "target": "PMI"
+    },
+    {
+      "source": "LBA",
+      "target": "ALC"
+    },
+    {
+      "source": "LBA",
+      "target": "TFS"
+    },
+    {
+      "source": "LBA",
+      "target": "ACE"
+    },
+    {
+      "source": "LBA",
+      "target": "AGP"
+    },
+    {
+      "source": "LBA",
+      "target": "KRK"
+    },
+    {
+      "source": "NCL",
+      "target": "LHR"
+    },
+    {
+      "source": "NCL",
+      "target": "AMS"
+    },
+    {
+      "source": "NCL",
+      "target": "DUB"
+    },
+    {
+      "source": "NCL",
+      "target": "CDG"
+    },
+    {
+      "source": "NCL",
+      "target": "BFS"
+    },
+    {
+      "source": "NCL",
+      "target": "PMI"
+    },
+    {
+      "source": "NCL",
+      "target": "TFS"
+    },
+    {
+      "source": "NCL",
+      "target": "ALC"
+    },
+    {
+      "source": "NGB",
+      "target": "CAN"
+    },
+    {
+      "source": "NGB",
+      "target": "SZX"
+    },
+    {
+      "source": "NGB",
+      "target": "KMG"
+    },
+    {
+      "source": "NGB",
+      "target": "TAO"
+    },
+    {
+      "source": "NGB",
+      "target": "CKG"
+    },
+    {
+      "source": "NGB",
+      "target": "PKX"
+    },
+    {
+      "source": "NGB",
+      "target": "XIY"
+    },
+    {
+      "source": "NGB",
+      "target": "PEK"
+    },
+    {
+      "source": "NNG",
+      "target": "TFU"
+    },
+    {
+      "source": "NNG",
+      "target": "XIY"
+    },
+    {
+      "source": "NNG",
+      "target": "PVG"
+    },
+    {
+      "source": "NNG",
+      "target": "PEK"
+    },
+    {
+      "source": "NNG",
+      "target": "PKX"
+    },
+    {
+      "source": "NNG",
+      "target": "WUH"
+    },
+    {
+      "source": "NNG",
+      "target": "HGH"
+    },
+    {
+      "source": "NNG",
+      "target": "HAK"
+    },
+    {
+      "source": "PUJ",
+      "target": "YYZ"
+    },
+    {
+      "source": "PUJ",
+      "target": "LIM"
+    },
+    {
+      "source": "PUJ",
+      "target": "JFK"
+    },
+    {
+      "source": "PUJ",
+      "target": "CLT"
+    },
+    {
+      "source": "PUJ",
+      "target": "BOS"
+    },
+    {
+      "source": "PUJ",
+      "target": "MIA"
+    },
+    {
+      "source": "PUJ",
+      "target": "EWR"
+    },
+    {
+      "source": "PUJ",
+      "target": "ORD"
+    },
+    {
+      "source": "SSH",
+      "target": "SVO"
+    },
+    {
+      "source": "SSH",
+      "target": "SAW"
+    },
+    {
+      "source": "SSH",
+      "target": "MXP"
+    },
+    {
+      "source": "SSH",
+      "target": "NAP"
+    },
+    {
+      "source": "SSH",
+      "target": "LGW"
+    },
+    {
+      "source": "SSH",
+      "target": "FCO"
+    },
+    {
+      "source": "SSH",
+      "target": "AYT"
+    },
+    {
+      "source": "SSH",
+      "target": "IST"
+    },
+    {
+      "source": "AER",
+      "target": "IST"
+    },
+    {
+      "source": "AER",
+      "target": "KZN"
+    },
+    {
+      "source": "AER",
+      "target": "EVN"
+    },
+    {
+      "source": "AER",
+      "target": "KJA"
+    },
+    {
+      "source": "AER",
+      "target": "TAS"
+    },
+    {
+      "source": "AER",
+      "target": "AUH"
+    },
+    {
+      "source": "AER",
+      "target": "TLV"
+    },
+    {
+      "source": "AER",
+      "target": "DXB"
+    },
+    {
+      "source": "KIX",
+      "target": "PVG"
+    },
+    {
+      "source": "KIX",
+      "target": "SIN"
+    },
+    {
+      "source": "KIX",
+      "target": "BKK"
+    },
+    {
+      "source": "KIX",
+      "target": "PEK"
+    },
+    {
+      "source": "KIX",
+      "target": "KUL"
+    },
+    {
+      "source": "KIX",
+      "target": "HAN"
+    },
+    {
+      "source": "KIX",
+      "target": "PKX"
+    },
+    {
+      "source": "KIX",
+      "target": "TAO"
+    },
+    {
+      "source": "RSW",
+      "target": "ORD"
+    },
+    {
+      "source": "RSW",
+      "target": "BOS"
+    },
+    {
+      "source": "RSW",
+      "target": "ATL"
+    },
+    {
+      "source": "RSW",
+      "target": "MSP"
+    },
+    {
+      "source": "RSW",
+      "target": "DTW"
+    },
+    {
+      "source": "RSW",
+      "target": "EWR"
+    },
+    {
+      "source": "RSW",
+      "target": "PHL"
+    },
+    {
+      "source": "RSW",
+      "target": "YYZ"
+    },
+    {
+      "source": "EVN",
+      "target": "FCO"
+    },
+    {
+      "source": "EVN",
+      "target": "LED"
+    },
+    {
+      "source": "EVN",
+      "target": "FRA"
+    },
+    {
+      "source": "EVN",
+      "target": "DOH"
+    },
+    {
+      "source": "EVN",
+      "target": "DXB"
+    },
+    {
+      "source": "EVN",
+      "target": "RMO"
+    },
+    {
+      "source": "EVN",
+      "target": "SAW"
+    },
+    {
+      "source": "EVN",
+      "target": "SHJ"
+    },
+    {
+      "source": "GYD",
+      "target": "IST"
+    },
+    {
+      "source": "GYD",
+      "target": "SAW"
+    },
+    {
+      "source": "GYD",
+      "target": "DXB"
+    },
+    {
+      "source": "GYD",
+      "target": "SVO"
+    },
+    {
+      "source": "GYD",
+      "target": "TLV"
+    },
+    {
+      "source": "GYD",
+      "target": "TAS"
+    },
+    {
+      "source": "GYD",
+      "target": "LED"
+    },
+    {
+      "source": "GYD",
+      "target": "SHJ"
+    },
+    {
+      "source": "HOU",
+      "target": "ATL"
+    },
+    {
+      "source": "HOU",
+      "target": "DEN"
+    },
+    {
+      "source": "HOU",
+      "target": "LAS"
+    },
+    {
+      "source": "HOU",
+      "target": "PHX"
+    },
+    {
+      "source": "HOU",
+      "target": "BNA"
+    },
+    {
+      "source": "HOU",
+      "target": "MCO"
+    },
+    {
+      "source": "HOU",
+      "target": "DFW"
+    },
+    {
+      "source": "HOU",
+      "target": "AUS"
+    },
+    {
+      "source": "LIM",
+      "target": "MIA"
+    },
+    {
+      "source": "LIM",
+      "target": "MAD"
+    },
+    {
+      "source": "LIM",
+      "target": "CUN"
+    },
+    {
+      "source": "LIM",
+      "target": "EZE"
+    },
+    {
+      "source": "LIM",
+      "target": "MEX"
+    },
+    {
+      "source": "LIM",
+      "target": "ATL"
+    },
+    {
+      "source": "LIM",
+      "target": "LAX"
+    },
+    {
+      "source": "LIM",
+      "target": "JFK"
+    },
+    {
+      "source": "MEL",
+      "target": "SIN"
+    },
+    {
+      "source": "MEL",
+      "target": "KUL"
+    },
+    {
+      "source": "MEL",
+      "target": "HKG"
+    },
+    {
+      "source": "MEL",
+      "target": "PVG"
+    },
+    {
+      "source": "MEL",
+      "target": "DOH"
+    },
+    {
+      "source": "MEL",
+      "target": "CAN"
+    },
+    {
+      "source": "MEL",
+      "target": "DXB"
+    },
+    {
+      "source": "MEL",
+      "target": "BKK"
+    },
+    {
+      "source": "EZE",
+      "target": "MIA"
+    },
+    {
+      "source": "EZE",
+      "target": "MAD"
+    },
+    {
+      "source": "EZE",
+      "target": "PUJ"
+    },
+    {
+      "source": "EZE",
+      "target": "JFK"
+    },
+    {
+      "source": "EZE",
+      "target": "IAH"
+    },
+    {
+      "source": "EZE",
+      "target": "FCO"
+    },
+    {
+      "source": "EZE",
+      "target": "ATL"
+    },
+    {
+      "source": "EZE",
+      "target": "BCN"
+    },
+    {
+      "source": "HKT",
+      "target": "SIN"
+    },
+    {
+      "source": "HKT",
+      "target": "DEL"
+    },
+    {
+      "source": "HKT",
+      "target": "PVG"
+    },
+    {
+      "source": "HKT",
+      "target": "DOH"
+    },
+    {
+      "source": "HKT",
+      "target": "AUH"
+    },
+    {
+      "source": "HKT",
+      "target": "BOM"
+    },
+    {
+      "source": "HKT",
+      "target": "HKG"
+    },
+    {
+      "source": "HKT",
+      "target": "TFU"
+    },
+    {
+      "source": "AGA",
+      "target": "LGW"
+    },
+    {
+      "source": "AGA",
+      "target": "MAN"
+    },
+    {
+      "source": "AGA",
+      "target": "CRL"
+    },
+    {
+      "source": "AGA",
+      "target": "NTE"
+    },
+    {
+      "source": "AGA",
+      "target": "STN"
+    },
+    {
+      "source": "AGA",
+      "target": "BVA"
+    },
+    {
+      "source": "AGA",
+      "target": "MRS"
+    },
+    {
+      "source": "AGA",
+      "target": "LTN"
+    },
+    {
+      "source": "CHQ",
+      "target": "SKG"
+    },
+    {
+      "source": "CHQ",
+      "target": "FRA"
+    },
+    {
+      "source": "CHQ",
+      "target": "DUS"
+    },
+    {
+      "source": "CHQ",
+      "target": "HEL"
+    },
+    {
+      "source": "CHQ",
+      "target": "HAM"
+    },
+    {
+      "source": "CHQ",
+      "target": "MAN"
+    },
+    {
+      "source": "CHQ",
+      "target": "AMS"
+    },
+    {
+      "source": "CHQ",
+      "target": "TLV"
+    },
+    {
+      "source": "DBV",
+      "target": "ZAG"
+    },
+    {
+      "source": "DBV",
+      "target": "HEL"
+    },
+    {
+      "source": "DBV",
+      "target": "AMS"
+    },
+    {
+      "source": "DBV",
+      "target": "IST"
+    },
+    {
+      "source": "DBV",
+      "target": "WRO"
+    },
+    {
+      "source": "DBV",
+      "target": "LHR"
+    },
+    {
+      "source": "DBV",
+      "target": "LGW"
+    },
+    {
+      "source": "DBV",
+      "target": "EWR"
+    },
+    {
+      "source": "SPU",
+      "target": "ZAG"
+    },
+    {
+      "source": "SPU",
+      "target": "FRA"
+    },
+    {
+      "source": "SPU",
+      "target": "FCO"
+    },
+    {
+      "source": "SPU",
+      "target": "MUC"
+    },
+    {
+      "source": "SPU",
+      "target": "ZRH"
+    },
+    {
+      "source": "SPU",
+      "target": "WAW"
+    },
+    {
+      "source": "SPU",
+      "target": "VIE"
+    },
+    {
+      "source": "SPU",
+      "target": "HEL"
+    },
+    {
+      "source": "STL",
+      "target": "ORD"
+    },
+    {
+      "source": "STL",
+      "target": "ATL"
+    },
+    {
+      "source": "STL",
+      "target": "DEN"
+    },
+    {
+      "source": "STL",
+      "target": "MCO"
+    },
+    {
+      "source": "STL",
+      "target": "DCA"
+    },
+    {
+      "source": "STL",
+      "target": "PHX"
+    },
+    {
+      "source": "STL",
+      "target": "LAS"
+    },
+    {
+      "source": "STL",
+      "target": "DFW"
+    },
+    {
+      "source": "BGO",
+      "target": "CPH"
+    },
+    {
+      "source": "BGO",
+      "target": "AMS"
+    },
+    {
+      "source": "BGO",
+      "target": "GDN"
+    },
+    {
+      "source": "BGO",
+      "target": "HEL"
+    },
+    {
+      "source": "BGO",
+      "target": "LGW"
+    },
+    {
+      "source": "BGO",
+      "target": "FRA"
+    },
+    {
+      "source": "BGO",
+      "target": "ARN"
+    },
+    {
+      "source": "BGO",
+      "target": "KRK"
+    },
+    {
+      "source": "BIO",
+      "target": "MAD"
+    },
+    {
+      "source": "BIO",
+      "target": "BCN"
+    },
+    {
+      "source": "BIO",
+      "target": "CDG"
+    },
+    {
+      "source": "BIO",
+      "target": "AMS"
+    },
+    {
+      "source": "BIO",
+      "target": "MUC"
+    },
+    {
+      "source": "BIO",
+      "target": "FRA"
+    },
+    {
+      "source": "BIO",
+      "target": "LGW"
+    },
+    {
+      "source": "BIO",
+      "target": "VLC"
+    },
+    {
+      "source": "CGQ",
+      "target": "CAN"
+    },
+    {
+      "source": "CGQ",
+      "target": "PKX"
+    },
+    {
+      "source": "CGQ",
+      "target": "XIY"
+    },
+    {
+      "source": "CGQ",
+      "target": "WUH"
+    },
+    {
+      "source": "CGQ",
+      "target": "SZX"
+    },
+    {
+      "source": "CGQ",
+      "target": "CSX"
+    },
+    {
+      "source": "CGQ",
+      "target": "NGB"
+    },
+    {
+      "source": "CGQ",
+      "target": "TFU"
+    },
+    {
+      "source": "FNC",
+      "target": "LGW"
+    },
+    {
+      "source": "FNC",
+      "target": "AMS"
+    },
+    {
+      "source": "FNC",
+      "target": "DUS"
+    },
+    {
+      "source": "FNC",
+      "target": "FRA"
+    },
+    {
+      "source": "FNC",
+      "target": "BER"
+    },
+    {
+      "source": "FNC",
+      "target": "STN"
+    },
+    {
+      "source": "FNC",
+      "target": "MAN"
+    },
+    {
+      "source": "FNC",
+      "target": "BRS"
+    },
+    {
+      "source": "FUE",
+      "target": "DUS"
+    },
+    {
+      "source": "FUE",
+      "target": "MAD"
+    },
+    {
+      "source": "FUE",
+      "target": "MAN"
+    },
+    {
+      "source": "FUE",
+      "target": "FRA"
+    },
+    {
+      "source": "FUE",
+      "target": "STN"
+    },
+    {
+      "source": "FUE",
+      "target": "LGW"
+    },
+    {
+      "source": "FUE",
+      "target": "HAM"
+    },
+    {
+      "source": "FUE",
+      "target": "BHX"
+    },
+    {
+      "source": "WNZ",
+      "target": "CAN"
+    },
+    {
+      "source": "WNZ",
+      "target": "KMG"
+    },
+    {
+      "source": "WNZ",
+      "target": "CKG"
+    },
+    {
+      "source": "WNZ",
+      "target": "SZX"
+    },
+    {
+      "source": "WNZ",
+      "target": "TFU"
+    },
+    {
+      "source": "WNZ",
+      "target": "WUH"
+    },
+    {
+      "source": "WNZ",
+      "target": "TAO"
+    },
+    {
+      "source": "WNZ",
+      "target": "PEK"
+    },
+    {
+      "source": "HAJ",
+      "target": "MUC"
+    },
+    {
+      "source": "HAJ",
+      "target": "FRA"
+    },
+    {
+      "source": "HAJ",
+      "target": "AMS"
+    },
+    {
+      "source": "HAJ",
+      "target": "SAW"
+    },
+    {
+      "source": "HAJ",
+      "target": "IST"
+    },
+    {
+      "source": "HAJ",
+      "target": "CDG"
+    },
+    {
+      "source": "HAJ",
+      "target": "LHR"
+    },
+    {
+      "source": "HAJ",
+      "target": "VIE"
+    },
+    {
+      "source": "ZAG",
+      "target": "FRA"
+    },
+    {
+      "source": "ZAG",
+      "target": "AMS"
+    },
+    {
+      "source": "ZAG",
+      "target": "MUC"
+    },
+    {
+      "source": "ZAG",
+      "target": "VIE"
+    },
+    {
+      "source": "ZAG",
+      "target": "IST"
+    },
+    {
+      "source": "ZAG",
+      "target": "ZRH"
+    },
+    {
+      "source": "ZAG",
+      "target": "CDG"
+    },
+    {
+      "source": "ZAG",
+      "target": "BRU"
+    },
+    {
+      "source": "KJA",
+      "target": "LED"
+    },
+    {
+      "source": "KJA",
+      "target": "TAS"
+    },
+    {
+      "source": "KJA",
+      "target": "SVX"
+    },
+    {
+      "source": "KJA",
+      "target": "ALA"
+    },
+    {
+      "source": "KJA",
+      "target": "PKX"
+    },
+    {
+      "source": "KJA",
+      "target": "BKK"
+    },
+    {
+      "source": "KJA",
+      "target": "SYX"
+    },
+    {
+      "source": "KJA",
+      "target": "KZN"
+    },
+    {
+      "source": "SFB",
+      "target": "PUJ"
+    },
+    {
+      "source": "SFB",
+      "target": "AUS"
+    },
+    {
+      "source": "SFB",
+      "target": "BNA"
+    },
+    {
+      "source": "SFB",
+      "target": "LAS"
+    },
+    {
+      "source": "SRQ",
+      "target": "ATL"
+    },
+    {
+      "source": "SRQ",
+      "target": "ORD"
+    },
+    {
+      "source": "SRQ",
+      "target": "CLT"
+    },
+    {
+      "source": "SRQ",
+      "target": "BWI"
+    },
+    {
+      "source": "SRQ",
+      "target": "BOS"
+    },
+    {
+      "source": "SRQ",
+      "target": "EWR"
+    },
+    {
+      "source": "SRQ",
+      "target": "JFK"
+    },
+    {
+      "source": "SRQ",
+      "target": "MSP"
+    },
+    {
+      "source": "EMA",
+      "target": "ACE"
+    },
+    {
+      "source": "EMA",
+      "target": "ALC"
+    },
+    {
+      "source": "EMA",
+      "target": "FUE"
+    },
+    {
+      "source": "EMA",
+      "target": "DUB"
+    },
+    {
+      "source": "EMA",
+      "target": "LPA"
+    },
+    {
+      "source": "EMA",
+      "target": "AGP"
+    },
+    {
+      "source": "EMA",
+      "target": "FAO"
+    },
+    {
+      "source": "EMA",
+      "target": "CFU"
+    },
+    {
+      "source": "MAA",
+      "target": "SIN"
+    },
+    {
+      "source": "MAA",
+      "target": "DXB"
+    },
+    {
+      "source": "MAA",
+      "target": "KUL"
+    },
+    {
+      "source": "MAA",
+      "target": "DMK"
+    },
+    {
+      "source": "MAA",
+      "target": "DOH"
+    },
+    {
+      "source": "MAA",
+      "target": "MCT"
+    },
+    {
+      "source": "MAA",
+      "target": "BKK"
+    },
+    {
+      "source": "MAA",
+      "target": "KWI"
+    },
+    {
+      "source": "TYN",
+      "target": "CAN"
+    },
+    {
+      "source": "TYN",
+      "target": "SZX"
+    },
+    {
+      "source": "TYN",
+      "target": "NKG"
+    },
+    {
+      "source": "TYN",
+      "target": "TFU"
+    },
+    {
+      "source": "TYN",
+      "target": "KMG"
+    },
+    {
+      "source": "TYN",
+      "target": "HGH"
+    },
+    {
+      "source": "TYN",
+      "target": "CKG"
+    },
+    {
+      "source": "TYN",
+      "target": "PVG"
+    },
+    {
+      "source": "KHN",
+      "target": "TFU"
+    },
+    {
+      "source": "KHN",
+      "target": "PKX"
+    },
+    {
+      "source": "KHN",
+      "target": "XIY"
+    },
+    {
+      "source": "KHN",
+      "target": "KMG"
+    },
+    {
+      "source": "KHN",
+      "target": "CKG"
+    },
+    {
+      "source": "KHN",
+      "target": "PEK"
+    },
+    {
+      "source": "KHN",
+      "target": "HAK"
+    },
+    {
+      "source": "KHN",
+      "target": "TAO"
+    },
+    {
+      "source": "MAH",
+      "target": "BCN"
+    },
+    {
+      "source": "MAH",
+      "target": "MAD"
+    },
+    {
+      "source": "MAH",
+      "target": "STN"
+    },
+    {
+      "source": "MAH",
+      "target": "NTE"
+    },
+    {
+      "source": "MAH",
+      "target": "SVQ"
+    },
+    {
+      "source": "MAH",
+      "target": "LYS"
+    },
+    {
+      "source": "MAH",
+      "target": "BRS"
+    },
+    {
+      "source": "MAH",
+      "target": "ORY"
+    },
+    {
+      "source": "MTY",
+      "target": "IAH"
+    },
+    {
+      "source": "MTY",
+      "target": "DFW"
+    },
+    {
+      "source": "MTY",
+      "target": "ATL"
+    },
+    {
+      "source": "MTY",
+      "target": "ICN"
+    },
+    {
+      "source": "MTY",
+      "target": "MIA"
+    },
+    {
+      "source": "MTY",
+      "target": "ORD"
+    },
+    {
+      "source": "MTY",
+      "target": "NRT"
+    },
+    {
+      "source": "MTY",
+      "target": "PTY"
+    },
+    {
+      "source": "VCP",
+      "target": "CNF"
+    },
+    {
+      "source": "VCP",
+      "target": "LIS"
+    },
+    {
+      "source": "VCP",
+      "target": "FLL"
+    },
+    {
+      "source": "VCP",
+      "target": "ORY"
+    },
+    {
+      "source": "VCP",
+      "target": "MCO"
+    },
+    {
+      "source": "VCP",
+      "target": "MAD"
+    },
+    {
+      "source": "VCP",
+      "target": "OPO"
+    },
+    {
+      "source": "BFS",
+      "target": "LGW"
+    },
+    {
+      "source": "BFS",
+      "target": "ACE"
+    },
+    {
+      "source": "BFS",
+      "target": "TFS"
+    },
+    {
+      "source": "BFS",
+      "target": "GVA"
+    },
+    {
+      "source": "BFS",
+      "target": "CDG"
+    },
+    {
+      "source": "BFS",
+      "target": "AGP"
+    },
+    {
+      "source": "BFS",
+      "target": "ALC"
+    },
+    {
+      "source": "BFS",
+      "target": "LPA"
+    },
+    {
+      "source": "CNF",
+      "target": "PTY"
+    },
+    {
+      "source": "CNF",
+      "target": "LIS"
+    },
+    {
+      "source": "CNF",
+      "target": "MCO"
+    },
+    {
+      "source": "CNF",
+      "target": "EZE"
+    },
+    {
+      "source": "KZN",
+      "target": "DXB"
+    },
+    {
+      "source": "KZN",
+      "target": "SHJ"
+    },
+    {
+      "source": "KZN",
+      "target": "IST"
+    },
+    {
+      "source": "KZN",
+      "target": "VKO"
+    },
+    {
+      "source": "KZN",
+      "target": "SSH"
+    },
+    {
+      "source": "KZN",
+      "target": "SVX"
+    },
+    {
+      "source": "KZN",
+      "target": "TAS"
+    },
+    {
+      "source": "KZN",
+      "target": "AYT"
+    },
+    {
+      "source": "NBO",
+      "target": "DXB"
+    },
+    {
+      "source": "NBO",
+      "target": "DOH"
+    },
+    {
+      "source": "NBO",
+      "target": "BOM"
+    },
+    {
+      "source": "NBO",
+      "target": "CDG"
+    },
+    {
+      "source": "NBO",
+      "target": "AUH"
+    },
+    {
+      "source": "NBO",
+      "target": "LHR"
+    },
+    {
+      "source": "NBO",
+      "target": "AMS"
+    },
+    {
+      "source": "NBO",
+      "target": "SHJ"
+    },
+    {
+      "source": "ZAD",
+      "target": "CGN"
+    },
+    {
+      "source": "ZAD",
+      "target": "CRL"
+    },
+    {
+      "source": "ZAD",
+      "target": "VIE"
+    },
+    {
+      "source": "ZAD",
+      "target": "CPH"
+    },
+    {
+      "source": "ZAD",
+      "target": "WRO"
+    },
+    {
+      "source": "ZAD",
+      "target": "KRK"
+    },
+    {
+      "source": "ZAD",
+      "target": "BSL"
+    },
+    {
+      "source": "ZAD",
+      "target": "ZAG"
+    }
+  ],
+  "categories": [
+    {
+      "name": "AS"
+    },
+    {
+      "name": "EU"
+    },
+    {
+      "name": "NA"
+    },
+    {
+      "name": "AF"
+    },
+    {
+      "name": "SA"
+    },
+    {
+      "name": "OC"
+    },
+    {
+      "name": "Unknown"
+    }
+  ]
+}
