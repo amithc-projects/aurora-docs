@@ -43,6 +43,68 @@
                 <input type="color" id="brandPicker" value="#0052cc" class="form-control p-1" style="height: 40px;">
                 <span class="text-sm text-variant" id="brandHexVal">#0052cc</span>
             </div>
+            
+            <!-- Extended Colors Accordion -->
+            <details class="mt-3" style="cursor: pointer;">
+                <summary class="text-sm fw-600 text-variant mb-2">Extended Semantic Colors</summary>
+                
+                <div class="d-flex flex-column gap-3 mt-2 pl-2 border-left" style="border-left: 2px solid var(--ds-sys-color-border);">
+                    <div>
+                        <label class="text-xs fw-600 mb-1 d-block">Secondary Hue</label>
+                        <div class="d-flex align-items-center gap-2">
+                            <input type="color" id="secondaryPicker" value="#8b5cf6" class="form-control p-1" style="height: 30px;">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="text-xs fw-600 mb-1 d-block">Tertiary Hue</label>
+                        <div class="d-flex align-items-center gap-2">
+                            <input type="color" id="tertiaryPicker" value="#06b6d4" class="form-control p-1" style="height: 30px;">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="text-xs fw-600 mb-1 d-block">App Background</label>
+                        <div class="d-flex align-items-center gap-2">
+                            <input type="color" id="bgAppPicker" value="#f8fafc" class="form-control p-1" style="height: 30px;">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="text-xs fw-600 mb-1 d-block">Card Surface</label>
+                        <div class="d-flex align-items-center gap-2">
+                            <input type="color" id="surfacePicker" value="#ffffff" class="form-control p-1" style="height: 30px;">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="text-xs fw-600 mb-1 d-block">Primary Text</label>
+                        <div class="d-flex align-items-center gap-2">
+                            <input type="color" id="onSurfacePicker" value="#0f172a" class="form-control p-1" style="height: 30px;">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="text-xs fw-600 mb-1 d-block">Secondary Text</label>
+                        <div class="d-flex align-items-center gap-2">
+                            <input type="color" id="onSurfaceVariantPicker" value="#64748b" class="form-control p-1" style="height: 30px;">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="text-xs fw-600 mb-1 d-block">Success Status</label>
+                        <div class="d-flex align-items-center gap-2">
+                            <input type="color" id="successPicker" value="#10b981" class="form-control p-1" style="height: 30px;">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="text-xs fw-600 mb-1 d-block">Warning Status</label>
+                        <div class="d-flex align-items-center gap-2">
+                            <input type="color" id="warningPicker" value="#f59e0b" class="form-control p-1" style="height: 30px;">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="text-xs fw-600 mb-1 d-block">Error Status</label>
+                        <div class="d-flex align-items-center gap-2">
+                            <input type="color" id="errorPicker" value="#ef4444" class="form-control p-1" style="height: 30px;">
+                        </div>
+                    </div>
+                </div>
+            </details>
             <div id="rampDisplay"
                 style="display:grid; grid-template-columns:repeat(10,1fr); gap:2px; height:24px; margin-top:0.75rem; border-radius:4px; overflow:hidden;">
             </div>
@@ -108,8 +170,20 @@
 
         <hr class="my-4">
 
-        <!-- Export Actions -->
+        <!-- Save Theme Actions -->
         <div class="d-flex flex-column gap-2 mt-4">
+            <label class="text-sm fw-600 mb-1">Theme Name</label>
+            <input type="text" id="themeNameInput" class="form-control mb-2" placeholder="My Custom Theme">
+            <button id="btnSaveTheme"
+                class="btn btn-success d-flex align-items-center justify-content-center gap-2 w-100">
+                <span class="icon icon-star fs-5"></span> Save Custom Theme
+            </button>
+        </div>
+
+        <hr class="my-4">
+
+        <!-- Export Actions -->
+        <div class="d-flex flex-column gap-2 mt-2">
             <button id="btnExportCopy"
                 class="btn btn-primary d-flex align-items-center justify-content-center gap-2 w-100">
                 <span class="icon icon-copy fs-5"></span> Copy CSS

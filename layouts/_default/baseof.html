@@ -54,7 +54,7 @@
 
   {{ partial "command-palette.html" . }}
 
-  <script src='{{ relURL "js/docs.js" }}'></script>
+  <script type="module" src='{{ relURL "js/docs.js" }}'></script>
   <script type="module" src='{{ relURL "js/events.js" }}'></script>
   <script type="module" src="{{ "js/components/aurora-charts.js" | relURL }}?v=1"></script>
   <script type="module" src="{{ "js/components/bar-chart-race.js" | relURL }}"></script>

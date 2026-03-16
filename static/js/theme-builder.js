@@ -1,7 +1,19 @@
+import { saveCustomTheme } from './theme-manager.js';
+
 export function initThemeBuilder() {
     // DOM References
     const layoutToggle = document.getElementById('layoutToggle');
     const brandPicker = document.getElementById('brandPicker');
+    const secondaryPicker = document.getElementById('secondaryPicker');
+    const tertiaryPicker = document.getElementById('tertiaryPicker');
+    const bgAppPicker = document.getElementById('bgAppPicker');
+    const surfacePicker = document.getElementById('surfacePicker');
+    const onSurfacePicker = document.getElementById('onSurfacePicker');
+    const onSurfaceVariantPicker = document.getElementById('onSurfaceVariantPicker');
+    const successPicker = document.getElementById('successPicker');
+    const warningPicker = document.getElementById('warningPicker');
+    const errorPicker = document.getElementById('errorPicker');
+    
     const brandHexVal = document.getElementById('brandHexVal');
     const radiusPicker = document.getElementById('radiusPicker');
     const radiusVal = document.getElementById('radiusVal');
@@ -16,6 +28,8 @@ export function initThemeBuilder() {
     // Export Buttons
     const btnCopy = document.getElementById('btnExportCopy');
     const btnDownload = document.getElementById('btnExportDownload');
+    const btnSave = document.getElementById('btnSaveTheme');
+    const themeNameInput = document.getElementById('themeNameInput');
 
     // Display Mirrors
     const targetLight = document.getElementById('content-target-light');
@@ -24,6 +38,16 @@ export function initThemeBuilder() {
     // Core Updating Engine (Runs on every stroke/click)
     function applyTokens() {
         const brand = brandPicker.value;
+        const secondary = secondaryPicker ? secondaryPicker.value : '#8b5cf6';
+        const tertiary = tertiaryPicker ? tertiaryPicker.value : '#06b6d4';
+        const bgApp = bgAppPicker ? bgAppPicker.value : '#f8fafc';
+        const surface = surfacePicker ? surfacePicker.value : '#ffffff';
+        const onSurface = onSurfacePicker ? onSurfacePicker.value : '#0f172a';
+        const onSurfaceVariant = onSurfaceVariantPicker ? onSurfaceVariantPicker.value : '#64748b';
+        const success = successPicker ? successPicker.value : '#10b981';
+        const warning = warningPicker ? warningPicker.value : '#f59e0b';
+        const error = errorPicker ? errorPicker.value : '#ef4444';
+        
         const radius = radiusPicker.value + 'px';
         const stroke = strokePicker.value + 'px';
         const font = fontPicker.value;
@@ -62,9 +86,29 @@ export function initThemeBuilder() {
         panes.forEach(pane => {
             // Brand Scale
             pane.style.setProperty('--ds-sys-color-primary', brand);
+            pane.style.setProperty('--color-primary-500', brand);
+            pane.style.setProperty('--color-secondary-500', secondary);
+            pane.style.setProperty('--color-tertiary-500', tertiary);
+            
             pane.style.setProperty('--ds-sys-color-primary-container', `color-mix(in srgb, ${brand} 15%, transparent)`);
             pane.style.setProperty('--ds-sys-color-on-primary-container', `color-mix(in srgb, ${brand} 20%, currentColor)`);
             pane.style.setProperty('--ds-sys-color-on-primary', '#ffffff');
+
+            // Semantic UI Status
+            pane.style.setProperty('--ds-sys-color-success', success);
+            pane.style.setProperty('--ds-sys-color-warning', warning);
+            pane.style.setProperty('--ds-sys-color-error', error);
+            
+            // Backgrounds and Surfaces
+            pane.style.setProperty('--ds-sys-color-bg-app', bgApp);
+            pane.style.setProperty('--ds-sys-color-surface', surface);
+            pane.style.setProperty('--ds-sys-color-on-surface', onSurface);
+            pane.style.setProperty('--ds-sys-color-on-surface-variant', onSurfaceVariant);
+            // Derive contrasting elevated backgrounds
+            pane.style.setProperty('--ds-sys-color-surface-variant', `color-mix(in srgb, ${surface}, #000 4%)`);
+            pane.style.setProperty('--ds-sys-color-surface-container', `color-mix(in srgb, ${surface}, #000 6%)`);
+            pane.style.setProperty('--ds-sys-color-surface-container-high', `color-mix(in srgb, ${surface}, #000 12%)`);
+            pane.style.setProperty('--ds-sys-color-surface-container-highest', `color-mix(in srgb, ${surface}, #000 18%)`);
 
             // Borders and Geometry
             pane.style.setProperty('--ds-sys-radius-card', radius);
@@ -112,9 +156,28 @@ export function initThemeBuilder() {
 :root {
   /* Brand Mapping */
   --ds-sys-color-primary: ${brandPicker.value};
+  --color-primary-500: ${brandPicker.value};
+  --color-secondary-500: ${secondaryPicker ? secondaryPicker.value : '#8b5cf6'};
+  --color-tertiary-500: ${tertiaryPicker ? tertiaryPicker.value : '#06b6d4'};
+  
   --ds-sys-color-primary-container: color-mix(in srgb, ${brandPicker.value} 15%, transparent);
   --ds-sys-color-on-primary-container: color-mix(in srgb, ${brandPicker.value} 20%, currentColor);
   --ds-sys-color-on-primary: #ffffff;
+
+  /* Semantic UI Status */
+  --ds-sys-color-success: ${successPicker ? successPicker.value : '#10b981'};
+  --ds-sys-color-warning: ${warningPicker ? warningPicker.value : '#f59e0b'};
+  --ds-sys-color-error: ${errorPicker ? errorPicker.value : '#ef4444'};
+
+  /* Backgrounds and Surfaces */
+  --ds-sys-color-bg-app: ${bgAppPicker ? bgAppPicker.value : '#f8fafc'};
+  --ds-sys-color-surface: ${surfacePicker ? surfacePicker.value : '#ffffff'};
+  --ds-sys-color-on-surface: ${onSurfacePicker ? onSurfacePicker.value : '#0f172a'};
+  --ds-sys-color-on-surface-variant: ${onSurfaceVariantPicker ? onSurfaceVariantPicker.value : '#64748b'};
+  --ds-sys-color-surface-variant: color-mix(in srgb, ${surfacePicker ? surfacePicker.value : '#ffffff'}, #000 4%);
+  --ds-sys-color-surface-container: color-mix(in srgb, ${surfacePicker ? surfacePicker.value : '#ffffff'}, #000 6%);
+  --ds-sys-color-surface-container-high: color-mix(in srgb, ${surfacePicker ? surfacePicker.value : '#ffffff'}, #000 12%);
+  --ds-sys-color-surface-container-highest: color-mix(in srgb, ${surfacePicker ? surfacePicker.value : '#ffffff'}, #000 18%);
 
   /* Typography */
   --font-primary: ${fontPicker.value};
@@ -153,6 +216,20 @@ export function initThemeBuilder() {
             a.click();
             URL.revokeObjectURL(url);
             if (window.triggerToast) window.triggerToast('info', 'File downloading to your system!');
+        });
+    }
+
+    if (btnSave && themeNameInput) {
+        btnSave.addEventListener('click', () => {
+            const name = themeNameInput.value.trim() || 'Custom Theme';
+            const css = generateCSS();
+            saveCustomTheme(name, css);
+            
+            themeNameInput.value = '';
+            
+            if (window.triggerToast) {
+                window.triggerToast('success', `Theme "${name}" saved! It is now available in the global dropdown.`);
+            }
         });
     }
 

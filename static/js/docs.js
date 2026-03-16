@@ -1,3 +1,5 @@
+import { getCustomThemes, injectCustomTheme, clearCustomTheme } from './theme-manager.js';
+
 document.addEventListener('DOMContentLoaded', () => {
   
   // --- A. THEME SWITCHER ---
@@ -8,14 +10,45 @@ document.addEventListener('DOMContentLoaded', () => {
   const savedTheme = localStorage.getItem('aurora-theme') || 'corporate';
   const savedMode = localStorage.getItem('aurora-mode') || 'light';
 
-  html.setAttribute('data-theme', savedTheme);
+  // 1. Initial Apply
+  if (savedTheme.startsWith('custom_')) {
+    html.setAttribute('data-theme', 'corporate'); // fallback base
+    injectCustomTheme(savedTheme);
+  } else {
+    html.setAttribute('data-theme', savedTheme);
+  }
+  
   html.setAttribute('data-mode', savedMode);
   
   if(themeSelect) {
+    // 2. Hydrate Dropdown with Custom Themes
+    const customThemes = getCustomThemes();
+    if (customThemes.length > 0) {
+      const optGroup = document.createElement('optgroup');
+      optGroup.label = "Custom Themes";
+      customThemes.forEach(ct => {
+        const option = document.createElement('option');
+        option.value = ct.id;
+        option.textContent = ct.name;
+        optGroup.appendChild(option);
+      });
+      themeSelect.appendChild(optGroup);
+    }
+
     themeSelect.value = savedTheme;
+    
+    // 3. Listen for changes
     themeSelect.addEventListener('change', (e) => {
-      html.setAttribute('data-theme', e.target.value);
-      localStorage.setItem('aurora-theme', e.target.value);
+      const val = e.target.value;
+      localStorage.setItem('aurora-theme', val);
+      
+      if (val.startsWith('custom_')) {
+        html.setAttribute('data-theme', 'corporate');
+        injectCustomTheme(val);
+      } else {
+        clearCustomTheme();
+        html.setAttribute('data-theme', val);
+      }
     });
   }
 
