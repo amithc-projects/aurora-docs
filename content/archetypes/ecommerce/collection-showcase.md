@@ -143,10 +143,10 @@ This page demonstrates how the **Super List** component can replace a traditiona
 <style>
 /* Base */
 .super-list { margin: 0; padding: 0; list-style: none; width: 100%; border-radius: var(--ds-sys-radius-card); transition: all 0.5s ease; }
-.sl-item { position: relative; overflow: hidden; display: flex; }
-.sl-item__bg { position: absolute; inset: 0; z-index: 1; }
+.sl-item { position: relative; display: flex; }
+.sl-item__bg { position: absolute; inset: 0; z-index: 1; border-radius: inherit; overflow: hidden; }
 .sl-item__bg img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
-.sl-item__overlay { position: absolute; inset: 0; z-index: 2; }
+.sl-item__overlay { position: absolute; inset: 0; z-index: 2; border-radius: inherit; overflow: hidden; }
 .sl-item__content { position: relative; z-index: 3; }
 .sl-item__meta { display: inline-block; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; padding: 0.2rem 0.5rem; border-radius: 4px; background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); margin-bottom: 0.75rem; }
 .sl-item__actions { display: flex; gap: 1rem; }
@@ -165,22 +165,18 @@ This page demonstrates how the **Super List** component can replace a traditiona
 .super-list--timeline .sl-item { width: 45%; height: 350px; border-radius: var(--ds-sys-radius-card); box-shadow: var(--ds-sys-shadow-card); align-items: flex-end; position: relative; }
 .super-list--timeline .sl-item:nth-child(odd) { align-self: flex-start; }
 .super-list--timeline .sl-item:nth-child(even) { align-self: flex-end; }
-.super-list--timeline .sl-item::before { content: ''; position: absolute; top: 50%; width: 20px; height: 20px; background: var(--ds-sys-color-primary); border: 4px solid var(--ds-sys-color-surface); border-radius: 50%; transform: translateY(-50%); z-index: 10; }
-.super-list--timeline .sl-item:nth-child(odd)::before { right: -5.55%; transform: translate(50%, -50%); }
-.super-list--timeline .sl-item:nth-child(even)::before { left: -5.55%; transform: translate(-50%, -50%); }
 .super-list--timeline .sl-item__overlay { background: linear-gradient(to top, rgba(0,0,0,0.8), transparent 70%); }
 .super-list--timeline .sl-item__content { padding: 2rem; color: #fff; width: 100%; }
 .super-list--timeline .sl-item:nth-child(odd) .sl-item__content { text-align: right; }
 .super-list--timeline .sl-item:nth-child(even) .sl-item__content { text-align: left; }
-.super-list--timeline .sl-item__meta { background: var(--ds-sys-color-primary); color: #fff; font-size: 0.9rem; padding: 0.4rem 0.8rem; border-radius: 20px; position: absolute; top: 1rem; opacity: 1; }
-.super-list--timeline .sl-item:nth-child(odd) .sl-item__meta { right: 1rem; }
-.super-list--timeline .sl-item:nth-child(even) .sl-item__meta { left: 1rem; }
+.super-list--timeline .sl-item__meta { background: var(--ds-sys-color-primary); color: #fff; font-size: 0.9rem; padding: 0.4rem 0.8rem; border-radius: 20px; position: absolute; top: 1rem; opacity: 1; white-space: nowrap; }
+.super-list--timeline .sl-item:nth-child(odd) .sl-item__meta { left: calc(111.11% + 1rem); }
+.super-list--timeline .sl-item:nth-child(even) .sl-item__meta { right: calc(111.11% + 1rem); }
 @media (max-width: 768px) {
   .super-list--timeline::before { left: 2rem; }
   .super-list--timeline .sl-item { width: calc(100% - 4rem); align-self: flex-end !important; margin-left: auto; }
-  .super-list--timeline .sl-item::before { left: -2rem !important; transform: translate(-50%, -50%) !important; right: auto !important; }
   .super-list--timeline .sl-item__content { text-align: left !important; }
-  .super-list--timeline .sl-item__meta { left: 1rem !important; right: auto !important; }
+  .super-list--timeline .sl-item__meta { right: auto !important; left: -1.75rem !important; top: -1.25rem !important; }
 }
 
 /* Accordion Variant */
