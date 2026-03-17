@@ -54,9 +54,15 @@ title = 'Aurora Design System Documentation'
   weight = 1
 
 [[menu.main]]
+  identifier = "animations"
+  name = "Animations"
+  weight = 35
+  pre = "animation"
+
+[[menu.main]]
   identifier = "iconography"
   name = "Iconography"
-  weight = 25
+  weight = 45
   pre = "view_compact"
 
 [[menu.main]]

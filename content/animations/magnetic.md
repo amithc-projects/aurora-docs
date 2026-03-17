@@ -4,7 +4,7 @@ description: "A delightful micro-interaction that physically pulls UI elements t
 category: "Animations"
 menu:
   main:
-    parent: "components-simple"
+    parent: "animations"
 ---
 
 A core component of Aurora's *Micro-Interactions* architecture are physics-based UI elements. 

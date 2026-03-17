@@ -4,7 +4,7 @@ description: "Gracefully fade and slide elements precisely when they scroll into
 category: "Animations"
 menu:
   main:
-    parent: "components-simple"
+    parent: "animations"
 ---
 
 A core component of Aurora's *Micro-Interactions* architecture are scroll-triggered animations. 
