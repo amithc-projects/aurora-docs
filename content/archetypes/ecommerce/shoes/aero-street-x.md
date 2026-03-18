@@ -1,6 +1,9 @@
 ---
 title: "Aero Street X"
 description: "Product details page for the Aero Street X lifestyle shoe."
+menu:
+  main:
+    parent: "ecommerce"
 ---
 
 {{< demo >}}

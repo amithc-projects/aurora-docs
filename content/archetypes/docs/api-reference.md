@@ -1,6 +1,9 @@
 ---
 title: "API Reference (v2)"
 description: "A child page demonstrating technical API endpoint documentation."
+menu:
+  main:
+    parent: "docs"
 ---
 
 This is a demonstration of a child page within the **Documentation Portal** archetype.

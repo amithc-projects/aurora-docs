@@ -1,6 +1,9 @@
 ---
 title: "World News Feed"
 description: "A child page demonstrating filtered category feeds for the News archetype."
+menu:
+  main:
+    parent: "news"
 ---
 
 This is a demonstration of a child page within the **News / Editorial Site** archetype.

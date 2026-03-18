@@ -4,6 +4,7 @@ description: "A dual-view archetype demonstrating a Documentation Homepage and a
 menu:
   main:
     parent: "archetypes"
+    identifier: "docs"
 ---
 
 The Documentation Portal archetype features two structures: a clean, lightweight landing page optimized for search, and an intricate three-column layout (Sidebar Toolbar, Main Content, "On this page" Outline) for technical reading.

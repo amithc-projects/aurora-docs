@@ -1,6 +1,9 @@
 ---
 title: "Aero Invincible 3"
 description: "Product details page for the Aero Invincible 3 running shoe."
+menu:
+  main:
+    parent: "ecommerce"
 ---
 
 {{< demo >}}

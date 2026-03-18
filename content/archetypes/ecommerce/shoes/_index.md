@@ -1,6 +1,9 @@
 ---
 title: "Men's Running Shoes"
 description: "A category listing page demonstrating product grid layouts."
+menu:
+  main:
+    parent: "ecommerce"
 ---
 
 {{< demo >}}

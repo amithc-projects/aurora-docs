@@ -1,6 +1,9 @@
 ---
 title: "Pricing Plans"
 description: "A secondary page demonstrating pricing tiers and feature comparisons."
+menu:
+  main:
+    parent: "saas"
 ---
 
 This is a demonstration of a child page within the **SaaS Product Site** archetype.

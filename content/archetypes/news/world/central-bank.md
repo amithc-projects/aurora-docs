@@ -1,6 +1,9 @@
 ---
 title: "European Central Bank Navigates Slowing Growth"
 description: "A long-form editorial article."
+menu:
+  main:
+    parent: "news"
 ---
 
 {{< demo >}}

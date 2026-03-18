@@ -1,6 +1,9 @@
 ---
 title: "Aero Sprint Pro"
 description: "Product details page for the Aero Sprint Pro racing shoe."
+menu:
+  main:
+    parent: "ecommerce"
 ---
 
 {{< demo >}}

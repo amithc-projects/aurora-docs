@@ -1,6 +1,9 @@
 ---
 title: "Aero Air Max Pulse"
 description: "Product details page for the Aero Air Max Pulse trail shoe."
+menu:
+  main:
+    parent: "ecommerce"
 ---
 
 {{< demo >}}

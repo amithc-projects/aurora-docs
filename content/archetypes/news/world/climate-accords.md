@@ -1,6 +1,9 @@
 ---
 title: "Historic Summit Concludes with Sweeping Climate Accords"
 description: "A long-form editorial article."
+menu:
+  main:
+    parent: "news"
 ---
 
 {{< demo >}}

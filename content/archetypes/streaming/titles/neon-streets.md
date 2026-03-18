@@ -1,6 +1,9 @@
 ---
 title: "Neon Streets"
 description: "An immersive Video Player page within the Streaming archetype."
+menu:
+  main:
+    parent: "streaming"
 ---
 
 {{< demo >}}
