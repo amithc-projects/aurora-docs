@@ -32,7 +32,29 @@ The marketing view utilizes an expansive edge-to-edge layout, a Mega Menu for co
   </header>
 
   <!-- Hero Section -->
-  <section style="padding: 6rem 2rem; text-align: center; background: radial-gradient(circle at top, var(--ds-sys-color-surface-container-highest), var(--ds-sys-color-bg-app));">
+  <style>
+    @keyframes gradientCycle {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .animated-hero {
+      background: linear-gradient(-45deg, var(--ds-sys-color-surface-container-highest), var(--ds-sys-color-bg-app), #e0e7ff, var(--ds-sys-color-surface));
+      background-size: 400% 400%;
+      animation: gradientCycle 15s ease infinite;
+    }
+    .trusted-carousel {
+      display: flex;
+      gap: 4rem;
+      align-items: center;
+      animation: slide 20s linear infinite;
+    }
+    @keyframes slide {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+  </style>
+  <section class="animated-hero" style="padding: 6rem 2rem; text-align: center;">
     <h1 style="font-size: 3.5rem; font-weight: 800; letter-spacing: -1.5px; margin-bottom: 1.5rem; color: var(--ds-sys-color-on-surface); max-width: 800px; margin-inline: auto; line-height: 1.1;">
       Financial infrastructure for the internet
     </h1>
@@ -42,6 +64,19 @@ The marketing view utilizes an expansive edge-to-edge layout, a Mega Menu for co
     <div style="display: flex; justify-content: center; gap: 1rem;">
       <a href="/aurora-docs/archetypes/saas/products/" style="text-decoration: none;"><button class="btn btn-primary btn-lg" style="border-radius: 999px; padding: 0 2rem; cursor: pointer;">Start now</button></a>
       <button class="btn btn-outline btn-lg" style="border-radius: 999px; padding: 0 2rem;">Contact sales</button>
+    </div>
+  </section>
+
+  <!-- Trusted By Carousel -->
+  <section style="padding: 2rem; border-bottom: 1px solid var(--ds-sys-color-border); overflow: hidden; background: var(--ds-sys-color-surface);">
+    <div style="font-size: 0.9rem; font-weight: 600; text-transform: uppercase; color: var(--ds-sys-color-on-surface-variant); text-align: center; margin-bottom: 1.5rem;">Trusted by forward-thinking companies</div>
+    <div style="display: flex; width: 200%; overflow: hidden;">
+      <div class="trusted-carousel" style="width: 50%; justify-content: space-around; opacity: 0.6; font-weight: 800; font-size: 1.25rem;">
+        <div>Stripe</div><div>Spotify</div><div>Netflix</div><div>Airbnb</div><div>Amazon</div>
+      </div>
+      <div class="trusted-carousel" style="width: 50%; justify-content: space-around; opacity: 0.6; font-weight: 800; font-size: 1.25rem;">
+        <div>Stripe</div><div>Spotify</div><div>Netflix</div><div>Airbnb</div><div>Amazon</div>
+      </div>
     </div>
   </section>
 

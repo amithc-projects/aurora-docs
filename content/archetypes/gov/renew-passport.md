@@ -1,6 +1,9 @@
 ---
 title: "Renew Passport"
 description: "A child page demonstrating a text-heavy informational hub for a Government service."
+menu:
+  main:
+    parent: "gov"
 ---
 
 This is a demonstration of a child page within the **Government Service** archetype.

@@ -4,6 +4,7 @@ description: "A dual-view archetype demonstrating a dense Editorial Homepage and
 menu:
   main:
     parent: "archetypes"
+    identifier: "news"
 ---
 
 The News archetype proves the system's ability to handle extreme content density, irregular grid layouts (Masonry/Bento boxes), and rich, long-form typography rendering.

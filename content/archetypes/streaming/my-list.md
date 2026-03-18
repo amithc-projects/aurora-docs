@@ -1,6 +1,9 @@
 ---
 title: "My Watchlist"
 description: "A child page demonstrating an individualized user library grid in a Streaming interface."
+menu:
+  main:
+    parent: "streaming"
 ---
 
 This is a demonstration of a child page within the **Streaming / Media** archetype.

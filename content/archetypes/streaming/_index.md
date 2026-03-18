@@ -4,6 +4,7 @@ description: "A dark-mode forced archetype demonstrating horizontal media carous
 menu:
   main:
     parent: "archetypes"
+    identifier: "streaming"
 ---
 
 The Streaming Media archetype forces dark-mode tokens globally to ensure high contrast against rich video thumbnails. It showcases infinite horizontal scrolling containers and a dense, visually arresting details overlay.
@@ -121,7 +122,7 @@ A classic "hero billboard" layout layered above multiple cascading rows of horiz
     </div>
 
     <!-- Row 2 -->
-    <div style="margin-bottom: 0;">
+    <div style="margin-bottom: 2rem;">
       <h2 style="font-size: 1.25rem; font-weight: 700; color: #e5e5e5; margin-bottom: 1rem;">Sci-Fi & Fantasy</h2>
       <div class="carousel carousel--multi" role="region" aria-label="Sci-Fi & Fantasy">
         
@@ -131,6 +132,20 @@ A classic "hero billboard" layout layered above multiple cascading rows of horiz
         <div style="padding: 20px 0;"><a href="#" class="card"><div class="card__media" style="background: url('/aurora-docs/images/archetypes/fantasy.png') center/cover; height: 140px;"></div></a></div>
         <div style="padding: 20px 0;"><a href="#" class="card"><div class="card__media" style="background: url('/aurora-docs/images/archetypes/horror.png') center/cover; height: 140px;"></div></a></div>
         <div style="padding: 20px 0;"><a href="#" class="card"><div class="card__media" style="background: url('/aurora-docs/images/archetypes/scifi.png') center/cover; height: 140px;"></div></a></div>
+        
+      </div>
+    </div>
+
+    <!-- Row 3 -->
+    <div style="margin-bottom: 0;">
+      <h2 style="font-size: 1.25rem; font-weight: 700; color: #e5e5e5; margin-bottom: 1rem;">Action & Adventure</h2>
+      <div class="carousel carousel--multi" role="region" aria-label="Action & Adventure">
+        
+        <div style="padding: 20px 0;"><a href="#" class="card"><div class="card__media" style="background: url('/aurora-docs/images/archetypes/fantasy.png') center/cover; height: 140px;"></div></a></div>
+        <div style="padding: 20px 0;"><a href="#" class="card"><div class="card__media" style="background: url('/aurora-docs/images/archetypes/scifi.png') center/cover; height: 140px;"></div></a></div>
+        <div style="padding: 20px 0;"><a href="#" class="card"><div class="card__media" style="background: url('/aurora-docs/images/archetypes/cyberpunk.png') center/cover; height: 140px;"></div></a></div>
+        <div style="padding: 20px 0;"><a href="#" class="card"><div class="card__media" style="background: url('/aurora-docs/images/archetypes/horror.png') center/cover; height: 140px;"></div></a></div>
+        <div style="padding: 20px 0;"><a href="#" class="card"><div class="card__media" style="background: url('/aurora-docs/images/archetypes/fantasy.png') center/cover; height: 140px;"></div></a></div>
         
       </div>
     </div>

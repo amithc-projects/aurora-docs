@@ -4,6 +4,7 @@ description: "A high-contrast, accessibility-focused archetype demonstrating a t
 menu:
   main:
     parent: "archetypes"
+    identifier: "gov"
 ---
 
 The Government archetype rejects all superfluous decoration. It prioritizes maximum accessibility (AA/AAA contrast ratios), brutalist typography, and highly legible form densities designed to guide users through complex civic processes without error.

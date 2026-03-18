@@ -1,6 +1,9 @@
 ---
 title: "Payments Infrastructure"
 description: "A deep dive Product Details page within the SaaS archetype."
+menu:
+  main:
+    parent: "saas"
 ---
 
 {{< demo >}}

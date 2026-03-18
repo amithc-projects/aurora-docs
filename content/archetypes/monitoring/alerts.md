@@ -1,6 +1,9 @@
 ---
 title: "Incident Alerts"
 description: "A child page demonstrating a critical alert feed for a System Monitoring dashboard."
+menu:
+  main:
+    parent: "monitoring"
 ---
 
 This is a demonstration of a child page within the **System Monitoring** archetype.

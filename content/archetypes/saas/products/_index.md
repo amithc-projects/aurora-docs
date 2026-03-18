@@ -1,6 +1,9 @@
 ---
 title: "Product Suite"
 description: "A hub page listing all available SaaS products."
+menu:
+  main:
+    parent: "saas"
 ---
 
 {{< demo >}}
@@ -41,19 +44,19 @@ description: "A hub page listing all available SaaS products."
       </div>
     </a>
 
-    <!-- Product Card 3 (Stub) -->
-    <div style="opacity: 0.6; cursor: not-allowed;">
-      <div class="card" style="padding: 3rem 2.5rem; border: 1px dashed var(--ds-sys-color-border); border-radius: 12px; background: var(--ds-sys-color-surface-container-low); height: 100%;">
-        <div style="width: 48px; height: 48px; border-radius: 12px; background: #f3f4f6; color: #9ca3af; display: flex; align-items: center; justify-content: center; margin-bottom: 2rem;">
+    <!-- Product Card 3 (Fraud Prevention) -->
+    <a href="/aurora-docs/archetypes/saas/products/fraud/" style="text-decoration: none; color: inherit; display: block;">
+      <div class="card" style="padding: 3rem 2.5rem; border: 1px solid var(--ds-sys-color-border); border-radius: 12px; background: var(--ds-sys-color-surface); height: 100%; transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 10px 30px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+        <div style="width: 48px; height: 48px; border-radius: 12px; background: #fef2f2; color: #ef4444; display: flex; align-items: center; justify-content: center; margin-bottom: 2rem;">
           <span class="material-symbols-outlined" style="font-size: 1.5rem;">security</span>
         </div>
         <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--ds-sys-color-on-surface);">Fraud Prevention</h3>
         <p style="color: var(--ds-sys-color-on-surface-variant); line-height: 1.6; margin-bottom: 2rem;">Protect your business from chargebacks with machine learning algorithms trained on billions of data points.</p>
-        <div style="color: #9ca3af; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;">
-          Coming Soon
+        <div style="color: #ef4444; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;">
+          Explore Fraud Prevention <span class="material-symbols-outlined" style="font-size: 1rem;">arrow_forward</span>
         </div>
       </div>
-    </div>
+    </a>
 
   </div>
 

@@ -4,6 +4,7 @@ description: "A dark-mode forced archetype demonstrating extreme data density, m
 menu:
   main:
     parent: "archetypes"
+    identifier: "monitoring"
 ---
 
 The System Monitoring archetype tests the engine's ability to handle high-density layouts (resizable panes, dense datagrids, complex charting canvas overlays) without the UI breaking down.
@@ -59,74 +60,74 @@ A complex Command Center layout packed with topological graphs, mini-sparklines,
     <!-- Main Dashboard Grid Area -->
     <main style="flex: 1; padding: 1rem; overflow-y: auto; background: #0b0c10;">
       
-      <!-- Top Row: Sparkline KPIs -->
-      <div class="l-grid" style="grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 1rem;">
+      <!-- Bento Grid (Charts and Tiles) -->
+      <div class="l-grid" style="grid-template-columns: repeat(4, 1fr); grid-auto-rows: 150px; gap: 1rem;">
         
-        <div style="background: #1f2833; border: 1px solid #333; border-radius: 4px; padding: 1rem; position: relative;">
+        <!-- Large Chart Area (Spans 2x2) -->
+        <div style="grid-column: span 2; grid-row: span 2; background: #1f2833; border: 1px solid #333; border-radius: 8px; padding: 1.5rem; display: flex; flex-direction: column;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+            <h3 style="margin: 0; font-size: 1rem; font-weight: 600; color: #fff;">Network Traffic / Bandwidth</h3>
+            <div style="display: flex; gap: 1rem; font-size: 0.8rem;">
+              <div style="display: flex; align-items: center; gap: 0.4rem;"><div style="width: 10px; height: 10px; background: #66fcf1; border-radius: 50%;"></div> Inbound</div>
+              <div style="display: flex; align-items: center; gap: 0.4rem;"><div style="width: 10px; height: 10px; border: 2px solid #66fcf1; border-radius: 50%;"></div> Outbound</div>
+            </div>
+          </div>
+          
+          <div style="flex: 1; position: relative; border-left: 1px dashed #333; border-bottom: 1px dashed #333;">
+            <!-- Grid Lines -->
+            <div style="position: absolute; top: 25%; left: 0; width: 100%; height: 1px; background: rgba(255,255,255,0.05);"></div>
+            <div style="position: absolute; top: 50%; left: 0; width: 100%; height: 1px; background: rgba(255,255,255,0.05);"></div>
+            <div style="position: absolute; top: 75%; left: 0; width: 100%; height: 1px; background: rgba(255,255,255,0.05);"></div>
+            
+            <svg style="width: 100%; height: 100%; position: absolute; top: 0; left: 0;" viewBox="0 0 1000 200" preserveAspectRatio="none">
+               <path d="M0,180 C100,150 200,170 300,120 C400,70 500,180 600,60 C700,30 800,150 900,110 C1000,90 1000,90 1000,90 L1000,200 L0,200 Z" fill="rgba(102, 252, 241, 0.15)"></path>
+               <path d="M0,180 C100,150 200,170 300,120 C400,70 500,180 600,60 C700,30 800,150 900,110 C1000,90 1000,90 1000,90" fill="none" stroke="#66fcf1" stroke-width="3"></path>
+               <path d="M0,190 C150,180 250,195 350,160 C450,130 550,190 650,120 C750,90 850,180 950,140 L1000,130" fill="none" stroke="rgba(102, 252, 241, 0.5)" stroke-width="2" stroke-dasharray="5,5"></path>
+            </svg>
+          </div>
+        </div>
+
+        <!-- KPI 1 -->
+        <div style="grid-column: span 1; grid-row: span 1; background: #1f2833; border: 1px solid #333; border-radius: 8px; padding: 1rem; position: relative; overflow: hidden;">
           <div style="font-size: 0.75rem; font-weight: 700; color: #7f8c8d; text-transform: uppercase;">Average CPU</div>
           <div style="font-size: 1.5rem; font-weight: 500; color: #fff; margin-top: 0.25rem;">42.8%</div>
-          <!-- CSS Mock Sparkline -->
-          <svg style="position: absolute; bottom: 0; left: 0; width: 100%; height: 40px; border-bottom-left-radius: 4px; border-bottom-right-radius: 4px;" viewBox="0 0 100 40" preserveAspectRatio="none">
+          <svg style="position: absolute; bottom: 0; left: 0; width: 100%; height: 40px; border-bottom-left-radius: 8px; border-bottom-right-radius: 8px;" viewBox="0 0 100 40" preserveAspectRatio="none">
             <path d="M0,35 L20,30 L40,35 L60,15 L80,25 L100,20 L100,40 L0,40 Z" fill="rgba(69, 162, 158, 0.2)"></path>
             <polyline points="0,35 20,30 40,35 60,15 80,25 100,20" fill="none" stroke="#45a29e" stroke-width="2"></polyline>
           </svg>
         </div>
 
-        <div style="background: #1f2833; border: 1px solid #333; border-radius: 4px; padding: 1rem; position: relative;">
+        <!-- KPI 2 -->
+        <div style="grid-column: span 1; grid-row: span 1; background: #1f2833; border: 1px solid #333; border-radius: 8px; padding: 1rem; position: relative; overflow: hidden;">
           <div style="font-size: 0.75rem; font-weight: 700; color: #7f8c8d; text-transform: uppercase;">Memory Usage</div>
           <div style="font-size: 1.5rem; font-weight: 500; color: #fff; margin-top: 0.25rem;">14.2 GB</div>
-          <svg style="position: absolute; bottom: 0; left: 0; width: 100%; height: 40px;" viewBox="0 0 100 40" preserveAspectRatio="none">
+          <svg style="position: absolute; bottom: 0; left: 0; width: 100%; height: 40px; border-bottom-left-radius: 8px; border-bottom-right-radius: 8px;" viewBox="0 0 100 40" preserveAspectRatio="none">
             <path d="M0,10 L30,12 L50,8 L70,10 L100,15 L100,40 L0,40 Z" fill="rgba(69, 162, 158, 0.2)"></path>
             <polyline points="0,10 30,12 50,8 70,10 100,15" fill="none" stroke="#45a29e" stroke-width="2"></polyline>
           </svg>
         </div>
 
-        <div style="background: #1f2833; border: 1px solid #e74c3c; border-radius: 4px; padding: 1rem; position: relative; box-shadow: 0 0 15px rgba(231, 76, 60, 0.1);">
-          <div style="font-size: 0.75rem; font-weight: 700; color: #e74c3c; text-transform: uppercase; display: flex; justify-content: space-between;">
-            API Letency <span class="material-symbols-outlined" style="font-size: 1rem;">warning</span>
+        <!-- KPI 3 (Alert) -->
+        <a href="/aurora-docs/archetypes/monitoring/alerts/" style="text-decoration: none; color: inherit; display: block; grid-column: span 1; grid-row: span 1;">
+          <div style="height: 100%; background: #1f2833; border: 1px solid #e74c3c; border-radius: 8px; padding: 1rem; position: relative; box-shadow: 0 0 15px rgba(231, 76, 60, 0.1); overflow: hidden;">
+            <div style="font-size: 0.75rem; font-weight: 700; color: #e74c3c; text-transform: uppercase; display: flex; justify-content: space-between;">
+              API Latency <span class="material-symbols-outlined" style="font-size: 1rem;">warning</span>
+            </div>
+            <div style="font-size: 1.5rem; font-weight: 500; color: #fff; margin-top: 0.25rem;">890ms</div>
+            <svg style="position: absolute; bottom: 0; left: 0; width: 100%; height: 40px; border-bottom-left-radius: 8px; border-bottom-right-radius: 8px;" viewBox="0 0 100 40" preserveAspectRatio="none">
+              <path d="M0,30 L40,30 L50,5 L60,8 L70,25 L100,10 L100,40 L0,40 Z" fill="rgba(231, 76, 60, 0.2)"></path>
+              <polyline points="0,30 40,30 50,5 60,8 70,25 100,10" fill="none" stroke="#e74c3c" stroke-width="2"></polyline>
+            </svg>
           </div>
-          <div style="font-size: 1.5rem; font-weight: 500; color: #fff; margin-top: 0.25rem;">890ms</div>
-          <svg style="position: absolute; bottom: 0; left: 0; width: 100%; height: 40px;" viewBox="0 0 100 40" preserveAspectRatio="none">
-            <path d="M0,30 L40,30 L50,5 L60,8 L70,25 L100,10 L100,40 L0,40 Z" fill="rgba(231, 76, 60, 0.2)"></path>
-            <polyline points="0,30 40,30 50,5 60,8 70,25 100,10" fill="none" stroke="#e74c3c" stroke-width="2"></polyline>
-          </svg>
-        </div>
+        </a>
 
-        <div style="background: #1f2833; border: 1px solid #333; border-radius: 4px; padding: 1rem; position: relative;">
+        <!-- KPI 4 -->
+        <div style="grid-column: span 1; grid-row: span 1; background: #1f2833; border: 1px solid #333; border-radius: 8px; padding: 1rem; position: relative; overflow: hidden;">
           <div style="font-size: 0.75rem; font-weight: 700; color: #7f8c8d; text-transform: uppercase;">Active Connections</div>
           <div style="font-size: 1.5rem; font-weight: 500; color: #fff; margin-top: 0.25rem;">12,402</div>
-          <svg style="position: absolute; bottom: 0; left: 0; width: 100%; height: 40px;" viewBox="0 0 100 40" preserveAspectRatio="none">
+          <svg style="position: absolute; bottom: 0; left: 0; width: 100%; height: 40px; border-bottom-left-radius: 8px; border-bottom-right-radius: 8px;" viewBox="0 0 100 40" preserveAspectRatio="none">
             <path d="M0,25 L20,20 L40,22 L60,18 L80,20 L100,15 L100,40 L0,40 Z" fill="rgba(69, 162, 158, 0.2)"></path>
             <polyline points="0,25 20,20 40,22 60,18 80,20 100,15" fill="none" stroke="#45a29e" stroke-width="2"></polyline>
-          </svg>
-        </div>
-      </div>
-
-      <!-- Main Chart Area -->
-      <div style="background: #1f2833; border: 1px solid #333; border-radius: 4px; padding: 1.5rem; height: 320px; display: flex; flex-direction: column;">
-        
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
-          <h3 style="margin: 0; font-size: 1rem; font-weight: 600; color: #fff;">Network Traffic / Bandwidth</h3>
-          <div style="display: flex; gap: 1rem; font-size: 0.8rem;">
-            <div style="display: flex; align-items: center; gap: 0.4rem;"><div style="width: 10px; height: 10px; background: #66fcf1; border-radius: 50%;"></div> Inbound</div>
-            <div style="display: flex; align-items: center; gap: 0.4rem;"><div style="width: 10px; height: 10px; border: 2px solid #66fcf1; border-radius: 50%;"></div> Outbound</div>
-          </div>
-        </div>
-        
-        <!-- Large Area Chart Mock -->
-        <div style="flex: 1; position: relative; border-left: 1px dashed #333; border-bottom: 1px dashed #333;">
-          <!-- Grid Lines -->
-          <div style="position: absolute; top: 25%; left: 0; width: 100%; height: 1px; background: rgba(255,255,255,0.05);"></div>
-          <div style="position: absolute; top: 50%; left: 0; width: 100%; height: 1px; background: rgba(255,255,255,0.05);"></div>
-          <div style="position: absolute; top: 75%; left: 0; width: 100%; height: 1px; background: rgba(255,255,255,0.05);"></div>
-          
-          <svg style="width: 100%; height: 100%; position: absolute; top: 0; left: 0;" viewBox="0 0 1000 200" preserveAspectRatio="none">
-             <!-- Inbound Fill -->
-             <path d="M0,180 C100,150 200,170 300,120 C400,70 500,180 600,60 C700,30 800,150 900,110 C1000,90 1000,90 1000,90 L1000,200 L0,200 Z" fill="rgba(102, 252, 241, 0.15)"></path>
-             <path d="M0,180 C100,150 200,170 300,120 C400,70 500,180 600,60 C700,30 800,150 900,110 C1000,90 1000,90 1000,90" fill="none" stroke="#66fcf1" stroke-width="3"></path>
-             
-             <!-- Outbound line -->
-             <path d="M0,190 C150,180 250,195 350,160 C450,130 550,190 650,120 C750,90 850,180 950,140 L1000,130" fill="none" stroke="rgba(102, 252, 241, 0.5)" stroke-width="2" stroke-dasharray="5,5"></path>
           </svg>
         </div>
 

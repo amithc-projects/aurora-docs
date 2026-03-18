@@ -1,6 +1,9 @@
 ---
 title: "Midterm Election Results Shake Up Parliament"
 description: "A long-form editorial article."
+menu:
+  main:
+    parent: "news"
 ---
 
 {{< demo >}}
@@ -35,7 +38,23 @@ description: "A long-form editorial article."
         <span style="float: left; font-size: 4.5rem; line-height: 0.8; font-weight: 900; font-family: 'Times New Roman', Times, serif; margin-right: 0.5rem; color: var(--ds-sys-color-primary);">V</span>oter turnout shattered all previous records for an off-cycle election, propelled by younger demographics mobilizing in key urban centers. The result is a fundamentally reshaped parliament that will force a drastic recalibration of the legislative agenda for the remainder of the term.
       </p>
 
-    </div>
+      <p style="margin-bottom: 1.5rem;">
+        Early projections indicated a close race, but the unexpected surge of first-time voters flipped several traditionally safe districts. Analysts suggest that critical issues such as housing affordability, climate change policy, and the recent economic reforms played a pivotal role in driving voters to the polls in droves. 
+      </p>
+
+      <!-- Editorial Pullquote -->
+      <blockquote style="font-family: 'Times New Roman', Times, serif; font-size: 1.8rem; font-style: italic; line-height: 1.4; color: var(--ds-sys-color-primary); margin: 3rem -2rem; padding-left: 2rem; border-left: 4px solid var(--ds-sys-color-primary);">
+        "We are witnessing a generational shift in political engagement that will redefine our policy priorities for the next decade."
+      </blockquote>
+
+      <p style="margin-bottom: 1.5rem;">
+        The incumbent coalition is now tasked with navigating a divided legislature, requiring unprecedented bipartisan negotiation to pass any meaningful legislation. Both sides have called for unity in the wake of the polarizing campaigns, but the sheer volume of campaign promises made to their respective bases guarantees that compromise will be difficult.
+      </p>
+
+      <h3 style="font-family: var(--ds-sys-font-family-base); font-size: 1.75rem; font-weight: 800; margin: 3rem 0 1rem 0; color: var(--ds-sys-color-on-surface);">What this means for the Economy</h3>
+      <p style="margin-bottom: 1.5rem;">
+        Market reactions have been mixed so far. While the technology and green energy sectors saw immediate gains on the expectation of supportive legislation, traditional energy and manufacturing stocks dipped amid fears of stricter environmental regulations and tax reforms. The coming weeks will be crucial as the new parliamentary makeup begins to draft its first budget proposals.
+      </p>
   </article>
 </div>
 {{< /demo >}}
