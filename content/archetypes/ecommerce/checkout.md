@@ -1,6 +1,9 @@
 ---
 title: "Checkout Flow"
 description: "A child page demonstrating a streamlined Ecommerce checkout experience."
+menu:
+  main:
+    parent: "ecommerce"
 ---
 
 This is a demonstration of a child page within the **E-commerce Store** archetype.

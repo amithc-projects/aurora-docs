@@ -89,4 +89,66 @@
 
   </div>
 </div>
+
+<!-- View Code Bar (Positioned below the layout) -->
+<div class="page-code-bar" style="margin-top: 2rem; background: var(--ds-sys-color-bg-panel); border-top: 1px solid var(--ds-sys-color-border);">
+  <div style="max-width: var(--ds-sys-max-width, 1440px); margin: 0 auto; padding: 1rem; display: flex; justify-content: space-between; align-items: center;">
+    <div style="display: flex; align-items: center; gap: 1rem;">
+      <strong>Template Source</strong>
+      <span class="text-sm" style="opacity: 0.7;">Click to see the HTML/CSS structure</span>
+    </div>
+    <div style="display: flex; gap: 0.5rem;">
+       <button class="btn btn-sm btn-outline" id="btn-copy-page-code">Copy</button>
+       <button class="btn btn-sm primary" id="btn-toggle-page-code">View Code</button>
+    </div>
+  </div>
+  <div id="page-code-panel" style="display: none; height: 50vh; border-top: 1px solid var(--ds-sys-color-border); background: #1e1e1e; color: #d4d4d4; overflow: auto; padding: 1rem;">
+    <pre style="margin: 0;"><code class="language-html" id="page-code-block" style="font-size: 13px; color: inherit;"></code></pre>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const toggleBtn = document.getElementById('btn-toggle-page-code');
+  const copyBtn = document.getElementById('btn-copy-page-code');
+  const panel = document.getElementById('page-code-panel');
+  const codeBlock = document.getElementById('page-code-block');
+
+  if (toggleBtn && panel && codeBlock) {
+    toggleBtn.addEventListener('click', () => {
+      if (panel.style.display === 'none') {
+        const tplPage = document.querySelector('.tpl-page');
+        if (tplPage) {
+          const clone = tplPage.cloneNode(true);
+          codeBlock.textContent = clone.outerHTML;
+          if (window.hljs) {
+            codeBlock.className = 'language-html';
+            codeBlock.removeAttribute('data-highlighted');
+            hljs.highlightElement(codeBlock);
+          }
+        }
+        panel.style.display = 'block';
+        toggleBtn.textContent = 'Hide Code';
+      } else {
+        panel.style.display = 'none';
+        toggleBtn.textContent = 'View Code';
+      }
+    });
+
+    if (copyBtn) {
+      copyBtn.addEventListener('click', async () => {
+        if (!codeBlock.textContent) return;
+        try {
+          await navigator.clipboard.writeText(codeBlock.textContent);
+          const originalText = copyBtn.textContent;
+          copyBtn.textContent = 'Copied!';
+          setTimeout(() => copyBtn.textContent = originalText, 2000);
+        } catch (err) {
+          console.error('Failed to copy', err);
+        }
+      });
+    }
+  }
+});
+</script>
 {{ end }}

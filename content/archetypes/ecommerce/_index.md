@@ -4,6 +4,7 @@ description: "A dual-view archetype demonstrating a Storefront Homepage and a fe
 menu:
   main:
     parent: "archetypes"
+    identifier: "ecommerce"
 ---
 
 The E-commerce archetype demonstrates handling large visual assets and complex form-input density. It features a promotional Storefront and a high-conversion Product Details Page (PDP) packed with galleries, steppers, and interactive variant selectors.
