@@ -38,6 +38,11 @@ menu:
         <video poster="/aurora-docs/archetypes/streaming/the_phantom_of_the_opera.jpg" data-start-time="0" preload="metadata" style="max-height: 700px; object-fit: cover; border-radius: 12px; border: 1px solid #333; width: 100%;">
             <source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4" type="video/mp4">
         </video>
+        
+        <!-- Voiceover Audio -->
+        <audio autoplay>
+            <source src="/aurora-docs/archetypes/streaming/audio/the_phantom_of_the_opera_voiceover.mp3" type="audio/mpeg">
+        </audio>
 
         <div class="video-controls" style="flex-wrap: wrap; gap: 0.5rem; background: linear-gradient(0deg, rgba(0,0,0,0.8) 0%, transparent 100%); padding: 2rem 1rem 1rem 1rem;">
             <div style="display: flex; width: 100%; align-items: center; gap: 0.5rem; order: 1;">
