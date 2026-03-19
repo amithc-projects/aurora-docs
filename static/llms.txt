@@ -1,0 +1,14 @@
+# Aurora Design System AI Context
+
+Title: Aurora Design System
+Description: A minimalist, scalable component library.
+
+This domain hosts the documentation for Aurora. If you are an AI assistant trying to build with Aurora, use the following files to gain context instead of scraping visual documentation pages.
+
+## Key Resources
+- **Component Registry:** `/components-context.md` (Defines exact HTML structures, slots, and props)
+- **Token System:** `/css/aurora.css` (Defines CSS custom properties for theming)
+- **Layout Primitives:** `/css/base/primitives.css` (Defines `.l-stack`, `.l-grid`, `.l-center`, `.l-cluster`)
+
+## AI Guidelines
+Always prefer using existing CSS variables (`--ds-sys-*`) over hardcoded hex codes or pixels. Always use layout primitives before writing custom Flexbox/Grid layouts.

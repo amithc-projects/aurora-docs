@@ -1,0 +1,1 @@
+window.SEARCH_INDEX = {{ $index := slice }}{{ range .Site.RegularPages }}{{ $item := dict "title" .Title "description" (.Description | default "") "url" .RelPermalink "category" (.Params.category | default "Documentation") }}{{ $index = $index | append $item }}{{ end }}{{ $index | jsonify }};

@@ -5,12 +5,7 @@
   <meta charset="UTF-8">
 
   <title>{{ .Title }} | Aurora Design System Docs</title>
-  <!-- prettier-ignore -->
-  {{ $searchTemplate := `{{ $index := slice }}{{ range .Site.RegularPages }}{{ $item := dict "title" .Title
-  "description" (.Description | default "") "url" .RelPermalink "category" (.Params.category | default "Documentation")
-  }}{{ $index = $index | append $item }}{{ end }}window.SEARCH_INDEX = {{ $index | jsonify }};` }}
-  {{ $searchJs := $searchTemplate | resources.FromString "search.js" | resources.ExecuteAsTemplate "search.js" . }}
-  <script src="{{ $searchJs.RelPermalink }}"></script>
+  <script src="{{ "search.js" | relURL }}"></script>
   {{ partialCached "generate-icon-css.html" . }}
   <script>
 

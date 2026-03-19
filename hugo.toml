@@ -17,15 +17,27 @@ title = 'Aurora Design System Documentation'
 [mediaTypes]
   [mediaTypes."text/css"]
     suffixes = ["css"]
+  [mediaTypes."application/javascript"]
+    suffixes = ["js"]
 
 [outputFormats]
   [outputFormats.CSS]
     mediaType = "text/css"
     isPlainText = true
     rel = "stylesheet"
+  [outputFormats.searchjs]
+    mediaType = "application/javascript"
+    baseName = "search"
+    isPlainText = true
+    notAlternative = true
+  [outputFormats.searchnodejs]
+    mediaType = "application/javascript"
+    baseName = "search_node"
+    isPlainText = true
+    notAlternative = true
 
 [outputs]
-  home = ["HTML"]
+  home = ["HTML", "searchjs", "searchnodejs"]
   section = ["HTML"]
   page = ["HTML"]
 
