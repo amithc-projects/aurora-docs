@@ -193,56 +193,56 @@ A classic "hero billboard" layout layered above multiple cascading rows of horiz
 
         <div style="padding: 20px 0;">
           <a href="/aurora-docs/archetypes/streaming/titles/rocket/" class="card" style="display: block; position: relative; height: 100%;">
-            <div class="card__media" style="background: url('https://placehold.co/1024x576/141414/e50914?text=Generating+Visuals...') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/rocket.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
               
             </div>
           </a>
         </div>
         <div style="padding: 20px 0;">
           <a href="/aurora-docs/archetypes/streaming/titles/tetris-time-warp/" class="card" style="display: block; position: relative; height: 100%;">
-            <div class="card__media" style="background: url('https://placehold.co/1024x576/141414/e50914?text=Generating+Visuals...') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/tetris_time_warp.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
               
             </div>
           </a>
         </div>
         <div style="padding: 20px 0;">
           <a href="/aurora-docs/archetypes/streaming/titles/pictionary-game-night/" class="card" style="display: block; position: relative; height: 100%;">
-            <div class="card__media" style="background: url('https://placehold.co/1024x576/141414/e50914?text=Generating+Visuals...') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/pictionary_game_night.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
               
             </div>
           </a>
         </div>
         <div style="padding: 20px 0;">
           <a href="/aurora-docs/archetypes/streaming/titles/cozy-camp/" class="card" style="display: block; position: relative; height: 100%;">
-            <div class="card__media" style="background: url('https://placehold.co/1024x576/141414/e50914?text=Generating+Visuals...') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/cozy_camp.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
               
             </div>
           </a>
         </div>
         <div style="padding: 20px 0;">
           <a href="/aurora-docs/archetypes/streaming/titles/link-twin/" class="card" style="display: block; position: relative; height: 100%;">
-            <div class="card__media" style="background: url('https://placehold.co/1024x576/141414/e50914?text=Generating+Visuals...') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/link_twin.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
               
             </div>
           </a>
         </div>
         <div style="padding: 20px 0;">
           <a href="/aurora-docs/archetypes/streaming/titles/centipede-recharged/" class="card" style="display: block; position: relative; height: 100%;">
-            <div class="card__media" style="background: url('https://placehold.co/1024x576/141414/e50914?text=Generating+Visuals...') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/centipede_recharged.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
               
             </div>
           </a>
         </div>
         <div style="padding: 20px 0;">
           <a href="/aurora-docs/archetypes/streaming/titles/word-puzzle-pro/" class="card" style="display: block; position: relative; height: 100%;">
-            <div class="card__media" style="background: url('https://placehold.co/1024x576/141414/e50914?text=Generating+Visuals...') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/word_puzzle_pro.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
               
             </div>
           </a>
         </div>
         <div style="padding: 20px 0;">
           <a href="/aurora-docs/archetypes/streaming/titles/underwater-melon/" class="card" style="display: block; position: relative; height: 100%;">
-            <div class="card__media" style="background: url('https://placehold.co/1024x576/141414/e50914?text=Generating+Visuals...') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/underwater_melon.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
               
             </div>
           </a>
@@ -508,56 +508,56 @@ A classic "hero billboard" layout layered above multiple cascading rows of horiz
 
         <div style="padding: 20px 0;">
           <a href="/aurora-docs/archetypes/streaming/titles/blackadders-legacy/" class="card" style="display: block; position: relative; height: 100%;">
-            <div class="card__media" style="background: url('https://placehold.co/1024x576/141414/e50914?text=Generating+Visuals...') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/blackadders_legacy.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
               
             </div>
           </a>
         </div>
         <div style="padding: 20px 0;">
           <a href="/aurora-docs/archetypes/streaming/titles/keep-up-appearances/" class="card" style="display: block; position: relative; height: 100%;">
-            <div class="card__media" style="background: url('https://placehold.co/1024x576/141414/e50914?text=Generating+Visuals...') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/keep_up_appearances.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
               
             </div>
           </a>
         </div>
         <div style="padding: 20px 0;">
           <a href="/aurora-docs/archetypes/streaming/titles/fawlty-towers-return/" class="card" style="display: block; position: relative; height: 100%;">
-            <div class="card__media" style="background: url('https://placehold.co/1024x576/141414/e50914?text=Generating+Visuals...') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/fawlty_towers_return.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
               
             </div>
           </a>
         </div>
         <div style="padding: 20px 0;">
           <a href="/aurora-docs/archetypes/streaming/titles/the-vicars-dilemma/" class="card" style="display: block; position: relative; height: 100%;">
-            <div class="card__media" style="background: url('https://placehold.co/1024x576/141414/e50914?text=Generating+Visuals...') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/the_vicars_dilemma.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
               
             </div>
           </a>
         </div>
         <div style="padding: 20px 0;">
           <a href="/aurora-docs/archetypes/streaming/titles/yes-prime-minister-today/" class="card" style="display: block; position: relative; height: 100%;">
-            <div class="card__media" style="background: url('https://placehold.co/1024x576/141414/e50914?text=Generating+Visuals...') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/yes_prime_minister_today.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
               
             </div>
           </a>
         </div>
         <div style="padding: 20px 0;">
           <a href="/aurora-docs/archetypes/streaming/titles/the-it-crowd-reboot/" class="card" style="display: block; position: relative; height: 100%;">
-            <div class="card__media" style="background: url('https://placehold.co/1024x576/141414/e50914?text=Generating+Visuals...') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/the_it_crowd_reboot.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
               
             </div>
           </a>
         </div>
         <div style="padding: 20px 0;">
           <a href="/aurora-docs/archetypes/streaming/titles/absolutely-fabulous-again/" class="card" style="display: block; position: relative; height: 100%;">
-            <div class="card__media" style="background: url('https://placehold.co/1024x576/141414/e50914?text=Generating+Visuals...') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/absolutely_fabulous_again.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
               
             </div>
           </a>
         </div>
         <div style="padding: 20px 0;">
           <a href="/aurora-docs/archetypes/streaming/titles/monty-pythons-revival/" class="card" style="display: block; position: relative; height: 100%;">
-            <div class="card__media" style="background: url('https://placehold.co/1024x576/141414/e50914?text=Generating+Visuals...') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/monty_pythons_revival.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
               
             </div>
           </a>

@@ -4,6 +4,13 @@ description: "Product details page for the Aero Street X lifestyle shoe."
 menu:
   main:
     parent: "ecommerce"
+
+price: 95
+ecommerce_category: "lifestyle"
+subtitle: "Men's Lifestyle Shoes"
+image: "/images/archetypes/aero-street-x-side.png"
+sale: true
+old_price: 130
 ---
 
 {{< demo >}}
@@ -26,12 +33,23 @@ menu:
 
   <main class="l-grid" style="grid-template-columns: 1fr 400px; min-height: 800px;">
     
-    <!-- Left Column: Image Gallery -->
+        <!-- Left Column: Image Gallery -->
     <div style="padding: 2rem; display: flex; gap: 1rem;">
-      <div style="display: flex; flex-direction: column; gap: 0.5rem;">
-         <div style="width: 80px; height: 80px; background: url('/aurora-docs/images/archetypes/sneaker3.png') center/contain no-repeat; background-color: var(--ds-sys-color-surface-container-low); border: 1px solid var(--ds-sys-color-on-surface); cursor: pointer;"></div>
+      
+      <!-- Thumbnail Strip -->
+      <div style="display: flex; flex-direction: column; gap: 0.5rem;" id="gallery-aero-street-x">
+         <div onclick="document.getElementById('main-img-aero-street-x').style.backgroundImage = this.style.backgroundImage; Array.from(this.parentElement.children).forEach(c => { c.style.opacity = '0.5'; c.style.filter = 'grayscale(100%)'; c.style.borderColor = 'transparent'; }); this.style.opacity = '1'; this.style.filter = 'none'; this.style.borderColor = 'var(--ds-sys-color-on-surface)';" 
+              style="width: 80px; height: 80px; background: url('/aurora-docs/images/archetypes/aero-street-x-side.png') center/contain no-repeat; background-color: var(--ds-sys-color-surface-container-low); border: 2px solid var(--ds-sys-color-on-surface); cursor: pointer; transition: all 0.2s;"></div>
+         
+         <div onclick="document.getElementById('main-img-aero-street-x').style.backgroundImage = this.style.backgroundImage; Array.from(this.parentElement.children).forEach(c => { c.style.opacity = '0.5'; c.style.filter = 'grayscale(100%)'; c.style.borderColor = 'transparent'; }); this.style.opacity = '1'; this.style.filter = 'none'; this.style.borderColor = 'var(--ds-sys-color-on-surface)';" 
+              style="width: 80px; height: 80px; background: url('/aurora-docs/images/archetypes/aero-street-x-top.png') center/contain no-repeat; background-color: var(--ds-sys-color-surface-container-low); border: 2px solid transparent; opacity: 0.5; filter: grayscale(100%); cursor: pointer; transition: all 0.2s;"></div>
+              
+         <div onclick="document.getElementById('main-img-aero-street-x').style.backgroundImage = this.style.backgroundImage; Array.from(this.parentElement.children).forEach(c => { c.style.opacity = '0.5'; c.style.filter = 'grayscale(100%)'; c.style.borderColor = 'transparent'; }); this.style.opacity = '1'; this.style.filter = 'none'; this.style.borderColor = 'var(--ds-sys-color-on-surface)';" 
+              style="width: 80px; height: 80px; background: url('/aurora-docs/images/archetypes/aero-street-x-angle.png') center/contain no-repeat; background-color: var(--ds-sys-color-surface-container-low); border: 2px solid transparent; opacity: 0.5; filter: grayscale(100%); cursor: pointer; transition: all 0.2s;"></div>
       </div>
-      <div style="flex: 1; background: url('/aurora-docs/images/archetypes/sneaker3.png') center/contain no-repeat; background-color: var(--ds-sys-color-surface-container-lowest); border-radius: 8px;"></div>
+
+      <!-- Main Image -->
+      <div id="main-img-aero-street-x" style="flex: 1; background: url('/aurora-docs/images/archetypes/aero-street-x-side.png') center/contain no-repeat; background-color: var(--ds-sys-color-surface-container-lowest); border-radius: 8px; transition: background-image 0.2s ease-in-out;"></div>
     </div>
 
     <!-- Right Column: Product Details -->

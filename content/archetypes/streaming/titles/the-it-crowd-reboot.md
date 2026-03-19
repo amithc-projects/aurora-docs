@@ -5,7 +5,7 @@ type: "streaming-title"
 categories: ["British Comedy classic"]
 duration: "3h 28m"
 rating: "TV-MA"
-thumbnail: "https://placehold.co/1024x576/141414/e50914?text=Generating+Visuals..."
+thumbnail: "/aurora-docs/archetypes/streaming/the_it_crowd_reboot.jpg"
 menu:
   main:
     parent: "streaming"
@@ -35,7 +35,7 @@ menu:
     
     <div class="video-player" data-controls-position="overlay" data-controls-align="bottom" style="box-shadow: 0 25px 50px -12px rgba(0,0,0,0.8);">
         <!-- Placeholder Video -->
-        <video poster="https://placehold.co/1024x576/141414/e50914?text=Generating+Visuals..." data-start-time="0" preload="metadata" style="max-height: 700px; object-fit: cover; border-radius: 12px; border: 1px solid #333; width: 100%;">
+        <video poster="/aurora-docs/archetypes/streaming/the_it_crowd_reboot.jpg" data-start-time="0" preload="metadata" style="max-height: 700px; object-fit: cover; border-radius: 12px; border: 1px solid #333; width: 100%;">
             <source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4" type="video/mp4">
         </video>
         
