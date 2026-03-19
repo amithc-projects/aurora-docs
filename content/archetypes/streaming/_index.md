@@ -60,93 +60,886 @@ A classic "hero billboard" layout layered above multiple cascading rows of horiz
 
   <!-- Horizontal Carousels -->
   <main style="padding: 0 3rem 3rem 3rem; position: relative; z-index: 10; margin-top: -2rem;">
-    
-    <!-- Row 1 -->
-    <div style="margin-bottom: 3rem;">
-      <h2 style="font-size: 1.25rem; font-weight: 700; color: #e5e5e5; margin-bottom: 1rem;">Trending Now</h2>
-      <div class="carousel carousel--multi" role="region" aria-label="Trending Now">
-        
-        <!-- Trending Card 1 -->
-        <div style="padding: 20px 0;">
-          <div class="carousel__item--plain" style="position: relative; width: 220px; height: 160px; margin-left: 60px;">
-            <span style="position: absolute; left: -60px; bottom: -10px; font-size: 10rem; font-family: 'Arial Black', sans-serif; font-weight: 900; -webkit-text-stroke: 1px rgba(255,255,255,0.7); color: #000; z-index: 12; pointer-events: none; line-height: 1;">1</span>
-            <a href="/aurora-docs/archetypes/streaming/titles/stranger-things/" class="card" style="width: 100%; height: 100%; position: relative; z-index: 10;">
-               <div class="card__media" style="background: url('/aurora-docs/images/archetypes/horror.png') center/cover; height: 100%;">
-                  <div style="position: absolute; top: 0; left: 0; background: #e50914; color: white; font-size: 0.7rem; font-weight: 800; padding: 2px 6px; border-bottom-right-radius: 4px; text-transform: uppercase;">Top 10</div>
-               </div>
-            </a>
-          </div>
-        </div>
 
-        <!-- Trending Card 2 -->
-        <div style="padding: 20px 0;">
-          <div class="carousel__item--plain" style="position: relative; width: 220px; height: 160px; margin-left: 60px;">
-            <span style="position: absolute; left: -60px; bottom: -10px; font-size: 10rem; font-family: 'Arial Black', sans-serif; font-weight: 900; -webkit-text-stroke: 1px rgba(255,255,255,0.7); color: #000; z-index: 12; pointer-events: none; line-height: 1;">2</span>
-            <a href="#" class="card" style="width: 100%; height: 100%; position: relative; z-index: 10;">
-               <div class="card__media" style="background: url('/aurora-docs/images/archetypes/scifi.png') center/cover; height: 100%;"></div>
-            </a>
-          </div>
-        </div>
-
-        <!-- Trending Card 3 -->
-        <div style="padding: 20px 0;">
-          <div class="carousel__item--plain" style="position: relative; width: 220px; height: 160px; margin-left: 60px;">
-            <span style="position: absolute; left: -60px; bottom: -10px; font-size: 10rem; font-family: 'Arial Black', sans-serif; font-weight: 900; -webkit-text-stroke: 1px rgba(255,255,255,0.7); color: #000; z-index: 12; pointer-events: none; line-height: 1;">3</span>
-            <a href="#" class="card" style="width: 100%; height: 100%; position: relative; z-index: 10;">
-               <div class="card__media" style="background: url('/aurora-docs/images/archetypes/fantasy.png') center/cover; height: 100%;"></div>
-            </a>
-          </div>
-        </div>
-
-        <!-- Trending Card 4 -->
-        <div style="padding: 20px 0;">
-          <div class="carousel__item--plain" style="position: relative; width: 220px; height: 160px; margin-left: 60px;">
-            <span style="position: absolute; left: -60px; bottom: -10px; font-size: 10rem; font-family: 'Arial Black', sans-serif; font-weight: 900; -webkit-text-stroke: 1px rgba(255,255,255,0.7); color: #000; z-index: 12; pointer-events: none; line-height: 1;">4</span>
-            <a href="#" class="card" style="width: 100%; height: 100%; position: relative; z-index: 10;">
-               <div class="card__media" style="background: url('/aurora-docs/images/archetypes/cyberpunk.png') center/cover; height: 100%;"></div>
-            </a>
-          </div>
-        </div>
-
-        <!-- Trending Card 5 -->
-        <div style="padding: 20px 0;">
-          <div class="carousel__item--plain" style="position: relative; width: 220px; height: 160px; margin-left: 60px;">
-            <span style="position: absolute; left: -60px; bottom: -10px; font-size: 10rem; font-family: 'Arial Black', sans-serif; font-weight: 900; -webkit-text-stroke: 1px rgba(255,255,255,0.7); color: #000; z-index: 12; pointer-events: none; line-height: 1;">5</span>
-            <a href="#" class="card" style="width: 100%; height: 100%; position: relative; z-index: 10;">
-               <div class="card__media" style="background: url('/aurora-docs/images/archetypes/scifi.png') center/cover; height: 100%;"></div>
-            </a>
-          </div>
-        </div>
-        
-      </div>
-    </div>
-
-    <!-- Row 2 -->
     <div style="margin-bottom: 2rem;">
-      <h2 style="font-size: 1.25rem; font-weight: 700; color: #e5e5e5; margin-bottom: 1rem;">Sci-Fi & Fantasy</h2>
-      <div class="carousel carousel--multi" role="region" aria-label="Sci-Fi & Fantasy">
-        
-        <div style="padding: 20px 0;"><a href="/aurora-docs/archetypes/streaming/titles/neon-streets/" class="card"><div class="card__media" style="background: url('/aurora-docs/images/archetypes/cyberpunk.png') center/cover; height: 140px;"></div></a></div>
-        <div style="padding: 20px 0;"><a href="#" class="card"><div class="card__media" style="background: url('/aurora-docs/images/archetypes/horror.png') center/cover; height: 140px;"></div></a></div>
-        <div style="padding: 20px 0;"><a href="#" class="card"><div class="card__media" style="background: url('/aurora-docs/images/archetypes/scifi.png') center/cover; height: 140px;"></div></a></div>
-        <div style="padding: 20px 0;"><a href="#" class="card"><div class="card__media" style="background: url('/aurora-docs/images/archetypes/fantasy.png') center/cover; height: 140px;"></div></a></div>
-        <div style="padding: 20px 0;"><a href="#" class="card"><div class="card__media" style="background: url('/aurora-docs/images/archetypes/horror.png') center/cover; height: 140px;"></div></a></div>
-        <div style="padding: 20px 0;"><a href="#" class="card"><div class="card__media" style="background: url('/aurora-docs/images/archetypes/scifi.png') center/cover; height: 140px;"></div></a></div>
-        
+      <h2 style="font-size: 1.25rem; font-weight: 700; color: #e5e5e5; margin-bottom: 1rem;">Gritty Crime Thrillers</h2>
+      <div class="carousel carousel--multi" role="region" aria-label="Gritty Crime Thrillers">
+
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/echoes-of-guilt/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/echoes_of_guilt.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/the-syndicate/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/the_syndicate.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/neon-blood/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/neon_blood.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/cold-case-files/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/cold_case_files.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/the-silhouette/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/the_silhouette.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/corrupt-streets/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/corrupt_streets.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/midnight-heist/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/midnight_heist.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/the-informant/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/the_informant.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
       </div>
     </div>
 
-    <!-- Row 3 -->
-    <div style="margin-bottom: 0;">
-      <h2 style="font-size: 1.25rem; font-weight: 700; color: #e5e5e5; margin-bottom: 1rem;">Action & Adventure</h2>
-      <div class="carousel carousel--multi" role="region" aria-label="Action & Adventure">
-        
-        <div style="padding: 20px 0;"><a href="#" class="card"><div class="card__media" style="background: url('/aurora-docs/images/archetypes/fantasy.png') center/cover; height: 140px;"></div></a></div>
-        <div style="padding: 20px 0;"><a href="#" class="card"><div class="card__media" style="background: url('/aurora-docs/images/archetypes/scifi.png') center/cover; height: 140px;"></div></a></div>
-        <div style="padding: 20px 0;"><a href="#" class="card"><div class="card__media" style="background: url('/aurora-docs/images/archetypes/cyberpunk.png') center/cover; height: 140px;"></div></a></div>
-        <div style="padding: 20px 0;"><a href="#" class="card"><div class="card__media" style="background: url('/aurora-docs/images/archetypes/horror.png') center/cover; height: 140px;"></div></a></div>
-        <div style="padding: 20px 0;"><a href="#" class="card"><div class="card__media" style="background: url('/aurora-docs/images/archetypes/fantasy.png') center/cover; height: 140px;"></div></a></div>
-        
+    <div style="margin-bottom: 2rem;">
+      <h2 style="font-size: 1.25rem; font-weight: 700; color: #e5e5e5; margin-bottom: 1rem;">Adult Animation</h2>
+      <div class="carousel carousel--multi" role="region" aria-label="Adult Animation">
+
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/interdimensional-cable/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/interdimensional_cable.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/galactic-scum/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/galactic_scum.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/neon-knights/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/neon_knights.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/pixelated-realities/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/pixelated_realities.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/the-existential-toaster/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/the_existential_toaster.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/mutant-high/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/mutant_high.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/the-grumpy-wizard/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/the_grumpy_wizard.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/cyber-city-pd/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/cyber_city_pd.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-bottom: 2rem;">
+      <h2 style="font-size: 1.25rem; font-weight: 700; color: #e5e5e5; margin-bottom: 1rem;">Casual Gaming</h2>
+      <div class="carousel carousel--multi" role="region" aria-label="Casual Gaming">
+
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/rocket/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('https://placehold.co/1024x576/141414/e50914?text=Generating+Visuals...') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/tetris-time-warp/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('https://placehold.co/1024x576/141414/e50914?text=Generating+Visuals...') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/pictionary-game-night/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('https://placehold.co/1024x576/141414/e50914?text=Generating+Visuals...') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/cozy-camp/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('https://placehold.co/1024x576/141414/e50914?text=Generating+Visuals...') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/link-twin/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('https://placehold.co/1024x576/141414/e50914?text=Generating+Visuals...') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/centipede-recharged/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('https://placehold.co/1024x576/141414/e50914?text=Generating+Visuals...') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/word-puzzle-pro/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('https://placehold.co/1024x576/141414/e50914?text=Generating+Visuals...') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/underwater-melon/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('https://placehold.co/1024x576/141414/e50914?text=Generating+Visuals...') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-bottom: 2rem;">
+      <h2 style="font-size: 1.25rem; font-weight: 700; color: #e5e5e5; margin-bottom: 1rem;">Kids & Family Favorites</h2>
+      <div class="carousel carousel--multi" role="region" aria-label="Kids & Family Favorites">
+
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/the-magic-treehouse/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/the_magic_treehouse.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/dinosaur-island/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/dinosaur_island.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/the-clockwork-boy/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/the_clockwork_boy.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/the-secret-garden/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/the_secret_garden.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/the-great-gem-heist/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/the_great_gem_heist.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/starlight-explorers/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/starlight_explorers.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/captain-whiskers/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/captain_whiskers.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/monster-camp/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/monster_camp.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-bottom: 2rem;">
+      <h2 style="font-size: 1.25rem; font-weight: 700; color: #e5e5e5; margin-bottom: 1rem;">30-minute comedies</h2>
+      <div class="carousel carousel--multi" role="region" aria-label="30-minute comedies">
+
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/the-coffee-shop-crew/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/the_coffee_shop_crew.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/awkward-encounters/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/awkward_encounters.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/suburban-life/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/suburban_life.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/workplace-shenanigans/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/workplace_shenanigans.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/the-office-setup/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/the_office_setup.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/family-dinners/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/family_dinners.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/dating-in-the-city/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/dating_in_the_city.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/roommate-drama/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/roommate_drama.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-bottom: 2rem;">
+      <h2 style="font-size: 1.25rem; font-weight: 700; color: #e5e5e5; margin-bottom: 1rem;">Classic Cinema</h2>
+      <div class="carousel carousel--multi" role="region" aria-label="Classic Cinema">
+
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/the-grand-hotel/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/the_grand_hotel.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/city-lights-romance/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/city_lights_romance.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/the-maltese-falcon/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/the_maltese_falcon.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/metropolis-awakens/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/metropolis_awakens.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/midnight-express/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/midnight_express.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/the-phantom-of-the-opera/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/the_phantom_of_the_opera.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/shadows-of-the-past/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/shadows_of_the_past.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/casablanca-nights/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/casablanca_nights.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-bottom: 2rem;">
+      <h2 style="font-size: 1.25rem; font-weight: 700; color: #e5e5e5; margin-bottom: 1rem;">Live Sports & Events</h2>
+      <div class="carousel carousel--multi" role="region" aria-label="Live Sports & Events">
+
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/formula-1-monaco-grand-prix/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/formula_1_monaco_grand_prix.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              <div style="position: absolute; top: 0; left: 0; background: #e50914; color: white; font-size: 0.7rem; font-weight: 800; padding: 2px 6px; border-bottom-right-radius: 4px; text-transform: uppercase;">Live</div>
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/world-cup-finals/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/world_cup_finals.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              <div style="position: absolute; top: 0; left: 0; background: #e50914; color: white; font-size: 0.7rem; font-weight: 800; padding: 2px 6px; border-bottom-right-radius: 4px; text-transform: uppercase;">Live</div>
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/heavyweight-championship-fight/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/heavyweight_championship_fight.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              <div style="position: absolute; top: 0; left: 0; background: #e50914; color: white; font-size: 0.7rem; font-weight: 800; padding: 2px 6px; border-bottom-right-radius: 4px; text-transform: uppercase;">Live</div>
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/super-bowl-lviii/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/super_bowl_lviii.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              <div style="position: absolute; top: 0; left: 0; background: #e50914; color: white; font-size: 0.7rem; font-weight: 800; padding: 2px 6px; border-bottom-right-radius: 4px; text-transform: uppercase;">Live</div>
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/nba-finals-game-7/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/nba_finals_game_7.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              <div style="position: absolute; top: 0; left: 0; background: #e50914; color: white; font-size: 0.7rem; font-weight: 800; padding: 2px 6px; border-bottom-right-radius: 4px; text-transform: uppercase;">Live</div>
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/olympic-100m-sprint-final/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/olympic_100m_sprint_final.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              <div style="position: absolute; top: 0; left: 0; background: #e50914; color: white; font-size: 0.7rem; font-weight: 800; padding: 2px 6px; border-bottom-right-radius: 4px; text-transform: uppercase;">Live</div>
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/the-masters-final-round/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/the_masters_final_round.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              <div style="position: absolute; top: 0; left: 0; background: #e50914; color: white; font-size: 0.7rem; font-weight: 800; padding: 2px 6px; border-bottom-right-radius: 4px; text-transform: uppercase;">Live</div>
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/wimbledon-mens-final/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/wimbledon_mens_final.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              <div style="position: absolute; top: 0; left: 0; background: #e50914; color: white; font-size: 0.7rem; font-weight: 800; padding: 2px 6px; border-bottom-right-radius: 4px; text-transform: uppercase;">Live</div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-bottom: 2rem;">
+      <h2 style="font-size: 1.25rem; font-weight: 700; color: #e5e5e5; margin-bottom: 1rem;">British Comedy classic</h2>
+      <div class="carousel carousel--multi" role="region" aria-label="British Comedy classic">
+
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/blackadders-legacy/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('https://placehold.co/1024x576/141414/e50914?text=Generating+Visuals...') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/keep-up-appearances/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('https://placehold.co/1024x576/141414/e50914?text=Generating+Visuals...') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/fawlty-towers-return/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('https://placehold.co/1024x576/141414/e50914?text=Generating+Visuals...') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/the-vicars-dilemma/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('https://placehold.co/1024x576/141414/e50914?text=Generating+Visuals...') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/yes-prime-minister-today/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('https://placehold.co/1024x576/141414/e50914?text=Generating+Visuals...') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/the-it-crowd-reboot/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('https://placehold.co/1024x576/141414/e50914?text=Generating+Visuals...') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/absolutely-fabulous-again/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('https://placehold.co/1024x576/141414/e50914?text=Generating+Visuals...') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/monty-pythons-revival/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('https://placehold.co/1024x576/141414/e50914?text=Generating+Visuals...') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-bottom: 2rem;">
+      <h2 style="font-size: 1.25rem; font-weight: 700; color: #e5e5e5; margin-bottom: 1rem;">Sci-Fi & Fantasy Epics</h2>
+      <div class="carousel carousel--multi" role="region" aria-label="Sci-Fi & Fantasy Epics">
+
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/neon-horizon/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/neon_horizon.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/the-last-centurion/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/the_last_centurion.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/starbound/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/starbound.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/cybernetic-dawn/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/cybernetic_dawn.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/chronos-paradox/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/chronos_paradox.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/the-crystal-throne/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/the_crystal_throne.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/echoes-of-eternity/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/echoes_of_eternity.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/realm-of-shadows/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/realm_of_shadows.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-bottom: 2rem;">
+      <h2 style="font-size: 1.25rem; font-weight: 700; color: #e5e5e5; margin-bottom: 1rem;">Critically acclaimed emotional series</h2>
+      <div class="carousel carousel--multi" role="region" aria-label="Critically acclaimed emotional series">
+
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/ties-that-bind/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/ties_that_bind.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/silent-screams/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/silent_screams.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/echoes-of-the-past/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/echoes_of_the_past.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/the-long-road-home/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/the_long_road_home.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/the-art-of-letting-go/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/the_art_of_letting_go.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/fractured-souls/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/fractured_souls.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/the-weight-of-water/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/the_weight_of_water.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/the-healing-journey/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/the_healing_journey.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-bottom: 2rem;">
+      <h2 style="font-size: 1.25rem; font-weight: 700; color: #e5e5e5; margin-bottom: 1rem;">Awe-Inspiring Nature Documentaries</h2>
+      <div class="carousel carousel--multi" role="region" aria-label="Awe-Inspiring Nature Documentaries">
+
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/deep-sea-mysteries/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/deep_sea_mysteries.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/volcanoes-of-ring-of-fire/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/volcanoes_of_ring_of_fire.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/the-great-migration/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/the_great_migration.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/life-in-the-canopy/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/life_in_the_canopy.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/microscopic-worlds/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/microscopic_worlds.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/the-savage-savanna/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/the_savage_savanna.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/planet-ocean/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/planet_ocean.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/frozen-kingdoms/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/frozen_kingdoms.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-bottom: 2rem;">
+      <h2 style="font-size: 1.25rem; font-weight: 700; color: #e5e5e5; margin-bottom: 1rem;">Binge-worthy Dramas</h2>
+      <div class="carousel carousel--multi" role="region" aria-label="Binge-worthy Dramas">
+
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/shattered-glass/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/shattered_glass.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/the-crucible-of-power/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/the_crucible_of_power.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/fading-echoes/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/fading_echoes.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/whispers-in-the-dark/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/whispers_in_the_dark.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/the-sterling-estate/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/the_sterling_estate.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/torn-allegiances/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/torn_allegiances.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/the-final-verdict/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/the_final_verdict.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/city-of-lies/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/city_of_lies.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-bottom: 2rem;">
+      <h2 style="font-size: 1.25rem; font-weight: 700; color: #e5e5e5; margin-bottom: 1rem;">Feel-Good Comedies</h2>
+      <div class="carousel carousel--multi" role="region" aria-label="Feel-Good Comedies">
+
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/dog-days-of-summer/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/dog_days_of_summer.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/office-escape/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/office_escape.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/sunny-side-up/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/sunny_side_up.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/campus-kings/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/campus_kings.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/the-bakers-secret/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/the_bakers_secret.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/love-in-transit/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/love_in_transit.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/vacation-vibes/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/vacation_vibes.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/wedding-crash-course/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/wedding_crash_course.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-bottom: 2rem;">
+      <h2 style="font-size: 1.25rem; font-weight: 700; color: #e5e5e5; margin-bottom: 1rem;">Horror and Scary Times</h2>
+      <div class="carousel carousel--multi" role="region" aria-label="Horror and Scary Times">
+
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/the-haunting-of-blackwood/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/the_haunting_of_blackwood.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/the-exorcism-of-emily/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/the_exorcism_of_emily.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/dont-go-in-the-woods/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/dont_go_in_the_woods.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/blood-moon-rising/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/blood_moon_rising.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/the-asylum/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/the_asylum.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/midnight-slaughter/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/midnight_slaughter.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/whispers-in-the-walls/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/whispers_in_the_walls.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
+        <div style="padding: 20px 0;">
+          <a href="/aurora-docs/archetypes/streaming/titles/the-mirrors-curse/" class="card" style="display: block; position: relative; height: 100%;">
+            <div class="card__media" style="background: url('/aurora-docs/archetypes/streaming/the_mirrors_curse.jpg') center/cover; height: 140px; border-radius: 4px; transition: transform 0.2s, box-shadow 0.2s;">
+              
+            </div>
+          </a>
+        </div>
       </div>
     </div>
 

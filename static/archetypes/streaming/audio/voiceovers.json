@@ -1,0 +1,1346 @@
+[
+  {
+    "text": "Speaker 1: Absolutely Fabulous Again | | Darling, they never left.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/absolutely_fabulous_again_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: Awkward Encounters | | A series of incredibly uncomfortable social situations.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/awkward_encounters_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: Blackadder's Legacy | | The latest descendant of the cunning dynasty.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/blackadders_legacy_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: Blood Moon Rising | | When the moon is red, the monsters come out.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/blood_moon_rising_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: Campus Kings | | Two retired grandpas decide to enroll in community college and join a fraternity.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/campus_kings_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: Captain Whiskers | | A streetwise cat adopts a group of abandoned puppies and teaches them how to survive in the city.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/captain_whiskers_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: Casablanca Nights | | Refugees and spies cross paths in a Moroccan nightclub during World War II.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/casablanca_nights_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: Centipede Recharged | | A modern spin on the arcade classic.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/centipede_recharged_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: Chronos Paradox | | Scientists experimenting with localized time distortion accidentally fracture reality.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/chronos_paradox_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: City Lights Romance | | A poor young artist falls in love with a wealthy heiress in this silent era-inspired romantic comedy.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/city_lights_romance_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: City of Lies | | A disgraced journalist uncovers a political scandal involving the mayor and a local real estate mogul.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/city_of_lies_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: Cold Case Files | | A small-town sheriff reopens a 30-year-old murder case and uncovers a massive local conspiracy.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/cold_case_files_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: Corrupt Streets | | An undercover cop gets too deep into the mafia and forgets whose side he's truly on.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/corrupt_streets_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: Cozy Camp | | Relax, build a fire, and enjoy the great outdoors.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/cozy_camp_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: Cyber City PD | | Gritty detective work in a futuristic metropolis.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/cyber_city_pd_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: Cybernetic Dawn | | As AI gains sentience, a small band of hackers must decide whether to save humanity or join the machines.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/cybernetic_dawn_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: Dating in the City | | The hilariously tragic world of modern dating.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/dating_in_the_city_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: Deep Sea Mysteries | | Uncovering the secrets of the abyssal zone.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/deep_sea_mysteries_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: Dinosaur Island | | A group of friends crash-lands on an uncharted island where dinosaurs still roam.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/dinosaur_island_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: Dog Days of Summer | | Three neighborhood kids establish a dog-walking business that quickly spirals wildly out of control.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/dog_days_of_summer_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: Don't Go in the Woods | | A camping trip turns into a fight for survival.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/dont_go_in_the_woods_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: Echoes of Eternity | | Mages fighting a losing war against void demons attempt a forbidden ritual that threatens the world.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/echoes_of_eternity_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: Echoes of Guilt | | A lawyer realizes her new client might be the man who murdered her sister a decade ago.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/echoes_of_guilt_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: Echoes of the Past | | How history shapes our present struggles.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/echoes_of_the_past_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: Fading Echoes | | A renowned musician struggles with early-onset dementia while trying to finish his final symphony.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/fading_echoes_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: Family Dinners | | Where every meal is a battleground.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/family_dinners_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: Fawlty Towers Return | | The chaotic hotel reopens its doors.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/fawlty_towers_return_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: Formula 1 Monaco Grand Prix | | The thrilling street circuit race.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/formula_1_monaco_grand_prix_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: Fractured Souls | | Following the lives of people broken by trauma.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/fractured_souls_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: Frozen Kingdoms | | Explore the icy landscapes of the polar regions.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/frozen_kingdoms_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: Galactic Scum | | The misadventures of the worst space pirates.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/galactic_scum_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: Heavyweight Championship Fight | | The battle for boxing supremacy.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/heavyweight_championship_fight_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: Interdimensional Cable | | Television from across the multiverse.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/interdimensional_cable_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: Keep Up Appearances | | Snobbery and social climbing in suburbia.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/keep_up_appearances_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: Life in the Canopy | | Discover the hidden world high in the rainforest.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/life_in_the_canopy_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: Link Twin | | A minimalist puzzle adventure.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/link_twin_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: Love in Transit | | Two strangers get stuck on an overnight cross-country train and fall in love through a series of chaotic mishaps.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/love_in_transit_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: Metropolis Awakens | | In a dystopian future, workers living underground rebel against the city's wealthy elite.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/metropolis_awakens_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: Microscopic Worlds | | A closer look at the invisible life around us.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/microscopic_worlds_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: Midnight Express | | A tense, black-and-white thriller about a runaway train carrying a secret agent.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/midnight_express_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: Midnight Heist | | A crew of elite thieves targets an impenetrable casino vault during a massive city-wide blackout.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/midnight_heist_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: Midnight Slaughter | | A masked killer terrorizes a small town.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/midnight_slaughter_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: Monster Camp | | A summer camp for young monsters teaches them how to be scary, but one vampire just wants to dance.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/monster_camp_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: Monty Python's Revival | | And now for something completely different.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/monty_pythons_revival_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: Mutant High | | High school is hard enough without superpowers.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/mutant_high_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: NBA Finals Game 7 | | The deciding game for the basketball championship.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/nba_finals_game_7_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: Neon Blood | | In the seedy underbelly of Miami, two rival drug gangs clash in a brutal turf war.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/neon_blood_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: Neon Horizon | | In a cyberpunk future, a rogue detective uncovers a conspiracy to upload human consciousness into a corporate hive mind.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/neon_horizon_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: Neon Knights | | Cyberpunk vigilantes fighting corrupt corporations.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/neon_knights_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: Office Escape | | Employees trapped in their office due to a snowstorm turn the breakroom into a chaotic survival camp.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/office_escape_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: Olympic 100m Sprint Final | | The fastest race on Earth.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/olympic_100m_sprint_final_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: Pictionary Game Night | | The classic drawing game comes to life.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/pictionary_game_night_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: Pixelated Realities | | Life inside a glitchy video game.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/pixelated_realities_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: Planet Ocean | | Dive into the depths of the world's oceans.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/planet_ocean_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: Realm of Shadows | | A young orphan discovers a portal to a dark dimension governed by nightmarish beasts.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/realm_of_shadows_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: Rocket | | Blast off into simple, addictive fun.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/rocket_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: Roommate Drama | | Living with strangers can be hilarious and infuriating.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/roommate_drama_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: Shadows of the Past | | A noir detective investigates a murder in 1940s Los Angeles.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/shadows_of_the_past_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: Shattered Glass | | A young tech CEO watches her empire crumble after a whistle-blower goes to the press.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/shattered_glass_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: Silent Screams | | A gripping drama about mental health and society.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/silent_screams_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: Starbound | | Humanity's first interstellar colonial ship encounters an ancient derelict structure drifting in deep space.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/starbound_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: Starlight Explorers | | Three kids build a makeshift spaceship in their backyard and actually end up on the moon.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/starlight_explorers_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: Suburban Life | | The not-so-quiet life in a cul-de-sac.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/suburban_life_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: Sunny Side Up | | A cynical food critic has to spend a month living with a relentlessly cheerful farm family.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/sunny_side_up_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: Super Bowl LVIII | | The ultimate championship football game.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/super_bowl_lviii_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: Tetris Time Warp | | The iconic block-stacking game with a twist.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/tetris_time_warp_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: The Art of Letting Go | | Learning to move on from a devastating past.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/the_art_of_letting_go_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: The Asylum | | Some doors should remain locked.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/the_asylum_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: The Baker's Secret | | A grumpy master baker is forced to take on an overly enthusiastic apprentice.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/the_bakers_secret_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: The Clockwork Boy | | An inventor builds a clockwork child who goes on an adventure to find a real heart.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/the_clockwork_boy_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: The Coffee Shop Crew | | Friends who spend too much time drinking coffee.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/the_coffee_shop_crew_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: The Crucible of Power | | A behind-the-scenes look at a fiercely contested, morally bankrupt presidential campaign.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/the_crucible_of_power_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: The Crystal Throne | | Two warring elven kingdoms must unite when a legendary dragon awakens from a millennial slumber.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/the_crystal_throne_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: The Existential Toaster | | A household appliance contemplates its purpose.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/the_existential_toaster_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: The Exorcism of Emily | | A desperate battle for a young girl's soul.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/the_exorcism_of_emily_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: The Final Verdict | | A jury deliberates on a highly publicized murder case, revealing their own deep prejudices.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/the_final_verdict_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: The Grand Hotel | | Intersecting lives of glamorous guests at a luxury European hotel in the 1930s.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/the_grand_hotel_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: The Great Gem Heist | | A team of highly trained gerbils attempts to steal a diamond ring from a pet store.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/the_great_gem_heist_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: The Great Migration | | The incredible journey of millions of animals.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/the_great_migration_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: The Grumpy Wizard | | A curmudgeonly sorcerer deals with modern problems.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/the_grumpy_wizard_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: The Haunting of Blackwood | | A family moves into a house with a dark past.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/the_haunting_of_blackwood_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: The Healing Journey | | A heartwarming story of recovery and hope.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/the_healing_journey_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: The Informant | | A low-level gang member decides to turn state's witness, putting a massive bounty on his own head.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/the_informant_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: The IT Crowd Reboot | | Have you tried turning it off and on again?",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/the_it_crowd_reboot_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: The Last Centurion | | A time-traveling Roman soldier finds himself stranded in the 32nd century, battling alien overlords.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/the_last_centurion_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: The Long Road Home | | A journey of self-discovery and forgiveness.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/the_long_road_home_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: The Magic Treehouse | | Two siblings discover a magical treehouse that transports them to different historical eras.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/the_magic_treehouse_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: The Maltese Falcon | | A private eye gets tangled up in a dangerous hunt for a priceless statuette.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/the_maltese_falcon_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: The Masters Final Round | | The final day of the iconic golf tournament.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/the_masters_final_round_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: The Mirror's Curse | | What you see is what will kill you.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/the_mirrors_curse_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: The Office Setup | | A mockumentary about the daily lives of office workers.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/the_office_setup_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: The Phantom of the Opera | | A disfigured musical genius haunts the Paris Opera House in this classic horror tale.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/the_phantom_of_the_opera_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: The Savage Savanna | | Witness the brutal reality of survival in Africa.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/the_savage_savanna_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: The Secret Garden | | A lonely orphan discovers a hidden, magical garden on her uncle's gloomy estate.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/the_secret_garden_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: The Silhouette | | A detective hunts a serial killer who only attacks during thunderstorms.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/the_silhouette_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: The Sterling Estate | | A wealthy family's dark secrets spill out during the reading of their late patriarch's will.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/the_sterling_estate_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: The Syndicate | | A retired hitman must do one last job to save his kidnapped daughter from a cartel.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/the_syndicate_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: The Vicar's Dilemma | | A bumbling clergyman's hilarious missteps.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/the_vicars_dilemma_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: The Weight of Water | | A profound look at loss and redemption.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/the_weight_of_water_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: Ties That Bind | | The complex relationships within a troubled family.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/ties_that_bind_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: Torn Allegiances | | Two brothers find themselves on opposite sides of a bitter union strike in a coal mining town.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/torn_allegiances_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: Underwater Melon | | Merge fruit in the depths of the ocean.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/underwater_melon_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: Vacation Vibes | | A perfectly planned family road trip absolutely disintegrates on day one.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/vacation_vibes_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: Volcanoes of Ring of Fire | | The explosive power of the Earth's core.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/volcanoes_of_ring_of_fire_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: Wedding Crash Course | | A best man who knows nothing about weddings must learn to plan the perfect ceremony in three days.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/wedding_crash_course_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: Whispers in the Dark | | A tight-knit suburban neighborhood unravels when a local teenager mysteriously vanishes.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/whispers_in_the_dark_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: Whispers in the Walls | | They thought they were alone. They were wrong.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/whispers_in_the_walls_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: Wimbledon Men's Final | | The prestigious grass-court tennis championship.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/wimbledon_mens_final_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: Word Puzzle Pro | | Test your vocabulary in challenging levels.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/word_puzzle_pro_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: Workplace Shenanigans | | Pranks, drama, and avoiding actual work.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/workplace_shenanigans_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: World Cup Finals | | The climax of the global soccer tournament.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/world_cup_finals_voiceover.mp3"
+  },
+  {
+    "text": "Speaker 1: Yes, Prime Minister Today | | Navigating the absurdities of modern politics.",
+    "pause_duration": 0.5,
+    "speaker_1": {
+      "ref_audio": "./movievoiceover.mp3",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "rms": 0.01,
+      "smooth": false
+    },
+    "output_file": "/Users/acabraal/anitgravity/aurora-docs/static/archetypes/streaming/audio/yes_prime_minister_today_voiceover.mp3"
+  }
+]
