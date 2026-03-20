@@ -144,7 +144,18 @@ tags: ["Map", "Interactive", "Scatter", "Lines"]
 </div>
 
 <div class="query-wrapper">
-  <input type="text" id="airport-search" class="search-input" placeholder="Search by 'Heathrow', 'LHR', or 'United Kingdom'..." aria-label="Search Airports" />
+  <input type="text" id="airport-search" class="search-input" placeholder="Highlight Map (e.g. Heathrow)" aria-label="Search Airports" style="flex: 1" />
+  <button id="reset-itinerary-btn" style="flex: 0 0 auto; padding: 0 1.5rem; background: var(--ds-sys-color-error, #f43f5e); color: white; border: none; border-radius: var(--ds-radius-md); font-weight: 600; cursor: pointer;">Reset Journey</button>
+</div>
+
+<!-- Multi-Stop Journey Planner -->
+<div id="itinerary-builder" style="background: var(--ds-sys-color-surface-container-lowest); border: 1px solid var(--ds-sys-color-outline-variant); border-radius: var(--ds-radius-lg); padding: var(--ds-spacing-4); margin-bottom: var(--ds-spacing-6);">
+  <h3 style="margin-top: 0; margin-bottom: var(--ds-spacing-3); display: flex; align-items: center; gap: 8px;">
+    <span class="material-symbols-outlined" style="color: var(--ds-sys-color-primary);">map</span> Multi-Stop Journey Planner
+  </h3>
+  <div id="itinerary-stops" style="display: flex; flex-direction: column; gap: var(--ds-spacing-3);">
+     <!-- JS Iterative State Machine Injects Combo Boxes Here -->
+  </div>
 </div>
 
 <div class="chart-wrapper">
@@ -168,6 +179,8 @@ tags: ["Map", "Interactive", "Scatter", "Lines"]
         <div class="stat-label" style="font-size: 0.75rem; margin-top: 4px;" id="hud-routes">Awaiting selection</div>
     </div>
 </div>
+
+
 
 <div class="flight-modal-backdrop" id="flight-modal-backdrop">
   <div class="flight-modal">
@@ -195,4 +208,4 @@ tags: ["Map", "Interactive", "Scatter", "Lines"]
   </div>
 </div>
 
-<script type="module" src="/aurora-docs/js/components/airport-routes.js"></script>
+<script type="module" src="/aurora-docs/js/components/airport-routes.js?v=2"></script>

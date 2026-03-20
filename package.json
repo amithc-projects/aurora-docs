@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@creationix/rx": "^0.7.6",
     "playwright": "^1.58.2"
   }
 }

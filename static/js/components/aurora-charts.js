@@ -222,6 +222,7 @@ function initAuroraCharts() {
         })
         .then(geoJson => {
           echarts.registerMap('world', geoJson);
+          window.__AURORA_WORLD_MAP_READY__ = true;
           processChart(container);
         })
         .catch(err => console.error("AuroraCharts: Error loading world map JSON", err));
