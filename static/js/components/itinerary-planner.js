@@ -85,7 +85,7 @@ function renderItineraryUI() {
     if (itinerary.length === 0) {
         html += `
           <div style="position: relative;">
-            <input type="text" id="itinerary-origin-input" list="dl-origin" class="search-input" placeholder="Type a city, country, or IATA code..." style="width: 100%; box-sizing: border-box;" autocomplete="off" />
+            <input type="text" id="itinerary-origin-input" list="dl-origin" class="search-input" placeholder="Type a city, country, or IATA code..." style="width: 100%; box-sizing: border-box; padding: 12px 16px; border-radius: 8px; font-size: 1rem; height: 48px; border: 1px solid var(--ds-sys-color-outline); background: var(--ds-sys-color-surface-container-high); color: var(--ds-sys-color-on-surface);" autocomplete="off" />
             <datalist id="dl-origin">${globalDatalistHtml}</datalist>
             <span class="material-symbols-outlined" style="position: absolute; right: 12px; top: 12px; pointer-events: none; color: var(--ds-sys-color-on-surface-variant);">search</span>
           </div>
@@ -109,7 +109,7 @@ function renderItineraryUI() {
               <div style="display: flex; gap: 8px; align-items: center; margin-top: 8px;">
                  <span class="material-symbols-outlined" style="color: var(--ds-sys-color-outline); transform: rotate(90deg);">subdirectory_arrow_right</span>
                  <div style="flex: 1; position: relative;">
-                   <input type="text" id="itinerary-next-input" list="dl-next" class="search-input" placeholder="Search connecting flights by name or code..." style="width: 100%; box-sizing: border-box;" autocomplete="off" />
+                   <input type="text" id="itinerary-next-input" list="dl-next" class="search-input" placeholder="Search connecting flights by name or code..." style="width: 100%; box-sizing: border-box; padding: 12px 16px; border-radius: 8px; font-size: 1rem; height: 48px; border: 1px solid var(--ds-sys-color-outline); background: var(--ds-sys-color-surface-container-high); color: var(--ds-sys-color-on-surface);" autocomplete="off" />
                    <datalist id="dl-next">${options}</datalist>
                    <span class="material-symbols-outlined" style="position: absolute; right: 12px; top: 12px; pointer-events: none; color: var(--ds-sys-color-on-surface-variant);">search</span>
                  </div>

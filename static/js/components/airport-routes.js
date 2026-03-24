@@ -13,6 +13,8 @@ const hudOrigin = document.getElementById('hud-origin');
 const hudRoutes = document.getElementById('hud-routes');
 let globalDatalistHtml = '';
 let itinerary = [];
+let activeAreaFilter = '';
+let allFilteredCountries = [];
 
 // Modal Elements
 const modalBackdrop = document.getElementById('flight-modal-backdrop');
@@ -75,6 +77,18 @@ async function loadData() {
             globalDatalistHtml += `<option value="${a.iata}">${a.country || ''} - ${a.name}</option>`;
         });
         
+        const allIsoCodes = Array.from(new Set(allAirports.map(a => a.country).filter(Boolean)));
+        if (typeof Intl !== 'undefined' && Intl.DisplayNames) {
+            try {
+                const regionNames = new Intl.DisplayNames(['en'], {type: 'region'});
+                allFilteredCountries = allIsoCodes.map(iso => ({ iso, name: regionNames.of(iso) || iso })).sort((a,b) => a.name.localeCompare(b.name));
+            } catch(e) {
+                allFilteredCountries = allIsoCodes.map(iso => ({ iso, name: iso })).sort((a,b) => a.name.localeCompare(b.name));
+            }
+        } else {
+            allFilteredCountries = allIsoCodes.map(iso => ({ iso, name: iso })).sort((a,b) => a.name.localeCompare(b.name));
+        }
+        
         countLabel.innerText = `${allAirports.length.toLocaleString()} Terminals`;
         setupInteractions();
         renderItineraryUI();
@@ -102,11 +116,17 @@ function renderPoints(data) {
         backgroundColor: 'transparent',
         tooltip: {
             trigger: 'item',
+            extraCssText: 'z-index: 9999;',
             formatter: (params) => {
-                if (params.seriesType === 'scatter') {
-                    // Outbound route count is packed into value[2]
-                    const routeCount = params.data.value[2];
-                    return `<strong>${params.data.name}</strong><br/>Outbound Flights: ${routeCount}`;
+                if (params.seriesType === 'scatter' || params.seriesType === 'effectScatter') {
+                    const data = params.data;
+                    const cCode = data.country || 'Unknown';
+                    const counts = data.value && data.value.length > 2 ? `<br/><span style="opacity:0.8;font-size:12px;">Outbound Flights: ${data.value[2].toLocaleString()}</span>` : '';
+                    return `<div style="padding:4px;">
+                        <span style="font-weight:900;font-size:16px;color:#0ea5e9;">${data.iata || params.name}</span><br/>
+                        <span style="font-weight:bold">${data.name || params.name}</span><br/>
+                        <span style="opacity:0.8;font-size:12px;">Country: ${cCode}</span>${counts}
+                    </div>`;
                 }
                 if (params.seriesType === 'lines') {
                    return `Flight to ${params.data.toName}`;
@@ -177,11 +197,34 @@ function renderItineraryUI() {
     
     // 2. Render combobox for NEXT stop
     if (itinerary.length === 0) {
+        let textQuery = searchInput.value.toLowerCase().trim();
+
+        let originOptions = '';
+        let filteredOrigin = allAirports;
+        if (activeAreaFilter || textQuery) {
+            filteredOrigin = allAirports.filter(d => {
+                if (activeAreaFilter && (d.country || '').toLowerCase() !== activeAreaFilter.toLowerCase()) return false;
+                if (textQuery && !d.name.toLowerCase().includes(textQuery) && !d.iata.toLowerCase().includes(textQuery) && !(d.country||'').toLowerCase().includes(textQuery)) return false;
+                return true;
+            });
+        }
+        
+        filteredOrigin.slice(0, 500).sort((a,b) => (a.country||'').localeCompare(b.country||'') || (a.name||'').localeCompare(b.name||'')).forEach(d => {
+            originOptions += `<option value="${d.iata}">${d.country || ''} - ${d.name}</option>`;
+        });
+
+        const areaOptionsHtml = `<option value="">🌎 Worldwide</option>` + allFilteredCountries.map(c => `<option value="${c.iso}" ${activeAreaFilter.toLowerCase() === c.iso.toLowerCase() ? 'selected' : ''}>${c.name}</option>`).join('');
+
         html += `
-          <div style="position: relative;">
-            <input type="text" id="itinerary-origin-input" list="dl-origin" class="search-input" placeholder="Type a city, country, or IATA..." style="width: 100%; box-sizing: border-box;" autocomplete="off" />
-            <datalist id="dl-origin">${globalDatalistHtml}</datalist>
-            <span class="material-symbols-outlined" style="position: absolute; right: 12px; top: 12px; pointer-events: none; color: var(--ds-sys-color-on-surface-variant);">search</span>
+          <div style="display: flex; gap: 8px; margin-top: 8px;">
+            <select id="itinerary-area-select" style="width: 140px; padding: 12px 16px; border-radius: 8px; font-size: 1rem; height: 48px; border: 1px solid var(--ds-sys-color-outline); background: var(--ds-sys-color-surface-container-high); color: var(--ds-sys-color-on-surface); outline: none;">
+                ${areaOptionsHtml}
+            </select>
+            <div style="flex: 1; position: relative;">
+              <input type="text" id="itinerary-origin-input" list="dl-origin" class="search-input" placeholder="Type a city, country, or IATA..." style="width: 100%; box-sizing: border-box; padding: 12px 16px; border-radius: 8px; font-size: 1rem; height: 48px; border: 1px solid var(--ds-sys-color-outline); background: var(--ds-sys-color-surface-container-high); color: var(--ds-sys-color-on-surface);" autocomplete="off" />
+              <datalist id="dl-origin">${originOptions}</datalist>
+              <span class="material-symbols-outlined" style="position: absolute; right: 12px; top: 12px; pointer-events: none; color: var(--ds-sys-color-on-surface-variant);">search</span>
+            </div>
           </div>
         `;
     } else {
@@ -190,20 +233,41 @@ function renderItineraryUI() {
         
         if (lastDb && lastDb.routes && lastDb.routes.length > 0) {
             let options = '';
-            const destItems = lastDb.routes.map(r => {
+            let destItems = lastDb.routes.map(r => {
                 const d = db.getAirport(r.iata);
                 return d ? { iata: r.iata, name: d.name, country: d.country_code } : null;
-            }).filter(Boolean).sort((a,b) => (a.country||'').localeCompare(b.country||'') || (a.name||'').localeCompare(b.name||''));
+            }).filter(Boolean);
+            
+            let textQuery = searchInput.value.toLowerCase().trim();
+            
+            const routeCountriesSet = new Set();
+            lastDb.routes.forEach(r => {
+                const d = db.getAirport(r.iata);
+                if (d && d.country) routeCountriesSet.add(d.country);
+            });
+            const routeCountries = Array.from(routeCountriesSet);
+            const validCountryObjects = allFilteredCountries.filter(c => routeCountries.includes(c.iso));
+            
+            destItems = destItems.filter(d => {
+                if (activeAreaFilter && (d.country || '').toLowerCase() !== activeAreaFilter.toLowerCase()) return false;
+                if (textQuery && !d.name.toLowerCase().includes(textQuery) && !d.iata.toLowerCase().includes(textQuery) && !(d.country||'').toLowerCase().includes(textQuery)) return false;
+                return true;
+            }).sort((a,b) => (a.country||'').localeCompare(b.country||'') || (a.name||'').localeCompare(b.name||''));
             
             destItems.forEach(d => {
                 options += `<option value="${d.iata}">${d.country || ''} - ${d.name}</option>`;
             });
+
+            const areaOptionsHtml = `<option value="">🌎 Worldwide</option>` + validCountryObjects.map(c => `<option value="${c.iso}" ${activeAreaFilter.toLowerCase() === c.iso.toLowerCase() ? 'selected' : ''}>${c.name}</option>`).join('');
             
             html += `
               <div style="display: flex; gap: 8px; align-items: center; margin-top: 8px;">
                  <span class="material-symbols-outlined" style="color: var(--ds-sys-color-outline); transform: rotate(90deg);">subdirectory_arrow_right</span>
+                 <select id="itinerary-area-select" style="width: 140px; padding: 12px 16px; border-radius: 8px; font-size: 1rem; height: 48px; border: 1px solid var(--ds-sys-color-outline); background: var(--ds-sys-color-surface-container-high); color: var(--ds-sys-color-on-surface); outline: none;">
+                    ${areaOptionsHtml}
+                 </select>
                  <div style="flex: 1; position: relative;">
-                   <input type="text" id="itinerary-next-input" list="dl-next" class="search-input" placeholder="Search connecting flights by name or code..." style="width: 100%; box-sizing: border-box;" autocomplete="off" />
+                   <input type="text" id="itinerary-next-input" list="dl-next" class="search-input" placeholder="Search connecting flights by name or code..." style="width: 100%; box-sizing: border-box; padding: 12px 16px; border-radius: 8px; font-size: 1rem; height: 48px; border: 1px solid var(--ds-sys-color-outline); background: var(--ds-sys-color-surface-container-high); color: var(--ds-sys-color-on-surface);" autocomplete="off" />
                    <datalist id="dl-next">${options}</datalist>
                    <span class="material-symbols-outlined" style="position: absolute; right: 12px; top: 12px; pointer-events: none; color: var(--ds-sys-color-on-surface-variant);">search</span>
                  </div>
@@ -225,8 +289,8 @@ function renderItineraryUI() {
                 if (val.length === 3 && itinerary.length === 0) {
                      if (db.getAirport(val)) {
                          itinerary.push(val);
-                         renderItineraryUI();
-                         renderItineraryMap();
+                         searchInput.value = '';
+                         searchInput.dispatchEvent(new Event('input'));
                      } else if (e.type === 'change') {
                          e.target.value = '';
                          e.target.placeholder = 'Unknown IATA!';
@@ -235,6 +299,19 @@ function renderItineraryUI() {
             };
             originInput.addEventListener('input', handleOrigin);
             originInput.addEventListener('change', handleOrigin);
+        }
+
+        const areaSelect = document.getElementById('itinerary-area-select');
+        if (areaSelect) {
+            areaSelect.addEventListener('change', (e) => {
+                activeAreaFilter = e.target.value;
+                renderItineraryUI();
+                renderItineraryMap();
+                setTimeout(() => {
+                    const newInp = document.getElementById('itinerary-origin-input') || document.getElementById('itinerary-next-input');
+                    if (newInp) newInp.focus();
+                }, 50);
+            });
         }
 
         const nextInput = document.getElementById('itinerary-next-input');
@@ -251,8 +328,8 @@ function renderItineraryUI() {
                     const lastDb = db.getAirport(lastCode);
                     if (lastDb && lastDb.routes.find(r => r.iata === val) && val !== lastCode) {
                         itinerary.push(val);
-                        renderItineraryUI();
-                        renderItineraryMap();
+                        searchInput.value = '';
+                        searchInput.dispatchEvent(new Event('input'));
                     } else if (e.type === 'change') {
                         e.target.value = '';
                     }
@@ -301,7 +378,7 @@ function renderItineraryMap() {
         const ap = db.getAirport(itinerary[i]);
         if (!ap) continue;
         
-        committedEndpoints.push({ name: ap.name, iata: itinerary[i], value: [ap.lon, ap.lat] });
+        committedEndpoints.push({ name: ap.name, country: ap.country_code, iata: itinerary[i], value: [ap.lon, ap.lat] });
         
         if (i < itinerary.length - 1) {
             const nextAp = db.getAirport(itinerary[i+1]);
@@ -314,12 +391,19 @@ function renderItineraryMap() {
     const lastCode = itinerary[itinerary.length - 1];
     const lastDb = db.getAirport(lastCode);
     
+    const query = searchInput.value.toLowerCase().trim();
+    let exactCountry = activeAreaFilter;
+    let textQuery = query;
+    
     if (lastDb && lastDb.routes) {
         lastDb.routes.forEach(route => {
             const dest = db.getAirport(route.iata);
             if (dest && !itinerary.includes(dest.iata)) {
+                if (exactCountry && (dest.country_code || '').toLowerCase() !== exactCountry) return;
+                if (textQuery && !dest.name.toLowerCase().includes(textQuery) && !dest.iata.toLowerCase().includes(textQuery) && !(dest.country_code||'').toLowerCase().includes(textQuery)) return;
+                
                 possibleLines.push({ coords: [ [lastDb.lon, lastDb.lat], [dest.lon, dest.lat] ], toName: dest.name || route.iata });
-                possibleEndpoints.push({ name: dest.name, iata: dest.iata, value: [dest.lon, dest.lat] });
+                possibleEndpoints.push({ name: dest.name, country: dest.country_code, iata: dest.iata, value: [dest.lon, dest.lat] });
             }
         });
     }
@@ -329,7 +413,7 @@ function renderItineraryMap() {
 
     chartInstance.setOption({
         series: [
-            { name: 'Airports', type: 'scatter', coordinateSystem: 'geo', data: allAirports, symbolSize: 2, large: true, itemStyle: { color: getSeriesColor(), opacity: 0.1 } },
+            { name: 'Airports', type: 'scatter', coordinateSystem: 'geo', data: allAirports, symbolSize: 2, itemStyle: { color: getSeriesColor(), opacity: 0.1 } },
             { name: 'Possible Destinations', type: 'scatter', coordinateSystem: 'geo', data: possibleEndpoints, symbolSize: 4, itemStyle: { color: '#0ea5e9', opacity: 0.8 } },
             { name: 'Possible Routes', type: 'lines', coordinateSystem: 'geo', lineStyle: { color: '#0ea5e9', width: 1, opacity: 0.4, curveness: 0.3 }, data: possibleLines },
             { name: 'Itinerary Stops', type: 'effectScatter', coordinateSystem: 'geo', data: committedEndpoints, symbolSize: 8, showEffectOn: 'render', rippleEffect: { brushType: 'stroke', scale: 2 }, itemStyle: { color: '#f43f5e' } },
@@ -340,46 +424,120 @@ function renderItineraryMap() {
 }
 
 function setupInteractions() {
+    const toast = document.createElement('div');
+    toast.id = 'map-toast';
+    toast.style.cssText = 'position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); background: var(--ds-sys-color-error); color: white; padding: 12px 24px; border-radius: 8px; opacity: 0; pointer-events: none; transition: opacity 0.3s; z-index: 9999; font-weight: 500; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.3);';
+    document.getElementById('airport-map').parentElement.appendChild(toast);
+    
+    window.showMapToast = function(msg) {
+        const t = document.getElementById('map-toast');
+        if (!t) return;
+        t.innerText = msg;
+        t.style.opacity = '1';
+        setTimeout(() => { t.style.opacity = '0'; }, 3000);
+    };
+
     // Top Input Bar (Faint Search filter over general global nodes)
     searchInput.addEventListener('input', (e) => {
-        const query = e.target.value.toLowerCase().trim();
-        if (query === '') {
+        let query = e.target.value.toLowerCase().trim();
+        let exactCountry = activeAreaFilter;
+
+        if (query === '' && !exactCountry) {
             renderItineraryMap();
+            renderItineraryUI();
             countLabel.innerText = `${allAirports.length.toLocaleString()} Terminals`;
             return;
         }
-        const filtered = allAirports.filter(a => a.name.toLowerCase().includes(query) || a.iata.toLowerCase().includes(query) || (a.country && a.country.toLowerCase().includes(query)));
+        
+        let filtered = allAirports;
+        if (exactCountry) {
+            filtered = filtered.filter(a => a.country && a.country.toLowerCase() === exactCountry.toLowerCase());
+        }
+        if (query !== '') {
+            filtered = filtered.filter(a => a.name.toLowerCase().includes(query) || a.iata.toLowerCase().includes(query) || (a.country && a.country.toLowerCase().includes(query)));
+        }
+        
         chartInstance.setOption({ series: [{ name: 'Airports', type: 'scatter', data: filtered, symbolSize: 4, itemStyle: { color: getSeriesColor(), opacity: 1 } }] });
         countLabel.innerText = `${filtered.length.toLocaleString()} Terminals`;
+        
+        if (filtered.length === 0 && exactCountry) {
+            if (window.showMapToast) window.showMapToast(`No active terminals explicitly mapped in ${exactCountry}`);
+        }
+        
+        if (itinerary.length > 0) {
+            renderItineraryUI();
+            renderItineraryMap();
+        }
     });
 
     const resetBtn = document.getElementById('reset-itinerary-btn');
     if (resetBtn) {
         resetBtn.addEventListener('click', () => {
             itinerary = [];
-            renderItineraryUI();
-            renderItineraryMap();
+            searchInput.value = '';
+            searchInput.dispatchEvent(new Event('input'));
         });
     }
 
     // Map Event Listener allows clicking to add to Itinerary!
     chartInstance.on('click', (params) => {
+        if (params.componentType === 'geo') {
+            const countryName = params.name; 
+            const allIsoCodes = Array.from(new Set(allAirports.map(a => a.country).filter(Boolean)));
+            let selectedIso = null;
+            
+            if (typeof Intl !== 'undefined' && Intl.DisplayNames) {
+                try {
+                    const regionNames = new Intl.DisplayNames(['en'], {type: 'region'});
+                    for(let iso of allIsoCodes) {
+                        if (regionNames.of(iso) === countryName || regionNames.of(iso).toLowerCase().includes(countryName.toLowerCase())) {
+                            selectedIso = iso;
+                            break;
+                        }
+                    }
+                } catch(e) {}
+            }
+            
+            if (!selectedIso) {
+                if (countryName === 'United States') selectedIso = 'US';
+                else if (countryName === 'United Kingdom') selectedIso = 'GB';
+                else if (countryName === 'Russia') selectedIso = 'RU';
+                else selectedIso = countryName;
+            }
+            
+            if (activeAreaFilter.toLowerCase() === selectedIso.toLowerCase()) {
+                activeAreaFilter = '';
+                chartInstance.dispatchAction({ type: 'geoUnSelect', name: countryName });
+            } else {
+                activeAreaFilter = selectedIso;
+            }
+            
+            renderItineraryUI();
+            renderItineraryMap();
+            
+            setTimeout(() => {
+                const nextInp = document.getElementById('itinerary-origin-input') || document.getElementById('itinerary-next-input');
+                if (nextInp) { nextInp.focus(); }
+            }, 50);
+            return;
+        }
+
         if (params.seriesType === 'scatter' || params.seriesType === 'effectScatter') {
            const iata = params.data.iata;
            if (iata) {
                if (itinerary.length === 0) {
                    itinerary.push(iata);
-                   renderItineraryUI();
-                   renderItineraryMap();
                } else {
                    const lastCode = itinerary[itinerary.length - 1];
                    const lastDb = db.getAirport(lastCode);
-                   if (lastDb && lastDb.routes.find(r => r.iata === iata)) {
+                   if (lastDb && lastDb.routes.find(r => r.iata === iata) && iata !== lastCode) {
                        itinerary.push(iata);
-                       renderItineraryUI();
-                       renderItineraryMap();
+                   } else {
+                       itinerary = [iata];
                    }
                }
+               searchInput.value = '';
+               searchInput.dispatchEvent(new Event('input'));
            }
         } else if (params.seriesType === 'lines' && params.seriesName === 'Possible Routes') {
            showFlightModal(params.data, hudOrigin.innerText);
