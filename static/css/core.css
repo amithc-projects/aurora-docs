@@ -75,33 +75,46 @@
 
   /* Variable Font Axes Defaults */
   --vf-wght: 400;
-  /* Regular */
   --vf-wdth: 100;
-  /* Normal Width (Only affects Fredoka) */
+
+  /* Font Studio Roles (Fallback to Primary) */
+  --font-hero: var(--font-primary);
+  --font-heading: var(--font-primary);
+  --font-body: var(--font-primary);
+  --font-nav: var(--font-primary);
+
+  --settings-hero: normal;
+  --settings-heading: normal;
+  --settings-body: normal;
+  --settings-nav: normal;
 
   /* Derived Props */
   --font-weight-normal: 400;
   --font-weight-bold: 700;
 }
 
-/* CASUAL THEME OVERRIDES */
-[data-theme="casual"] {
-  --font-primary: 'Fredoka', cursive, sans-serif;
-
-  /* Casual theme defaults to slightly chunkier and wider */
-  --vf-wght: 450;
-  --vf-wdth: 110;
-}
-
 /* GLOBAL RESET APPLYING VARIABLES */
 body {
-  font-family: var(--font-primary);
-
-  /* THE MAGIC: Bind CSS variables to Font Settings */
-  font-variation-settings: 'wght' var(--vf-wght), 'wdth' var(--vf-wdth);
-
+  font-family: var(--font-body);
+  font-variation-settings: var(--settings-body);
+  
   /* Smoothly animate font changes */
   transition: font-variation-settings 0.3s ease, font-weight 0.3s ease;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-variation-settings: var(--settings-heading);
+}
+
+.hero {
+  font-family: var(--font-hero);
+  font-variation-settings: var(--settings-hero);
+}
+
+nav {
+  font-family: var(--font-nav);
+  font-variation-settings: var(--settings-nav);
 }
 
 /* UTILITIES FOR DEMO */
@@ -128,9 +141,9 @@ h3,
 h4,
 h5,
 h6 {
-  /* Headings are +200 weight from base */
-  font-weight: calc(var(--vf-wght) + 300);
-  font-variation-settings: 'wght' calc(var(--vf-wght) + 300), 'wdth' var(--vf-wdth);
+  /* Headings are +200 weight from base if no specific settings provided */
+  font-weight: var(--font-weight-heading, calc(var(--vf-wght, 400) + 300));
+  font-variation-settings: var(--settings-heading, 'wght' calc(var(--vf-wght, 400) + 300), 'wdth' var(--vf-wdth, 100));
 }
 
 /* --- CHART COLOR TOKENS --- */

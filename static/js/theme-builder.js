@@ -25,6 +25,38 @@ export function initThemeBuilder() {
     const spacingVal = document.getElementById('spacingVal');
     const elevationPicker = document.getElementById('elevationPicker');
 
+    // Font Studio Integration State
+    let activeFontConfig = null;
+    const btnImportFonts = document.getElementById('btnImportFonts');
+    const syncStatus = document.getElementById('fontSyncStatus');
+
+    if (btnImportFonts) {
+        btnImportFonts.addEventListener('click', () => {
+            const stored = localStorage.getItem('aurora_font_studio_active');
+            if (stored) {
+                activeFontConfig = JSON.parse(stored);
+                if (syncStatus) syncStatus.classList.remove('d-none');
+                
+                const details = document.getElementById('fontImportDetails');
+                const stamp = document.getElementById('syncTimestamp');
+                const count = document.getElementById('syncInstanceCount');
+                
+                if (details) {
+                    details.classList.remove('d-none');
+                    if (stamp) stamp.innerText = new Date().toLocaleTimeString();
+                    if (count) count.innerText = `${activeFontConfig.instances.length} items`;
+                }
+
+                applyTokens();
+                if (window.triggerToast) {
+                    window.triggerToast('success', `Typography Imported: ${activeFontConfig.instances.length} instances mapped.`);
+                }
+            } else {
+                alert("No active font configuration found. Please go to Font Studio and click 'Sync to Theme Builder'.");
+            }
+        });
+    }
+
     // Export Buttons
     const btnCopy = document.getElementById('btnExportCopy');
     const btnDownload = document.getElementById('btnExportDownload');
@@ -54,6 +86,17 @@ export function initThemeBuilder() {
         const bodyFont = bodyFontPicker.value;
         const spacing = spacingPicker.value + 'rem';
         const elevation = elevationPicker.value;
+
+        // --- 0. Update Font Embed if active ---
+        if (activeFontConfig && activeFontConfig.embedCode) {
+            let fontContainer = document.getElementById('aurora-builder-fonts');
+            if (!fontContainer) {
+                fontContainer = document.createElement('div');
+                fontContainer.id = 'aurora-builder-fonts';
+                document.body.appendChild(fontContainer);
+            }
+            fontContainer.innerHTML = activeFontConfig.embedCode;
+        }
 
         // --- 1. Update UI Labels ---
         brandHexVal.textContent = brand;
@@ -118,16 +161,47 @@ export function initThemeBuilder() {
             // Force Border Overrides on Components that hardcode them
             pane.style.setProperty('--ds-cmp-btn-sec-border-width', stroke);
 
-            // Subgrid Spacing Engine
+            // Spacing
             pane.style.setProperty('--ds-ref-space-base', spacing);
 
-            // Shadows & Elevation
-            pane.style.setProperty('--ds-sys-shadow-card', elevation);
-
-            // Typography
+            // Typography (Fallback)
             pane.style.setProperty('--font-primary', font);
             pane.style.setProperty('--font-heading', font);
             pane.style.setProperty('--font-body', bodyFont);
+
+            // Typography (Font Studio Roles)
+            if (activeFontConfig && activeFontConfig.assignments) {
+                console.log("[ThemeBuilder] activeFontConfig active:", activeFontConfig);
+                Object.entries(activeFontConfig.assignments).forEach(([role, instId]) => {
+                    const instance = activeFontConfig.instances.find(i => String(i.id) === String(instId));
+                    if (instance) {
+                        const fontObj = activeFontConfig.fonts.find(f => String(f.id) === String(instance.fontId));
+                        if (fontObj) {
+                            pane.style.setProperty(`--font-${role}`, `"${fontObj.name}", sans-serif`);
+                            const settings = Object.entries(instance.settings).map(([tag, val]) => `"${tag}" ${val}`).join(', ');
+                            pane.style.setProperty(`--settings-${role}`, settings);
+                            if (role === 'heading' || role === 'hero') {
+                                pane.style.setProperty('--font-weight-heading', 'normal');
+                            }
+                            console.log(`[ThemeBuilder] Applied role: ${role} -> ${fontObj.name} (${settings})`);
+                        }
+                    } else {
+                        // Reset if no instance
+                        pane.style.removeProperty(`--font-${role}`);
+                        pane.style.removeProperty(`--settings-${role}`);
+                    }
+                });
+            }
+ else {
+                // Default fallback mappings if no studio config
+                pane.style.setProperty('--font-hero', font);
+                pane.style.setProperty('--font-nav', font);
+                pane.style.setProperty('--font-heading', font);
+                pane.style.setProperty('--font-body', bodyFont);
+            }
+
+            // Elevation
+            pane.style.setProperty('--ds-sys-shadow-card', elevation);
         });
     }
 
@@ -179,11 +253,28 @@ export function initThemeBuilder() {
   --ds-sys-color-surface-container-high: color-mix(in srgb, ${surfacePicker ? surfacePicker.value : '#ffffff'}, #000 12%);
   --ds-sys-color-surface-container-highest: color-mix(in srgb, ${surfacePicker ? surfacePicker.value : '#ffffff'}, #000 18%);
 
-  /* Typography */
+  /* Typography (Framework) */
   --font-primary: ${fontPicker.value};
   --font-heading: ${fontPicker.value};
   --font-body: ${bodyFontPicker.value};
 
+  /* Typography (Font Studio Roles) */
+${(() => {
+    if (!activeFontConfig || !activeFontConfig.assignments) return '  /* No Font Studio assignments active */';
+    let fontVars = '';
+    Object.entries(activeFontConfig.assignments).forEach(([role, instId]) => {
+        const instance = activeFontConfig.instances.find(i => i.id == instId);
+        if (instance) {
+            const fontObj = activeFontConfig.fonts.find(f => f.id == instance.fontId);
+            if (fontObj) {
+                fontVars += `  --font-${role}: "${fontObj.name}", sans-serif;\n`;
+                const settings = Object.entries(instance.settings).map(([tag, val]) => `"${tag}" ${val}`).join(', ');
+                fontVars += `  --settings-${role}: ${settings};\n`;
+            }
+        }
+    });
+    return fontVars;
+})()}
   /* Structural Geometry */
   --ds-sys-radius-card: ${radiusPicker.value}px;
   --ds-sys-radius-btn: ${Math.max(4, parseInt(radiusPicker.value) / 2)}px;
@@ -223,7 +314,8 @@ export function initThemeBuilder() {
         btnSave.addEventListener('click', () => {
             const name = themeNameInput.value.trim() || 'Custom Theme';
             const css = generateCSS();
-            saveCustomTheme(name, css);
+            // Pass activeFontConfig to be bundled with the theme
+            saveCustomTheme(name, css, activeFontConfig);
             
             themeNameInput.value = '';
             

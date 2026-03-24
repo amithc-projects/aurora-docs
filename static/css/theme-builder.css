@@ -29,6 +29,10 @@ body.theme-builder-body {
     flex-direction: column;
     overflow: hidden;
     position: relative;
+    
+    /* Font Studio Environment Sync */
+    font-family: var(--font-body, var(--font-primary, sans-serif));
+    font-variation-settings: var(--settings-body, normal);
 }
 
 /* Base Light Mode Environment */

@@ -51,8 +51,39 @@
     }
 
     .sidebar-header { padding: 15px; border-bottom: 1px solid var(--border); background: #202023; }
-    .sidebar-content { flex: 1; overflow-y: auto; padding: 15px; }
+    .sidebar-content { flex: 1; overflow-y: auto; padding: 15px; scrollbar-width: thin; scrollbar-color: var(--accent) transparent; }
     .sidebar-footer { padding: 15px; border-top: 1px solid var(--border); background: #202023; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+    /* COLLAPSIBLE SECTIONS */
+    .section-container {
+        border-bottom: 1px solid var(--border);
+        margin-bottom: 10px;
+    }
+
+    .section-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        background: none;
+        border: none;
+        color: var(--accent);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 11px;
+        font-weight: 700;
+        padding: 12px 0;
+        cursor: pointer;
+        transition: 0.2s;
+    }
+    .section-header:hover { opacity: 0.8; }
+    .section-header.disabled { opacity: 0.3; cursor: not-allowed; pointer-events: none; }
+    
+    .section-content {
+        padding-bottom: 15px;
+        display: block;
+    }
+    .section-content.collapsed { display: none; }
 
     /* INPUTS */
     h3 { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--accent); margin: 25px 0 10px 0; border-bottom: 1px solid #333; padding-bottom: 5px; }
@@ -61,15 +92,15 @@
     label { font-size: 11px; color: var(--text-dim); display: block; margin-bottom: 4px; }
 
     textarea {
-        width: 100%; height: 60px; background: #09090b; border: 1px solid var(--border);
-        color: #86efac; font-family: monospace; font-size: 10px; padding: 8px; resize: vertical; border-radius: 4px;
+        width: 100%; height: 80px; background: #09090b; border: 1px solid var(--border);
+        color: #86efac; font-family: 'Fira Code', monospace; font-size: 11px; padding: 10px; resize: vertical; border-radius: 4px;
         margin-bottom: 10px;
     }
     textarea:focus { outline: 1px solid var(--accent); border-color: var(--accent); }
 
     select, input[type="text"] {
         width: 100%; padding: 8px; background: #27272a; border: 1px solid var(--border);
-        color: white; border-radius: 4px; font-size: 12px; margin-bottom: 5px;
+        color: white; border-radius: 4px; font-size: 12px; margin-bottom: 10px;
     }
 
     button { 
@@ -77,32 +108,41 @@
         border-radius: 4px; cursor: pointer; font-size: 11px; font-weight: 600; transition: 0.2s;
     }
     button:hover { background: var(--accent); border-color: var(--accent); }
-    button.primary { background: var(--accent); border-color: var(--accent); }
+    button.primary { background: var(--accent); border-color: var(--accent); width: 100%; }
     button.icon-btn { padding: 4px 8px; font-size: 10px; margin-left: auto; }
+    button.small { padding: 4px 8px; font-size: 10px; background: transparent; }
 
     /* CSS IMPORT LIST */
     .css-import-item {
-        background: #27272a; padding: 10px; border-radius: 4px; margin-bottom: 10px; border: 1px solid var(--border);
+        background: #27272a; padding: 0; border-radius: 4px; margin-bottom: 20px;
     }
-    .css-import-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; }
-    .font-badge { background: #3f3f46; padding: 2px 6px; border-radius: 3px; font-size: 10px; color: #fff; }
+    .font-badge { background: #3f3f46; padding: 2px 6px; border-radius: 3px; font-size: 10px; color: #fff; margin-bottom: 10px; display: inline-block;}
 
     /* TABS */
     .tabs { display: flex; gap: 4px; margin-bottom: 15px; background: #27272a; padding: 4px; border-radius: 6px; }
     .tab-btn { flex: 1; background: transparent; border: none; color: #71717a; border-radius: 4px; }
     .tab-btn.active { background: var(--accent); color: white; }
 
+    /* INSTANCES LIST */
+    .instance-card {
+        background: #27272a; border: 1px solid var(--border); padding: 10px; border-radius: 6px; margin-bottom: 8px;
+        display: flex; justify-content: space-between; align-items: center;
+    }
+    .instance-info { display: flex; flex-direction: column; gap: 2px; }
+    .instance-name { font-weight: 700; color: white; }
+    .instance-details { font-size: 10px; color: var(--text-dim); }
+
     /* SLIDERS */
-    .control-row { margin-bottom: 12px; }
-    .control-head { display: flex; justify-content: space-between; font-size: 11px; font-family: monospace; color: var(--text-dim); margin-bottom: 4px; }
-    input[type=range] { width: 100%; cursor: pointer; accent-color: var(--accent); height: 4px; background: #333; border-radius: 2px; appearance: none; }
-    input[type=range]::-webkit-slider-thumb { appearance: none; width: 12px; height: 12px; background: white; border-radius: 50%; cursor: pointer; }
+    .control-row { margin-bottom: 15px; }
+    .control-head { display: flex; justify-content: space-between; font-size: 11px; font-family: monospace; color: var(--text-dim); margin-bottom: 6px; }
+    input[type=range] { width: 100%; cursor: pointer; accent-color: var(--accent); height: 4px; background: #333; border-radius: 2px; appearance: none; margin-bottom: 10px; }
+    input[type=range]::-webkit-slider-thumb { appearance: none; width: 14px; height: 14px; background: white; border-radius: 50%; cursor: pointer; border: 2px solid var(--accent); }
 
     /* PREVIEW */
-    .preview { flex: 1; overflow-y: auto; padding: 40px; }
+    .preview { flex: 1; overflow-y: auto; padding: 40px; background: #e4e4e7; }
     .canvas {
         max-width: 900px; margin: 0 auto; background: white; min-height: 100vh;
-        box-shadow: 0 4px 25px rgba(0,0,0,0.1); padding: 0;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.1); padding: 0; border-radius: 8px; overflow: hidden;
     }
 
     /* TYPOGRAPHY */
@@ -112,110 +152,187 @@
     .typo-body { font-family: var(--font-body); font-variation-settings: var(--settings-body); }
 
     /* LAYOUT COMPONENTS */
-    nav { padding: 20px 40px; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; }
+    nav { padding: 20px 40px; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; background: white; }
     nav ul { display: flex; gap: 20px; list-style: none; padding: 0; margin: 0; font-size: 0.85rem; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px; }
 
     header.hero { padding: 100px 40px; background: #09090b; color: white; text-align: center; }
     header.hero h1 { font-size: 4.5rem; line-height: 1.05; margin: 0 0 25px 0; letter-spacing: -0.03em; }
-    header.hero p { font-size: 1.5rem; opacity: 0.8; max-width: 650px; margin: 0 auto; font-family: var(--font-body); font-variation-settings: var(--settings-body); }
+    header.hero p { font-size: 1.5rem; opacity: 0.8; max-width: 650px; margin: 0 auto; }
 
-    main { padding: 60px 40px; max-width: 720px; margin: 0 auto; }
+    main.content { padding: 60px 40px; max-width: 720px; margin: 0 auto; }
     
-    /* MODULAR SCALE */
-    h1, h2, h3, h4, h5, h6 { margin-top: calc(var(--base-size) * var(--scale-ratio) * 1.5); margin-bottom: calc(var(--base-size) * 0.5); line-height: 1.2; font-weight: 700; }
-    p { font-size: var(--base-size); line-height: 1.65; margin-bottom: var(--base-size); }
-
-    h6 { font-size: var(--base-size); }
-    h5 { font-size: calc(var(--base-size) * var(--scale-ratio)); }
-    h4 { font-size: calc(var(--base-size) * var(--scale-ratio) * var(--scale-ratio)); }
-    h3 { font-size: calc(var(--base-size) * var(--scale-ratio) * var(--scale-ratio) * var(--scale-ratio)); }
-    h2 { font-size: calc(var(--base-size) * var(--scale-ratio) * var(--scale-ratio) * var(--scale-ratio) * var(--scale-ratio)); }
-    h1 { font-size: calc(var(--base-size) * var(--scale-ratio) * var(--scale-ratio) * var(--scale-ratio) * var(--scale-ratio) * var(--scale-ratio)); }
+    /* MODULAR SCALE (Updated by JS) */
+    h1, h2, h3, h4, h5, h6 { line-height: 1.2; font-weight: 700; margin-top: 1.5em; margin-bottom: 0.5em;}
+    p { font-size: var(--base-size); line-height: 1.65; margin-bottom: 1em; }
 
     /* MODAL */
-    .modal-overlay { position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.85); display: none; justify-content: center; align-items: center; z-index: 100; backdrop-filter: blur(2px); }
-    .modal { background: #18181b; padding: 25px; width: 600px; border-radius: 8px; color: white; border: 1px solid #333; }
-    .modal textarea { height: 350px; font-size: 11px; }
+    .modal-overlay { position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.85); display: none; justify-content: center; align-items: center; z-index: 100; backdrop-filter: blur(4px); }
+    .modal { background: #18181b; padding: 30px; width: 800px; border-radius: 12px; color: white; border: 1px solid #333; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+    .modal textarea { height: 400px; font-size: 12px; color: #fff; background: #000; }
 </style>
 </head>
 <body>
 
 <aside class="sidebar">
     <div class="sidebar-header">
-        <h2 style="margin:0; font-size: 14px; color: white;">Font Studio Pro</h2>
+        <h2 style="margin:0; font-size: 14px; color: white; display: flex; align-items: center; gap: 8px;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M9.93 13.5h4.14L12 7.98 9.93 13.5ZM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2Zm4.56 16.5-1.14-3h-6.84l-1.14 3H5L10.5 5h3L19 18.5h-2.44Z"/></svg>
+            Variable Font Studio
+        </h2>
     </div>
 
     <div class="sidebar-content">
         
-        <h3>1. Global Embed</h3>
-        <label>Paste the &lt;link&gt; tag from <a target="_blank" href="https://fonts.google.com/selection/embed">Google Fonts</a></label> here:</label>
-        <textarea id="embedInput" placeholder='<link href="https://fonts.googleapis.com...">'></textarea>
-        <button onclick="injectEmbed()" class="primary" style="width:100%">Load Font Files</button>
-
-        <h3>2. Font Definitions</h3>
-        <div id="cssList">
+        <!-- STEP 0 -->
+        <div class="section-container" id="container-step0">
+            <button class="section-header" onclick="toggleSection('step0')">
+                0. Getting Started
+                <span id="icon-step0">−</span>
+            </button>
+            <div id="content-step0" class="section-content">
+                <p style="font-size: 12px; line-height: 1.4; color: var(--text-dim);">
+                    To begin, we recommend reading Google's <a target="_blank" href="https://fonts.google.com/knowledge/choosing_type/a_checklist_for_choosing_type" style="color:var(--accent);">Checklist for Choosing Type</a>.
+                </p>
+                <ol style="padding-left: 20px; color: var(--text-dim); font-size: 11px; margin-top: 10px;">
+                    <li>Visit <a target="_blank" href="https://fonts.google.com/?preview.text=The%20quick%20brown%20fox%20jumped%20over%20the%20lazy%20hen" style="color:var(--accent);">Google Fonts</a> and select your families.</li>
+                    <li>Click the <strong>Bag Icon</strong> in the top-right.</li>
+                    <li>Copy the <strong>Embed Code</strong> (&lt;link&gt;) for Step 1.</li>
+                    <li>Copy each <strong>CSS Snippet</strong> for Step 2.</li>
+                </ol>
             </div>
-        <button onclick="addCSSBlock()" style="width:100%; border-style: dashed;">+ Add Another Font CSS</button>
-
-        <h3>3. Sizing Algorithm</h3>
-        <div class="control-row">
-            <div class="control-head"><span>Base Size</span><span id="disp-base">16px</span></div>
-            <input type="range" min="12" max="24" value="16" oninput="updateGlobal('base', this.value)">
-        </div>
-        <div class="control-row">
-            <div class="control-head"><span>Scale Ratio</span><span id="disp-scale">1.25</span></div>
-            <input type="range" min="1.05" max="1.6" step="0.01" value="1.25" oninput="updateGlobal('scale', this.value)">
         </div>
 
-        <h3>4. Section Config</h3>
-        <div class="tabs">
-            <button class="tab-btn active" onclick="setSection('hero')">Hero</button>
-            <button class="tab-btn" onclick="setSection('heading')">Headings</button>
-            <button class="tab-btn" onclick="setSection('body')">Body</button>
-            <button class="tab-btn" onclick="setSection('nav')">Nav</button>
+        <!-- STEP 1 -->
+        <div class="section-container" id="container-step1">
+            <button class="section-header" id="header-step1" onclick="toggleSection('step1')">
+                1. Google Fonts Embed
+                <span id="icon-step1">+</span>
+            </button>
+            <div id="content-step1" class="section-content collapsed">
+                <label>Paste the &lt;link&gt; tag from Google Fonts Library</label>
+                <textarea id="embedInput" placeholder='<link href="https://fonts.googleapis.com/css2?family=..."></link>'></textarea>
+                <button onclick="injectEmbed()" class="primary">Load Font Files</button>
+            </div>
         </div>
 
-        <div id="dynamicControls">
-            <p style="font-size: 11px; color: #666; font-style: italic; padding: 10px;">
-                Define fonts in Step 2 to enable controls.
-            </p>
+        <!-- STEP 2 -->
+        <div class="section-container" id="container-step2">
+            <button class="section-header disabled" id="header-step2" onclick="toggleSection('step2')">
+                2. Font Definitions (CSS)
+                <span id="icon-step2">+</span>
+            </button>
+            <div id="content-step2" class="section-content collapsed">
+                <div id="cssList"></div>
+                <button onclick="addCSSBlock()" style="width:100%; border-style: dashed; margin-top: 10px;">+ Add Another Font CSS</button>
+            </div>
         </div>
+
+        <!-- STEP 3 -->
+        <div class="section-container" id="container-step3">
+            <button class="section-header disabled" id="header-step3" onclick="toggleSection('step3')">
+                3. Create Font Instances
+                <span id="icon-step3">+</span>
+            </button>
+            <div id="content-step3" class="section-content collapsed">
+                <div id="instanceCreator">
+                    <label>Base Font</label>
+                    <select id="instanceFontSelect" onchange="renderInstanceAxes()"></select>
+                    
+                    <div id="instanceAxes"></div>
+                    
+                    <div id="localPreviewContainer" style="background: #09090b; padding: 15px; border-radius: 6px; margin: 15px 0; border: 1px solid var(--border);">
+                        <label style="margin-bottom: 8px;">Real-time Preview</label>
+                        <p id="localPreview" style="margin: 0; color: white; font-size: 16px; overflow-wrap: break-word;">The quick brown fox jumped over the lazy hen</p>
+                    </div>
+
+                    <label>Instance Name</label>
+                    <input type="text" id="newInstanceName" placeholder="e.g. Hero Display Bold">
+                    <button id="saveInstanceBtn" onclick="saveInstance()" class="primary">Create Instance</button>
+                    <button id="cancelEditBtn" onclick="cancelEdit()" style="display:none; width:100%; margin-top:5px; background:transparent;">Cancel Edit</button>
+                </div>
+                
+                <h3 style="margin-top: 20px;">Library</h3>
+                <div id="instanceList"></div>
+            </div>
+        </div>
+
+        <!-- STEP 4 -->
+        <div class="section-container" id="container-step4">
+            <button class="section-header disabled" id="header-step4" onclick="toggleSection('step4')">
+                4. Assignment & Preview
+                <span id="icon-step4">+</span>
+            </button>
+            <div id="content-step4" class="section-content collapsed">
+                <div class="control-group">
+                    <label>Hero (H1 & P)</label>
+                    <select id="assign-hero" onchange="assignInstance('hero', this.value)"></select>
+                    
+                    <label>Headings (H2-H6)</label>
+                    <select id="assign-heading" onchange="assignInstance('heading', this.value)"></select>
+                    
+                    <label>Body Text</label>
+                    <select id="assign-body" onchange="assignInstance('body', this.value)"></select>
+                    
+                    <label>Navigation</label>
+                    <select id="assign-nav" onchange="assignInstance('nav', this.value)"></select>
+                </div>
+
+                <hr style="margin: 20px 0; border-color: var(--border);">
+                
+                <button onclick="syncToThemeBuilder(event)" class="primary" style="background: #8b5cf6; border-color: #7c3aed; margin-bottom: 10px; width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                    <span>✨</span> Sync to Theme Builder
+                </button>
+
+                <h3>Sizing Algorithm</h3>
+                <div class="control-row">
+                    <div class="control-head"><span>Base Size</span><span id="disp-base">16px</span></div>
+                    <input type="range" min="12" max="24" value="16" oninput="updateGlobal('base', this.value)">
+                </div>
+                <div class="control-row">
+                    <div class="control-head"><span>Scale Ratio</span><span id="disp-scale">1.25</span></div>
+                    <input type="range" min="1.05" max="1.6" step="0.01" value="1.25" oninput="updateGlobal('scale', this.value)">
+                </div>
+            </div>
+        </div>
+
     </div>
 
     <div class="sidebar-footer">
-        <button onclick="exportData()">Export Code</button>
-        <button onclick="saveSession()">Save JSON</button>
-        <button onclick="document.getElementById('fileInput').click()">Load JSON</button>
+        <button onclick="exportData()" class="primary">Export CSS</button>
+        <button onclick="saveSession()">Download JSON</button>
+        <button onclick="resumeFromText()">Resume from Text</button>
+        <button onclick="document.getElementById('fileInput').click()">Load JSON File</button>
         <input type="file" id="fileInput" style="display:none" onchange="loadSession(this)">
     </div>
 </aside>
 
 <main class="preview">
-    <div id="embedContainer"></div> <div class="canvas">
+    <div id="embedContainer"></div> 
+    <div class="canvas">
         <nav class="typo-nav">
-            <div style="font-size: 1.3em; font-weight: 900;">StudioPro</div>
+            <div style="font-size: 1.3em; font-weight: 900;">Aurora Studio</div>
             <ul>
                 <li>Typography</li>
-                <li>Layout</li>
-                <li>Export</li>
+                <li>Components</li>
+                <li>Philosophy</li>
             </ul>
         </nav>
 
         <header class="hero typo-hero">
             <h1>Variable Power</h1>
-            <p>Paste your Google Fonts CSS snippets to unlock full axis control for every section of your page.</p>
+            <p>Craft unique typographic personalities using variable font settings extracted directly from Google Fonts snippets.</p>
         </header>
 
-        <main>
+        <main class="content">
             <div class="typo-heading typo-body">
-                <h1>Heading Level 1</h1>
-                <p>This is standard body text. It inherits configuration from the "Body" tab. Headings inherit from the "Headings" tab. Use the Algorithm sliders to adjust vertical rhythm.</p>
+                <h2>Hierarchy & Scale</h2>
+                <p>This is standard body text. It mimics how your documentation or landing page would look with the assigned font instances. Headings inherit from the "Headings" instance assignment.</p>
                 
-                <h2>Heading Level 2</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                <h3>Fluid Typography</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Fine-tune your "Scale Ratio" to adjust vertical rhythm.</p>
 
-                <h3>Heading Level 3</h3>
-                <p>Variable fonts allow fine-tuning of axes like Grade, Optical Size, and Width to create perfect hierarchy without changing files.</p>
+                <h4>Technical Precision</h4>
+                <p>Variable fonts allow fine-tuning of axes like Grade, Optical Size, and Width to create perfect hierarchy without multiple files.</p>
             </div>
         </main>
     </div>
@@ -228,6 +345,31 @@
             <button onclick="document.getElementById('exportModal').style.display='none'">Close</button>
         </div>
         <textarea id="exportText"></textarea>
+    </div>
+</div>
+
+<!-- MODALS -->
+<div id="exportModal" class="modal-overlay">
+    <div class="modal">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
+            <h3>Generated CSS Tokens</h3>
+            <button onclick="document.getElementById('exportModal').style.display='none'">Close</button>
+        </div>
+        <p style="font-size: 0.8rem; margin-bottom: 15px; opacity: 0.7;">This CSS includes role-based variables and embedded session data for resumption.</p>
+        <textarea id="exportText" readonly></textarea>
+        <button class="primary" onclick="navigator.clipboard.writeText(this.previousElementSibling.value)">Copy to Clipboard</button>
+    </div>
+</div>
+
+<div id="resumeModal" class="modal-overlay">
+    <div class="modal">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
+            <h3>Resume Session</h3>
+            <button onclick="document.getElementById('resumeModal').style.display='none'">Close</button>
+        </div>
+        <p style="font-size: 0.8rem; margin-bottom: 15px; opacity: 0.7;">Paste your Exported CSS or Session JSON below to restore your work.</p>
+        <textarea id="resumeText" placeholder="/* Paste CSS or JSON here */"></textarea>
+        <button class="primary" onclick="confirmResume()">Restore Session</button>
     </div>
 </div>
 
@@ -258,353 +400,478 @@
         'WONK': { name: 'Wonky', min: 0, max: 1, step: 1, def: 0 },
         // Fallback for unknown axes
         'default': { name: 'Unknown', min: 0, max: 100, step: 1, def: 0 }
-    };
-
-    // --- STATE ---
+    };    // --- STATE ---
     let appState = {
         embedCode: '',
-        cssBlocks: [], // Array of strings (user pasted css)
-        fonts: [],     // Parsed font objects
-        sections: {
-            hero: { fontIndex: 0, axes: {} },
-            heading: { fontIndex: 0, axes: {} },
-            body: { fontIndex: 0, axes: {} },
-            nav: { fontIndex: 0, axes: {} }
+        fonts: [],      
+        instances: [],  
+        assignments: {
+            hero: '',
+            heading: '',
+            body: '',
+            nav: ''
         },
-        global: { base: 16, scale: 1.25 }
+        global: { base: 16, scale: 1.25 },
+        editingInstanceId: null
     };
 
-    let currentSection = 'hero';
-
-    // --- INIT ---
-    // Add one empty CSS block to start
-    window.onload = () => { if(appState.cssBlocks.length === 0) addCSSBlock(); };
-
-    // --- LOGIC: EMBED ---
-    function injectEmbed() {
-        const val = document.getElementById('embedInput').value;
-        appState.embedCode = val;
-        document.getElementById('embedContainer').innerHTML = val;
+    // --- UTILS ---
+    function toggleSection(id) {
+        const content = document.getElementById(`content-${id}`);
+        const icon = document.getElementById(`icon-${id}`);
+        if(!content) return;
+        const isCollapsed = content.classList.toggle('collapsed');
+        icon.innerText = isCollapsed ? '+' : '−';
     }
 
-    // --- LOGIC: CSS BLOCKS ---
-    function addCSSBlock(content = '') {
-        const id = appState.cssBlocks.length;
-        appState.cssBlocks.push(content);
+    function enableStep(step) {
+        const header = document.getElementById(`header-step${step}`);
+        if(header) header.classList.remove('disabled');
+        if(step > 0) {
+            const content = document.getElementById(`content-step${step}`);
+            const icon = document.getElementById(`icon-step${step}`);
+            if(content) {
+                content.classList.remove('collapsed');
+                icon.innerText = '−';
+            }
+        }
+    }
 
+    // --- STEP 1: EMBED ---
+    function injectEmbed() {
+        const val = document.getElementById('embedInput').value;
+        if(!val.includes('<link')) return alert("Please paste a valid <link> tag.");
+        appState.embedCode = val;
+        document.getElementById('embedContainer').innerHTML = val;
+        
+        const families = [...val.matchAll(/family=([^&:]+)/g)].map(m => m[1].split(':')[0].replace(/\+/g, ' '));
+        if(families.length > 0) {
+            document.getElementById('cssList').innerHTML = '';
+            families.forEach(f => addCSSBlock(f));
+        }
+        
+        enableStep(2);
+    }
+
+    // --- STEP 2: CSS BLOCKS & PARSING ---
+    function addCSSBlock(fontName = 'New Font') {
+        const id = document.querySelectorAll('.css-import-item').length;
         const div = document.createElement('div');
         div.className = 'css-import-item';
+        
+        // Use standard properties for the badge and button for safer rendering
         div.innerHTML = `
-            <div class="css-import-header">
-                <span class="font-badge" id="badge-${id}">Pending</span>
-                <button class="icon-btn" onclick="parseAllCSS()">Parse</button>
+            <span class="font-badge" id="badge-${id}">${fontName}</span>
+            <textarea id="css-input-${id}" placeholder="Paste the CSS class for ${fontName}..."></textarea>
+            <div style="display:flex; justify-content:flex-end;">
+                <button class="small" onclick="parseCSS(${id})">Parse Snippet</button>
             </div>
-            <textarea id="css-input-${id}" placeholder=".class { font-family: ... }" onchange="updateCSSBlock(${id}, this.value)">${content}</textarea>
         `;
         document.getElementById('cssList').appendChild(div);
     }
 
-    function updateCSSBlock(id, val) {
-        appState.cssBlocks[id] = val;
-    }
+    function parseCSS(id) {
+        const css = document.getElementById(`css-input-${id}`).value;
+        if(!css) return;
 
-    function parseAllCSS() {
-        appState.fonts = []; // Reset fonts
+        const familyMatch = css.match(/font-family:\s*["']([^"']+)["']/);
+        const name = familyMatch ? familyMatch[1] : `Font ${id + 1}`;
         
-        appState.cssBlocks.forEach((css, index) => {
-            if(!css.trim()) return;
-
-            // 1. Extract Font Family
-            const familyMatch = css.match(/font-family:\s*["']([^"']+)["']/);
-            const familyName = familyMatch ? familyMatch[1] : `Font ${index + 1}`;
-
-            // Update Badge in UI
-            const badge = document.getElementById(`badge-${index}`);
-            if(badge) {
-                badge.innerText = familyName;
-                badge.style.background = '#8b5cf6';
-            }
-
-            // 2. Extract Variation Settings
-            // Match content inside "font-variation-settings: ... ;"
-            const varMatch = css.match(/font-variation-settings:\s*([^;]+)/);
-            
-            let axes = [];
-            
-            // Always add Weight by default if not found (almost all var fonts have it)
-            let foundWeight = false;
-
-            if(varMatch) {
-                const parts = varMatch[1].split(',');
-                parts.forEach(p => {
-                    // Match "TAG" value
-                    const tagMatch = p.match(/["']([A-Za-z]{4})["']/);
-                    if(tagMatch) {
-                        const tag = tagMatch[1];
-                        // Look up definition
-                        const defs = AXIS_DB[tag] || { ...AXIS_DB['default'], name: tag };
-                        axes.push({ tag, ...defs });
-                        if(tag === 'wght') foundWeight = true;
-                    }
-                });
-            }
-
-            if(!foundWeight) {
-                axes.unshift({ tag: 'wght', ...AXIS_DB['wght'] });
-            }
-
-            appState.fonts.push({
-                name: familyName,
-                id: index,
-                axes: axes
+        // Improved Regex: Handle <names with spaces> and negative/decimal ranges
+        // e.g. // <element shape>: Use a value from 0 to 100
+        // e.g. // <slant>: Use a value from -8 to 0
+        const commentRegex = /\/\/\s*<([^>]+)>:\s*Use a value from\s*(-?[0-9.]+)\s*to\s*(-?[0-9.]+)/gi;
+        let axes = [];
+        let match;
+        while ((match = commentRegex.exec(css)) !== null) {
+            const rawName = match[1];
+            const tagId = mapNameToTag(rawName, css);
+            axes.push({
+                tag: tagId,
+                name: capitalize(rawName),
+                min: parseFloat(match[2]),
+                max: parseFloat(match[3]),
+                step: tagId === 'wght' ? 1 : 0.1,
+                def: (parseFloat(match[2]) + parseFloat(match[3])) / 2
             });
-        });
+        }
 
-        // Re-init sections if needed
-        if(appState.fonts.length > 0) {
-            ['hero','heading','body','nav'].forEach(sec => {
-                // Ensure fontIndex is valid
-                if(appState.sections[sec].fontIndex >= appState.fonts.length) {
-                    appState.sections[sec].fontIndex = 0;
+        if(axes.length === 0) {
+            const valueRegex = /<([^>]+)>/gi;
+            while ((match = valueRegex.exec(css)) !== null) {
+                const rawName = match[1].toLowerCase();
+                if(rawName === 'uniquifier') continue;
+                const tagId = mapNameToTag(rawName, css);
+                if(!axes.find(a => a.tag === tagId)) {
+                    const db = AXIS_DB[tagId.toUpperCase()] || AXIS_DB['wght'];
+                    axes.push({
+                        tag: tagId,
+                        name: capitalize(rawName),
+                        min: db.min,
+                        max: db.max,
+                        step: db.step,
+                        def: db.def
+                    });
                 }
-                // Merge current axes with new font defaults
-                const f = appState.fonts[appState.sections[sec].fontIndex];
-                f.axes.forEach(ax => {
-                    if(appState.sections[sec].axes[ax.tag] === undefined) {
-                        appState.sections[sec].axes[ax.tag] = ax.def;
-                    }
-                });
-            });
+            }
+        }
+
+        axes.forEach(ax => {
+            const propRegex = new RegExp(`${ax.tag}:\\s*(-?[0-9.]+)`, 'i');
+            const propMatch = css.match(propRegex);
+            if(propMatch) ax.def = parseFloat(propMatch[1]);
+            
+            const varRegex = new RegExp(`["']${ax.tag}["']\\s*(-?[0-9.]+)`, 'i');
+            const varMatch = css.match(varRegex);
+            if(varMatch) ax.def = parseFloat(varMatch[1]);
+        });
+        
+        if(!axes.find(a => a.tag === 'wght')) {
+             const weightMatch = css.match(/font-weight:\s*([0-9.]+)/);
+             if(weightMatch) axes.push({ tag: 'wght', name: 'Weight', min: 100, max: 900, step: 1, def: parseFloat(weightMatch[1])});
+        }
+
+        const fontObj = { name, id, axes };
+        const existingIdx = appState.fonts.findIndex(f => f.id === id);
+        if(existingIdx > -1) appState.fonts[existingIdx] = fontObj;
+        else appState.fonts.push(fontObj);
+
+        document.getElementById(`badge-${id}`).innerText = name + " (Ready)";
+        document.getElementById(`badge-${id}`).style.background = "#059669";
+        
+        updateInstanceFontSelect();
+        enableStep(3);
+    }
+
+    function mapNameToTag(name, css) {
+        const clean = name.toLowerCase().trim();
+        const common = { 'weight': 'wght', 'width': 'wdth', 'slant': 'slnt', 'optical sizing': 'opsz', 'cursive': 'CRSV' };
+        if(common[clean]) return common[clean];
+        
+        // Try to find the tag in the CSS if it's explicitly paired
+        // e.g. "ELSH" <element shape>
+        const escaped = clean.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        const pairRegex = new RegExp(`["']([A-Z]{4})["']\\s*<${escaped}>`, 'i');
+        const pairMatch = css.match(pairRegex);
+        if(pairMatch) return pairMatch[1];
+
+        // Heuristic fallback
+        if(clean.includes('shape')) return 'ELSH';
+        if(clean.includes('expansion')) return 'ELXP';
+        
+        return clean.substring(0, 4); 
+    }
+
+    function capitalize(s) { return s.charAt(0).toUpperCase() + s.slice(1); }
+
+    // --- STEP 3: INSTANCES ---
+    function updateInstanceFontSelect() {
+        const sel = document.getElementById('instanceFontSelect');
+        sel.innerHTML = appState.fonts.map(f => `<option value="${f.id}">${f.name}</option>`).join('');
+        renderInstanceAxes();
+    }
+
+    function renderInstanceAxes(providedSettings = null) {
+        const fontId = document.getElementById('instanceFontSelect').value;
+        const font = appState.fonts.find(f => f.id == fontId);
+        if(!font) return;
+
+        const container = document.getElementById('instanceAxes');
+        container.innerHTML = font.axes.map(ax => {
+            const val = providedSettings ? providedSettings[ax.tag] : ax.def;
+            return `
+                <div class="control-row">
+                    <div class="control-head"><span>${ax.name}</span><span id="inst-val-${ax.tag}">${val}</span></div>
+                    <input type="range" class="inst-slider" data-tag="${ax.tag}" min="${ax.min}" max="${ax.max}" step="${ax.step}" value="${val}" 
+                           oninput="updateLocalPreview('${ax.tag}', this.value)">
+                </div>
+            `;
+        }).join('');
+        
+        updateLocalPreview();
+    }
+
+    function updateLocalPreview(tag, val) {
+        if(tag) document.getElementById(`inst-val-${tag}`).innerText = val;
+        
+        const fontId = document.getElementById('instanceFontSelect').value;
+        const font = appState.fonts.find(f => f.id == fontId);
+        if(!font) return;
+
+        const sliders = document.querySelectorAll('.inst-slider');
+        let settings = [];
+        sliders.forEach(s => settings.push(`"${s.dataset.tag}" ${s.value}`));
+
+        const preview = document.getElementById('localPreview');
+        preview.style.fontFamily = `"${font.name}", sans-serif`;
+        preview.style.fontVariationSettings = settings.join(', ');
+        
+        // If we are editing or if this font is assigned, also update the global preview
+        if(appState.editingInstanceId) {
+             const inst = appState.instances.find(i => i.id === appState.editingInstanceId);
+             if(inst) {
+                 inst.fontId = fontId;
+                 inst.settings = {};
+                 sliders.forEach(s => inst.settings[s.dataset.tag] = s.value);
+                 updatePreview();
+             }
+        }
+    }
+
+    function saveInstance() {
+        const name = document.getElementById('newInstanceName').value;
+        if(!name) return alert("Please name your instance.");
+        
+        const fontId = document.getElementById('instanceFontSelect').value;
+        const sliders = document.querySelectorAll('.inst-slider');
+        let settings = {};
+        sliders.forEach(s => settings[s.dataset.tag] = s.value);
+
+        if(appState.editingInstanceId) {
+            const inst = appState.instances.find(i => i.id === appState.editingInstanceId);
+            inst.name = name;
+            inst.fontId = fontId;
+            inst.settings = settings;
+            appState.editingInstanceId = null;
+            document.getElementById('saveInstanceBtn').innerText = 'Create Instance';
+            document.getElementById('cancelEditBtn').style.display = 'none';
+        } else {
+            const instance = { id: Date.now(), name, fontId, settings };
+            appState.instances.push(instance);
         }
         
-        renderControls();
+        renderInstanceList();
+        updateAssignmentDropdowns();
         updatePreview();
+        enableStep(4);
+        
+        document.getElementById('newInstanceName').value = '';
     }
 
-    // --- LOGIC: UI RENDERING ---
-    function setSection(sec) {
-        currentSection = sec;
-        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-        event.target.classList.add('active');
-        renderControls();
+    function editInstance(id) {
+        const inst = appState.instances.find(i => i.id === id);
+        if(!inst) return;
+
+        appState.editingInstanceId = id;
+        document.getElementById('newInstanceName').value = inst.name;
+        document.getElementById('instanceFontSelect').value = inst.fontId;
+        
+        renderInstanceAxes(inst.settings);
+        
+        document.getElementById('saveInstanceBtn').innerText = 'Update Instance';
+        document.getElementById('cancelEditBtn').style.display = 'block';
+        
+        // Scroll to top of Step 3
+        document.getElementById('container-step3').scrollIntoView({ behavior: 'smooth' });
     }
 
-    function renderControls() {
-        const container = document.getElementById('dynamicControls');
-        container.innerHTML = '';
+    function cancelEdit() {
+        appState.editingInstanceId = null;
+        document.getElementById('newInstanceName').value = '';
+        document.getElementById('saveInstanceBtn').innerText = 'Create Instance';
+        document.getElementById('cancelEditBtn').style.display = 'none';
+        renderInstanceAxes();
+    }
 
-        if(appState.fonts.length === 0) {
-            container.innerHTML = '<p style="font-size:11px; color:#666; padding:10px">No fonts parsed yet.</p>';
-            return;
-        }
-
-        const secData = appState.sections[currentSection];
-        const activeFont = appState.fonts[secData.fontIndex];
-
-        // Font Selector
-        const selLabel = document.createElement('label');
-        selLabel.innerText = "Family";
-        const select = document.createElement('select');
-        appState.fonts.forEach((f, i) => {
-            const opt = document.createElement('option');
-            opt.value = i;
-            opt.text = f.name;
-            if(i === secData.fontIndex) opt.selected = true;
-            select.appendChild(opt);
-        });
-        select.onchange = (e) => {
-            secData.fontIndex = Number(e.target.value);
-            // Reset axes to defaults for new font
-            secData.axes = {};
-            appState.fonts[secData.fontIndex].axes.forEach(ax => secData.axes[ax.tag] = ax.def);
-            renderControls();
-            updatePreview();
-        };
-        container.appendChild(selLabel);
-        container.appendChild(select);
-
-        // Header
-        const h3 = document.createElement('h3');
-        h3.innerText = "Axis Controls";
-        container.appendChild(h3);
-
-        // Sliders
-        activeFont.axes.forEach(axis => {
-            const row = document.createElement('div');
-            row.className = 'control-row';
+    function renderInstanceList() {
+        const container = document.getElementById('instanceList');
+        container.innerHTML = appState.instances.map(inst => {
+            const font = appState.fonts.find(f => f.id == inst.fontId);
+            const fontName = font ? font.name : 'Unknown Font';
+            const settingsStr = Object.entries(inst.settings).map(([k,v]) => `${k}:${v}`).join(', ');
             
-            // Value lookup
-            const val = secData.axes[axis.tag] !== undefined ? secData.axes[axis.tag] : axis.def;
-
-            row.innerHTML = `
-                <div class="control-head">
-                    <span>${axis.name} (${axis.tag})</span>
-                    <span id="val-${axis.tag}">${val}</span>
+            return `
+                <div class="instance-card">
+                    <div class="instance-info">
+                        <span class="instance-name">${inst.name}</span>
+                        <span class="instance-details">${fontName} • ${settingsStr}</span>
+                    </div>
+                    <div style="display:flex; gap:5px;">
+                        <button class="small" onclick="editInstance(${inst.id})">Edit</button>
+                        <button class="small" style="color: #ef4444;" onclick="deleteInstance(${inst.id})">Del</button>
+                    </div>
                 </div>
-                <input type="range" 
-                    min="${axis.min}" max="${axis.max}" step="${axis.step}" value="${val}"
-                    oninput="updateAxis('${axis.tag}', this.value)">
             `;
-            container.appendChild(row);
+        }).join('');
+    }
+
+    function deleteInstance(id) {
+        appState.instances = appState.instances.filter(i => i.id !== id);
+        renderInstanceList();
+        updateAssignmentDropdowns();
+    }
+
+    // --- STEP 4: ASSIGNMENT ---
+    function updateAssignmentDropdowns() {
+        const roles = ['hero', 'heading', 'body', 'nav'];
+        roles.forEach(role => {
+            const sel = document.getElementById(`assign-${role}`);
+            const current = appState.assignments[role];
+            sel.innerHTML = '<option value="">Select Instance...</option>' + 
+                appState.instances.map(inst => `<option value="${inst.id}" ${current == inst.id ? 'selected':''}>${inst.name}</option>`).join('');
         });
     }
 
-    function updateAxis(tag, val) {
-        appState.sections[currentSection].axes[tag] = Number(val);
-        document.getElementById(`val-${tag}`).innerText = val;
+    function assignInstance(role, instanceId) {
+        appState.assignments[role] = instanceId;
         updatePreview();
     }
 
     function updateGlobal(key, val) {
-        appState.global[key] = Number(val);
-        document.getElementById(`disp-${key}`).innerText = val + (key === 'base'?'px':'');
+        appState.global[key] = val;
+        document.getElementById(`disp-${key}`).innerText = val + (key === 'base' ? 'px' : '');
         updatePreview();
     }
 
-    // --- LOGIC: PREVIEW ---
+    // --- PREVIEW ---
     function updatePreview() {
         const root = document.documentElement;
-        
-        // Globals
         root.style.setProperty('--base-size', appState.global.base + 'px');
         root.style.setProperty('--scale-ratio', appState.global.scale);
 
-        // Sections
-        ['hero', 'heading', 'body', 'nav'].forEach(sec => {
-            const data = appState.sections[sec];
-            if(appState.fonts[data.fontIndex]) {
-                const font = appState.fonts[data.fontIndex];
-                root.style.setProperty(`--font-${sec}`, `"${font.name}", sans-serif`);
-                
-                // Build settings string
-                let settings = [];
-                // Ensure we output values for all axes the font supports
-                font.axes.forEach(ax => {
-                    const val = data.axes[ax.tag] !== undefined ? data.axes[ax.tag] : ax.def;
-                    settings.push(`"${ax.tag}" ${val}`);
-                });
-                
-                root.style.setProperty(`--settings-${sec}`, settings.join(', '));
+        Object.entries(appState.assignments).forEach(([role, instId]) => {
+            const instance = appState.instances.find(i => i.id == instId);
+            if(instance) {
+                const font = appState.fonts.find(f => f.id == instance.fontId);
+                root.style.setProperty(`--font-${role}`, `"${font.name}", sans-serif`);
+                const settings = Object.entries(instance.settings).map(([tag, val]) => `"${tag}" ${val}`).join(', ');
+                root.style.setProperty(`--settings-${role}`, settings);
             }
         });
     }
 
-    // --- LOGIC: SAVE / LOAD / EXPORT ---
+    // --- EXPORT & SESSIONS ---
     function exportData() {
-        const css = `
-/* ------------------------------------------------------------------
-   INSTRUCTIONS FOR DEVELOPERS:
-   
-   1. GLOBAL VARIABLES
-      Copy the content of :root { ... } below and paste it into:
-      /assets/css/base/properties.css  (or your typography token file)
+        let css = `/* Aurora Font Studio Export - ${new Date().toLocaleString()} */\n`;
+        
+        // Metadata as comments for reference
+        css += `/* \n  INSTANCES DEFINED:\n`;
+        appState.instances.forEach(inst => {
+            const font = appState.fonts.find(f => f.id == inst.fontId);
+            css += `  - ${inst.name} (${font.name}): ${Object.entries(inst.settings).map(([k,v]) => `${k}:${v}`).join(', ')}\n`;
+        });
+        css += `\n  ASSIGNMENTS:\n`;
+        Object.entries(appState.assignments).forEach(([role, instId]) => {
+            const inst = appState.instances.find(i => i.id == instId);
+            css += `  - ${role.toUpperCase()}: ${inst ? inst.name : 'None'}\n`;
+        });
+        css += `*/\n\n`;
 
-   2. ELEMENT STYLES
-      Copy the body, h1-h6, and nav styles and paste them into:
-      /assets/css/base/primitives.css
+        css += `${appState.embedCode}\n\n:root {\n  --base-size: ${appState.global.base}px;\n  --scale-ratio: ${appState.global.scale};\n`;
+        
+        Object.entries(appState.assignments).forEach(([role, instId]) => {
+            const instance = appState.instances.find(i => i.id == instId);
+            if(instance) {
+                const font = appState.fonts.find(f => f.id == instance.fontId);
+                const settings = Object.entries(instance.settings).map(([tag, val]) => `"${tag}" ${val}`).join(', ');
+                css += `  --font-${role}: "${font.name}", sans-serif;\n  --settings-${role}: ${settings};\n`;
+            }
+        });
+        css += `}\n\n/* Role-based targeting */\nbody { font-family: var(--font-body); font-variation-settings: var(--settings-body); font-size: var(--base-size); }\nh1,h2,h3,h4,h5,h6 { font-family: var(--font-heading); font-variation-settings: var(--settings-heading); }\n.hero { font-family: var(--font-hero); font-variation-settings: var(--settings-hero); }\nnav { font-family: var(--font-nav); font-variation-settings: var(--settings-nav); }`;
 
-   3. SAVE SESSION
-      Save the .json session file to:
-      /assets/data/typography-config.json
-   ------------------------------------------------------------------ */
+        // Embed full state for resumption
+        css += `\n\n/* AURORA_SESSION_DATA_START\n${JSON.stringify(appState)}\nAURORA_SESSION_DATA_END */`;
 
-/* 1. EMBED CODE */
-${appState.embedCode}
-
-/* 2. ROOT VARIABLES */
-:root {
-  --base-size: ${appState.global.base}px;
-  --scale-ratio: ${appState.global.scale};
-  
-  /* FONTS */
-  --font-hero: "${getFontName('hero')}", sans-serif;
-  --font-heading: "${getFontName('heading')}", sans-serif;
-  --font-body: "${getFontName('body')}", sans-serif;
-  --font-nav: "${getFontName('nav')}", sans-serif;
-
-  /* VARIATION SETTINGS */
-  --settings-hero: ${getSettingsStr('hero')};
-  --settings-heading: ${getSettingsStr('heading')};
-  --settings-body: ${getSettingsStr('body')};
-  --settings-nav: ${getSettingsStr('nav')};
-}
-
-/* 3. APPLICATION */
-body { font-family: var(--font-body); font-variation-settings: var(--settings-body); font-size: var(--base-size); line-height: 1.6; }
-h1,h2,h3,h4,h5,h6 { font-family: var(--font-heading); font-variation-settings: var(--settings-heading); line-height: 1.1; font-weight: 700; }
-.hero { font-family: var(--font-hero); font-variation-settings: var(--settings-hero); }
-nav { font-family: var(--font-nav); font-variation-settings: var(--settings-nav); }
-
-/* 4. MODULAR SCALE */
-h6 { font-size: var(--base-size); }
-h5 { font-size: calc(var(--base-size) * var(--scale-ratio)); }
-h4 { font-size: calc(var(--base-size) * var(--scale-ratio) * var(--scale-ratio)); }
-h3 { font-size: calc(var(--base-size) * var(--scale-ratio) * var(--scale-ratio) * var(--scale-ratio)); }
-h2 { font-size: calc(var(--base-size) * var(--scale-ratio) * var(--scale-ratio) * var(--scale-ratio) * var(--scale-ratio)); }
-h1 { font-size: calc(var(--base-size) * var(--scale-ratio) * var(--scale-ratio) * var(--scale-ratio) * var(--scale-ratio) * var(--scale-ratio)); }
-        `;
-        document.getElementById('exportText').value = css.trim();
-        document.getElementById('exportModal').style.display = 'flex';
+        const modal = document.getElementById('exportModal');
+        modal.style.display = 'flex';
+        document.getElementById('exportText').value = css;
     }
 
-    function getFontName(sec) {
-        if(!appState.fonts.length) return 'sans-serif';
-        return appState.fonts[appState.sections[sec].fontIndex].name;
+    function resumeFromText() {
+        document.getElementById('resumeModal').style.display = 'flex';
+        document.getElementById('resumeText').value = '';
+        document.getElementById('resumeText').focus();
     }
 
-    function getSettingsStr(sec) {
-        if(!appState.fonts.length) return 'normal';
-        const data = appState.sections[sec];
-        const font = appState.fonts[data.fontIndex];
-        return font.axes.map(ax => {
-            const val = data.axes[ax.tag] !== undefined ? data.axes[ax.tag] : ax.def;
-            return `"${ax.tag}" ${val}`;
-        }).join(', ');
+    function confirmResume() {
+        const text = document.getElementById('resumeText').value;
+        if (!text) return;
+
+        try {
+            let state;
+            if (text.trim().startsWith('{')) {
+                state = JSON.parse(text);
+            } else {
+                const match = text.match(/AURORA_SESSION_DATA_START\n([\s\S]+?)\nAURORA_SESSION_DATA_END/);
+                if (match) {
+                    state = JSON.parse(match[1]);
+                } else {
+                    throw new Error("No session data found in text. Make sure you copied the entire Export CSS block.");
+                }
+            }
+            loadDataIntoState(state);
+            document.getElementById('resumeModal').style.display = 'none';
+            if (window.triggerToast) window.triggerToast('success', 'Session resumed successfully!');
+        } catch (e) {
+            alert("Error resuming session: " + e.message);
+        }
+    }
+
+    function loadDataIntoState(state) {
+        appState = state;
+        document.getElementById('embedInput').value = appState.embedCode || '';
+        if (appState.embedCode) injectEmbed();
+        
+        document.getElementById('cssList').innerHTML = '';
+        appState.fonts.forEach(f => {
+            // Re-adding blocks manually to trigger UI
+            addCSSBlock(f.name);
+            const idx = appState.fonts.indexOf(f);
+            const textarea = document.getElementById(`css-input-${idx}`);
+            // We can't easily reconstruct the exact CSS snippet from appState
+            // but we have the axes. Let's just badge it as ready.
+            document.getElementById(`badge-${idx}`).innerText = f.name + " (Restored)";
+            document.getElementById(`badge-${idx}`).style.background = "#059669";
+        });
+
+        renderInstanceList();
+        updateAssignmentDropdowns();
+        updatePreview();
+        enableStep(4);
+        
+        if (appState.global.base) {
+             document.getElementById('disp-base').innerText = appState.global.base + 'px';
+             document.querySelectorAll('input[type="range"]')[3].value = appState.global.base; // Rough index
+        }
+    }
+
+    function syncToThemeBuilder(event) {
+        localStorage.setItem('aurora_font_studio_active', JSON.stringify(appState));
+        
+        // Visual feedback instead of alert
+        const btn = event.currentTarget;
+        const originalText = btn.innerHTML;
+        btn.innerHTML = '<span>✅</span> Synced to Builder!';
+        btn.style.background = '#059669';
+        
+        setTimeout(() => {
+            btn.innerHTML = originalText;
+            btn.style.background = '#8b5cf6';
+        }, 2000);
     }
 
     function saveSession() {
-        const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(appState));
+        const blob = new Blob([JSON.stringify(appState)], {type: 'application/json'});
+        const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
-        a.href = dataStr;
-        a.download = "font_studio_session.json";
+        a.href = url;
+        a.download = `aurora-font-session-${Date.now()}.json`;
         a.click();
+        URL.revokeObjectURL(url);
     }
 
     function loadSession(input) {
         const file = input.files[0];
+        if (!file) return;
         const reader = new FileReader();
-        reader.onload = function(e) {
-            const data = JSON.parse(e.target.result);
-            appState = data;
-            
-            // Restore UI
-            document.getElementById('embedInput').value = appState.embedCode;
-            injectEmbed();
-
-            document.getElementById('cssList').innerHTML = ''; // Clear existing
-            appState.cssBlocks.forEach((css, idx) => {
-                // Manually rebuild DOM for blocks
-                const div = document.createElement('div');
-                div.className = 'css-import-item';
-                div.innerHTML = `
-                    <div class="css-import-header">
-                        <span class="font-badge" id="badge-${idx}">Loaded</span>
-                        <button class="icon-btn" onclick="parseAllCSS()">Parse</button>
-                    </div>
-                    <textarea id="css-input-${idx}" onchange="updateCSSBlock(${idx}, this.value)">${css}</textarea>
-                `;
-                document.getElementById('cssList').appendChild(div);
-            });
-
-            parseAllCSS();
-            
-            // Restore Algorithm UI
-            document.querySelector('input[oninput*="base"]').value = appState.global.base;
-            document.querySelector('input[oninput*="scale"]').value = appState.global.scale;
-            document.getElementById('disp-base').innerText = appState.global.base + 'px';
-            document.getElementById('disp-scale').innerText = appState.global.scale;
-            
-            updatePreview();
+        reader.onload = (e) => {
+            try {
+                const state = JSON.parse(e.target.result);
+                loadDataIntoState(state);
+                if (window.triggerToast) window.triggerToast('success', 'Session loaded from file!');
+            } catch (err) {
+                alert("Error loading session: " + err.message);
+            }
         };
         reader.readAsText(file);
     }

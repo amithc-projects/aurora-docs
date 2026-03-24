@@ -149,17 +149,26 @@
 
         <div class="mb-4">
             <label class="d-flex justify-content-between text-sm fw-600 mb-2">
-                Heading Font Family
+                Typography System
             </label>
+            <button id="btnImportFonts" class="btn btn-outline d-flex align-items-center justify-content-center gap-2 w-100 mb-3" style="border-style: dashed;">
+                <span class="icon-sync"></span> Import Fonts from Studio
+            </button>
+            <div id="fontSyncStatus" class="d-none alert alert-success p-2 small text-center" style="font-size: 0.75rem; background: var(--ds-sys-color-success-container); color: var(--ds-sys-color-on-success-container); border-radius: 4px;">
+                <span>✅</span> Fonts Imported
+            </div>
+            <div id="fontImportDetails" class="d-none small mb-4" style="background: var(--ds-sys-color-surface-variant); padding: 8px; border-radius: 4px; font-size: 0.7rem;">
+                <strong>Sync Active:</strong> <span id="syncTimestamp"></span><br>
+                <strong>Instances:</strong> <span id="syncInstanceCount"></span>
+            </div>
+            <label class="text-xs fw-600 mb-1">Fallback Heading Font</label>
             <select id="fontPicker" class="form-control mb-3">
                 <option value="'Inter', sans-serif">Inter (Geometric Sans)</option>
                 <option value="'Outfit', sans-serif">Outfit (Modern Sans)</option>
                 <option value="system-ui, -apple-system, sans-serif">System Native UI</option>
                 <option value="Georgia, serif">Georgia (Serif)</option>
             </select>
-            <label class="d-flex justify-content-between text-sm fw-600 mb-2">
-                Body Font Family
-            </label>
+            <label class="text-xs fw-600 mb-1">Fallback Body Font</label>
             <select id="bodyFontPicker" class="form-control">
                 <option value="'Inter', sans-serif">Inter (Geometric Sans)</option>
                 <option value="'Outfit', sans-serif">Outfit (Modern Sans)</option>

@@ -6,14 +6,15 @@
 const STORAGE_KEY = 'aurora_custom_themes';
 
 // Save a new custom theme
-export function saveCustomTheme(name, cssText) {
+export function saveCustomTheme(name, cssText, fontConfig = null) {
     let themes = getCustomThemes();
     const id = 'custom_' + Date.now();
     
     themes.push({
         id: id,
         name: name,
-        cssText: cssText
+        cssText: cssText,
+        fontConfig: fontConfig
     });
     
     localStorage.setItem(STORAGE_KEY, JSON.stringify(themes));
@@ -52,11 +53,41 @@ export function injectCustomTheme(id) {
     const theme = getCustomTheme(id);
     if (!theme) return false;
     
+    // 1. Inject Theme CSS
     const styleEl = document.createElement('style');
     styleEl.id = 'aurora-custom-theme-styles';
     styleEl.textContent = theme.cssText;
-    document.head.appendChild(styleEl);
     
+    // 2. Handle Font Configuration
+    if (theme.fontConfig) {
+        // Inject Embed Code (Link Tag)
+        const fontContainer = document.getElementById('aurora-dynamic-fonts') || document.createElement('div');
+        fontContainer.id = 'aurora-dynamic-fonts';
+        fontContainer.innerHTML = theme.fontConfig.embedCode || '';
+        if (!document.getElementById('aurora-dynamic-fonts')) document.head.appendChild(fontContainer);
+
+        // Generate Role-based CSS
+        let fontCSS = '\n/* Font Studio Assignments */\n:root {\n';
+        const { assignments, instances, fonts } = theme.fontConfig;
+        
+        if (assignments && instances && fonts) {
+            Object.entries(assignments).forEach(([role, instId]) => {
+                const instance = instances.find(i => i.id == instId);
+                if (instance) {
+                    const font = fonts.find(f => f.id == instance.fontId);
+                    if (font) {
+                        fontCSS += `  --font-${role}: "${font.name}", sans-serif;\n`;
+                        const settings = Object.entries(instance.settings).map(([tag, val]) => `"${tag}" ${val}`).join(', ');
+                        fontCSS += `  --settings-${role}: ${settings};\n`;
+                    }
+                }
+            });
+        }
+        fontCSS += '}\n';
+        styleEl.textContent += fontCSS;
+    }
+    
+    document.head.appendChild(styleEl);
     return true;
 }
 
