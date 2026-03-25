@@ -58,6 +58,7 @@
 @import "components/smart-date-range.css";
 @import "components/scrollspy.css";
 @import "animations/reveal.css";
+@import "components/speed-dial.css";
 
 /* 4. Choose the icon set */
 @import "icons/sets/corporate.css";
