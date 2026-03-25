@@ -18,24 +18,46 @@ Demonstrating different ways to align labels relative to the input.
     <input type="text" class="input" placeholder="Standard layout">
   </div>
 
-  <div class="field form-horizontal">
-    <label class="field__label">Left Aligned</label>
+  <div class="field" style="--ds-field-layout: row;">
+    <label class="field__label">Left Aligned (Variable)</label>
     <div class="field__body">
-      <input type="text" class="input" placeholder="Label is on the left">
-      <div class="field__hint">Good for dense data entry forms.</div>
+      <input type="text" class="input" placeholder="Set --ds-field-layout: row">
     </div>
   </div>
 
-  <div class="field form-horizontal form-horizontal--right">
-    <label class="field__label">Right Aligned</label>
+  <div class="field" style="--ds-field-layout: row; --ds-field-label-width: 8rem;">
+    <label class="field__label">Custom Width</label>
     <div class="field__body">
-      <input type="text" class="input" placeholder="Label text aligns right">
+      <input type="text" class="input" placeholder="Adjust label width via variable">
     </div>
   </div>
 
 </div>
+{{< /demo >}}
 
+### Table Style Layout
+You can set the layout variable on a parent container to align multiple fields at once.
 
+{{< demo >}}
+<form class="card" style="padding: 2rem; --ds-field-layout: row; --ds-field-label-width: 10rem;">
+  <div class="field">
+    <label class="field__label">Full Name</label>
+    <div class="field__body"><input type="text" class="input"></div>
+  </div>
+  <div class="field">
+    <label class="field__label">Email Address</label>
+    <div class="field__body"><input type="email" class="input"></div>
+  </div>
+  <div class="field">
+    <label class="field__label">Account Type</label>
+    <div class="field__body">
+      <select class="select">
+        <option>Personal</option>
+        <option>Business</option>
+      </select>
+    </div>
+  </div>
+</form>
 {{< /demo >}}
 
 ## 2. Fieldsets & Grouping

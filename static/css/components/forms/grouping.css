@@ -2,27 +2,12 @@
 
 /* Horizontal Form Layout Utilities */
 .form-horizontal {
-  display: flex;
-  flex-direction: row; /* FORCE row layout to override global defaults */
-  flex-wrap: nowrap;   /* Prevent wrapping to new lines */
-  align-items: baseline; 
-  gap: 1.5rem;
-}
-
-.form-horizontal .field__label {
-  flex: 0 0 150px; /* Fixed width for labels */
-  margin-bottom: 0; 
-  white-space: nowrap; /* Prevent label text from breaking awkwardly */
+  --ds-field-layout: row;
 }
 
 /* Right Alignment Modifier */
 .form-horizontal--right .field__label {
   text-align: right;
-}
-
-.field__body {
-  flex: 1; /* Input takes remaining space */
-  min-width: 0; /* Prevents flex items from overflowing in some browsers */
 }
 
 /* Mobile Responsiveness */
